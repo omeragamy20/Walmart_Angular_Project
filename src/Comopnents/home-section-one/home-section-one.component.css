@@ -1,0 +1,109 @@
+* {
+  padding: 20px;
+}
+
+img {
+  width: 100%;
+}
+
+.row {
+  --bs-gutter-x: 0rem;
+  height: 1200px;
+  margin-bottom: 30px;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(251, 255, 9);
+  font-size: 25px;
+  font-weight: bold;
+}
+
+
+
+.image-contain {
+  width: 100%;
+  height: 20%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  color: white;
+  border-radius: 15px;
+}
+
+.image-contain-one {
+  width: 100%;
+  height: 60%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  color: white;
+  border-radius: 10px;
+}
+
+
+.image-contain .linkk {
+  position: absolute;
+  font-size: 40px;
+  font-weight: bold;
+  list-style: none;
+  top: 90%;
+  left: 10%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+
+}
+
+
+.middlee {
+  height: 400px;
+}
+
+.image-contain-middle {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+  display: flex;
+  border-radius: 10px;
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* color: white; */
+}
+
+.image-contain-middle .linkk {
+  position: absolute;
+  font-size: 30px;
+  font-weight: bold;
+  list-style: none;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+
+}
+
+
+
+
+.go {
+  position: absolute;
+  top: 80%;
+  left: 10%;
+  transform: translate(-50%, -50%);
+  /* background-color: aqua; */
+  /* padding: 1px; */
+
+}
