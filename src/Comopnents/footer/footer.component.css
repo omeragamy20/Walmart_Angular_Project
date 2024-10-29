@@ -1,10 +1,11 @@
 footer {
-  background-color: #00695c;
-  color: #fff;
+  background-color: #f2f8fd;
+  color: black;
 }
 
 footer h3 {
-  color: #fff;
+  margin-top: 5px;
+  color: #0071dc;
   border-bottom: 1px solid #888;
   padding-bottom: 7px;
 }

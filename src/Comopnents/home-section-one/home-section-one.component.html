@@ -103,3 +103,34 @@
 
 
 </div>
+
+
+
+<!-- <div class="container my-4">
+  <h2 class="mb-3">Flash Deals</h2>
+  <p>Up to 65% off</p>
+  <div class="row row-cols-2 row-cols-md-3 row-cols-lg-6 g-6">
+    @for(prd of fillpagnationproduct;track prd.id;let i = $index){
+    <div class="card-deck">
+      <div class="card" style="width: 12rem">
+        <img [src]="'https://localhost:7028'+ prd.imageUrls" class="card-img-top" alt="..." />
+        <div class="card-body">
+          <h5 class="card-text" style="color: green">
+            Now ${{prd.price}}
+            <span style="
+                text-decoration: line-through;
+                color: gray;
+                font-size: 12px;
+              ">{{prd.price + prd.price * 0.1}}</span>
+          </h5>
+          <p class="card-text s">{{prd.title_en}}</p>
+
+          <a routerLink="" class="customBtn">Options</a>
+        </div>
+      </div>
+    </div>
+    } @empty {
+    <h1>There is no products</h1>
+    }
+  </div>
+</div> -->
