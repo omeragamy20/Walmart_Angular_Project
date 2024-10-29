@@ -20,4 +20,48 @@
       </div>
     </div>
   </div>
-</div>
+////////////////
+
+<!-- <div class="row">
+  <div class="col-md-4">
+    <div class="aside-container">
+      <div *ngFor="let image of images" class="image-container">
+        <div class="image-circle" [style.backgroundImage]="'url(' + image.url + ')'"></div>
+        <p class="text-center">{{ image.name }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-8">
+    <div class="image-row d-flex flex-wrap justify-content-center">
+      <div *ngFor="let image of images.slice(0, 6)" class="image-container col-2">
+        <div class="image-circle" [style.backgroundImage]="'url(' + image.url + ')'"></div>
+        <p class="text-center">{{ image.name }}</p>
+      </div>
+    </div>
+
+    <div class="image-row d-flex flex-wrap justify-content-center mt-4">
+      <div *ngFor="let image of images.slice(6, 12)" class="image-container col-2">
+        <div class="image-circle" [style.backgroundImage]="'url(' + image.url + ')'"></div>
+        <p class="text-center">{{ image.name }}</p>
+      </div>
+    </div>
+
+
+    <div class="row mt-4">
+      <div class="col-md-8">
+        <div class="image-container">
+          <div class="image-square" [style.backgroundImage]="'url(' + newImages[0].url + ')'"></div>
+          <p class="text-center">{{ newImages[0].name }}</p>
+        </div>
+      </div>
+      <div class="col-md-8"> تأخذ 8 كولوم
+        <div class="image-container">
+          <div class="image-square" [style.backgroundImage]="'url(' + newImages[1].url + ')'"></div>
+          <p class="text-center">{{ newImages[1].name }}</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div> -->

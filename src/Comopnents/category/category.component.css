@@ -153,16 +153,49 @@
   /* offset-distance: none; */
 }
 
-.circle-button i {
-  font-size: 1rem; /* Adjust icon size */
-  color: #000; /* Icon color */
+/* //////////// */
+
+/* .circle-button i {
+  font-size: 1rem;
+  color: #000;
 }
 
 .circle-button:hover {
-  background-color: #f0f0f0; /* Light gray on hover */
+  background-color: #f0f0f0;
 }
 #btnadd{
   border-radius: 62.5rem;
   font-family: Bogle, Helvetica Neue, Helvetica, Arial, sans-serif;
 }
+.image-container {
+  text-align: center;
+  position: relative;
+  margin-bottom: 20px;
+}
 
+.image-circle {
+  width: 100px;
+  height: 100px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+  position: relative;
+  margin: 0 auto;
+}
+
+p {
+  margin-top: 10px;
+  font-size: 15px;
+  color: #333;
+}
+.image-square {
+  width: 100%;
+  height: 0;
+  padding-bottom: 100%;
+  border-radius: 0;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+ */

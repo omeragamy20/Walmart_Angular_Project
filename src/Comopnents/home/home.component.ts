@@ -15,3 +15,6 @@ import { HomeLayOutComponent } from '../home-lay-out/home-lay-out.component';
 export class HomeComponent {
 
 }
+// export class category{
+
+// }

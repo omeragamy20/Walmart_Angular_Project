@@ -40,3 +40,6 @@ export class HomeSectionOneComponent implements OnInit {
 
 
 }
+export class CategoryComponent {
+  
+}
