@@ -1,1 +1,23 @@
-<p>category works!</p>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-2 mb-2" *ngFor="let item of getCurrentPageItems()">
+     <div class="text-center">
+      <img [src]="item.image" alt="{{ item.name_en }}" />
+      <p>{{ item.name_en }}</p>
+     </div>
+    </div>
+    <div class="d-flex justify-content-between mt-4">
+      <div  class="buttonRL" >
+        <button class="circle-button" style="right:100%;" (click)="prevPage()" [disabled]="currentPage === 0">
+          <i class="bi bi-chevron-left"></i>
+        </button>
+      </div>
+      <div class="buttonRL" >
+        <button class="circle-button" style="left: 100%;" (click)="nextPage()" [disabled]="(currentPage * itemsPerPage) >= AllCAtegory.length">
+          <i class="bi bi-chevron-right"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
