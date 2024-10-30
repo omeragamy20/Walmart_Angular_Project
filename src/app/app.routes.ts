@@ -8,6 +8,7 @@ import { ProductComponent } from '../Comopnents/product/product.component';
 import { OrderComponent } from '../Comopnents/order/order.component';
 import { OrderitemsComponent } from '../Comopnents/orderitems/orderitems.component';
 import { ShepmentsComponent } from '../Comopnents/shepments/shepments.component';
+import { AllProductComponent } from '../Comopnents/all-product/all-product.component';
 
 export const routes: Routes = [
 
@@ -16,7 +17,8 @@ export const routes: Routes = [
   { path: 'logout', component: LogoutComponent },
   { path: 'home', component: HomeComponent },
   { path: 'category', component: CategoryComponent },
-  { path: 'product', component: ProductComponent },
+  { path: 'allproduct', component: AllProductComponent},
+  { path: 'product/:id', component: ProductComponent },
   { path: 'order', component: OrderComponent },
   { path: 'orderitems', component: OrderitemsComponent },
   { path: 'shepments', component: ShepmentsComponent },
