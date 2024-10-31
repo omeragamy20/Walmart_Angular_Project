@@ -1,49 +1,13 @@
 <h2 mat-dialog-title>All Specifications</h2>
 <mat-dialog-content class="mat-typography">
     <table class="table table-striped table-hover">
-        <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">First</th>
-              <th scope="col">Last</th>
-              <th scope="col">Handle</th>
-            </tr>
-          </thead>
           <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>mdo</td>
-            </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>fat</td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td colspan="2">Larry the Bird</td>
-              <td>twitter</td>
+            <tr *ngFor="let spec of data?.specifications; let i = index">
+              <th scope="row">{{ spec }}</th>
+              <td> {{ data.specificationsValues[i] }}</td>
             </tr>
           </tbody>
       </table>
-      
-      <p>Speed & Performance
-        Achieve the maximum speed possible on the Web Platform today, and take it further, via Web Workers and server-side rendering. Angular puts you in control over scalability. Meet huge data requirements by building data models on RxJS, Immutable.js or another push-model.
-        
-        Incredible tooling
-        Build features quickly with simple, declarative templates. Extend the template language with your own components and use a wide array of existing components. Get immediate Angular-specific help and feedback with nearly every IDE and editor. All this comes together so you can focus on building amazing apps rather than trying to make the code work.
-        
-        Loved by millions
-        From prototype through global deployment, Angular delivers the productivity and scalable infrastructure that supports Google's largest applications.
-        
-        What is Angular?
-        Angular is a platform that makes it easy to build applications with the web. Angular combines declarative templates, dependency injection, end to end tooling, and integrated best practices to solve development challenges. Angular empowers developers to build applications that live on the web, mobile, or the desktop
-        
-        Architecture overview
-        Angular is a platform and framework for building client applications in HTML and TypeScript. Angular is itself written in TypeScript. It implements core and optional functionality as a set of TypeScript libraries that you import into your apps.</p>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
   <button mat-button mat-dialog-close>Close</button>

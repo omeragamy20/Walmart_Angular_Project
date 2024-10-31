@@ -11,6 +11,8 @@ export interface IProduct {
     subCategoryNames:string[];
     facilities: string[]
     facilities_Ar: string[];
+    values:string[];
+    values_Ar:string[];
     subCategoryNamesAr:string[];
 }
 

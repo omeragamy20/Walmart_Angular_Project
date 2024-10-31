@@ -129,9 +129,9 @@ p{
 }
 .specifaction{
    background-color: #e6f1fc;
-   height:50px;
+   height:70px;
    margin:3px;
-   font-size:small;
+   font-size:smaller;
    font-family:serif;
    font-weight: bold;
    border-radius: 5px;

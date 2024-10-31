@@ -79,7 +79,10 @@ constructor(private _productservice:ProductService,private route: ActivatedRoute
     this.borderStyle = this.borderStyle === '1px solid black' ? '2px solid black' : '2px solid black';
   }
   openDialog() {
-    const dialogRef = this.dialog.open(SpecificationComponent);
+    const dialogRef = this.dialog.open(SpecificationComponent,{
+      data:{specificationsValues:this.product[0].facilities,specifications:this.product[0].values}
+      
+    });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
