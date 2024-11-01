@@ -1,16 +1,19 @@
 .navbar {
-  background-color: #00695c;
+  background-color: #0071dc;
   position: sticky;
   top: 0;
   /* Green background */
   color: #ffffff;
 
+  z-index: 1;
+  padding: 0;
 }
 
 .navbar-top {
   display: flex;
   justify-content: space-between;
-  padding: 0px 20px;
+  padding: 5px 20px;
+  /* margin-bottom: -5px; */
   align-items: center;
 }
 
@@ -42,13 +45,13 @@
 }
 
 .search-button {
-  background-color: #007b6b;
+  background-color: #004f9a;
   border: none;
   color: white;
-  padding: 8px;
+  padding: 6px;
   border-radius: 50%;
   cursor: pointer;
-  margin-left: -50px;
+  margin-left: -40px;
 }
 
 .navbar-actions {
@@ -89,8 +92,9 @@
 
 /* Bottom Navbar Links */
 .navbar-bottom {
-  background-color: #007b6b;
-  padding: 10px 20px;
+  background-color: #f2f8fd;
+  padding: 7px 20px;
+  /* margin-top: 1px; */
 
 }
 
@@ -98,21 +102,24 @@
   list-style-type: none;
   display: flex;
   justify-content: space-between;
+
 }
 
 .navbar-links li {
-  padding: 0 10px;
+  padding: 0px 10px;
+  padding-top: 5px;
+
 }
 
 .navbar-links a {
-  color: rgb(255, 255, 255);
+  color: black;
   text-decoration: none !important;
   font-size: 15px;
   transition: all 0.2s linear;
 }
 
 .navbar-links a:hover {
-  color: #FFD43B;
+  color: #004f9a;
 }
 
 .navbar-links a:hover {
@@ -124,9 +131,9 @@
 }
 
 .active_link {
-  color: #007b6b !important;
+  color: #f2f8fd !important;
   font-weight: bold;
   padding: 5px;
-  background-color: #f0c426;
+  background-color: #0071dc;
   border-radius: 30px;
 }
