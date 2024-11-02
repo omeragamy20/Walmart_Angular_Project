@@ -1,0 +1,69 @@
+<div class="container">
+    <div class="row">
+      <div class="leftt col-s-12 col-3" style="position: relative;">
+        <div class="image-contain" style="background-image: url('https://i5.walmartimages.com/dfw/4ff9c6c9-476e/k2-_d3a4206d-8f2e-468b-93b7-06a1bd73a60e.v1.jpg?odnHeight=222&odnWidth=1232&odnBg=FFFFFF');"></div>
+        <div class="image-contain-one" style="background-image: url('https://i5.walmartimages.com/dfw/4ff9c6c9-476e/k2-_d3a4206d-8f2e-468b-93b7-06a1bd73a60e.v1.jpg?odnHeight=222&odnWidth=1232&odnBg=FFFFFF');"></div>
+        <br>
+        <div class="image-contain" style="background-image: url('https://images.pexels.com/photos/939331/pexels-photo-939331.jpeg?auto=compress&cs=tinysrgb&w=600');"></div>
+      </div>
+  
+      <div class="middlee col-s-12 col-6" style="position: relative;">
+        <div class="image-contain-middle" style="background-image: url('https://i5.walmartimages.com/dfw/4ff9c6c9-e6d1/k2-_6ab1266f-32fe-44d2-b73d-15d0eaf72f83.v1.jpg?odnHeight=512&odnWidth=288&odnBg=FFFFFF');"></div>
+        <br>
+        <div class="image-contain-middle" style="background-image: url('https://i5.walmartimages.com/dfw/4ff9c6c9-476e/k2-_d3a4206d-8f2e-468b-93b7-06a1bd73a60e.v1.jpg?odnHeight=222&odnWidth=1232&odnBg=FFFFFF');"></div>
+        <br>
+        <div class="image-contain-middle" style="background-image: url('https://i5.walmartimages.com/dfw/4ff9c6c9-4ccd/k2-_220b1061-6f0f-46a8-b6bb-a34a155407ec.v1.jpg?odnHeight=340&odnWidth=604&odnBg=FFFFFF');"></div>
+      </div>
+  
+      <div class="rightt col-s-12 col-3" style="position: relative;">
+        <div class="image-contain" style="background-image: url('https://i5.walmartimages.com/dfw/4ff9c6c9-9621/k2-_62b7077f-1c00-4349-a90d-e8245c4b0c37.v1.jpg?odnHeight=340&odnWidth=604&odnBg=FFFFFF');"></div>
+        <div class="image-contain-one" style="background-image: url('https://i5.walmartimages.com/dfw/4ff9c6c9-3356/k2-_7528f13e-dc42-4828-ac68-85d8c9bf3416.v1.jpg?odnHeight=512&odnWidth=288&odnBg=FFFFFF');"></div>
+        <br>
+        <div class="image-contain" style="background-image: url('https://i5.walmartimages.com/dfw/4ff9c6c9-71c0/k2-_d18f8241-d0c9-4e3b-a18e-98a0a4c7444a.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF');"></div>
+      </div>
+    </div>
+  
+  
+  <!-- ///////////////////// -->
+  
+  <div class="col-md-8 mx-auto"> 
+    <!-- الصور الدائرية -->
+    <h3 class="text-center"></h3>
+    <div class="image-row d-flex flex-wrap justify-content-center">
+      <div *ngFor="let image of circularImages" class="image-container col-2">
+        <div class="image-circle" [style.backgroundImage]="'url(' + image.url + ')'"></div>
+        <p class="text-center">{{ image.name }}</p>
+      </div>
+    </div>
+  
+    <!-- الصور المربعة -->
+    <h3 class="text-center mt-4"></h3>
+    <div class="image-row d-flex flex-wrap justify-content-center mt-4">
+      <div *ngFor="let image of squareImages" class="image-container col-2">
+        <div class="image-square" [style.backgroundImage]="'url(' + image.url + ')'"></div>
+        <p class="text-center">{{ image.name }}</p>
+      </div>
+    </div>
+  </div>
+  
+  
+  
+  
+  
+  
+  
+       <!-- <div class="col-md-8">
+        <div class="image-row d-flex flex-wrap justify-content-center">
+          <div *ngFor="let image of images.slice(0, 6)" class="image-container col-2" (click)="showMoreImages(image)">
+            <div class="image-circle" [style.backgroundImage]="'url(' + image.url + ')'"></div>
+            <p class="text-center">{{ image.name }}</p>
+          </div>
+        </div>
+      
+        <div class="image-row d-flex flex-wrap justify-content-center mt-4">
+          <div *ngFor="let image of images.slice(6, 12)" class="image-container col-2" (click)="showMoreImages(image)">
+            <div class="image-circle" [style.backgroundImage]="'url(' + image.url + ')'"></div>
+            <p class="text-center">{{ image.name }}</p>
+          </div>
+        </div>
+      </div> -->
