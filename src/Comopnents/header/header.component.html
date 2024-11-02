@@ -34,6 +34,17 @@
           <span class="cart-total">$0.00</span>
         </a>
 
+      
+        <div class="dropdown">
+          <button class="btn btn-light dropdown-toggle bt-lang" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="true">
+            {{lang}}
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <li><button class="dropdown-item"  (click)="switchLanguage('en')">En - English</button></li>
+            <li><button class="dropdown-item"  (click)="switchLanguage('ar')">Ar - العربية</button></li> 
+          </ul>
+        </div>
+
 
       </div>
     </div>

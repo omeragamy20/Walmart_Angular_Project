@@ -14,7 +14,7 @@ export class LanguageService {
     return this.lang.asObservable()
    }
 
-   changeLang(lang:string){
-    this.lang.next(lang)
+   changeLang(newlang:string){
+    this.lang.next(newlang)
    }
 }

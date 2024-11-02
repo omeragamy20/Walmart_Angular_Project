@@ -1,3 +1,8 @@
+.bt-lang{
+  border-radius: 0px !important;
+  width: 50px;
+}
+
 .navbar {
   background-color: #0071dc;
   position: sticky;

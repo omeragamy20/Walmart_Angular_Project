@@ -1,17 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from '../Comopnents/header/header.component';
 import { HomeComponent } from '../Comopnents/home/home.component';
 import { FooterComponent } from '../Comopnents/footer/footer.component';
 import {TranslateModule} from "@ngx-translate/core";   // <--- standalone only
 import {TranslateService} from "@ngx-translate/core";
-
-import { BehaviorSubject, Observable } from 'rxjs';
 import { LanguageService } from '../Services/Language/language.service';
-import { Injectable } from '@angular/core';
 import { ProductPaginationBySubCatComponent } from '../Comopnents/product-pagination-by-sub-cat/product-pagination-by-sub-cat.component';
 import { CategoryComponent } from '../Comopnents/category/category.component';
 import { AsideComponent } from '../Comopnents/aside/aside.component.spec';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -22,23 +20,27 @@ import { AsideComponent } from '../Comopnents/aside/aside.component.spec';
 })
 
 
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit   {
   title = 'WalMart';
   lang:string="ar"
   
-  constructor(private translate: TranslateService , private langSer:LanguageService) {
-    this.translate.use(this.lang);
-    
+  constructor(private translate: TranslateService , private langSer:LanguageService ,private http:HttpClient) {
+
   }
+
   ngOnInit(): void {
     this.langSer.getLangugae().subscribe({
       next: (res) => {
         this.lang = res;
+        this.translate.use(this.lang);
       },
       error: (err) => {
         console.error("Error fetching language:", err);
       }
     });
+
+
   }
+
 
 }
