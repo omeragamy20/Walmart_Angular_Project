@@ -1,1 +1,43 @@
-<p>orderitems works!</p>
+<ng-container *ngFor="let item of productlocal">
+  <div *ngIf="productlocal ;else noProductTemplate">
+    <div class="border-bottom py-3">
+      <p class="headP text-muted mb-1 " style="font-weight: bold; color: black;">Fulfilled by Walmart</p>
+      <p class="headP text-primary mb-1">Free shipping</p>
+      <div class="d-flex align-items-center mb-2">
+        <span class="flashb badge me-1">Flash Deal</span>
+        <span class="Bestb text-primary badge ">Best Seller</span>
+      </div>
+      <div class="d-flex">
+        <img [src]="URL + item.imageUrls" alt="Product Image" class="me-3" width="80" height="80">
+        <div class="flex-grow-1">
+          <p class="fw-bold mb-1">{{item?.title_en}}</p>
+          <p style="width: 70%;" class=" mb-1">{{item?.description_en}}</p>
+          <p style="font-size: 14px;" class=" text-muted ">${{item?.price}}/ea</p>
+          <p style="font-size: 14px;" class=" text-muted "> <img
+              src="//i5.walmartimages.com/dfw/63fd9f59-e685/7e6c8c3a-3ba7-437a-a066-de3ad3a6a15a/v1/roundReturn.svg"
+              alt=""> Free Holiday returns until {{month}} {{day}}</p>
+
+
+
+
+
+        </div>
+        <div class="text-end  ">
+          <p class="fw-bold fs-6 ">${{item?.price}}</p>
+          <!-- <p class="text-muted text-decoration-line-through">$300</p> -->
+          <!-- <p class="text-success">You save $ 20</p> -->
+          <button class="btn btn-link text-decoration-none  p-0 mt-2" (click)="remove(item)">
+            Remove
+          </button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>
+
+<ng-template #noProductTemplate>
+  <div class="alert alert-info mt-3" role="alert">
+    No product available.
+  </div>
+</ng-template>

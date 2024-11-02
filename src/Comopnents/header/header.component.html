@@ -26,11 +26,12 @@
         <a href="#" class="action-item">Reorder My Items <span> <i class="fa-regular fa-heart"
               style="color: #FFD43B;"></i></span></a>
 
-        <a routerLink="SignOrRegister" routerLinkActive="active_link" class="action-item">Sign In Account <span><i class="fa-regular fa-user"
-              style="color: #FFD43B;"></i></span></a>
-        <a routerLink="/" class="cart-icon">
-          <i class="fa fa-shopping-cart " style="color: #FFD43B;"></i>
-          <span class="cart-total">$0.00</span>
+        <a routerLink="SignOrRegister" routerLinkActive="active_link" class="action-item">Sign In Account <span><i
+              class="fa-regular fa-user" style="color: #FFD43B;"></i></span></a>
+        <a routerLink="order" class="cart-icon">
+          <i class="fa fa-shopping-cart" style="position: relative !important;"></i>
+          <span class="cont">{{count}}</span>
+          <span routerLink="order" class="cart-total">${{totalprice}}</span>
         </a>
       </div>
     </div>
