@@ -1,6 +1,9 @@
 import { CommonModule, NgFor, NgIf } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { NgModel } from '@angular/forms';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
+import { LanguageService } from '../../Services/Language/language.service';
 
 interface Department {
   name: string;
@@ -10,11 +13,27 @@ interface Department {
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [RouterLink, RouterLinkActive,NgFor,NgIf,CommonModule],
+  imports: [RouterLink, RouterLinkActive,NgFor,NgIf,CommonModule,TranslateModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
+lang:string=''
+constructor(private lanSer:LanguageService){
+
+}
+  ngOnInit(): void {
+    this.lanSer.getLangugae().subscribe({
+      next:(res)=>{
+        this.lang=res
+      }
+    })
+  }
+switchLanguage(lang:string){
+  this.lanSer.changeLang(lang);
+
+}
+
 
   departments: Department[] = [
     { name: 'Savings', parts: ['Shop All Savings', 'Clothing & Accessories', 'Electronics', 'Home','Shop All Savings', 'Clothing & Accessories', 'Electronics', 'Home','Shop All Savings', 'Clothing & Accessories', 'Electronics', 'Home','Shop All Savings', 'Clothing & Accessories', 'Electronics', 'Home','Shop All Savings', 'Clothing & Accessories', 'Electronics', 'Home','Shop All Savings', 'Clothing & Accessories', 'Electronics', 'Home'] },

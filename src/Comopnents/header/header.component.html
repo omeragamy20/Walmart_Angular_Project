@@ -9,7 +9,7 @@
 
         </a>
         <div class="location ">
-          <p>How do you want your items?</p>
+          <p>{{'header.How_do_you_want_your_items?'| translate}}</p>
         </div>
       </div>
 
@@ -23,15 +23,29 @@
 
 
       <div class="navbar-actions col-s-12  col-md-3">
-        <a href="#" class="action-item">Reorder My Items <span> <i class="fa-regular fa-heart"
+        <a href="#" class="action-item">{{'header.Reorder_My_Items'|translate}} <span> <i class="fa-regular fa-heart"
               style="color: #FFD43B;"></i></span></a>
 
-        <a routerLink="SignOrRegister" routerLinkActive="active_link" class="action-item">Sign In Account <span><i class="fa-regular fa-user"
+        <a routerLink="SignOrRegister" routerLinkActive="active_link" class="action-item">{{'header.Sign_In_Account'|translate}} <span><i class="fa-regular fa-user"
               style="color: #FFD43B;"></i></span></a>
+             
         <a routerLink="/" class="cart-icon">
           <i class="fa fa-shopping-cart " style="color: #FFD43B;"></i>
           <span class="cart-total">$0.00</span>
         </a>
+
+      
+        <div class="dropdown">
+          <button class="btn btn-light dropdown-toggle bt-lang" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="true">
+            {{lang}}
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <li><button class="dropdown-item"  (click)="switchLanguage('en')">En - English</button></li>
+            <li><button class="dropdown-item"  (click)="switchLanguage('ar')">Ar - العربية</button></li> 
+          </ul>
+        </div>
+
+
       </div>
     </div>
 
@@ -345,6 +359,9 @@
         <li><a routerLink=" " routerLinkActive=" active_link">Auto & tires</a></li>
         <li><a routerLink=" " routerLinkActive=" active_link">Walmart+</a></li>
       </ul>
+
+     
+      
     </div>
   </div>
 </nav>

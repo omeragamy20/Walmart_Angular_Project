@@ -1,9 +1,15 @@
+.bt-lang{
+  border-radius: 0px !important;
+  width: 50px;
+}
+
 .navbar {
   background-color: #0071dc;
   position: sticky;
   top: 0;
   /* Green background */
   color: #ffffff;
+
   z-index: 1;
   padding: 0;
 }
