@@ -1,6 +1,7 @@
 <!-- <p>summery works!</p> -->
 <div class="side p-3  border rounded">
-  <button class="btnA btn btn-primary w-100 mb-3">Continue to checkout</button>
+  <button routerLink='' routerLinkActive="router-link-active" class="btnA btn btn-primary w-100 mb-3">Continue to
+    checkout</button>
   <div class="seconde alert alert-primary d-flex" role="alert">
     <div>
       <img style="margin: 5px;"
@@ -18,15 +19,15 @@
     <li class="d-flex justify-content-between">
       <span><strong>Subtotal</strong></span>
       <!-- //({{ products.length }} items) -->
-      <span class="text-decoration-line-through">$149.98</span>
+      <span class="text-decoration-line-through">${{totalprice}}</span>
     </li>
     <li class="d-flex justify-content-between text-success">
       <span style="color: black;">Savings</span>
-      <span>- $83.86</span>
+      <span>$0</span>
     </li>
     <li class="d-flex justify-content-between fw-bold">
-      <span>Total</span>
-      <span>$66.12</span>
+      <span></span>
+      <span class="text-success">${{totalprice}}</span>
     </li>
     <hr>
     <li class="d-flex justify-content-between">
@@ -41,7 +42,7 @@
     <hr>
     <li class="d-flex justify-content-between fw-bold">
       <span>Estimated Total</span>
-      <span>$66.12</span>
+      <span class="text-success">${{totalprice}}</span>
     </li>
     <br>
   </ul>

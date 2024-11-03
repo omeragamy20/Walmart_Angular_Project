@@ -32,9 +32,20 @@ export class ProductPaginationBySubCatComponent implements OnInit {
 
 
   addProductToCookie(p: IproductEn) {
-    const products: IproductEn[] = JSON.parse(localStorage.getItem("SelectedProducts") || "[]");
-    products.push(p)
-    localStorage.setItem("SelectedProducts", JSON.stringify(products))
+    // const products: IproductEn[] = JSON.parse(localStorage.getItem("SelectedProducts") || "[]");
+    const item = localStorage.getItem("SelectedProducts");
+    let products = item ? JSON.parse(item) : [];
+    let sameprod = products.find((one: IproductEn) => one.id == p.id)
+    if (sameprod) {
+      sameprod.quantity += 1
+      localStorage.setItem("SelectedProducts", JSON.stringify(products))
+    } else {
+
+      p.quantity = 1;
+      products.push(p)
+
+      localStorage.setItem("SelectedProducts", JSON.stringify(products))
+    }
   }
 
   getallpagnationprd() {

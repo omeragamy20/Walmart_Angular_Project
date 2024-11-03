@@ -8,10 +8,34 @@ span {
 }
 
 .flashb {
-  color: rgb(204, 110, 76);
-  background-color: rgb(151, 71, 125);
+  color: #995213;
+  background-color: #fff9e9;
 }
 
 .Bestb {
-  background-color: rgb(207, 207, 250);
+  background-color: #e6f1fc;
+}
+
+.min {
+  cursor: pointer;
+  border-radius: 50%;
+  transition: all 0.1s linear;
+}
+
+.min:hover {
+  padding: 2px;
+  color: #fff;
+  background-color: rgb(110, 110, 110);
+}
+
+.plus {
+  cursor: pointer;
+  border-radius: 50%;
+  transition: all 0.1s linear;
+}
+
+.plus:hover {
+  padding: 2px;
+  color: #fff;
+  background-color: rgb(110, 110, 110);
 }

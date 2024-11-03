@@ -11,7 +11,7 @@ import { CookieService } from 'ngx-cookie-service';
 })
 export class HeaderComponent implements OnInit, DoCheck {
 
-  count: any;
+  count: number = 0;
   moneyy: any;
   totalprice: number = 0;
 
@@ -35,7 +35,13 @@ export class HeaderComponent implements OnInit, DoCheck {
     let all = localStorage.getItem("SelectedProducts");
     let prod = all ? JSON.parse(all) : []
 
-    this.count = prod.length
+    let totalquantity = 0;
+    if (Array.isArray(prod)) {
+      for (let i = 0; i < prod.length; i++) {
+        totalquantity += prod[i].quantity ? prod[i].quantity : 0;
+      }
+      this.count = totalquantity
+    }
 
 
   }
@@ -49,7 +55,9 @@ export class HeaderComponent implements OnInit, DoCheck {
       for (let i = 0; i < moneyy.length; i++) {
         // it will be an array here
         let propp = moneyy[i]
-        this.totalprice += propp.price
+        let sum = propp.price * (propp.quantity || 1);
+        this.totalprice += sum
+
       }
     }
 

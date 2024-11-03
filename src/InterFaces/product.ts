@@ -24,5 +24,6 @@ export interface IproductEn {
   description_en: string,
   price: number,
   imageUrls: string,
-  stock: number
+  stock: number,
+  quantity: number
 }
