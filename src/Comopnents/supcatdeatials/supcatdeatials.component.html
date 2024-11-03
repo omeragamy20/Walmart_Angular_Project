@@ -1,0 +1,45 @@
+<!-- <div class="container mt-4">
+  <div class="row">
+   
+    <div *ngFor="let card of cards" class="col-md-4 col-lg-2 mb-4">
+      <div class="card h-100">
+        <img [src]="card.image" alt="{{ card.name }}" class="card-img-top">
+        <div class="card-body">
+          <h5 class="card-title">{{ card.name }}</h5>
+          <p class="card-text">{{ card.details }}</p>
+          <p class="card-text">{{ card.price }}</p>       
+             <button class="btn btn-primary btn-block mt-3">Buy</button> 
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<div class="container mt-4">
+  <div class="row">
+    <div *ngFor="let card of cards" class="col-md-4 col-lg-2 mb-4">
+      <div class="card h-100 text-center">
+        <button href="" style="text-decoration: none;">
+          <img [src]="card.image" class="card-img-top" alt="{{ card.name }}" width="85px" height="150px">
+          <div class="card-body">
+            <h5 class="card-title">{{ card.name }}</h5>
+            <p class="text-warning">
+              <i class="fas fa-star"></i> {{ card.rating }} 
+            </p>
+            <p class="text-success fw-bold">الآن بس ${{ card.price }}</p>
+            <button class="btn btn-link text-decoration-none">
+              <i class="far fa-heart"></i>
+            </button>
+          </div>
+        </button>
+        <button id="btnadd" class="btn btn-outline-secondary">
+          <i class="bi bi-plus-lg"></i> أضف
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
