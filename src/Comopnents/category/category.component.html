@@ -1,7 +1,7 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-2 mb-2" *ngFor="let item of getCurrentPageItems()">
+    <div class="col-md-2 mb-2" *ngFor="let item of getpaginatedProducts()">
      <div class="text-center">
       <img [src]="item.image" alt="{{ item.name_en }}" />
       <p>{{ item.name_en }}</p>
@@ -20,7 +20,7 @@
       </div>
     </div>
   </div>
-////////////////
+<!-- //////////////// -->
 
 <!-- <div class="row">
   <div class="col-md-4">
