@@ -1,4 +1,4 @@
-import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { AfterContentInit, Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from '../Comopnents/header/header.component';
 import { HomeComponent } from '../Comopnents/home/home.component';
@@ -24,11 +24,12 @@ import { OrderComponent } from '../Comopnents/order/order.component';
 
 export class AppComponent implements OnInit   {
   title = 'WalMart';
-  lang:string="ar"
+  lang:string=""
 
   constructor(private translate: TranslateService , private langSer:LanguageService ,private http:HttpClient) {
 
   }
+
 
   ngOnInit(): void {
     this.langSer.getLangugae().subscribe({

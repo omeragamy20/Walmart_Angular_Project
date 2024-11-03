@@ -49,7 +49,7 @@ export class ProductPaginationBySubCatComponent implements OnInit {
   }
 
   getallpagnationprd() {
-    this.productapi.GetAllPagenation(7).subscribe({
+    this.productapi.GetAllPagenation(4).subscribe({
       next: (value) => {
         console.log(value);
 

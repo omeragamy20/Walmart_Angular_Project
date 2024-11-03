@@ -1,28 +1,42 @@
-
 <div class="container">
   <div class="row">
     <div class="col-md-2 mb-2" *ngFor="let item of getpaginatedProducts()">
-     <div class="text-center">
-      <img [src]="item.image" alt="{{ item.name_en }}" />
-      <p>{{ item.name_en }}</p>
-     </div>
+      <div class="text-center">
+        <a
+          [routerLink]="['/categryditals', item.id]"
+          style="text-decoration: none; color: black"
+        >
+          <img [src]="item.image" alt="{{ item.name_en }}" />
+          <p>{{ item.name_en }}</p>
+        </a>
+      </div>
     </div>
     <div class="d-flex justify-content-between mt-4">
-      <div  class="buttonRL" >
-        <button class="circle-button" style="right:100%;" (click)="prevPage()" [disabled]="currentPage === 0">
+      <div class="buttonRL">
+        <button
+          class="circle-button"
+          style="right: 100%"
+          (click)="prevPage()"
+          [disabled]="currentPage === 0"
+        >
           <i class="bi bi-chevron-left"></i>
         </button>
       </div>
-      <div class="buttonRL" >
-        <button class="circle-button" style="left: 100%;" (click)="nextPage()" [disabled]="(currentPage * itemsPerPage) >= AllCAtegory.length">
+      <div class="buttonRL">
+        <button
+          class="circle-button"
+          style="left: 100%"
+          (click)="nextPage()"
+          [disabled]="currentPage * itemsPerPage >= AllCAtegory.length"
+        >
           <i class="bi bi-chevron-right"></i>
         </button>
       </div>
     </div>
   </div>
-<!-- //////////////// -->
+  <!-- //////////////// -->
 
-<!-- <div class="row">
+  <!-- <div class="row">
   <div class="col-md-4">
     <div class="aside-container">
       <div *ngFor="let image of images" class="image-container">
@@ -65,3 +79,4 @@
 
   </div>
 </div> -->
+</div>

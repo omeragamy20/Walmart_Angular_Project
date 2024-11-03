@@ -1,6 +1,9 @@
-import { Component } from '@angular/core';
+import { AfterContentChecked, Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
+import { SubcategoryService } from '../../Services/SubCategory/subcategory.service';
+import { ISubcategoryAr, ISubcategoryEn } from '../../InterFaces/sub-category';
+import { LanguageService } from '../../Services/Language/language.service';
 
 @Component({
   selector: 'app-deatailscatogiry',
@@ -13,8 +16,63 @@ import { RouterLink } from '@angular/router';
 
 
 
-export class DeatailscatogiryComponent {
- // صور دائرية 
+export class DeatailscatogiryComponent implements OnInit ,OnChanges {
+
+  SubCatinCatEn!: ISubcategoryEn[];
+  SubCatinCatAr!: ISubcategoryAr[];
+  @Input() id: number = 0;
+  lang:string=''
+  constructor(private _ActivatedRoute: ActivatedRoute,private subcatserviceapi:SubcategoryService,private _languageSer:LanguageService)
+{
+
+}
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['id'] && !changes['id'].firstChange) {
+      this.GetallSubcat(this.id);  // Fetch subcategories when id changes
+    }
+  }
+
+
+  ngOnInit(): void {
+    this.id = this._ActivatedRoute.snapshot.params['id'];
+
+    this._languageSer.getLangugae().subscribe({
+      next: (res) => {
+        this.lang = res
+      }
+    })
+    this.GetallSubcat(this.id);
+
+  }
+
+
+  GetallSubcat(catid: number) {
+
+    if(this.lang=='en'){
+        this.subcatserviceapi.GetAllSubCAtbyCatid(catid).subscribe({
+          next: value => {
+            this.SubCatinCatEn = value;
+          },
+          error: err => {
+            console.log(err);
+
+          }
+        });
+    } else if(this.lang=='ar') {
+      this.subcatserviceapi.GetAllSubCAtbyCatid_Ar(catid).subscribe({
+        next: value => {
+          this.SubCatinCatAr = value;
+          console.log(value)
+        },
+        error: err => {
+          console.log(err);
+
+        }
+      });
+  }
+  }
+
+ // صور دائرية
   circularImages = [
     { url: 'https://i5.walmartimages.com/dfw/4ff9c6c9-c740/k2-_49c2b8ed-576f-4883-9b85-c731050b3cde.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF', name: 'ًwomens' },
      { url: 'https://i5.walmartimages.com/dfw/4ff9c6c9-7b71/k2-_dabe399b-edc2-4213-ab39-0ec6ee662940.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF', name: 'womens plus' },
@@ -44,7 +102,7 @@ export class DeatailscatogiryComponent {
     { url: 'https://i5.walmartimages.com/dfw/4ff9c6c9-5d5a/k2-_ca23e2f7-3019-49d1-95fe-3add02d2f4b2.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF', name: 'love sportis' },
     { url: 'https://i5.walmartimages.com/dfw/4ff9c6c9-4e11/k2-_bee3b0b5-b343-4302-a57d-0440ee8dfddd.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF', name: 'reebok mady' },
     { url: 'https://i5.walmartimages.com/dfw/4ff9c6c9-28b0/k2-_fbb7b44d-8f89-4799-ad33-27e2aec62e18.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF', name: 'Square fashion' },
-  
+
   ];
 }
 
@@ -87,7 +145,7 @@ export class DeatailscatogiryComponent {
 //   ];
 
 
-  
+
 // }
 
 
@@ -113,5 +171,5 @@ export class DeatailscatogiryComponent {
 
 // }
 // export class CategoryComponent {
-  
+
 // }

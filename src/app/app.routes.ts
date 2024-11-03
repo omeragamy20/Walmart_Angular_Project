@@ -21,7 +21,7 @@ export const routes: Routes = [
 
     { path: '', redirectTo: 'home', pathMatch: 'full' },
     { path: 'home', component: HomeComponent },
-    { path: 'categryditals', component: DeatailscatogiryComponent },
+    { path: 'categryditals/:id', component: DeatailscatogiryComponent },
     { path: 'category', component: CategoryComponent },
     { path: 'product', component: ProductComponent },
     { path: 'order', component: OrderComponent },
