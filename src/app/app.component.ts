@@ -10,11 +10,13 @@ import { ProductPaginationBySubCatComponent } from '../Comopnents/product-pagina
 import { CategoryComponent } from '../Comopnents/category/category.component';
 import { AsideComponent } from '../Comopnents/aside/aside.component.spec';
 import { HttpClient } from '@angular/common/http';
+import { OrderComponent } from '../Comopnents/order/order.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [HeaderComponent, HomeComponent, FooterComponent, RouterOutlet,ProductPaginationBySubCatComponent,CategoryComponent,AsideComponent,TranslateModule],
+  imports: [HeaderComponent, HomeComponent, FooterComponent, RouterOutlet, ProductPaginationBySubCatComponent
+            , CategoryComponent, AsideComponent, TranslateModule, OrderComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -23,7 +25,7 @@ import { HttpClient } from '@angular/common/http';
 export class AppComponent implements OnInit   {
   title = 'WalMart';
   lang:string="ar"
-  
+
   constructor(private translate: TranslateService , private langSer:LanguageService ,private http:HttpClient) {
 
   }

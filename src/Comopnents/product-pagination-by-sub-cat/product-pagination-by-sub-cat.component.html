@@ -26,12 +26,12 @@
     </div> -->
 
 
-    <!-- </div>
+<!-- </div>
     } -->
-    <!-- End of Product Item -->
-  <!-- </div> -->
+<!-- End of Product Item -->
+<!-- </div> -->
 
-  <!-- <div class="col">
+<!-- <div class="col">
     <div class="card h-100 shadow-sm">
        <img [src]="prd.ImageUrls" class="card-img-top" alt="product image">
        <div class="card-body">
@@ -119,7 +119,7 @@
               </span>
             </span>
           </span>
-          
+
           <button class="btn btn-link text-decoration-none">
             <i class="far fa-heart"></i>
           </button>
@@ -127,23 +127,44 @@
         </div>
       </button>
       <div id="btnadd" class="relative dib" dib>
-        <button id="btnbtnadd" class="w_hhLG w_XK4d w_0_LY pointer bn sans-serif b ph2 flex items-center justify-center w-auto">
+        <button id="btnbtnadd" (click)="addProductToCookie(product)" class="w_hhLG w_XK4d w_0_LY pointer bn sans-serif b ph2 flex items-center justify-center w-auto">
         <i class="bi bi-plus-lg"></i>
         <span class="mr2">Add</span>
-        </button>
-      </div>
+      </button>
+
+        <!-- <div class="card h-100 text-center">
+          <button href="" style="text-decoration: none;">
+            <img [src]="URL+product.imageUrls" class="card-img-top" alt="{{ product.title_en }}" width="85px"
+              height="150px">
+            <div class="card-body">
+              <h5 class="card-title">{{ product.title_en }}</h5>
+              <p class="text-success fw-bold">Now ${{ product.price }}</p>
+              <p class="text-muted"><s>${{ product.price + product.price * 0.1 }}</s></p>
+
+              <button class="btn btn-link text-decoration-none">
+                <i class="far fa-heart"></i>
+              </button>
+            </div>
+          </button>
+          <button (click)="addProductToCookie(product)" id="btnadd" class="btn btn-outline-secondary">
+
+            <i class="bi bi-plus-lg"></i> Add
+          </button>
+        </div> -->
+
       </div>
 
     </div>
 
     <div class="d-flex justify-content-between mt-4">
-      <div  class="buttonRL" >
+      <div class="buttonRL">
         <button class="circle-button" style="right:100%;" (click)="prevPage()" [disabled]="currentPage === 1">
           <i class="bi bi-chevron-left"></i>
         </button>
       </div>
-      <div class="buttonRL" >
-        <button class="circle-button" style="left: 100%;" (click)="nextPage()" [disabled]="(currentPage * itemsPerPage) >= fillpagnationproduct.length">
+      <div class="buttonRL">
+        <button class="circle-button" style="left: 100%;" (click)="nextPage()"
+          [disabled]="(currentPage * itemsPerPage) >= fillpagnationproduct.length">
           <i class="bi bi-chevron-right"></i>
         </button>
       </div>

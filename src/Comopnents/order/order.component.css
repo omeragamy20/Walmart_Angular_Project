@@ -1,0 +1,22 @@
+.all {
+  padding-left: 25px;
+  font-size: 23px;
+}
+
+
+.sumery {
+  padding: 40px;
+  position: sticky !important;
+  top: 10px !important;
+}
+
+.shape {
+  box-shadow: 1px 0px 2px 0px grey;
+  background-color: #f2f8fd !important;
+  color: black !important;
+
+}
+
+.row {
+  --bs-gutter-x: -3rem;
+}

@@ -2,8 +2,7 @@ import {ApplicationConfig, importProvidersFrom, provideZoneChangeDetection} from
 import {TranslateModule, TranslateLoader} from "@ngx-translate/core";
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {HttpClient} from '@angular/common/http';
-
-
+import { CookieService } from 'ngx-cookie-service';
 import { routes } from './app.routes';
 import { provideHttpClient, withFetch } from '@angular/common/http';
 import { provideRouter } from "@angular/router";
@@ -17,16 +16,20 @@ export function httpLoaderFactory(http: HttpClient) {
 
 export const appConfig: ApplicationConfig = {
   providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes),
-    provideHttpClient(withFetch()),
-  
-    importProvidersFrom([TranslateModule.forRoot({
-      defaultLanguage:"en",
-      loader: {
-        provide: TranslateLoader,
-        useFactory: httpLoaderFactory,
-        deps: [HttpClient],
-      },
-    })])
+  provideHttpClient(withFetch()), CookieService,
 
-  ]
-};
+  importProvidersFrom([TranslateModule.forRoot({
+    defaultLanguage: "en",
+    loader: {
+      provide: TranslateLoader,
+      useFactory: httpLoaderFactory,
+      deps: [HttpClient],
+    },
+  })])
+  ]};
+
+// export const appConfig: ApplicationConfig = {
+//   providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes),
+//   provideHttpClient(withFetch()), CookieService
+//   ]
+// };
