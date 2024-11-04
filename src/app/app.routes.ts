@@ -27,7 +27,7 @@ export const routes: Routes = [
     { path: 'order', component: OrderComponent },
     { path: 'orderitems', component: OrderitemsComponent },
     { path: 'shepments', component: ShepmentsComponent },
-    { path: 'supcatogiarydeatails', component: SupcatdeatialsComponent },
+    { path: 'supcatogiarydeatails/:id', component: SupcatdeatialsComponent },
   ]},
 
   { path: 'logout', component: LogoutComponent },

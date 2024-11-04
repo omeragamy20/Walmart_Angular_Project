@@ -78,19 +78,23 @@
     <div class="image-row d-flex flex-wrap justify-content-center">
       @if(lang == 'en'){
       <div *ngFor="let subcat of SubCatinCatEn" class="image-container col-2">
-        <img [src]="subcat.image" />
+        <a [routerLink]="['/supcatogiarydeatails', subcat.id]">
+          <img [src]="subcat.image" />
+          <p class="text-center">{{ subcat.name_en }}</p>
+        </a>
+
         <!-- <div>
         </div> -->
         <!-- <img src="https://i5.walmartimages.com/dfw/4ff9c6c9-7b71/k2-_dabe399b-edc2-4213-ab39-0ec6ee662940.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF"> -->
         <!-- [style.backgroundImage]="subcat.image" -->
 
-        <p class="text-center">{{ subcat.name_en }}</p>
       </div>
       } @if(lang == 'ar'){
       <div *ngFor="let subcat of SubCatinCatAr" class="image-container col-2">
-        <img [src]="subcat.image" />
-
-        <p class="text-center">{{ subcat.name_ar }}</p>
+        <a [routerLink]="['/supcatogiarydeatails', subcat.id]">
+          <img [src]="subcat.image" />
+          <p class="text-center">{{ subcat.name_ar }}</p>
+        </a>
       </div>
       }
     </div>
