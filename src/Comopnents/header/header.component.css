@@ -60,10 +60,16 @@
   background-color: #004f9a;
   border: none;
   color: white;
-  padding: 6px;
+  /* padding: 6px; */
+  height: 30px;
+  width: 30px;
   border-radius: 50%;
   cursor: pointer;
   margin-left: -40px;
+}
+
+.search-button:hover {
+  background-color: #06427a;
 }
 
 .navbar-actions {
@@ -106,6 +112,8 @@
 }
 
 .cart-total {
+
+  left: 0;
   margin-left: 5px;
   font-size: 14px;
 }

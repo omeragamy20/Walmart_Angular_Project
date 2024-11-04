@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, DoCheck, OnInit } from '@angular/core';
 import { SummeryComponent } from '../summery/summery.component';
 import { OrderitemsComponent } from "../orderitems/orderitems.component";
 import { CookieService } from 'ngx-cookie-service';
@@ -10,7 +10,7 @@ import { CookieService } from 'ngx-cookie-service';
   templateUrl: './order.component.html',
   styleUrl: './order.component.css'
 })
-export class OrderComponent implements OnInit {
+export class OrderComponent implements OnInit, DoCheck {
   num: any;
   timee: Date | any;
   Month: Date | any;
@@ -19,22 +19,28 @@ export class OrderComponent implements OnInit {
 
 
   }
+  ngDoCheck(): void {
+    this.count();
+  }
   ngOnInit(): void {
 
     this.count();
     this.datee();
 
-
   }
-
 
 
   count() {
 
     let all = localStorage.getItem("SelectedProducts");
     let prod = all ? JSON.parse(all) : []
-
-    this.num = prod.length
+    let many = 0
+    if (Array.isArray(prod)) {
+      for (let i = 0; i < prod.length; i++) {
+        many += prod[i].quantity ? prod[i].quantity : 0
+      }
+    }
+    this.num = many
 
   }
 
@@ -48,9 +54,5 @@ export class OrderComponent implements OnInit {
     this.Month = timee.toLocaleString('default', { month: 'long' })
 
 
-
   }
-
-
-
 }
