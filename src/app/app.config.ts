@@ -6,6 +6,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { routes } from './app.routes';
 import { provideHttpClient, withFetch } from '@angular/common/http';
 import { provideRouter } from "@angular/router";
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 // const httpLoaderFactory: (http: HttpClient) => TranslateHttpLoader = (http: HttpClient) =>
 //    new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -25,7 +26,7 @@ export const appConfig: ApplicationConfig = {
       useFactory: httpLoaderFactory,
       deps: [HttpClient],
     },
-  })])
+  })]), provideAnimationsAsync()
   ]};
 
 // export const appConfig: ApplicationConfig = {
