@@ -1,0 +1,50 @@
+<!-- <p>summery works!</p> -->
+<div class="side p-3  border rounded">
+  <button routerLink='' routerLinkActive="router-link-active" class="btnA btn btn-primary w-100 mb-3">Continue to
+    checkout</button>
+  <div class="seconde alert alert-primary d-flex" role="alert">
+    <div>
+      <img style="margin: 5px;"
+        src=" https://i5.walmartimages.com/dfw/4ff9c6c9-69ed/k2-_c5fc89eb-a765-445a-846c-c88b31ebf4f2.v1.png" alt="">
+
+    </div>
+    <div>
+      <p> Items in your cart have reduced prices. Check out now for extra savings!</p>
+
+    </div>
+  </div>
+
+  <!-- Summary Details -->
+  <ul class="list-unstyled mb-3">
+    <li class="d-flex justify-content-between">
+      <span><strong>Subtotal</strong></span>
+      <!-- //({{ products.length }} items) -->
+      <span class="text-decoration-line-through">${{totalprice}}</span>
+    </li>
+    <li class="d-flex justify-content-between text-success">
+      <span style="color: black;">Savings</span>
+      <span>$0</span>
+    </li>
+    <li class="d-flex justify-content-between fw-bold">
+      <span></span>
+      <span class="text-success">${{totalprice}}</span>
+    </li>
+    <hr>
+    <li class="d-flex justify-content-between">
+      <span>Shipping</span>
+
+      <span class="text-success">Free</span>
+    </li>
+    <li class="d-flex justify-content-between">
+      <span><strong>Taxes</strong> </span>
+      <span>Calculated at checkout</span>
+    </li>
+    <hr>
+    <li class="d-flex justify-content-between fw-bold">
+      <span>Estimated Total</span>
+      <span class="text-success">${{totalprice}}</span>
+    </li>
+    <br>
+  </ul>
+  <small class="text-muted">As low as $12/mo or 0% APR <a href="#" class="text-decoration-none">Learn how</a></small>
+</div>

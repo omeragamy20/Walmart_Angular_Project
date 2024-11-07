@@ -7,24 +7,38 @@ import { ProductComponent } from '../Comopnents/product/product.component';
 import { OrderComponent } from '../Comopnents/order/order.component';
 import { OrderitemsComponent } from '../Comopnents/orderitems/orderitems.component';
 import { ShepmentsComponent } from '../Comopnents/shepments/shepments.component';
+import { AllProductComponent } from '../Comopnents/all-product/all-product.component';
 import { SignInOrRegisterComponent } from '../Comopnents/Account/sign-in-or-register/sign-in-or-register.component';
 import { LogoutComponent } from '../Comopnents/Account/logout/logout.component';
 import { LoginComponent } from '../Comopnents/Account/login/login.component';
 import { RegisterComponent } from '../Comopnents/Account/register/register.component';
 import { MainComponent } from '../Comopnents/main/main.component';
+import { DeatailscatogiryComponent } from '../Comopnents/deatailscatogiry/deatailscatogiry.component';
+import { SupcatdeatialsComponent } from '../Comopnents/supcatdeatials/supcatdeatials.component';
 
 export const routes: Routes = [
 
   {path:'' , component: MainComponent,children:[
 
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
+  { path: 'logout', component: LogoutComponent },
+  { path: 'home', component: HomeComponent },
+  { path: 'category', component: CategoryComponent },
+  { path: 'allproduct', component: AllProductComponent},
+  { path: 'product/:id', component: ProductComponent },
+  { path: 'order', component: OrderComponent },
+  { path: 'orderitems', component: OrderitemsComponent },
+  { path: 'shepments', component: ShepmentsComponent },
     { path: '', redirectTo: 'home', pathMatch: 'full' },
     { path: 'home', component: HomeComponent },
+    { path: 'categryditals/:id', component: DeatailscatogiryComponent },
     { path: 'category', component: CategoryComponent },
     { path: 'product', component: ProductComponent },
     { path: 'order', component: OrderComponent },
     { path: 'orderitems', component: OrderitemsComponent },
     { path: 'shepments', component: ShepmentsComponent },
-
+    { path: 'supcatogiarydeatails/:id', component: SupcatdeatialsComponent },
   ]},
 
   { path: 'logout', component: LogoutComponent },

@@ -1,0 +1,13 @@
+{
+   "header":{
+        "How_do_you_want_your_items?": "كيف تريد العناصر الخاصة بك",
+        "Reorder_My_Items": "إعادة طلب العناصر الخاصة بي" ,
+        "Sign_In_Account": "تسجيل الدخول إلى الحساب" 
+       
+    },
+    "footer":{
+        "About Walmart":"",
+        "aboutWalText":"Walmart is a comprehensive online shopping platform offering a wide range of products, at competitive prices. Designed for seamless browsing and a smooth user experience, our website provides fast delivery and easy returns, making shopping convenient for everyone. Explore unbeatable deals and exceptional customer service all in one place!"
+
+    }
+}
