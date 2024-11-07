@@ -1,0 +1,163 @@
+<div class="headd">
+
+  <span>Checkout</span>
+
+  <span class="back" routerLink="/order">
+    &lt; </span>
+
+</div>
+<div class="row ">
+  <div class="all   mt-4 col-lg-8  border rounded">
+    <!-- Shipping Information -->
+    <!-- <h4 class="fw-bold mb-3 p-2">Cart <span style="font-weight: 400;"> ({{ num }} items)</span> </h4> -->
+    <div class="shape p-4 bg-light border rounded mb-3 text-primary d-flex">
+      <div style="margin-right: 2%;">
+        <img
+          src="https://i5.walmartimages.com/dfw/63fd9f59-1b5e/5452ae02-a31f-4ef1-9a45-62ac0b06c13b/v1/mci-shipping.svg"
+          alt="">
+      </div>
+      <div>
+        <p class="mb-0 fw-bold"> Shipping, arrives by {{Day}}, {{Month}}</p>
+        <small>Order within <span class="fw-bold">7 hr 44 min</span></small> |
+      </div>
+    </div>
+
+    <!-- Cart Items Section -->
+    <p class="text-muted ps-3" style="font-size: 13px;">* Required fields</p>
+    <div class="shipping-address ps-3">
+      <h4 style="font-size: 15px; font-weight: bold;">Shipping address</h4>
+      <p>Where should we deliver your order?</p>
+
+    </div>
+    <div class="row p-3" style="--bs-gutter-x: 1rem">
+
+
+
+      <div class="left col-lg-6">
+        <div class="form-group">
+          <label>First name*</label>
+          <input type="text" placeholder="First name">
+        </div>
+        <div class="form-group">
+          <label>Street address*</label>
+          <input type="text" placeholder="Street address">
+        </div>
+        <div class="form-group">
+          <label>City*</label>
+          <input type="text" placeholder="City">
+        </div>
+        <div class="form-group">
+          <label>Phone number*</label>
+          <input type="text" placeholder="Phone number">
+        </div>
+      </div>
+      <div class="right col-lg-6">
+
+
+        <div class="form-group">
+          <label>Last name*</label>
+          <input type="text" placeholder="Last name">
+        </div>
+
+
+
+        <div class="form-group">
+          <label>Apt, suite, etc.</label>
+          <input type="text" placeholder="Apt, suite, etc.">
+        </div>
+
+
+        <div class="d-flex">
+          <div class="form-group" style="width: 100%;margin-right: 10px;">
+            <label>State*</label>
+            <select>
+              <option value="NY">NY</option>
+              <!-- Add other states here -->
+            </select>
+          </div>
+
+
+          <div class="form-group" style="width: 100%;">
+            <label>Zip code*</label>
+            <input type="text" placeholder="Zip code">
+          </div>
+
+        </div>
+
+
+
+        <div class="form-group">
+          <label>Gate or call box code</label>
+          <input type="text" placeholder="e.g. '1234'">
+        </div>
+      </div>
+
+
+
+      <div class="form-group">
+        <label>Delivery notes</label>
+        <textarea placeholder="Building description, nearby landmark, etc."></textarea>
+      </div>
+    </div>
+
+    <div class="prfere">
+      <p>More delivery instructions</p>
+
+      <span style="color: rgb(44, 43, 43);"> <input type="checkbox" name="" id="">Set as my preferred
+        delivery
+        address</span>
+    </div>`
+
+    <hr />
+    <div class="itemDetails">
+
+      <h5 style="color: #2e2f32;">Item details</h5>
+      <p>Arrives by {{Day}}, {{Month}},order within 1 hr 44 min</p>
+    </div>
+    <hr>
+
+    <div class="item">
+      <app-orderitems></app-orderitems>
+    </div>
+
+
+
+
+
+    <br>
+
+
+    <div class="paymentoff  border rounded d-flex">
+
+      <div class="iconwalet">
+        <i class="fa-solid fa-wallet" style="color: #a6adb9;"></i>
+
+        <h4 style="display: inline;">2. Payment method</h4>
+
+      </div>
+
+      <div class="off">
+        <i class="fa-solid fa-minus" style="color: #5b5f67;"></i>
+      </div>
+
+
+    </div>
+
+
+
+
+
+
+  </div>
+
+
+
+
+  <!-- Checkout Summary Section -->
+  <div class="col-lg-4 sumery">
+    <!-- <app-checkout-summary [products]="products"></app-checkout-summary> -->
+    <app-shapementsummery></app-shapementsummery>
+  </div>
+
+
+</div>

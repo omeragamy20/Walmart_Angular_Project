@@ -12,25 +12,31 @@ import { LogoutComponent } from '../Comopnents/Account/logout/logout.component';
 import { LoginComponent } from '../Comopnents/Account/login/login.component';
 import { RegisterComponent } from '../Comopnents/Account/register/register.component';
 import { MainComponent } from '../Comopnents/main/main.component';
+import { ShapMentViewComponent } from '../Comopnents/shap-ment-view/shap-ment-view.component';
 
 export const routes: Routes = [
 
-  {path:'' , component: MainComponent,children:[
+  {
+    path: '', component: MainComponent, children: [
 
-    { path: '', redirectTo: 'home', pathMatch: 'full' },
-    { path: 'home', component: HomeComponent },
-    { path: 'category', component: CategoryComponent },
-    { path: 'product', component: ProductComponent },
-    { path: 'order', component: OrderComponent },
-    { path: 'orderitems', component: OrderitemsComponent },
-    { path: 'shepments', component: ShepmentsComponent },
+      { path: '', redirectTo: 'home', pathMatch: 'full' },
+      { path: 'home', component: HomeComponent },
+      { path: 'category', component: CategoryComponent },
+      { path: 'product', component: ProductComponent },
+      { path: 'order', component: OrderComponent },
+      { path: 'orderitems', component: OrderitemsComponent },
+      { path: 'shepments', component: ShepmentsComponent },
 
-  ]},
+
+    ]
+  },
 
   { path: 'logout', component: LogoutComponent },
   { path: 'SignOrRegister', component: SignInOrRegisterComponent },
   { path: 'Login/:Email', component: LoginComponent },
   { path: 'Register/:Email', component: RegisterComponent },
+  { path: 'shap-ment-view', component: ShapMentViewComponent },
+
 
   // Wild Path Component
   { path: "**", component: NotFoundComponent }

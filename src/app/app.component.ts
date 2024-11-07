@@ -7,11 +7,12 @@ import { ProductPaginationBySubCatComponent } from '../Comopnents/product-pagina
 import { CategoryComponent } from '../Comopnents/category/category.component';
 import { AsideComponent } from '../Comopnents/aside/aside.component.spec';
 import { OrderComponent } from '../Comopnents/order/order.component';
+import { ShapMentViewComponent } from '../Comopnents/shap-ment-view/shap-ment-view.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [HeaderComponent, HomeComponent, FooterComponent, RouterOutlet, ProductPaginationBySubCatComponent, CategoryComponent, AsideComponent, OrderComponent],
+  imports: [HeaderComponent, HomeComponent, FooterComponent, RouterOutlet, ProductPaginationBySubCatComponent, CategoryComponent, AsideComponent, OrderComponent, ShapMentViewComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
