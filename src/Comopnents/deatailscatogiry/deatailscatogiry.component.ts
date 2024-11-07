@@ -17,6 +17,9 @@ import { LanguageService } from '../../Services/Language/language.service';
 
 
 export class DeatailscatogiryComponent {
+  lang: string = 'en';
+  SubCatinCatEn: any[] = []; 
+  SubCatinCatAr: any[] = []; 
  // صور دائريه
  
   circularImages = [
@@ -51,6 +54,7 @@ export class DeatailscatogiryComponent {
 
   ];
 }
+
 
 
 

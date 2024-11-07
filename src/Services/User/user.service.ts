@@ -17,17 +17,17 @@ export class UserService {
 
   
   GetAllUsers():Observable<User[]>{
-    return this.htpClient.get<User[]>(`${environment.baseURL}/Account`)
+    return this.htpClient.get<User[]>(`${environment.baseuRL}/Account`)
   }
   RegisterUser(user:UserRegister):Observable<UserRegister>{
-    return this.htpClient.post<UserRegister>(`${environment.baseURL}/Account/Register`,JSON.stringify(user), {
+    return this.htpClient.post<UserRegister>(`${environment.baseuRL}/Account/Register`,JSON.stringify(user), {
       headers: new HttpHeaders({
           'Content-Type': 'application/json'
       })
   })
   }
   UserLogin(user:UserLogin):Observable<MyToken>{
-    return this.htpClient.post<MyToken>(`${environment.baseURL}/Account/Login`,JSON.stringify(user), {
+    return this.htpClient.post<MyToken>(`${environment.baseuRL}/Account/Login`,JSON.stringify(user), {
       headers: new HttpHeaders({
           'Content-Type': 'application/json'
       })
