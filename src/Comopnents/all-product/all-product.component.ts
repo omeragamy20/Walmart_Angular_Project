@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { Pagination } from '../../InterFaces/pagination';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { Facilities } from '../../InterFaces/facilities';
+import { LanguageService } from '../../Services/Language/language.service';
 
 @Component({
   selector: 'app-all-product',
@@ -27,9 +28,14 @@ export class AllProductComponent implements OnInit{
   url="http://localhost:5004";
   readonly panelOpenState = signal(false);
   ratingvalue:number=0;
-  constructor(private productService:ProductService,private router: Router){}
+  lang:string='';
+  constructor(private productService:ProductService,private router: Router,private _Language:LanguageService){}
   ngOnInit(): void {
-    
+    this._Language.getLangugae().subscribe({
+      next: (res) => {
+        this.lang = res
+      }
+    })
     this.products();
     this.Facilities();
   }
