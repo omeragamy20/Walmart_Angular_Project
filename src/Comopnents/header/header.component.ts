@@ -5,6 +5,8 @@ import { TranslateModule } from '@ngx-translate/core';
 import { LanguageService } from '../../Services/Language/language.service';
 import { Component, DoCheck, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
+import { UserService } from '../../Services/User/user.service';
+import { User } from '../../InterFaces/user';
 
 interface Department {
   name: string;
@@ -21,13 +23,14 @@ interface Department {
 // export class HeaderComponent implements OnInit {
 
 export class HeaderComponent implements OnInit, DoCheck {
-
+  user:User ={} as User
+  id:string ="id"
   count: number = 0;
   moneyy: any;
   totalprice: number = 0;
 
   lang:string=''
-  constructor(private lanSer:LanguageService){
+  constructor(private lanSer:LanguageService,private _UserService:UserService){
 
   }
   ngDoCheck(): void {
@@ -43,6 +46,17 @@ export class HeaderComponent implements OnInit, DoCheck {
         this.lang=res
       }
     })
+
+        this.id =sessionStorage.getItem("id")!
+        this._UserService.GetUserById(this.id).subscribe({
+          next:(res)=>{
+            this.user = res 
+            console.log(this.user)
+          }
+        })
+
+    
+    
   }
 
 
@@ -94,7 +108,6 @@ export class HeaderComponent implements OnInit, DoCheck {
 
 switchLanguage(lang:string){
   this.lanSer.changeLang(lang);
-
 }
 
 

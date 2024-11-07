@@ -18,7 +18,7 @@ import { AsideComponent } from "../aside/aside.component.spec";
 })
 export class CategoryComponent implements OnInit {
 
-
+  url:string = "http://localhost:5004"
   AllCAtegory: ICategoryEn[] = [] as ICategoryEn[];
 
   constructor(private catserviceapi:CategoryService) {

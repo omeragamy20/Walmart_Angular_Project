@@ -1,8 +1,3 @@
-export interface SubCategory
-{
-
-}
-
 export interface ISubcategoryEn{
   id :number,
   name_en : string,

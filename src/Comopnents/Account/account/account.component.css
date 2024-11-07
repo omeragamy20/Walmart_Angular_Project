@@ -1,0 +1,61 @@
+.accNav{
+
+}
+
+.sideBar{
+    border-right: 1px solid #ccc;
+}
+.head{
+    padding-top: 5px;
+    padding-bottom: 15px;
+}
+
+.iconAcc{
+    background-color: #e6f1fc;
+    border-radius: 50%;
+    width: 40px;
+    height: 30px;
+    color: #0071dc;
+    display: inline-block;
+    text-align: center;
+    margin-right: 3px;
+    padding-top: 3px;
+}
+.pp{
+    width: 100%;
+    margin-bottom: 0px;
+}
+.AccBtn{
+    text-align: right;
+    width: 100%;
+    background-color: white;
+    color: #333;
+    border-style:none ;
+}
+.AccBtn:hover{
+     background-color: white; 
+    color: #333;
+    
+}
+
+/* car inside Section */
+
+.carSection{
+    border-style: none;
+    margin-bottom: 0px;
+    padding: 5px;
+}
+.carSection a {
+    color: #444;
+    padding: 10px 0px 10px 0px;
+    font-size: 14px;
+    text-decoration: none;
+}
+.carSection a:hover{
+    color: #033a6d;
+    text-decoration: underline;
+}
+
+.carSection h3{
+    font-size: 17px;
+}

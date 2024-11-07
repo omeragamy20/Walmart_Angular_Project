@@ -33,4 +33,8 @@ export class UserService {
       })
   })
   }
+
+  GetUserById(id:string):Observable<User>{
+    return this.htpClient.get<User>(`${environment.baseURL}/Account/${id}`)
+  }
 }

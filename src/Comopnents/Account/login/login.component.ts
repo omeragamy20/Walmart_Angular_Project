@@ -46,6 +46,7 @@ export class LoginComponent {
     this.userSer.UserLogin(this.userLogin).subscribe({
       next:(res)=>{
        this.auth.setTokenAndId(res.token,res.id);
+       this.router.navigateByUrl("/home")
       },
       error:(err)=>{
         console.log(err)

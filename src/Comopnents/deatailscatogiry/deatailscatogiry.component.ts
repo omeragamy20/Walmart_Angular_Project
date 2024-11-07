@@ -1,5 +1,5 @@
 import { AfterContentChecked, Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgFor } from '@angular/common';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { SubcategoryService } from '../../Services/SubCategory/subcategory.service';
 import { ISubcategoryAr, ISubcategoryEn } from '../../InterFaces/sub-category';
@@ -8,7 +8,7 @@ import { LanguageService } from '../../Services/Language/language.service';
 @Component({
   selector: 'app-deatailscatogiry',
   standalone: true,
-  imports: [RouterLink, CommonModule],
+  imports: [RouterLink, CommonModule , NgFor],
   templateUrl: './deatailscatogiry.component.html',
   styleUrls: ['./deatailscatogiry.component.css']
 })
@@ -16,8 +16,8 @@ import { LanguageService } from '../../Services/Language/language.service';
 
 
 
-export class DeatailscatogiryComponent implements OnInit ,OnChanges {
-
+export class DeatailscatogiryComponent implements OnInit  {
+  url :string = "http://localhost:5004"
   SubCatinCatEn!: ISubcategoryEn[];
   SubCatinCatAr!: ISubcategoryAr[];
   @Input() id: number = 0;
@@ -25,24 +25,21 @@ export class DeatailscatogiryComponent implements OnInit ,OnChanges {
   constructor(private _ActivatedRoute: ActivatedRoute,private subcatserviceapi:SubcategoryService,private _languageSer:LanguageService)
 {
 
+
 }
-  ngOnChanges(changes: SimpleChanges): void {
-    if (changes['id'] && !changes['id'].firstChange) {
-      this.GetallSubcat(this.id);  // Fetch subcategories when id changes
+
+ngOnInit(): void {
+  this._languageSer.getLangugae().subscribe({
+    next: (res) => {
+      this.lang = res
     }
-  }
+  })
+  this._ActivatedRoute.params.subscribe(params => {
+    this.id = +params['id']; 
+    this.GetallSubcat(this.id);;
+    });
 
-
-  ngOnInit(): void {
-    this.id = this._ActivatedRoute.snapshot.params['id'];
-
-    this._languageSer.getLangugae().subscribe({
-      next: (res) => {
-        this.lang = res
-      }
-    })
-    this.GetallSubcat(this.id);
-
+    
   }
 
 
@@ -52,17 +49,18 @@ export class DeatailscatogiryComponent implements OnInit ,OnChanges {
         this.subcatserviceapi.GetAllSubCAtbyCatid(catid).subscribe({
           next: value => {
             this.SubCatinCatEn = value;
+            console.log( this.SubCatinCatEn)
           },
           error: err => {
             console.log(err);
-
+            
           }
         });
     } else if(this.lang=='ar') {
       this.subcatserviceapi.GetAllSubCAtbyCatid_Ar(catid).subscribe({
         next: value => {
           this.SubCatinCatAr = value;
-          console.log(value)
+          console.log(this.SubCatinCatAr)
         },
         error: err => {
           console.log(err);

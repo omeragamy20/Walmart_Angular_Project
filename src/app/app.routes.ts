@@ -15,14 +15,13 @@ import { RegisterComponent } from '../Comopnents/Account/register/register.compo
 import { MainComponent } from '../Comopnents/main/main.component';
 import { DeatailscatogiryComponent } from '../Comopnents/deatailscatogiry/deatailscatogiry.component';
 import { SupcatdeatialsComponent } from '../Comopnents/supcatdeatials/supcatdeatials.component';
+import { AccountComponent } from '../Comopnents/Account/account/account.component';
 
 export const routes: Routes = [
 
   {path:'' , component: MainComponent,children:[
 
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'login', component: LoginComponent },
-  { path: 'logout', component: LogoutComponent },
   { path: 'home', component: HomeComponent },
   { path: 'category', component: CategoryComponent },
   { path: 'allproduct', component: AllProductComponent},
@@ -39,8 +38,9 @@ export const routes: Routes = [
     { path: 'orderitems', component: OrderitemsComponent },
     { path: 'shepments', component: ShepmentsComponent },
     { path: 'supcatogiarydeatails/:id', component: SupcatdeatialsComponent },
+    { path: 'account', component: AccountComponent },
   ]},
-
+  
   { path: 'logout', component: LogoutComponent },
   { path: 'SignOrRegister', component: SignInOrRegisterComponent },
   { path: 'Login/:Email', component: LoginComponent },

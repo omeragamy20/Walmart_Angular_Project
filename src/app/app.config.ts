@@ -26,7 +26,7 @@ export const appConfig: ApplicationConfig = {
       useFactory: httpLoaderFactory,
       deps: [HttpClient],
     },
-  })]), provideAnimationsAsync()
+  })]), provideAnimationsAsync(), provideAnimationsAsync()
   ]};
 
 // export const appConfig: ApplicationConfig = {
