@@ -29,84 +29,96 @@
       <p>Where should we deliver your order?</p>
 
     </div>
-    <div class="row p-3" style="--bs-gutter-x: 1rem">
+    <form action="">
+      <div class="row p-3" style="--bs-gutter-x: 1rem">
 
 
 
-      <div class="left col-lg-6">
-        <div class="form-group">
-          <label>First name*</label>
-          <input type="text" placeholder="First name">
+        <div class="left col-lg-6">
+          <div class="form-group">
+            <label>First name*</label>
+            <input type="text" placeholder="First name">
+          </div>
+          <div class="form-group">
+            <label>Street address*</label>
+            <input type="text" placeholder="Street address">
+          </div>
+          <div class="form-group">
+            <label>City*</label>
+            <input type="text" placeholder="City">
+          </div>
+          <div class="form-group">
+            <label>Phone number*</label>
+            <input type="text" placeholder="Phone number">
+          </div>
         </div>
-        <div class="form-group">
-          <label>Street address*</label>
-          <input type="text" placeholder="Street address">
-        </div>
-        <div class="form-group">
-          <label>City*</label>
-          <input type="text" placeholder="City">
-        </div>
-        <div class="form-group">
-          <label>Phone number*</label>
-          <input type="text" placeholder="Phone number">
-        </div>
-      </div>
-      <div class="right col-lg-6">
+        <div class="right col-lg-6">
 
 
-        <div class="form-group">
-          <label>Last name*</label>
-          <input type="text" placeholder="Last name">
-        </div>
-
-
-
-        <div class="form-group">
-          <label>Apt, suite, etc.</label>
-          <input type="text" placeholder="Apt, suite, etc.">
-        </div>
-
-
-        <div class="d-flex">
-          <div class="form-group" style="width: 100%;margin-right: 10px;">
-            <label>State*</label>
-            <select>
-              <option value="NY">NY</option>
-              <!-- Add other states here -->
-            </select>
+          <div class="form-group">
+            <label>Last name*</label>
+            <input type="text" placeholder="Last name">
           </div>
 
 
-          <div class="form-group" style="width: 100%;">
-            <label>Zip code*</label>
-            <input type="text" placeholder="Zip code">
+
+          <div class="form-group">
+            <label>Apt, suite, etc.</label>
+            <input type="text" placeholder="Apt, suite, etc.">
           </div>
 
+
+          <div class="d-flex">
+            <div class="form-group" style="width: 100%;margin-right: 10px;">
+              <label>State*</label>
+              <select>
+                <option value="NY">NY</option>
+                <!-- Add other states here -->
+              </select>
+            </div>
+
+
+            <div class="form-group" style="width: 100%;">
+              <label>Zip code*</label>
+              <input type="text" placeholder="Zip code">
+            </div>
+
+          </div>
+
+
+
+          <div class="form-group">
+            <label>Gate or call box code</label>
+            <input type="text" placeholder="e.g. '1234'">
+          </div>
         </div>
 
 
 
         <div class="form-group">
-          <label>Gate or call box code</label>
-          <input type="text" placeholder="e.g. '1234'">
+          <label>Delivery notes</label>
+          <textarea placeholder="Building description, nearby landmark, etc."></textarea>
         </div>
       </div>
 
+      <div class="prfere d-flex">
+        <div>
 
+          <p>More delivery instructions</p>
 
-      <div class="form-group">
-        <label>Delivery notes</label>
-        <textarea placeholder="Building description, nearby landmark, etc."></textarea>
+          <span style="color: rgb(44, 43, 43);"> <input type="checkbox" name="" id="">Set as my preferred
+            delivery
+            address</span>
+        </div>
+        <div>
+          <a routerLink='/orderview' routerLinkActive="router-link-active" class="btnA btn btn-primary">Submit
+          </a>
+        </div>
       </div>
-    </div>
 
-    <div class="prfere">
-      <p>More delivery instructions</p>
+    </form>
 
-      <span style="color: rgb(44, 43, 43);"> <input type="checkbox" name="" id="">Set as my preferred
-        delivery
-        address</span>
-    </div>`
+
 
     <hr />
     <div class="itemDetails">
@@ -114,6 +126,7 @@
       <h5 style="color: #2e2f32;">Item details</h5>
       <p>Arrives by {{Day}}, {{Month}},order within 1 hr 44 min</p>
     </div>
+
     <hr>
 
     <div class="item">
@@ -143,8 +156,24 @@
 
     </div>
 
+    <br>
+
+    <div class="paymentoff  border rounded d-flex">
+
+      <div class="iconwalet">
+        <i class="fa-solid fa-mobile" style="color:  #a6adb9;"></i>
+
+        <h4 style="display: inline;">
+          3. Text updates for this order</h4>
+
+      </div>
+
+      <div class="off">
+        <i class="fa-solid fa-minus" style="color: #5b5f67;"></i>
+      </div>
 
 
+    </div>
 
 
 
@@ -161,3 +190,4 @@
 
 
 </div>
+<app-order-shapmentfooter></app-order-shapmentfooter>

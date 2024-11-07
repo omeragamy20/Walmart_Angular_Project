@@ -13,6 +13,7 @@ import { LoginComponent } from '../Comopnents/Account/login/login.component';
 import { RegisterComponent } from '../Comopnents/Account/register/register.component';
 import { MainComponent } from '../Comopnents/main/main.component';
 import { ShapMentViewComponent } from '../Comopnents/shap-ment-view/shap-ment-view.component';
+import { OrderviewComponent } from '../Comopnents/orderview/orderview.component';
 
 export const routes: Routes = [
 
@@ -36,6 +37,7 @@ export const routes: Routes = [
   { path: 'Login/:Email', component: LoginComponent },
   { path: 'Register/:Email', component: RegisterComponent },
   { path: 'shap-ment-view', component: ShapMentViewComponent },
+  { path: 'orderview', component: OrderviewComponent },
 
 
   // Wild Path Component

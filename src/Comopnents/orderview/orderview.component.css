@@ -1,6 +1,8 @@
 .shape {
   padding-left: 25px;
-  font-size: 23px;
+  font-size: 20px;
+  font-weight: 500;
+
 }
 
 
@@ -28,9 +30,15 @@
   font-family: Arial, sans-serif;
 }
 
-.shipping-address h3 {
-  font-size: 1.5em;
+.shipping-address span {
+  font-size: 14px;
   color: #333;
+}
+
+.itemDetails p {
+  font-size: 14px;
+  color: #333;
+  font-weight: 400 !important;
 }
 
 .shipping-address p {
@@ -39,15 +47,25 @@
   margin-bottom: 1em;
 }
 
-.form-group {
-  /* display: flex; */
-  /* flex-direction: column; */
-  margin-bottom: 1em;
+
+
+.shapetime {
+  padding-inline: 20px;
 }
 
-.form-group label {
-  font-weight: bold;
+.shapetime p {
+  padding: 10px;
+  padding-block: 20px;
+  border: 2px solid #0071dc;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: 500;
+  color: black;
 }
+
+
+
+
 
 label {
   font-size: 0.9em;
@@ -144,7 +162,12 @@ hr {
   justify-content: space-between;
   border: 2px solid #d0d1d4 !important;
   border-radius: 10px !important;
-  color: #babbbe;
+  color: black;
+  background-color: #f2f8fd;
+}
+
+.paypal {
+  padding-inline: 20px;
 }
 
 .iconwalet {
@@ -157,9 +180,23 @@ hr {
   margin: 20px !important;
 }
 
-.off i {
+.on i {
   padding: 7px;
   border-radius: 50%;
-  color: white;
-  background-color: #babbbe;
+
+  background-color: green;
+}
+
+.onfirst {
+
+  margin-left: 0%;
+  margin-top: -7%;
+
+}
+
+.onfirst i {
+  padding: 7px;
+  border-radius: 50%;
+
+  background-color: green !important;
 }

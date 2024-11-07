@@ -1,19 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterLink, RouterOutlet } from '@angular/router';
-import { OrderComponent } from '../order/order.component';
-import { OrderitemsComponent } from '../orderitems/orderitems.component';
-import { SummeryComponent } from '../summery/summery.component';
+import { RouterLink } from '@angular/router';
 import { ShapementsummeryComponent } from '../shapementsummery/shapementsummery.component';
+import { OrderitemsComponent } from '../orderitems/orderitems.component';
 import { OrderShapmentfooterComponent } from '../order-shapmentfooter/order-shapmentfooter.component';
 
 @Component({
-  selector: 'app-shap-ment-view',
+  selector: 'app-orderview',
   standalone: true,
-  imports: [RouterLink, OrderitemsComponent, SummeryComponent, ShapMentViewComponent, OrderComponent, RouterOutlet, ShapementsummeryComponent, OrderShapmentfooterComponent],
-  templateUrl: './shap-ment-view.component.html',
-  styleUrl: './shap-ment-view.component.css'
+  imports: [RouterLink, ShapementsummeryComponent, OrderitemsComponent, OrderShapmentfooterComponent],
+  templateUrl: './orderview.component.html',
+  styleUrl: './orderview.component.css'
 })
-export class ShapMentViewComponent implements OnInit {
+export class OrderviewComponent implements OnInit {
 
   num: any;
   timee: Date | any;
