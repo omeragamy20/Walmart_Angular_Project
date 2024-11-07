@@ -17,10 +17,13 @@ import { DeatailscatogiryComponent } from '../Comopnents/deatailscatogiry/deatai
 import { SupcatdeatialsComponent } from '../Comopnents/supcatdeatials/supcatdeatials.component';
 import { AccountComponent } from '../Comopnents/Account/account/account.component';
 import { authGuard } from '../Services/guard/auth.guard';
+import { ShapMentViewComponent } from '../Comopnents/shap-ment-view/shap-ment-view.component';
+import { OrderviewComponent } from '../Comopnents/orderview/orderview.component';
 
 export const routes: Routes = [
 
-  {path:'' , component: MainComponent,children:[
+  {
+    path: '', component: MainComponent, children: [
 
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
@@ -45,6 +48,9 @@ export const routes: Routes = [
   { path: 'SignOrRegister', component: SignInOrRegisterComponent },
   { path: 'Login/:Email', component: LoginComponent },
   { path: 'Register/:Email', component: RegisterComponent },
+  { path: 'shap-ment-view', component: ShapMentViewComponent },
+  { path: 'orderview', component: OrderviewComponent },
+
 
   // Wild Path Component
   { path: "**", component: NotFoundComponent }

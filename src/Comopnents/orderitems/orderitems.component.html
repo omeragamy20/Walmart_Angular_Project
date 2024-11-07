@@ -25,9 +25,9 @@
           <input class="me-2" type="checkbox">2-Year plan - $3.00
         </div>
         <div class="text-end">
-          <p class="fw-bold fs-6 " *ngIf="item.quantity > 1  ;else morethanone">${{totalprice}}</p>
+          <p class="fw-bold fs-6 " *ngIf="item.quantity == 1  ;else morethanone">${{item.price}}</p>
           <ng-template #morethanone>
-            <p class="fw-bold fs-6">${{item.price}}</p>
+            <p class="fw-bold fs-6">${{item.totall}}</p>
           </ng-template>
           <!-- <p class="text-muted text-decoration-line-through">$300</p> -->
           <!-- <p class="text-success">You save $ 20</p> -->

@@ -11,12 +11,14 @@ import { CategoryComponent } from '../Comopnents/category/category.component';
 import { AsideComponent } from '../Comopnents/aside/aside.component.spec';
 import { HttpClient } from '@angular/common/http';
 import { OrderComponent } from '../Comopnents/order/order.component';
+import { ShapMentViewComponent } from '../Comopnents/shap-ment-view/shap-ment-view.component';
+import { OrderviewComponent } from '../Comopnents/orderview/orderview.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [HeaderComponent, HomeComponent, FooterComponent, RouterOutlet, ProductPaginationBySubCatComponent
-            , CategoryComponent, AsideComponent, TranslateModule, OrderComponent],
+            , CategoryComponent, AsideComponent, TranslateModule, OrderComponent, ShapMentViewComponent, OrderviewComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

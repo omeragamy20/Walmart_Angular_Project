@@ -1,27 +1,26 @@
-import { Component, DoCheck, OnInit } from '@angular/core';
-// import { SummeryComponent } from '../summery/summery.component';
-// import { OrderitemsComponent } from "../orderitems/orderitems.component";
-import { CookieService } from 'ngx-cookie-service';
-import { ShapMentViewComponent } from '../shap-ment-view/shap-ment-view.component';
-import { SummeryComponent } from '../summery/summery.component';
+import { Component, OnInit } from '@angular/core';
+import { RouterLink, RouterOutlet } from '@angular/router';
+import { OrderComponent } from '../order/order.component';
 import { OrderitemsComponent } from '../orderitems/orderitems.component';
+import { SummeryComponent } from '../summery/summery.component';
+import { ShapementsummeryComponent } from '../shapementsummery/shapementsummery.component';
+import { OrderShapmentfooterComponent } from '../order-shapmentfooter/order-shapmentfooter.component';
 
 @Component({
-  selector: 'app-order',
+  selector: 'app-shap-ment-view',
   standalone: true,
-  imports: [OrderComponent, SummeryComponent, OrderitemsComponent, OrderitemsComponent],
-  templateUrl: './order.component.html',
-  styleUrl: './order.component.css'
+  imports: [RouterLink, OrderitemsComponent, SummeryComponent, ShapMentViewComponent, OrderComponent, RouterOutlet, ShapementsummeryComponent, OrderShapmentfooterComponent],
+  templateUrl: './shap-ment-view.component.html',
+  styleUrl: './shap-ment-view.component.css'
 })
-export class OrderComponent implements OnInit, DoCheck {
+export class ShapMentViewComponent implements OnInit {
+
   num: any;
   timee: Date | any;
   Month: Date | any;
   Day: Date | any;
-  constructor(private coockies: CookieService) {
 
 
-  }
   ngDoCheck(): void {
     this.count();
   }
@@ -31,6 +30,8 @@ export class OrderComponent implements OnInit, DoCheck {
     this.datee();
 
   }
+
+
 
 
   count() {
@@ -48,6 +49,7 @@ export class OrderComponent implements OnInit, DoCheck {
   }
 
 
+
   datee() {
 
     let timee = new Date();
@@ -58,4 +60,7 @@ export class OrderComponent implements OnInit, DoCheck {
 
 
   }
+
+
+
 }

@@ -25,6 +25,7 @@ export class OrderitemsComponent implements OnInit, DoCheck {
 
   }
   ngDoCheck(): void {
+    // this.show
     this.productlocal
     this.currentnom
     this.remove
@@ -44,10 +45,11 @@ export class OrderitemsComponent implements OnInit, DoCheck {
     this.getdata()
     this.date()
     this.totalprice
-
-
-
   }
+
+
+
+
 
   getdata() {
     const productdata = localStorage.getItem("SelectedProducts")
@@ -91,16 +93,14 @@ export class OrderitemsComponent implements OnInit, DoCheck {
       x.quantity == 1
       localStorage.setItem("SelectedProducts", JSON.stringify(prod))
       this.getdata()
-
     } else {
-
       x.quantity += 1
       let total = 0;
       total += x.quantity * x.price
+      x.totall = total
       this.totalprice = total
       localStorage.setItem("SelectedProducts", JSON.stringify(prod))
       // x.quantity = this.currentnom
-
       this.getdata()
     }
   }
@@ -117,12 +117,12 @@ export class OrderitemsComponent implements OnInit, DoCheck {
       x.quantity -= 1
       let total = 0;
       total += x.quantity * x.price
+      x.totall = total
       this.totalprice = total
       localStorage.setItem("SelectedProducts", JSON.stringify(prod))
       this.getdata()
     }
   }
-
 
 
 
