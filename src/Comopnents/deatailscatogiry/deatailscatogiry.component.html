@@ -74,7 +74,7 @@
     <!-- الصور الدائرية -->
     <h3 class="text-center">Sub Categories</h3>
     <div class="image-row d-flex flex-wrap justify-content-center">
-     
+
       @if(lang == 'en'){
       <div *ngFor="let subcat of SubCatinCatEn" class="image-container col-2">
         <a [routerLink]="['/supcatogiarydeatails', subcat.id]">
@@ -84,12 +84,12 @@
 
          <div>
         </div>
-     
+
           </div>
       } @if(lang == 'ar'){
       <div *ngFor="let subcat of SubCatinCatAr" class="image-container col-2">
         <a [routerLink]="['/supcatogiarydeatails', subcat.id]">
-          
+
           <img [src]="url+subcat.image" />
           <p class="text-center">{{ subcat.name_ar }}</p>
         </a>

@@ -11,10 +11,10 @@ export class SubcategoryService {
 
   constructor(private httpclient: HttpClient) { }
   GetAllSubCAtbyCatid(catid: number): Observable<ISubcategoryEn[]>{
-    return this.httpclient.get<ISubcategoryEn[]>(`${environment.baseURL}/SubCategory/GetSubCategoryByCatId/${catid}`)
+    return this.httpclient.get<ISubcategoryEn[]>(`${environment.baseuRL}/SubCategory/GetSubCategoryByCatId/${catid}`)
   }
 
   GetAllSubCAtbyCatid_Ar(catid: number): Observable<ISubcategoryAr[]>{
-    return this.httpclient.get<ISubcategoryAr[]>(`${environment.baseURL}/SubCategory/GetSubCategoryByCatId/${catid}`)
+    return this.httpclient.get<ISubcategoryAr[]>(`${environment.baseuRL}/SubCategory/GetSubCategoryByCatId/${catid}`)
   }
 }

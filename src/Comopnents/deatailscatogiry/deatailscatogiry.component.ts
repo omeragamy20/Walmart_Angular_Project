@@ -35,11 +35,11 @@ ngOnInit(): void {
     }
   })
   this._ActivatedRoute.params.subscribe(params => {
-    this.id = +params['id']; 
+    this.id = +params['id'];
     this.GetallSubcat(this.id);;
     });
 
-    
+
   }
 
 
@@ -53,7 +53,7 @@ ngOnInit(): void {
           },
           error: err => {
             console.log(err);
-            
+
           }
         });
     } else if(this.lang=='ar') {
@@ -103,6 +103,7 @@ ngOnInit(): void {
 
   ];
 }
+
 
 
 
