@@ -39,11 +39,11 @@
                 <a href="#">visist HP store</a>
                 <p>{{product[0].title_en}} </p>
                 <div>
-                  <i class="fa-solid" [ngClass]="getStarClass(product[0].rate, 1)"></i>
-                  <i class="fa-solid" [ngClass]="getStarClass(product[0].rate, 2)"></i>
-                  <i class="fa-solid" [ngClass]="getStarClass(product[0].rate, 3)"></i>
-                  <i class="fa-solid" [ngClass]="getStarClass(product[0].rate, 4)"></i>
-                  <i class="fa-solid" [ngClass]="getStarClass(product[0].rate, 5)"></i>
+                  <i class="fa-solid" [ngClass]="getStarClass(ratingvalue, 1)"></i>
+                  <i class="fa-solid" [ngClass]="getStarClass(ratingvalue, 2)"></i>
+                  <i class="fa-solid" [ngClass]="getStarClass(ratingvalue, 3)"></i>
+                  <i class="fa-solid" [ngClass]="getStarClass(ratingvalue, 4)"></i>
+                  <i class="fa-solid" [ngClass]="getStarClass(ratingvalue, 5)"></i>
                   <p>({{ratingvalue}}) | {{product[0].totalRate}} </p>
                 </div>     
               </div>
@@ -152,35 +152,30 @@
     <div class="row more" id="specific-section">
       <div class="col-9">
         <div class="col-12">
+          <h5>About this item</h5>
           <div class="accordion" id="accordionExample">
-            <div class="accordion-item">
-              <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
-                  Product Details
+            <div class="accordion-item" *ngFor="let item of accordionItems; let i = index">
+              <h2 class="accordion-header" [attr.id]="'heading' + i">
+                <button class="accordion-button" [class.collapsed]="!item.isOpen" type="button" (click)="toggleAccordion(i)">
+                  {{ item.title }}
                 </button>
               </h2>
-              <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+              <div [attr.id]="'collapse' + i" class="accordion-collapse collapse" [class.show]="item.isOpen" [attr.aria-labelledby]="'heading' + i" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                {{product[0].description_en}}   
+                  <ng-container *ngIf="item.contentType === 'description'">
+                    {{ product[0].description_en }}
+                  </ng-container>
+                  <ng-container *ngIf="item.contentType === 'specifications'">
+                    <div *ngFor="let spec of product[0].values; let j = index">
+                      <h5>{{ spec }}</h5>
+                      <p>{{ product[0].facilities[j] }}</p>
+                    </div>
+                  </ng-container>
                 </div>
               </div>
             </div>
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="headingOne">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
-                    Specifications
-                  </button>
-                </h2>
-                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                  <div class="accordion-body">
-                    <div *ngFor="let spec of product[0].values; let i = index">
-                      <h5>{{ spec }}</h5>
-                      <p>{{ product[0].facilities[i] }}</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>            
+          </div>
+                     
         </div>
         <div class="row">
           <div class="col- rate" id="rating">

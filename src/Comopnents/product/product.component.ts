@@ -20,7 +20,10 @@ import { RateComponent } from '../rate/rate.component';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProductComponent implements OnInit{
-
+  accordionItems = [
+    { title: 'Product Details', contentType: 'description', isOpen: false },
+    { title: 'Specifications', contentType: 'specifications', isOpen: false }
+  ];
   sections = [
     'Product Details',
     'Specifications',
@@ -147,11 +150,14 @@ constructor(private _productservice:ProductService,private route: ActivatedRoute
     getStarClass(rate: number, star: number): string {
       if (rate >= star) {
         return 'fa-star rating filled';
-      } else if (star==5&& rate>4&&(rate >= star - 0.5 || star-rate>0.5)) {
+      } else if ((rate >= star - 0.5 || star-rate>0.5)) {
         return 'fa-star-half-alt rating filled';
       } else {
         return 'fa-star rating';
       }
     }
+    toggleAccordion(index: number) {
+    this.accordionItems[index].isOpen = !this.accordionItems[index].isOpen;
+  }
 }
 

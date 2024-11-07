@@ -1,15 +1,19 @@
+/* .dialog{
+    width:80vw;
+} */
 .images{
     display: flex;
     /* flex-direction: ; */
     margin-top: 5vh;
     padding-left: .5rem;
     padding-right: .5rem;
+   
 }
 .img{
     display: flex;
     cursor: pointer;
     flex-wrap: nowrap;
-    /* flex-direction: column; */
+    flex-direction: column;
     margin-right:30px;
 }
 .image{
