@@ -77,8 +77,8 @@
 
       @if(lang == 'en'){
       <div *ngFor="let subcat of SubCatinCatEn" class="image-container col-2">
-        <a [routerLink]="['/supcatogiarydeatails', subcat.id]">
-          <img [src]="url+subcat.image" />
+        <a [routerLink]="['/allproduct', subcat.id]">
+          <img [src]="subcat.image" />
           <p class="text-center">{{ subcat.name_en }}</p>
         </a>
 
@@ -88,7 +88,7 @@
           </div>
       } @if(lang == 'ar'){
       <div *ngFor="let subcat of SubCatinCatAr" class="image-container col-2">
-        <a [routerLink]="['/supcatogiarydeatails', subcat.id]">
+        <a [routerLink]="['/allproduct', subcat.id]">
 
           <img [src]="url+subcat.image" />
           <p class="text-center">{{ subcat.name_ar }}</p>

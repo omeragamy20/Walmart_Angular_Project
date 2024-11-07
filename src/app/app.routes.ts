@@ -24,7 +24,7 @@ export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'category', component: CategoryComponent },
-  { path: 'allproduct', component: AllProductComponent},
+  { path: 'allproduct/:id', component: AllProductComponent},
   { path: 'product/:id', component: ProductComponent },
   { path: 'order', component: OrderComponent },
   { path: 'orderitems', component: OrderitemsComponent },
@@ -40,7 +40,7 @@ export const routes: Routes = [
     { path: 'supcatogiarydeatails/:id', component: SupcatdeatialsComponent },
     { path: 'account', component: AccountComponent },
   ]},
-  
+
   { path: 'logout', component: LogoutComponent },
   { path: 'SignOrRegister', component: SignInOrRegisterComponent },
   { path: 'Login/:Email', component: LoginComponent },

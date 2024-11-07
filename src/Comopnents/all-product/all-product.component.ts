@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit, signal } from '@angular/core';
+import { Component, Input, input, OnInit, signal } from '@angular/core';
 import { IProduct } from '../../InterFaces/product';
 import { ProductService } from '../../Services/Product/product.service';
 import { Router } from '@angular/router';
@@ -20,11 +20,11 @@ export class AllProductComponent implements OnInit{
   filteredProducts : IProduct[]=[] as IProduct[];
   selectedFilters = new Set<string>();
   specifictions:Facilities[]=[] as Facilities[];
-  subcatid=2;
+  @Input('id') subcatid:number=0;
   totalProducts = 0;
   pageSize = 4;
   currentPage = 1;
-  totalPages = 0;  
+  totalPages = 0;
   url="http://localhost:5004";
   readonly panelOpenState = signal(false);
   ratingvalue:number=0;
@@ -84,7 +84,7 @@ Details(id:number){
   onFilterChange(value: string, event: Event) {
     const target = event.target as HTMLInputElement;
     const checked = target.checked;
-  
+
     if (checked) {
       this.selectedFilters.add(value);
     } else {
@@ -92,7 +92,7 @@ Details(id:number){
     }
     this.applyFilters();
   }
-  
+
 
   applyFilters() {
     if (this.selectedFilters.size === 0) {
@@ -113,6 +113,6 @@ Details(id:number){
       return 'fa-star rating';
     }
   }
-  
+
 
 }
