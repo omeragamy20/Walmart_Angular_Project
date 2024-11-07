@@ -1,0 +1,86 @@
+.video-card {
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+  border: none;
+}
+
+.video-container {
+  position: relative;
+}
+
+.video-container video,
+.video-container img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.card-body {
+  text-align: center;
+}
+
+.product-creator {
+  font-weight: bold;
+}
+
+.product-caption {
+  font-size: 0.9em;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.product-price {
+  color: #f06;
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
+.product-name {
+  font-size: 0.9em;
+  color: #666;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: #333;
+  border-radius: 50%;
+}
+
+
+/* /////// */
+
+.circle-button {
+
+  width: 40px; /* Adjust width to your preference */
+  height: 40px; /* Adjust height to your preference */
+  border: 1px solid #000; /* Border color */
+  border-radius: 50%; /* Make it circular */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent; /*Transparent background*/
+  cursor: pointer;
+  outline: none;
+}
+
+.buttonRL{
+  position: relative;
+  bottom: 290px;
+  font-display: none;
+  /* border-radius: 50%; */
+  color: none;
+  background-color: none;
+  /* outline-color: none; */
+  /* offset-distance: none; */
+}
+
+.circle-button i {
+  font-size: 1rem; /* Adjust icon size */
+  color: #000; /* Icon color */
+}
+
+.circle-button:hover {
+  background-color: #f0f0f0; /* Light gray on hover */
+}

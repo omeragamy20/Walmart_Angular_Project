@@ -18,8 +18,7 @@ import { AsideComponent } from "../aside/aside.component.spec";
 })
 export class CategoryComponent implements OnInit {
 
-  itemsPerPage: number = 6;
-  currentPage: number = 0;
+
   AllCAtegory: ICategoryEn[] = [] as ICategoryEn[];
 
   constructor(private catserviceapi:CategoryService) {
@@ -41,14 +40,16 @@ export class CategoryComponent implements OnInit {
     });
   }
 
-  getCurrentPageItems() {
-    const start = this.currentPage * this.itemsPerPage;
-    const end = start + this.itemsPerPage;
-    return this.AllCAtegory.slice(start, end);
-  }
+  itemsPerPage: number = 6;
+  currentPage: number = 1;
+  // getCurrentPageItems() {
+  //   const start = this.currentPage * this.itemsPerPage;
+  //   const end = start + this.itemsPerPage;
+  //   return this.AllCAtegory.slice(start, end);
+  // }
 
 
-  get paginatedProducts() {
+  getpaginatedProducts() {
     const startIndex = (this.currentPage - 1) * this.itemsPerPage;
     return this.AllCAtegory.slice(startIndex, startIndex + this.itemsPerPage);
   }
@@ -60,14 +61,14 @@ export class CategoryComponent implements OnInit {
   }
 
   prevPage() {
-    if (this.currentPage >= 1) {
+    if (this.currentPage >1 ) {
       this.currentPage--;
     }
   }
 
-  isLastPage() {
-    return (this.currentPage + 1) * this.itemsPerPage >= this.AllCAtegory.length;
-  }
+  // isLastPage() {
+  //   return (this.currentPage + 1) * this.itemsPerPage >= this.AllCAtegory.length;
+  // }
 ////////////////////////////////////////////////////
 
 /////////////////////////////////////////////////////////////////////////////////////

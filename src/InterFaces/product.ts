@@ -1,3 +1,4 @@
+import { Component, Input } from "@angular/core";
 export interface IProduct {
     id:number;
     title_en:string;
@@ -46,5 +47,7 @@ export interface IproductEn {
   description_en: string,
   price: number,
   imageUrls: string,
-  stock: number
+  stock: number,
+  quantity: number
 }
+

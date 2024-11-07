@@ -13,6 +13,8 @@ import { LogoutComponent } from '../Comopnents/Account/logout/logout.component';
 import { LoginComponent } from '../Comopnents/Account/login/login.component';
 import { RegisterComponent } from '../Comopnents/Account/register/register.component';
 import { MainComponent } from '../Comopnents/main/main.component';
+import { DeatailscatogiryComponent } from '../Comopnents/deatailscatogiry/deatailscatogiry.component';
+import { SupcatdeatialsComponent } from '../Comopnents/supcatdeatials/supcatdeatials.component';
 
 export const routes: Routes = [
 
@@ -30,12 +32,13 @@ export const routes: Routes = [
   { path: 'shepments', component: ShepmentsComponent },
     { path: '', redirectTo: 'home', pathMatch: 'full' },
     { path: 'home', component: HomeComponent },
+    { path: 'categryditals/:id', component: DeatailscatogiryComponent },
     { path: 'category', component: CategoryComponent },
     { path: 'product', component: ProductComponent },
     { path: 'order', component: OrderComponent },
     { path: 'orderitems', component: OrderitemsComponent },
     { path: 'shepments', component: ShepmentsComponent },
-
+    { path: 'supcatogiarydeatails/:id', component: SupcatdeatialsComponent },
   ]},
 
   { path: 'logout', component: LogoutComponent },
