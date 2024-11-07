@@ -26,18 +26,18 @@ export class ProductService {
     return this.httpClient.get<Pagination<IProduct>>(this.url,{params})
    }
    getproductbyId(id:number):Observable<IProduct[]>{
-    return this.httpClient.get<IProduct[]>(`${environment.baseUrl}/Product/GetOne?id=${id}`)
+    return this.httpClient.get<IProduct[]>(`${environment.baseURL}/Product/GetOne?id=${id}`)
    }
    getFacilitiybysubid(subid:number):Observable<Facilities[]>{
     const params =new HttpParams()
     .set('subid',subid.toString());
-    return this.httpClient.get<Facilities[]>(`${environment.baseUrl}/Facility/Facilities`,{params});
+    return this.httpClient.get<Facilities[]>(`${environment.baseURL}/Facility/Facilities`,{params});
    }
    addRate(rate: Rate): Observable<Rate> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    return this.httpClient.post<Rate>(`${environment.baseUrl}/Rate`, rate, { headers });
+    return this.httpClient.post<Rate>(`${environment.baseURL}/Rate`, rate, { headers });
   }
   getRate(productId:number):Observable<number>{
-    return this.httpClient.get<number>(`${environment.baseUrl}/Rate?productId=${productId}`);
+    return this.httpClient.get<number>(`${environment.baseURL}/Rate?productId=${productId}`);
   }
 }

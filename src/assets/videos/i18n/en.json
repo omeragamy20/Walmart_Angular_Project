@@ -1,0 +1,18 @@
+{
+    "product":{
+        "ViewAll":"View All",
+        "Previous":"Previous",
+        "Next":"Next",
+        "About_This_Item":"About This Item",
+        "Ataglance":"At a glance",
+        "ViewAllSpecifications":"View All Specifications",
+        "Customerratings&reviews":"Customer ratings & reviews",
+        "outof5":"out of 5",
+        "stars":"stars",
+        "Rating":"We’d love to hear what you think!",
+        "BtnFeedback":"Give feedback"
+    },
+    "button":{
+
+    }
+}

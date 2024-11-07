@@ -9,7 +9,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { AllImagesComponent } from '../all-images/all-images.component';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { RateComponent } from '../rate/rate.component';
-
+import { LanguageService } from '../../Services/Language/language.service';
+import { TranslateDirective, TranslatePipe } from '@ngx-translate/core';
+// import { Component } from '@angular/core';
+// import { TranslatePipe, TranslateDirective } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-product',
@@ -24,6 +27,10 @@ export class ProductComponent implements OnInit{
     { title: 'Product Details', contentType: 'description', isOpen: false },
     { title: 'Specifications', contentType: 'specifications', isOpen: false }
   ];
+  accordionItemsAr = [
+    { title: 'تفاصيل المنتج', contentType: 'وصف', isOpen: false },
+    { title: 'مواصفات', contentType: 'مواصفات', isOpen: false }
+  ];
   sections = [
     'Product Details',
     'Specifications',
@@ -31,6 +38,7 @@ export class ProductComponent implements OnInit{
   borderStyle: string = '1px solid black';
   product!:IProduct[];
   showSidebar = false;
+  lang:string='';
   sectionOffset: number = 0;
   num1:number=0;
   num2:number=0;
@@ -48,8 +56,13 @@ export class ProductComponent implements OnInit{
   readonly dialog = inject(MatDialog);
   isfeedbackformOpend = false;
   ratingvalue:number=0;
-constructor(private _productservice:ProductService,private route: ActivatedRoute){}
+constructor(private _productservice:ProductService,private route: ActivatedRoute,private _Language :LanguageService){}
   ngOnInit(): void {
+    this._Language.getLangugae().subscribe({
+      next: (res) => {
+        this.lang = res
+      }
+    })
    const productId = this.route.snapshot.params['id'];
 
     console.log(productId);
@@ -123,7 +136,9 @@ constructor(private _productservice:ProductService,private route: ActivatedRoute
   }
   openDialog() {
     const dialogRef = this.dialog.open(SpecificationComponent,{
-      data:{specificationsValues:this.product[0].facilities,specifications:this.product[0].values}
+      data:{specificationsValues:this.product[0].facilities,specifications:this.product[0].values,
+        specificationsValuesAr:this.product[0].facilities_Ar,specificationsAr:this.product[0].values_Ar
+      }
       
     });
 
@@ -158,6 +173,9 @@ constructor(private _productservice:ProductService,private route: ActivatedRoute
     }
     toggleAccordion(index: number) {
     this.accordionItems[index].isOpen = !this.accordionItems[index].isOpen;
+  }
+  toggleAccordionAr(index: number) {
+    this.accordionItemsAr[index].isOpen = !this.accordionItemsAr[index].isOpen;
   }
 }
 
