@@ -14,7 +14,8 @@ import { RouterLink } from '@angular/router';
 
 
 export class DeatailscatogiryComponent {
- // صور دائرية 
+ // صور دائريه
+ 
   circularImages = [
     { url: 'https://i5.walmartimages.com/dfw/4ff9c6c9-c740/k2-_49c2b8ed-576f-4883-9b85-c731050b3cde.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF', name: 'ًwomens' },
      { url: 'https://i5.walmartimages.com/dfw/4ff9c6c9-7b71/k2-_dabe399b-edc2-4213-ab39-0ec6ee662940.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF', name: 'womens plus' },
