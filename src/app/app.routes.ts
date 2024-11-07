@@ -16,6 +16,7 @@ import { MainComponent } from '../Comopnents/main/main.component';
 import { DeatailscatogiryComponent } from '../Comopnents/deatailscatogiry/deatailscatogiry.component';
 import { SupcatdeatialsComponent } from '../Comopnents/supcatdeatials/supcatdeatials.component';
 import { AccountComponent } from '../Comopnents/Account/account/account.component';
+import { authGuard } from '../Services/guard/auth.guard';
 
 export const routes: Routes = [
 
@@ -26,7 +27,7 @@ export const routes: Routes = [
   { path: 'category', component: CategoryComponent },
   { path: 'allproduct', component: AllProductComponent},
   { path: 'product/:id', component: ProductComponent },
-  { path: 'order', component: OrderComponent },
+  { path: 'order',canActivate:[authGuard], component: OrderComponent },
   { path: 'orderitems', component: OrderitemsComponent },
   { path: 'shepments', component: ShepmentsComponent },
     { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -34,11 +35,10 @@ export const routes: Routes = [
     { path: 'categryditals/:id', component: DeatailscatogiryComponent },
     { path: 'category', component: CategoryComponent },
     { path: 'product', component: ProductComponent },
-    { path: 'order', component: OrderComponent },
     { path: 'orderitems', component: OrderitemsComponent },
     { path: 'shepments', component: ShepmentsComponent },
     { path: 'supcatogiarydeatails/:id', component: SupcatdeatialsComponent },
-    { path: 'account', component: AccountComponent },
+    { path: 'account',canActivate:[authGuard] ,  component: AccountComponent },
   ]},
   
   { path: 'logout', component: LogoutComponent },

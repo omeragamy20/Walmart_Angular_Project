@@ -29,7 +29,7 @@ export class RegisterComponent implements OnInit {
    this.UserReg.Username =`${this.Email.split('@')[0]}00${this.UserReg.FirstName}00${this.UserReg.LastName}`;
      this.userSer.RegisterUser(this.UserReg).subscribe({
       next:(val)=>{
-        this.router.navigate(['/home'])
+        this.router.navigateByUrl('/home')
       },error:(err)=>{
         console.log(this.UserReg)
         console.log(err)
