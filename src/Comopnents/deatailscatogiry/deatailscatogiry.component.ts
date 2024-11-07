@@ -1,6 +1,9 @@
-import { Component } from '@angular/core';
+import { AfterContentChecked, Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
+import { SubcategoryService } from '../../Services/SubCategory/subcategory.service';
+import { ISubcategoryAr, ISubcategoryEn } from '../../InterFaces/sub-category';
+import { LanguageService } from '../../Services/Language/language.service';
 
 @Component({
   selector: 'app-deatailscatogiry',
@@ -45,7 +48,7 @@ export class DeatailscatogiryComponent {
     { url: 'https://i5.walmartimages.com/dfw/4ff9c6c9-5d5a/k2-_ca23e2f7-3019-49d1-95fe-3add02d2f4b2.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF', name: 'love sportis' },
     { url: 'https://i5.walmartimages.com/dfw/4ff9c6c9-4e11/k2-_bee3b0b5-b343-4302-a57d-0440ee8dfddd.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF', name: 'reebok mady' },
     { url: 'https://i5.walmartimages.com/dfw/4ff9c6c9-28b0/k2-_fbb7b44d-8f89-4799-ad33-27e2aec62e18.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF', name: 'Square fashion' },
-  
+
   ];
 }
 
@@ -88,7 +91,7 @@ export class DeatailscatogiryComponent {
 //   ];
 
 
-  
+
 // }
 
 
@@ -114,5 +117,5 @@ export class DeatailscatogiryComponent {
 
 // }
 // export class CategoryComponent {
-  
+
 // }

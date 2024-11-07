@@ -33,61 +33,61 @@
 } */
 
 /* تنسيق الحاوية العامة للكاردات */
-.container {
+/* .container {
   padding: 20px;
-}
+} */
 
 /* تنسيق الكارد */
-.card {
+/* .card {
   border: 1px solid #ddd;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+} */
 
 /* تأثير عند مرور المؤشر فوق الكارد */
-.card:hover {
+/* .card:hover {
   transform: translateY(-10px);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
+} */
 
 /* تنسيق الصورة */
-.card img.card-img-top {
+/* .card img.card-img-top {
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   object-fit: cover;
-}
+} */
 
 /* تنسيق العنوان */
-.card-title {
+/* .card-title {
   font-size: 1.1rem;
   font-weight: bold;
   margin: 10px 0;
-}
+} */
 
 /* تنسيق السعر الحالي */
-.text-success.fw-bold {
+/* .text-success.fw-bold {
   font-size: 1rem;
   color: #28a745;
-}
+} */
 
 /* تنسيق السعر المخفض */
-.text-muted s {
+/* .text-muted s {
   font-size: 0.9rem;
   color: #999;
-}
+} */
 
 /* زر الإضافة للمفضلة */
-.btn-link.text-decoration-none {
+/* .btn-link.text-decoration-none {
   color: #ff4d4d;
 }
 
 .btn-link.text-decoration-none:hover {
   color: #ff1a1a;
-}
+} */
 
 /* زر "Add" */
-#btnadd {
+/* #btnadd {
   width: 100%;
   font-weight: bold;
   padding: 8px;
@@ -99,6 +99,13 @@
 }
 .rating i {
   font-size: 1rem;
-  color: #ffd700; /* اللون الذهبي للنجوم */
+  color: #ffd700;
   margin: 0 2px;
-}
+} */
+
+
+
+
+
+
+/* /////////////////// */

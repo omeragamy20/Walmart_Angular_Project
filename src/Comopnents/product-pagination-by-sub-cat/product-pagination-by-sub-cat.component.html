@@ -26,12 +26,12 @@
     </div> -->
 
 
-    <!-- </div>
+<!-- </div>
     } -->
-    <!-- End of Product Item -->
-  <!-- </div> -->
+<!-- End of Product Item -->
+<!-- </div> -->
 
-  <!-- <div class="col">
+<!-- <div class="col">
     <div class="card h-100 shadow-sm">
        <img [src]="prd.ImageUrls" class="card-img-top" alt="product image">
        <div class="card-body">
@@ -96,35 +96,79 @@
 <div class="container">
   <div class="row">
     <div class="col-md-2 mb-2" *ngFor="let product of paginatedProducts">
-      <div class="card h-100 text-center">
-       <button href="" style="text-decoration: none;">
-        <img [src]="URL+product.imageUrls" class="card-img-top" alt="{{ product.title_en }}" width="85px" height="150px">
-        <div class="card-body">
-          <h5 class="card-title">{{ product.title_en }}</h5>
-          <p class="text-success fw-bold">Now ${{ product.price }}</p>
-          <p class="text-muted"><s>${{ product.price + product.price * 0.1 }}</s></p>
+      <div class="card h-100 text-center" >
+      <button href="" style="border: none;">
+        <div>
+          <img [src]="URL+product.imageUrls" class="card-img-top" alt="{{ product.title_en }}" width="175px" height="175px">
+          <!-- <img id="productimage" loading="lazy" [src]="URL+product.imageUrls" width="175x" height="175px" class="absolute top-0 left-0" data-testid="productTileImage" alt="{{product.title_en}}"> -->
+        </div>
+        <!-- <div class="mt0 mb0" data-testid="variant-139316560" style="height: 24px;"></div> -->
+        <div class="card-body" style="background-color: white;text-align: left;">
+          <div id="product_price" class="flex flex-wrap justify-start items-center lh-title mb1-m">
+            <div id="discountprice" class="mr1 mr2-xl b black green lh-copy f5 f4-l" aria-hidden="true">Now ${{ product.price }}</div>
+            <span class="w_iUH7">current price ${{ product.price }}</span>
+            <!-- <h6 class="text-success fw-bold">Now ${{ product.price }}</h6> -->
+            <!-- <p class="text-muted"><s>${{ product.price + product.price * 0.1 }}</s></p> -->
+            <div id="oldprice" class="gray mr1 strike f7 f6-l" aria-hidden="true">${{ product.price + product.price * 0.1 }}</div>
+            <span class="w_iUH7">Was ${{ product.price + product.price * 0.1 }}</span>
+          </div>
+          <span id="title1" class>
+            <span id="title2" class="w_V_DM" style="-webkit-line-clamp: 2; padding-bottom: 0em; margin-bottom: 0em;">
+              <span id="title3" data-automation-id="product-title" class="normal dark-gray mb0 mt1 lh-title f6 f5-l">
+                {{ product.description_en }}
+              </span>
+            </span>
+          </span>
 
           <button class="btn btn-link text-decoration-none">
             <i class="far fa-heart"></i>
           </button>
+
         </div>
-       </button>
-        <button id="btnadd" class="btn btn-outline-secondary">
-          <i class="bi bi-plus-lg"></i> Add
-        </button>
+      </button>
+      <div id="btnadd" class="relative dib" dib>
+        <button id="btnbtnadd" (click)="addProductToCookie(product)" class="w_hhLG w_XK4d w_0_LY pointer bn sans-serif b ph2 flex items-center justify-center w-auto">
+        <i class="bi bi-plus-lg"></i>
+        <span class="mr2">Add</span>
+      </button>
+
+        <!-- <div class="card h-100 text-center">
+          <button href="" style="text-decoration: none;">
+            <img [src]="URL+product.imageUrls" class="card-img-top" alt="{{ product.title_en }}" width="85px"
+              height="150px">
+            <div class="card-body">
+              <h5 class="card-title">{{ product.title_en }}</h5>
+              <p class="text-success fw-bold">Now ${{ product.price }}</p>
+              <p class="text-muted"><s>${{ product.price + product.price * 0.1 }}</s></p>
+
+              <button class="btn btn-link text-decoration-none">
+                <i class="far fa-heart"></i>
+              </button>
+            </div>
+          </button>
+          <button (click)="addProductToCookie(product)" id="btnadd" class="btn btn-outline-secondary">
+
+            <i class="bi bi-plus-lg"></i> Add
+          </button>
+        </div> -->
+
       </div>
+
     </div>
+
     <div class="d-flex justify-content-between mt-4">
-      <div  class="buttonRL" >
+      <div class="buttonRL">
         <button class="circle-button" style="right:100%;" (click)="prevPage()" [disabled]="currentPage === 1">
           <i class="bi bi-chevron-left"></i>
         </button>
       </div>
-      <div class="buttonRL" >
-        <button class="circle-button" style="left: 100%;" (click)="nextPage()" [disabled]="(currentPage * itemsPerPage) >= fillpagnationproduct.length">
+      <div class="buttonRL">
+        <button class="circle-button" style="left: 100%;" (click)="nextPage()"
+          [disabled]="(currentPage * itemsPerPage) >= fillpagnationproduct.length">
           <i class="bi bi-chevron-right"></i>
         </button>
       </div>
     </div>
   </div>
+</div>
 </div>
