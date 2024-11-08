@@ -21,37 +21,14 @@
               <div class="collapse" id="collapseExample">
                 <div class="card card-body carSection ">
                     <a href="#">Home</a>
-                    <a href="#">Purchase History</a>
-                    <a href="#">Walmart + </a>
-                    <a href="#">My Saving</a>
-                    <a href="#">Walmart Cash</a>
-                    <a href="#">Messegs</a>
+                    <a routerLink="purechase" routerLinkActive="active_link">Purchase History</a>
                 </div>
 
                 <div class="card card-body carSection">
                     <h3>My items</h3>
-                    <a href="#">Reorder</a>
-                    <a href="#">Lists</a>
-                    <a href="#">Subsciptions </a>
-                    <a href="#">Registry</a>
-                    <a href="#">Protection plans</a>
+                    <a routerLink="reorder" routerLinkActive="active_link">Reorder</a>
+                    <a routerLink="lists" routerLinkActive="active_link">Lists</a>
                  
-                </div>
-
-
-                <div class="card card-body carSection">
-                    <h3>My Profile</h3>
-                    <a href="#">Pets</a>
-                    <a href="#">Vehicles</a>
-                    <a href="#">Recipes <span style="background-color: yellow;">New</span> </a>
-                    <a href="#">Giving and impact</a>
-                </div>
-
-                <div class="card card-body carSection">
-                    <h3>Other Accounts</h3>
-                    <a href="#">Pharmacy</a>
-                    <a href="#">Photo</a>
-                    <a href="#">Ebooks</a>
                 </div>
               </div>
 
@@ -73,30 +50,31 @@
               
               <div class="collapse" id="collapse2">
                 <div class="card card-body carSection ">
-                    <a href="#">Home</a>
+                    <a routerLink="#" routerLinkActive="active_link">Home</a>
                 </div>
 
                 <div class="card card-body carSection">
                     <h3>Personal information</h3>
-                    <a href="#">Contact info and password</a>
-                    <a href="#">Addresses</a>
-                    <a href="#">Wallet </a>
+                    <a routerLink="ContactInfo" routerLinkActive="active_link">Contact info and password</a>
+                    <a routerLink="Addresses" routerLinkActive="active_link">Addresses</a>
                 </div>
 
 
                 <div class="card card-body carSection">
                     <h3>Shopping settings</h3>
-                    <a href="#">Language settings</a>
+                    <a routerLink="LanguageSetting" routerLinkActive="active_link">Language settings</a>
                 </div>
               </div>
               <hr>
               <div class="signOut">
-                <a href="#">Sign Out</a>
+                <a routerLink="#" routerLinkActive="active_link">Sign Out</a>
               </div>
           
         </div>
         <div class="col-8">
-           <span style="font-size: 45px; font-weight: 400;">Hi , Name</span>
+           <!-- <span style="font-size: 45px; font-weight: 400;">Hi , {{user.firstName}}</span> -->
+          
+           <router-outlet></router-outlet>
         </div>
     </div>
 </div>

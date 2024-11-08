@@ -1,0 +1,21 @@
+h1{
+    color: #2e2f32;
+    font-family: Bogle, Helvetica Neue, Helvetica, Arial, sans-serif;
+    margin-bottom: 0;
+    margin-top: 0;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.para1{
+    color: #2e2f32;
+    font-family: Bogle, Helvetica Neue, Helvetica, Arial, sans-serif;
+    margin-bottom: 1.5rem;
+    margin-top: 1.5rem;
+    font-weight: 400;
+    font-size: .9rem;
+}
+
+form input{
+    margin: 7px;
+}
