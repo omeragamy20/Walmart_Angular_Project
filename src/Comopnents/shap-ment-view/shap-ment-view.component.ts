@@ -6,8 +6,10 @@ import { SummeryComponent } from '../summery/summery.component';
 import { ShapementsummeryComponent } from '../shapementsummery/shapementsummery.component';
 import { OrderShapmentfooterComponent } from '../order-shapmentfooter/order-shapmentfooter.component';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Shapment } from '../../InterFaces/shapment';
 import { ShepmentServiceService } from '../../Services/Shepment/shepment-service.service';
+import { createShipment } from '../../InterFaces/createShipment';
+import { UserService } from '../../Services/User/user.service';
+import { User } from '../../InterFaces/user';
 
 @Component({
   selector: 'app-shap-ment-view',
@@ -17,21 +19,17 @@ import { ShepmentServiceService } from '../../Services/Shepment/shepment-service
   styleUrl: './shap-ment-view.component.css'
 })
 export class ShapMentViewComponent implements OnInit {
-
   num: any;
-  timee: Date | any;
+  timee: Date = new Date;
   Month: Date | any;
   Day: Date | any;
-
-
-
-
-  shepment: Shapment = {} as Shapment
-
-
-  constructor(private fb: FormBuilder, private shempmentservice: ShepmentServiceService, private router: Router) {
-
-
+  
+  user:User ={} as User
+  shepment: createShipment = {} as createShipment
+  
+  constructor(private fb: FormBuilder 
+    ,private shempmentservice: ShepmentServiceService, 
+    private router: Router , private userSer:UserService) {
   }
 
 
@@ -48,20 +46,13 @@ export class ShapMentViewComponent implements OnInit {
 
 
   ngOnInit(): void {
-    // this.checkoutForm = this.fb.group({
+    this.timee.setDate(this.timee.getDate() + 3)
+    this.userSer.GetUserById(sessionStorage.getItem("id")!).subscribe({
+     next:(res)=>{
+      this.user = res
 
-    //   firstName: ['', [Validators.required, Validators.minLength(2)]],
-    //   lastName: ['', [Validators.required, Validators.minLength(2)]],
-    //   streetAddress: ['', [Validators.required, Validators.minLength(3)]],
-
-
-
-
-    // })
-
-
-
-
+     }
+    })
 
     this.count();
     this.datee();
@@ -70,20 +61,18 @@ export class ShapMentViewComponent implements OnInit {
 
 
   Addshapment(): void {
-    // this.shempmentservice.createShipment(this.shepment).subscribe({
-
-    //   next: (res) => {
-    //     console.log(res);
-
-    //     this.router.navigateByUrl('/orderview')
-    //   },
-    //   error: (err) => {
-    //     console.log(err);
-
-    //   }
-
-
-    // })
+    console.log(this.shepment)
+    this.shepment.CustomerId = this.user.id
+    this.shepment.ShipmentDate = this.timee.toISOString()
+    // this.shepment.Address = this.user.address
+    this.shempmentservice.createShipment(this.shepment).subscribe({
+      next:(res)=>{
+        console.log(res)
+        this.shepment.id = res.id
+        console.log(this.shepment.id) 
+        this.router.navigateByUrl(`/orderview/${this.shepment.CustomerId}/${this.shepment.id}`)
+      }
+    })
   }
 
   count() {
@@ -107,8 +96,8 @@ export class ShapMentViewComponent implements OnInit {
     let timee = new Date();
     timee.setDate(timee.getDate() + 3)
 
-    this.Day = timee.toLocaleString('default', { weekday: 'long' })
-    this.Month = timee.toLocaleString('default', { month: 'long' })
+    // this.Day = timee.toLocaleString('default', { weekday: 'long' })
+    // this.Month = timee.toLocaleString('default', { month: 'long' })
 
 
   }

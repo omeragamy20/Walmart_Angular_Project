@@ -31,30 +31,16 @@
     </div>
     <form (ngSubmit)="Addshapment()">
       <div class=" row p-3" style="--bs-gutter-x: 1rem">
-
-
+<!-- 
+          <label for="">First Name : {{user.firstName}}</label>
+          <label for="">Address : {{user.address}}</label> -->
 
         <div class="left col-lg-6">
-          <!-- <div class="form-group">
-            <label>First name*</label>
-            <input type="text" [(ngModel)]="shepment.FirstName" name="FirstName" placeholder="First name"
-              #nameinp="ngModel" required minlength="3">
-            @if(nameinp.invalid && nameinp.touched)
-            {
-            @if(nameinp.hasError('required')){
-
-            <p class="text-danger">Name Is Requaried</p>
-            }
-            @if(nameinp.hasError('minlength')){
-
-            <p class="text-danger">Name Must be More than 3 Char </p>
-            }
-            }
-          </div> -->
+         
 
           <div class="form-group">
             <label>Street address*</label>
-            <input type="text" [(ngModel)]="shepment.Address" name="Address" placeholder="Street address"
+            <input type="text" [(ngModel)]="shepment.address" name="Address" placeholder="Street address"
               #addinp="ngModel" required minlength="3" maxlength="150">
             @if(addinp.invalid && addinp.touched)
             {
@@ -73,47 +59,9 @@
             }
           </div>
 
-          <!-- <div class="form-group">
-            <label>Phone number*</label>
-            <input type="text" [(ngModel)]="shepment.PhoneNumber" name="PhoneNumber" #phoninput="ngModel"
-              placeholder="Phone number" required>
-            @if(phoninput.invalid && phoninput.touched)
-            {
-            @if(phoninput.hasError('required')){
-
-            <p class="text-danger">Phone Number Is Requaried</p>
-            }
-
-            }
-          </div> -->
-
 
         </div>
         <div class="right col-lg-6">
-
-
-          <!-- <div class="form-group">
-            <label>Last name*</label>
-            <input type="text" [(ngModel)]="shepment.LastName" name="LastName" #lastinp="ngModel" required minlength="3"
-              placeholder="Last name">
-            @if(lastinp.invalid && lastinp.touched)
-            {
-            @if(lastinp.hasError('required')){
-
-            <p class="text-danger">Last Name Is Requaried</p>
-            }
-            @if(lastinp.hasError('minlength')){
-
-            <p class="text-danger">Last Name Must be More than 3 Char </p>
-            }
-            }
-          </div> -->
-
-
-
-
-
-
           <div class="d-flex">
             <div class="form-group" style="width: 100%;margin-right: 10px;">
               <label>State*</label>
@@ -171,9 +119,11 @@
             address</span>
         </div>
         <div>
-          <a routerLink='/orderview' type="Submit" routerLinkActive="router-link-active"
-            class="btnA btn btn-primary">Submit
-          </a>
+          <!-- <a type="Submit" routerLinkActive="router-link-active"
+            class="btnA btn btn-primary">Save 
+          </a> -->
+
+          <input type="submit" value="Save">
         </div>
       </div>
 
