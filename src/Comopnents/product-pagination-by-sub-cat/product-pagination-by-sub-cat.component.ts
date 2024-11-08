@@ -17,7 +17,7 @@ import { CookieService } from 'ngx-cookie-service';
 export class ProductPaginationBySubCatComponent implements OnInit {
   @Input() subcatid:number=0
   fillpagnationproduct: IproductEn[] = [] as IproductEn[];
-  url = "https://localhost:5004";
+  url = "http://localhost:5004/";
 
   constructor(private productapi: ProductService, private coockieservice: CookieService) {
 
@@ -50,7 +50,7 @@ export class ProductPaginationBySubCatComponent implements OnInit {
   }
 
   getallpagnationprd() {
-    this.productapi.GetAllPagenation(this.subcatid).subscribe({
+    this.productapi.GetAllPagenation(4).subscribe({
       next: (value) => {
         console.log(value);
 

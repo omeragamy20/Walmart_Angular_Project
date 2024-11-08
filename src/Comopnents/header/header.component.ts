@@ -1,4 +1,4 @@
-import { CommonModule, NgFor, NgIf } from '@angular/common';
+import { CommonModule, JsonPipe, NgFor, NgIf } from '@angular/common';
 import { NgModel } from '@angular/forms';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
@@ -16,7 +16,7 @@ interface Department {
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [RouterLink, RouterLinkActive,NgFor,NgIf,CommonModule,TranslateModule],
+  imports: [RouterLink, RouterLinkActive,NgFor,NgIf,CommonModule,TranslateModule,JsonPipe],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
@@ -50,13 +50,17 @@ export class HeaderComponent implements OnInit, DoCheck {
         this.id =sessionStorage.getItem("id")!
         this._UserService.GetUserById(this.id).subscribe({
           next:(res)=>{
-            this.user = res 
+            this.user = res
             console.log(this.user)
-          }
+          },
+          error:(err)=> {
+            console.log(err);
+
+          },
         })
 
-    
-    
+
+
   }
 
 
