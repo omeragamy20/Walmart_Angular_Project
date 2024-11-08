@@ -70,18 +70,20 @@ export class ShapMentViewComponent implements OnInit {
 
 
   Addshapment(): void {
-    this.shempmentservice.createShipment(this.shepment).subscribe({
+    // this.shempmentservice.createShipment(this.shepment).subscribe({
 
-      next: (res) => {
-        this.router.navigateByUrl('/orderview')
-      },
-      error: (err) => {
-        console.log(err);
+    //   next: (res) => {
+    //     console.log(res);
 
-      }
+    //     this.router.navigateByUrl('/orderview')
+    //   },
+    //   error: (err) => {
+    //     console.log(err);
+
+    //   }
 
 
-    })
+    // })
   }
 
   count() {
