@@ -1,15 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { OrderComponent } from '../order/order.component';
 import { OrderitemsComponent } from '../orderitems/orderitems.component';
 import { SummeryComponent } from '../summery/summery.component';
 import { ShapementsummeryComponent } from '../shapementsummery/shapementsummery.component';
 import { OrderShapmentfooterComponent } from '../order-shapmentfooter/order-shapmentfooter.component';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Shapment } from '../../InterFaces/shapment';
+import { ShepmentServiceService } from '../../Services/Shepment/shepment-service.service';
 
 @Component({
   selector: 'app-shap-ment-view',
   standalone: true,
-  imports: [RouterLink, OrderitemsComponent, SummeryComponent, ShapMentViewComponent, OrderComponent, RouterOutlet, ShapementsummeryComponent, OrderShapmentfooterComponent],
+  imports: [RouterLink, ReactiveFormsModule, FormsModule, OrderitemsComponent, SummeryComponent, ShapMentViewComponent, OrderComponent, RouterOutlet, ShapementsummeryComponent, OrderShapmentfooterComponent],
   templateUrl: './shap-ment-view.component.html',
   styleUrl: './shap-ment-view.component.css'
 })
@@ -21,10 +24,44 @@ export class ShapMentViewComponent implements OnInit {
   Day: Date | any;
 
 
-  ngDoCheck(): void {
-    this.count();
+
+
+  shepment: Shapment = {} as Shapment
+
+
+  constructor(private fb: FormBuilder, private shempmentservice: ShepmentServiceService, private router: Router) {
+
+
   }
+
+
+
+  ngDoCheck(): void {
+
+    this.count();
+
+  }
+
+
+
+
+
+
   ngOnInit(): void {
+    // this.checkoutForm = this.fb.group({
+
+    //   firstName: ['', [Validators.required, Validators.minLength(2)]],
+    //   lastName: ['', [Validators.required, Validators.minLength(2)]],
+    //   streetAddress: ['', [Validators.required, Validators.minLength(3)]],
+
+
+
+
+    // })
+
+
+
+
 
     this.count();
     this.datee();
@@ -32,7 +69,20 @@ export class ShapMentViewComponent implements OnInit {
   }
 
 
+  Addshapment(): void {
+    this.shempmentservice.createShipment(this.shepment).subscribe({
 
+      next: (res) => {
+        this.router.navigateByUrl('/orderview')
+      },
+      error: (err) => {
+        console.log(err);
+
+      }
+
+
+    })
+  }
 
   count() {
 

@@ -29,27 +29,61 @@
       <p>Where should we deliver your order?</p>
 
     </div>
-    <form action="">
-      <div class="row p-3" style="--bs-gutter-x: 1rem">
+    <form (ngSubmit)="Addshapment()">
+      <div class=" row p-3" style="--bs-gutter-x: 1rem">
 
 
 
         <div class="left col-lg-6">
           <div class="form-group">
             <label>First name*</label>
-            <input type="text" placeholder="First name">
+            <input type="text" [(ngModel)]="shepment.FirstName" name="FirstName" placeholder="First name"
+              #nameinp="ngModel" required minlength="3">
+            @if(nameinp.invalid && nameinp.touched)
+            {
+            @if(nameinp.hasError('required')){
+
+            <p class="text-danger">Name Is Requaried</p>
+            }
+            @if(nameinp.hasError('minlength')){
+
+            <p class="text-danger">Name Must be More than 3 Char </p>
+            }
+            }
           </div>
           <div class="form-group">
             <label>Street address*</label>
-            <input type="text" placeholder="Street address">
+            <input type="text" [(ngModel)]="shepment.Address" name="Address" placeholder="Street address"
+              #addinp="ngModel" required minlength="3" maxlength="150">
+            @if(addinp.invalid && addinp.touched)
+            {
+            @if(addinp.hasError('required')){
+
+            <p class="text-danger">Address Is Requaried</p>
+            }
+            @if(addinp.hasError('minlength')){
+
+            <p class="text-danger">Address Must be More than 3 Char </p>
+            }
+            @if(addinp.hasError('maxlength')){
+
+            <p class="text-danger">maxlength Must be less than 150 Char </p>
+            }
+            }
           </div>
-          <div class="form-group">
-            <label>City*</label>
-            <input type="text" placeholder="City">
-          </div>
+
           <div class="form-group">
             <label>Phone number*</label>
-            <input type="text" placeholder="Phone number">
+            <input type="text" [(ngModel)]="shepment.PhoneNumber" name="PhoneNumber" #phoninput="ngModel"
+              placeholder="Phone number" required>
+            @if(phoninput.invalid && phoninput.touched)
+            {
+            @if(phoninput.hasError('required')){
+
+            <p class="text-danger">Phone Number Is Requaried</p>
+            }
+
+            }
           </div>
         </div>
         <div class="right col-lg-6">
@@ -57,21 +91,30 @@
 
           <div class="form-group">
             <label>Last name*</label>
-            <input type="text" placeholder="Last name">
+            <input type="text" [(ngModel)]="shepment.LastName" name="LastName" #lastinp="ngModel" required minlength="3"
+              placeholder="Last name">
+            @if(lastinp.invalid && lastinp.touched)
+            {
+            @if(lastinp.hasError('required')){
+
+            <p class="text-danger">Last Name Is Requaried</p>
+            }
+            @if(lastinp.hasError('minlength')){
+
+            <p class="text-danger">Last Name Must be More than 3 Char </p>
+            }
+            }
           </div>
 
 
 
-          <div class="form-group">
-            <label>Apt, suite, etc.</label>
-            <input type="text" placeholder="Apt, suite, etc.">
-          </div>
+
 
 
           <div class="d-flex">
             <div class="form-group" style="width: 100%;margin-right: 10px;">
               <label>State*</label>
-              <select>
+              <select [(ngModel)]="shepment.Country" name="Country">
                 <option value="NY">NY</option>
                 <!-- Add other states here -->
               </select>
@@ -80,17 +123,31 @@
 
             <div class="form-group" style="width: 100%;">
               <label>Zip code*</label>
-              <input type="text" placeholder="Zip code">
+              <input type="text" [(ngModel)]="shepment.ZipCode" name="ZipCode" placeholder="Zip code" #zipinp="ngModel"
+                required minlength="3" maxlength="10">
+              @if(zipinp.invalid && zipinp.touched)
+              {
+              @if(zipinp.hasError('required')){
+
+              <p class="text-danger">ZipCode Is Requaried</p>
+              }
+              @if(zipinp.hasError('minlength')){
+
+              <p class="text-danger">ZipCode Must be More than 3 Char </p>
+              }
+              }
             </div>
 
+
+
           </div>
-
-
-
           <div class="form-group">
-            <label>Gate or call box code</label>
-            <input type="text" placeholder="e.g. '1234'">
+            <label>City*</label>
+            <input type="text" [(ngModel)]="shepment.City" name="City" placeholder="City">
           </div>
+
+
+
         </div>
 
 
@@ -111,12 +168,16 @@
             address</span>
         </div>
         <div>
-          <a routerLink='/orderview' routerLinkActive="router-link-active" class="btnA btn btn-primary">Submit
+          <a routerLink='/orderview' type="Submit" routerLinkActive="router-link-active"
+            class="btnA btn btn-primary">Submit
           </a>
         </div>
       </div>
 
     </form>
+
+
+
 
 
 
