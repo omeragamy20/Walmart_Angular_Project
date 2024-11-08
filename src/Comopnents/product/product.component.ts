@@ -50,7 +50,7 @@ export class ProductComponent implements OnInit{
   temp3:number=0;
   temp4:number=0;
   temp5:number=0;
-  url="http://localhost:5004";
+  url="https://localhost:7028";
   openedSections: boolean[] = Array(this.sections.length).fill(false);
   readonly panelOpenState = signal(false);
   readonly dialog = inject(MatDialog);
@@ -61,7 +61,11 @@ constructor(private _productservice:ProductService,private route: ActivatedRoute
     this._Language.getLangugae().subscribe({
       next: (res) => {
         this.lang = res
-      }
+      },
+      error:(err)=> {
+        console.log(err);
+
+      },
     })
    const productId = this.route.snapshot.params['id'];
 
@@ -98,10 +102,14 @@ constructor(private _productservice:ProductService,private route: ActivatedRoute
             this.num4=Math.floor(((this.num4/this.product[0].totalRate)*100)*10)/10;
             this.num5=Math.floor(((this.num5/this.product[0].totalRate)*100)*10)/10;
             console.log(this.product[0].id);
-        }
+      },
+      error:(err)=> {
+        console.log(err);
+
+      },
     })
     this.calculateSectionOffset();
-    
+
   }
   private calculateSectionOffset() {
     const section = document.getElementById('specific-section');
@@ -139,7 +147,7 @@ constructor(private _productservice:ProductService,private route: ActivatedRoute
       data:{specificationsValues:this.product[0].facilities,specifications:this.product[0].values,
         specificationsValuesAr:this.product[0].facilities_Ar,specificationsAr:this.product[0].values_Ar
       }
-      
+
     });
 
     dialogRef.afterClosed().subscribe(result => {

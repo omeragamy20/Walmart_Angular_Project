@@ -25,11 +25,12 @@ export class AllProductComponent implements OnInit{
   pageSize = 4;
   currentPage = 1;
   totalPages = 0;
-  url="http://localhost:5004";
+  url="http://localhost:7028";
   readonly panelOpenState = signal(false);
   ratingvalue:number=0;
   lang:string='';
   constructor(private productService:ProductService,private router: Router,private _Language:LanguageService){}
+
   ngOnInit(): void {
     this._Language.getLangugae().subscribe({
       next: (res) => {
@@ -39,6 +40,8 @@ export class AllProductComponent implements OnInit{
     this.products();
     this.Facilities();
   }
+
+
  products():void{
   this.productService.getAllPagination(this.subcatid ,this.currentPage,this.pageSize).subscribe({
     next: (res: Pagination<IProduct>) => {
@@ -56,9 +59,14 @@ export class AllProductComponent implements OnInit{
       this.totalPages = Math.ceil(this.totalProducts / this.pageSize);
 
     },
-    error: (err) => console.error('Error loading products:', err),
+    error: (err) => {
+      console.log(err);
+
+     }
   });
- }
+  }
+
+
  Facilities():void{
   this.productService.getFacilitiybysubid(this.subcatid).subscribe({
     next:(res)=>{
@@ -66,21 +74,29 @@ export class AllProductComponent implements OnInit{
       console.log(this.specifictions);
     }
   })
- }
+  }
+
+
  onPageChange(newPage: number): void {
   if (newPage >= 1 && newPage <= this.totalPages) {
     this.currentPage = newPage;
     this.products();
   }
-}
+  }
+
+
 Details(id:number){
   this.router.navigate(['product', id]);
- }
+  }
+
+
  openedSections: boolean[] = Array(this.specifictions.length).fill(false);
 
   toggleSection(index: number): void {
     this.openedSections[index] = !this.openedSections[index];
   }
+
+
   onFilterChange(value: string, event: Event) {
     const target = event.target as HTMLInputElement;
     const checked = target.checked;

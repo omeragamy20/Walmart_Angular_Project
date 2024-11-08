@@ -3,7 +3,7 @@ import { IproductEn, Product } from '../../InterFaces/product';
 import { ProductService } from '../../Services/Product/product.service';
 import { NgFor } from '@angular/common';
 import { FormsModule, NgModel } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 
 @Component({
@@ -19,7 +19,7 @@ export class ProductPaginationBySubCatComponent implements OnInit {
   fillpagnationproduct: IproductEn[] = [] as IproductEn[];
   url = "http://localhost:5004/";
 
-  constructor(private productapi: ProductService, private coockieservice: CookieService) {
+  constructor(private productapi: ProductService, private coockieservice: CookieService,private router: Router) {
 
   }
 
@@ -30,7 +30,9 @@ export class ProductPaginationBySubCatComponent implements OnInit {
 
   }
 
-
+  Details(id:number){
+    this.router.navigate(['product', id]);
+   }
 
   addProductToCookie(p: IproductEn) {
     // const products: IproductEn[] = JSON.parse(localStorage.getItem("SelectedProducts") || "[]");
