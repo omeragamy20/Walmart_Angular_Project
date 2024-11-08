@@ -24,6 +24,7 @@ import { LanguageComponent } from '../Comopnents/Account/account/Component/langu
 import { PurchaseComponent } from '../Comopnents/Account/account/Component/purchase/purchase.component';
 import { ReorderComponent } from '../Comopnents/Account/account/Component/reorder/reorder.component';
 import { ListsComponent } from '../Comopnents/Account/account/Component/lists/lists.component';
+import { AccountHomeComponent } from '../Comopnents/Account/account/Component/account-home/account-home.component';
 
 export const routes: Routes = [
 
@@ -34,8 +35,8 @@ export const routes: Routes = [
   { path: 'category', component: CategoryComponent },
   { path: 'allproduct/:id', component: AllProductComponent},
   { path: 'product/:id', component: ProductComponent },
-  { path: 'order',canActivate:[authGuard], component: OrderComponent },
-  { path: 'orderitems', component: OrderitemsComponent },
+  { path: 'order', component: OrderComponent },
+  { path: 'orderitems', canActivate:[authGuard],component: OrderitemsComponent },
   { path: 'shepments', component: ShepmentsComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
@@ -47,6 +48,8 @@ export const routes: Routes = [
   { path: 'supcatogiarydeatails/:id', component: SupcatdeatialsComponent },
   { path: 'account',canActivate:[authGuard] ,  component: AccountComponent , children:[
 
+
+      { path: 'Acchome', component: AccountHomeComponent },
       { path: 'Addresses', component: AddressessComponent },
       { path: 'ContactInfo', component: ContactInfoComponent },
       { path: 'LanguageSetting', component: LanguageComponent },

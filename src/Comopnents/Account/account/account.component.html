@@ -1,16 +1,22 @@
-<div class="accNav">
-    <a href="#">My Account</a>
+
+<div class="container links">
+    <div class="accNav row">
+      
+        <a href="#">{{'accLang.My_Account'|translate}}</a>
+    </div>
 </div>
+
 <hr>
 <div class="container">
     <div class="row">
-        <div class="col-4 sideBar">
+       
+        <div class="col-4 sideBar" [style]="(lang=='en')?'border-right: 1px solid #ccc;':'border-left: 1px solid #ccc; border-right:none' ">
            <!-- Account Section  -->
             <p class="d-inline-flex gap-1 pp">
                 <i class="bi bi-person iconAcc" ></i>
                 <span class="head">
                     
-                    Account
+                    {{'accLang.Account' | translate}}
                 </span>
 
                 <a class="btn btn-primary AccBtn" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
@@ -20,14 +26,14 @@
               
               <div class="collapse" id="collapseExample">
                 <div class="card card-body carSection ">
-                    <a href="#">Home</a>
-                    <a routerLink="purechase" routerLinkActive="active_link">Purchase History</a>
+                    <a routerLink="Acchome" routerLinkActive="active">{{'accLang.Home' | translate}}</a>
+                    <a routerLink="purechase" routerLinkActive="active">{{'accLang.Purchase_History' | translate}}</a>
                 </div>
 
                 <div class="card card-body carSection">
-                    <h3>My items</h3>
-                    <a routerLink="reorder" routerLinkActive="active_link">Reorder</a>
-                    <a routerLink="lists" routerLinkActive="active_link">Lists</a>
+                    <h3> {{'accLang.My_items' | translate}} </h3>
+                    <a routerLink="reorder" routerLinkActive="active">{{'accLang.Reorder' | translate}}</a>
+                    <a routerLink="lists" routerLinkActive="active">{{'accLang.Lists' | translate}}</a>
                  
                 </div>
               </div>
@@ -40,7 +46,7 @@
               <p class="d-inline-flex gap-1 pp">
                 <i class="bi bi-gear iconAcc"></i>
                 <span class="head">
-                    Setting
+                    {{'accLang.Setting' | translate}}
                 </span>
 
                 <a class="btn btn-primary AccBtn" data-bs-toggle="collapse" href="#collapse2" role="button" aria-expanded="false" aria-controls="collapse2">
@@ -50,30 +56,30 @@
               
               <div class="collapse" id="collapse2">
                 <div class="card card-body carSection ">
-                    <a routerLink="#" routerLinkActive="active_link">Home</a>
+                    <a routerLink="#" routerLinkActive="active_link">{{'accLang.Home' | translate}}</a>
                 </div>
 
                 <div class="card card-body carSection">
-                    <h3>Personal information</h3>
-                    <a routerLink="ContactInfo" routerLinkActive="active_link">Contact info and password</a>
-                    <a routerLink="Addresses" routerLinkActive="active_link">Addresses</a>
+                    <h3>{{'accLang.Personal_information' | translate}}</h3>
+                    <a routerLink="ContactInfo" routerLinkActive="active_link"> {{'accLang.Contact_info' | translate}}</a>
+                    <a routerLink="Addresses" routerLinkActive="active_link">{{'accLang.Addresses' | translate}}</a>
                 </div>
 
 
                 <div class="card card-body carSection">
-                    <h3>Shopping settings</h3>
-                    <a routerLink="LanguageSetting" routerLinkActive="active_link">Language settings</a>
+                    <h3>{{'accLang.Shopping_settings' | translate}}</h3>
+                    <a routerLink="LanguageSetting" routerLinkActive="active_link">{{'accLang.Language_Settings' | translate}}</a>
                 </div>
               </div>
               <hr>
-              <div class="signOut">
-                <a routerLink="#" routerLinkActive="active_link">Sign Out</a>
+              <div class="signOut carSection">
+                <i class="bi bi-box-arrow-right"></i>      
+                <a class="out" href="#"(click)="SignOut()"> {{'accLang.ss' | translate}} </a>
               </div>
           
         </div>
-        <div class="col-8">
-           <!-- <span style="font-size: 45px; font-weight: 400;">Hi , {{user.firstName}}</span> -->
-          
+        <div class="col-8 ">
+         
            <router-outlet></router-outlet>
         </div>
     </div>
