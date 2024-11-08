@@ -5,7 +5,14 @@
         "Sign_In_Account": "Sign In Account" 
        
     },
-    
+    "accLang":{
+        "Save_Changes":"Save Changes",
+        "Arabic" : "Arabic",
+        "English" : "English",
+        "Language_Settings":"Language Settings",
+        "para1" : "We're excited to offer a Arabic language Walmart shopping experience for customers. We'll automatically switch to Arabic when we detect a preference for it in your browser or operating system. You can change your language settings for browsing Walmart at any time in your Account.",
+        "para2" : "Our Arabic shopping experience works by converting English to Arabic via a machine translated model. The model is not perfect, and the proper context of the text may not always be taken into account during translation. We're continuously improving the Arabic language experience at Walmart. While many of our features are available in Arabic, there are some site features or communications which are not available in Arabic at this time. As a result, the user assumes the risk of any reliance on the translation. Some items on the site including images containing text, videos with captioning, PDF documents, or maps may not be translated, and some features on the site may not work in the translated versions."
+    },
     "footer":{
         "About Walmart":"",
         "aboutWalText":"Walmart is a comprehensive online shopping platform offering a wide range of products, at competitive prices. Designed for seamless browsing and a smooth user experience, our website provides fast delivery and easy returns, making shopping convenient for everyone. Explore unbeatable deals and exceptional customer service all in one place!"

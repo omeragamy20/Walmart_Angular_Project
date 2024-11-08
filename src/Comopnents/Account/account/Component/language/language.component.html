@@ -1,0 +1,14 @@
+<h1>{{'accLang.Language_Settings'|translate}}</h1>
+<hr>
+<p class="para1">{{'accLang.para1'|translate}}</p>
+<p class="para1">{{'accLang.para2'|translate}}</p>
+
+
+<form #languageForm="ngForm" (ngSubmit)="onSubmit(languageForm)">
+    <p class="para1" style="font-weight: 700;">{{'accLang.Language_Settings'|translate}}</p>
+    <input type="radio" id="en" name="language" value="en" ngModel>
+    <label for="en">{{'accLang.English'|translate}}</label><br>
+    <input type="radio" id="ar" name="language" value="ar" ngModel>
+    <label for="ar">{{'accLang.Arabic'|translate}}</label><br>  
+    <input type="submit" class="btn btn-primary" value="{{'accLang.Save_Changes'|translate}}" >
+  </form>
