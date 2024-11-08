@@ -70,6 +70,13 @@ constructor(private _productservice:ProductService,private route: ActivatedRoute
         next:(res)=>{
             console.log(res);
             this.product=res;
+            this.product = this.product.map(product => {
+              return {
+                ...product,
+                rate: Math.floor(product.rate * 10) / 10
+              };
+            });
+            console.log(this.product[0].rate);
             this.ratingvalue=Math.floor(this.product[0].rate*10)/10;
             this.product[0].rates.forEach(element => {
               if(element==1)
@@ -165,12 +172,13 @@ constructor(private _productservice:ProductService,private route: ActivatedRoute
     getStarClass(rate: number, star: number): string {
       if (rate >= star) {
         return 'fa-star rating filled';
-      } else if ((rate >= star - 0.5 || star-rate>0.5)) {
-        return 'fa-star-half-alt rating filled';
+      } else if (rate >= star - 0.5) {
+       return 'fa-star-half-alt rating filled';
       } else {
         return 'fa-star rating';
       }
     }
+    
     toggleAccordion(index: number) {
     this.accordionItems[index].isOpen = !this.accordionItems[index].isOpen;
   }

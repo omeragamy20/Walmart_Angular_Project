@@ -234,10 +234,10 @@ p{
     /* font-family: Bogle, Helvetica Neue, Helvetica, Arial, sans-serif; */
     /* position: relative; */
 }
-.rating{
+/* .rating{
    display: inline-block;
    color: gold;
-}
+} */
 .images{
    display: flex;
    margin-top: 5vh;
@@ -324,11 +324,12 @@ li{
    display:flex;
    flex-direction: column;
    align-items: start;
-   
+   width:25vw;
 }
 .prise{
    color:Green;
    margin-right: 3px;
+   font-size: medium;
 }
 .add{
    width:20vw;
@@ -339,7 +340,6 @@ li{
    color:white;
 }
 .plan{
-   /* margin-right:100px; */
    background-color: #e6f1fc;
    margin-bottom: 5px;
    padding:10px;
@@ -421,4 +421,7 @@ p{
  .filter-header i {
    left:0px;
    transition: transform 0.3s; 
+ }
+ .val{
+   font-size:medium;
  }
