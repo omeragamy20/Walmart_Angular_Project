@@ -11,7 +11,11 @@ import { IproductEn } from '../../InterFaces/product';
   templateUrl: './supcatdeatials.component.html',
   styleUrl: './supcatdeatials.component.css'
 })
-export class SupcatdeatialsComponent implements OnInit {
+export class SupcatdeatialsComponent
+
+
+
+implements OnInit {
   @Input() id: number = 0;
 
   price: string= "25$";
@@ -22,7 +26,6 @@ export class SupcatdeatialsComponent implements OnInit {
   bestSeller: boolean = true;
   imageUrl: string = 'https://i5.walmartimages.com/seo/Terra-Sky-Women-s-Plus-Size-Button-Down-Waffle-Knit-Shacket-0X-4X_e94d9de7-b793-4629-a3e0-5ab667f1b7c8.495a3cb7b3db85bca303859ca0ba9279.jpeg?odnHeight=2000&odnWidth=2000&odnBg=FFFFFF';
   currencyCode: string = 'USD'; //
-
   constructor(private productapiserv:ProductService) {
   }
   ngOnInit(): void {
@@ -39,7 +42,6 @@ export class SupcatdeatialsComponent implements OnInit {
 
       },
     });
-
   }
 
   // cards = [

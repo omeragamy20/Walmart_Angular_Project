@@ -13,12 +13,14 @@ import { HttpClient } from '@angular/common/http';
 import { OrderComponent } from '../Comopnents/order/order.component';
 import { ShapMentViewComponent } from '../Comopnents/shap-ment-view/shap-ment-view.component';
 import { OrderviewComponent } from '../Comopnents/orderview/orderview.component';
+import { CommonModule } from '@angular/common';
+import { NgModel } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [HeaderComponent, HomeComponent, FooterComponent, RouterOutlet, ProductPaginationBySubCatComponent
-            , CategoryComponent, AsideComponent, TranslateModule, OrderComponent, ShapMentViewComponent, OrderviewComponent],
+            , CategoryComponent, AsideComponent, TranslateModule, OrderComponent, ShapMentViewComponent, OrderviewComponent,CommonModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
