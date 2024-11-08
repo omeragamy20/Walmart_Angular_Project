@@ -14,7 +14,7 @@ export class ShepmentServiceService {
   }
 
   createShipment(data: Shapment): Observable<Shapment> {
-    return this.httpclient.post<Shapment>(`${environment.baseURL}/Product/ProductPagination/`, data)
+    return this.httpclient.post<Shapment>(`${environment.baseURL}''`, data)
   }
 
 }
