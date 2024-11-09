@@ -6,6 +6,7 @@ import { OrderShapmentfooterComponent } from '../order-shapmentfooter/order-shap
 import { OrderService } from '../../Services/Order/order.service';
 import { Order } from '../../InterFaces/order';
 import { OrderItems } from '../../InterFaces/order-items';
+import { PaypaylcomponintComponent } from '../paypaylcomponint/paypaylcomponint.component';
 
 @Component({
   selector: 'app-orderview',
@@ -114,8 +115,12 @@ export class OrderviewComponent implements OnInit {
     });
   }
 
+  // ////////////////////////payment paypal work ////////////////////
 
+  
+  CreatePayment() {
 
+}
 
 
 }
