@@ -25,9 +25,9 @@
       </div>
 
       <div class="navbar-search col-s-12 col-md-5">
-        <input type="text" placeholder="Search everything at Walmart online and in store">
-        <button class="search-button">
-          <i class="fa fa-search"></i>
+        <input type="text"  (input)="onSearchInput($event)" placeholder="Search everything at Walmart online and in store">
+        <button  class="search-button">
+          <i (click)="onSearchClick()" class="fa fa-search"></i>
         </button>
       </div>
 

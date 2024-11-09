@@ -70,14 +70,9 @@ constructor(private _productservice:ProductService,private route: ActivatedRoute
         next:(res)=>{
             console.log(res);
             this.product=res;
-            this.product = this.product.map(product => {
-              return {
-                ...product,
-                rate: Math.floor(product.rate * 10) / 10
-              };
-            });
+            this.product[0].rate = Math.floor(this.product[0].rate * 10) / 10;
+            this.ratingvalue = this.product[0].rate;
             console.log(this.product[0].rate);
-            this.ratingvalue=Math.floor(this.product[0].rate*10)/10;
             this.product[0].rates.forEach(element => {
               if(element==1)
                 this.num1++;
@@ -99,12 +94,13 @@ constructor(private _productservice:ProductService,private route: ActivatedRoute
             this.temp3=this.num3;
             this.temp4=this.num4;
             this.temp5=this.num5;
-            this.num1=Math.floor(((this.num1/this.product[0].totalRate)*100)*10)/10;
+            if(this.product[0].totalRate>0){
+            this.num1=(Math.floor(((this.num1/this.product[0].totalRate)*100)*10)/10);
             this.num2=Math.floor(((this.num2/this.product[0].totalRate)*100)*10)/10;
             this.num3=Math.floor(((this.num3/this.product[0].totalRate)*100)*10)/10;
             this.num4=Math.floor(((this.num4/this.product[0].totalRate)*100)*10)/10;
             this.num5=Math.floor(((this.num5/this.product[0].totalRate)*100)*10)/10;
-            console.log(this.product[0].id);
+            console.log(this.product[0].id);}
         }
     })
     this.calculateSectionOffset();
@@ -170,11 +166,11 @@ constructor(private _productservice:ProductService,private route: ActivatedRoute
       this.isfeedbackformOpend = false;
     }
     getStarClass(rate: number, star: number): string {
-      if (rate >= star) {
+      if (rate >= star) {console.log(rate)
         return 'fa-star rating filled';
-      } else if (rate >= star - 0.5) {
+      } else if (rate >= star - 0.5) {console.log(rate);
        return 'fa-star-half-alt rating filled';
-      } else {
+      } else {console.log(rate)
         return 'fa-star rating';
       }
     }

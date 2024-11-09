@@ -7,11 +7,13 @@ import { Pagination } from '../../InterFaces/pagination';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { Facilities } from '../../InterFaces/facilities';
 import { LanguageService } from '../../Services/Language/language.service';
+import { HeaderComponent } from "../header/header.component";
+import { SearchService } from '../../Services/search.service';
 
 @Component({
   selector: 'app-all-product',
   standalone: true,
-  imports: [CommonModule,MatExpansionModule],
+  imports: [CommonModule, MatExpansionModule],
   templateUrl: './all-product.component.html',
   styleUrl: './all-product.component.css'
 })
@@ -20,6 +22,7 @@ export class AllProductComponent implements OnInit , OnChanges {
   filteredProducts : IProduct[]=[] as IProduct[];
   selectedFilters = new Set<string>();
   specifictions:Facilities[]=[] as Facilities[];
+  searchProducts:IProduct[]=[] as IProduct[];
   subcatid=2;
   totalProducts = 0;
   pageSize = 4;
@@ -29,7 +32,8 @@ export class AllProductComponent implements OnInit , OnChanges {
   readonly panelOpenState = signal(false);
   ratingvalue:number=0;
   lang:string='';
-  constructor(private productService:ProductService,private router: Router,private _Language:LanguageService){}
+  constructor(private productService:ProductService,private router: Router,
+    private _Language:LanguageService,private searchService: SearchService){}
   ngOnChanges(changes: SimpleChanges): void {
     throw new Error('Method not implemented.');
   }
@@ -38,12 +42,15 @@ export class AllProductComponent implements OnInit , OnChanges {
       next: (res) => {
         this.lang = res
       }
-    })
+    });
+     this.searchService.searchTerm$.subscribe(searchTerm => {
+      this.products(searchTerm);
+    });
     this.products();
     this.Facilities();
   }
- products():void{
-  this.productService.getAllPagination(this.subcatid ,this.currentPage,this.pageSize).subscribe({
+ products(searchTerm: string = ''):void{
+  this.productService.getAllPagination(this.subcatid ,this.currentPage,this.pageSize,searchTerm).subscribe({
     next: (res: Pagination<IProduct>) => {
       console.log(res.data);
       this.allProducts = res.data;
@@ -102,11 +109,11 @@ Details(id:number){
       this.filteredProducts = this.allProducts;
     } else {
       this.filteredProducts = this.allProducts.filter(product => {
-        return Array.from(this.selectedFilters).every(filter => product.facilities.includes(filter));
+        return Array.from(this.selectedFilters).some(filter => product.facilities.includes(filter));
       });
+      console.log(this.filteredProducts)
     }
   }
-
   onFilterChangeAr(value: string, event: Event) {
     const target = event.target as HTMLInputElement;
     const checked = target.checked;
@@ -125,7 +132,7 @@ Details(id:number){
       this.filteredProducts = this.allProducts;
     } else {
       this.filteredProducts = this.allProducts.filter(product => {
-        return Array.from(this.selectedFilters).every(filter => product.facilities_Ar.includes(filter));
+        return Array.from(this.selectedFilters).some(filter => product.facilities_Ar.includes(filter));
       });
     }
   }
@@ -139,6 +146,4 @@ Details(id:number){
       return 'fa-star rating';
     }
   }
-  
-
 }

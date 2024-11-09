@@ -53,37 +53,21 @@
               <hr>
               <div class="col">
                 <h5>About This Item</h5>
-                <p>{{product[0].description_en}} </p>
+                <p class="dec">{{product[0].description_en}} </p>
               </div>
               <div class="col">
                 <div class="container text-center">
                   <div class="row">
                     <p>At a glance</p>
-                    <div class="col specifaction">
-                      {{product[0].values[0]}}
-                      <span>{{product[0].facilities[0]}}</span>
-                    </div>
-                    <div class="col specifaction">
-                      {{product[0].values[1]}}
-                      <span>{{product[0].facilities[1]}}</span>
-                    </div>
-                    <div class="col specifaction">
-                      {{product[0].values[0]}}
-                      <span>{{product[0].facilities[0]}}</span>
+                   <div class="col specifaction" *ngFor="let pro of product[0].values.slice(0,2); let i=index">
+                      <span>{{product[0].values[i]}}</span><br>
+                      <span>{{product[0].facilities[i]}}</span>
                     </div>
                   </div>
                   <div class="row">
-                    <div class="col specifaction">
-                      {{product[0].values[1]}}
-                      <span>{{product[0].facilities[1]}}</span>
-                    </div>
-                    <div class="col specifaction">
-                      {{product[0].values[0]}}
-                      <span>{{product[0].facilities[0]}}</span>
-                    </div>
-                    <div class="col specifaction">
-                      {{product[0].values[0]}}
-                      <span>{{product[0].facilities[0]}}</span>
+                    <div class="col specifaction" *ngFor="let pro of product[0].values.slice(3,5); let i=index">
+                      {{product[0].values[i]}}<br>
+                      <span>{{product[0].facilities[i]}}</span>
                     </div>
                   </div>
                 </div>

@@ -3,7 +3,7 @@
   <div class="container-fluid parent">
     <div class="col-2 sidebar">
       <div class="">
-      <div class="filter-section" *ngFor="let section of specifictions; let i = index">
+     @for(section of specifictions;let i =$index ;track section){ <div class="filter-section">
       <button class="filter-header" (click)="toggleSection(i)">
       {{ section.name_en }}
       <i [class]="openedSections[i] ? 'fas fa-chevron-up' : 'fas fa-chevron-down'"></i>
@@ -16,7 +16,7 @@
         </label>
       </div>
     </div>
-  </div>
+  </div>}
   </div>
   
     </div>

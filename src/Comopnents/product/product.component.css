@@ -4,10 +4,20 @@
     /* font-family: Bogle, Helvetica Neue, Helvetica, Arial, sans-serif; */
     /* position: relative; */
 }
-.rating{
+/* .rating{
    display: inline-block;
    color: gold;
-}
+} */
+.rating {
+   color: gray; 
+ }
+ 
+ .rating.filled {
+   color: gold;
+ }
+ .fa-star-half-alt {
+   color: #ffd700; 
+ }
 .images{
    display: flex;
    margin-top: 5vh;
@@ -127,10 +137,15 @@ input[type="checkbox"]{
 p{
    font-weight: bold;
 }
+.dec{
+   font-size: medium;
+   font-weight: 300;
+}
 .specifaction{
    background-color: #e6f1fc;
    height:70px;
    margin:3px;
+   padding-top:5px;
    font-size:smaller;
    font-family:serif;
    font-weight: bold;
