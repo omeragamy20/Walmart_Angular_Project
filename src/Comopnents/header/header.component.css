@@ -1,9 +1,15 @@
+.bt-lang{
+  border-radius: 0px !important;
+  width: 50px;
+}
+
 .navbar {
   background-color: #0071dc;
   position: sticky;
   top: 0;
   /* Green background */
   color: #ffffff;
+
   z-index: 1;
   padding: 0;
 }
@@ -164,6 +170,139 @@
   padding: 5px;
   background-color: #0071dc;
   border-radius: 30px;
+}
+
+#fasel{
+  --rem: 16;
+  font-family: Bogle,Helvetica Neue,Helvetica,Arial,sans-serif;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  color: #0071dc;
+  padding-left: .5rem;
+  padding-right: .5rem;
+  margin-left: .25rem;
+  margin-right: .25rem;
+}
+
+/* //////////// */
+
+/* department  */
+/* .dropdown-menu {
+  width: 600px;
+  max-height: 300px;
+  overflow-y: auto;
+  min-width: 200px;
+  height: auto;
+}
+
+.list-group-item:hover {
+  cursor: pointer;
+  background-color: #f0f0f0;
+}
+
+.list-group {
+  min-width: 200px;
+  min-height: 200px;
+}
+
+.bg-light {
+  background-color: #f8f9fa !important;
+}
+
+.dropdown-menu.show {
+  display: flex;
+} */
+
+
+/* ////////// */
+
+
+/* Limit the height of the main category list and add a scrollbar */
+.list-group {
+  max-height: 400px; /* Adjust height as needed */
+  overflow-y: auto;
+  min-width: 300px;
+}
+
+/* Limit the height of the subcategory list and add a scrollbar */
+.dropdown-menu .flex-fill {
+  max-height: 400px; /* Adjust height as needed */
+  overflow-y: auto;
+}
+
+/* Styling for smooth scrolling */
+.list-group::-webkit-scrollbar {
+  width: 10px;
+}
+
+.list-group::-webkit-scrollbar-thumb {
+  background-color: #c0c0c0;
+  border-radius: 4px;
+}
+
+.list-group::-webkit-scrollbar-thumb:hover {
+  background-color: #a0a0a0;
+}
+
+
+
+
+/* the new nav */
+
+
+
+ .navbar-brand img {
+  width: 30px;
+  height: 30px;
+}
+
+.form-control {
+  max-width: 600px;
+}
+@media (max-width: 768px) {
+  .navbar-brand span {
+    display: none;
+  }
+
+  .navbar-toggler {
+    color: white;
+    border: none;
+  }
+}
+
+.navbar-top {
+  font-size: 16px;
+}
+
+.navbar-search .form-control {
+  font-size: 0.9em;
+}
+
+.cart-total {
+  font-size: 1em;
+}
+
+/* Adjust styling for mobile devices */
+@media (max-width: 576px) {
+  .navbar-top {
+    font-size: 14px;
+  }
+
+  .navbar-search .form-control {
+    font-size: 0.8em;
+  }
+
+  .cart-total {
+    font-size: 0.9em;
+  }
+
+     #smallnav{
+    display: block;
+  }
+  #largsmall{
+    display: none;
+  }
 }
 
 

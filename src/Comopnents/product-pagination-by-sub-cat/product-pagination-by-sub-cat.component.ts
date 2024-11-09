@@ -1,9 +1,9 @@
-import { Component, NgModule, OnInit } from '@angular/core';
+import { Component, Input, NgModule, OnInit } from '@angular/core';
 import { IproductEn, Product } from '../../InterFaces/product';
 import { ProductService } from '../../Services/Product/product.service';
 import { NgFor } from '@angular/common';
 import { FormsModule, NgModel } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 
 @Component({
@@ -15,10 +15,11 @@ import { CookieService } from 'ngx-cookie-service';
 })
 
 export class ProductPaginationBySubCatComponent implements OnInit {
+  @Input() subcatid:number=0
   fillpagnationproduct: IproductEn[] = [] as IproductEn[];
-  URL = "https://localhost:7028";
+  url = "http://localhost:5004/";
 
-  constructor(private productapi: ProductService, private coockieservice: CookieService) {
+  constructor(private productapi: ProductService, private coockieservice: CookieService,private router: Router) {
 
   }
 
@@ -29,7 +30,9 @@ export class ProductPaginationBySubCatComponent implements OnInit {
 
   }
 
-
+  Details(id:number){
+    this.router.navigate(['product', id]);
+   }
 
   addProductToCookie(p: IproductEn) {
     // const products: IproductEn[] = JSON.parse(localStorage.getItem("SelectedProducts") || "[]");
@@ -49,7 +52,7 @@ export class ProductPaginationBySubCatComponent implements OnInit {
   }
 
   getallpagnationprd() {
-    this.productapi.GetAllPagenation(7).subscribe({
+    this.productapi.GetAllPagenation(this.subcatid).subscribe({
       next: (value) => {
         console.log(value);
 

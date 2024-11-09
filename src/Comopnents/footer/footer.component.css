@@ -1,4 +1,4 @@
-footer {
+/* footer {
   background-color: #f2f8fd;
   color: black;
 }
@@ -90,4 +90,17 @@ footer img {
 
 .copy-right li:hover {
   color: rgb(126, 182, 182);
+} */
+.footer {
+  background-color: #0071ce; 
+  color: #ffffff;
+  font-size: 14px;
+}
+
+.footer a {
+  font-size: 11px;
+}
+
+.footer small {
+  font-size: 12px;
 }

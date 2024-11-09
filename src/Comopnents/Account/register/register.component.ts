@@ -15,7 +15,7 @@ export class RegisterComponent implements OnInit {
   UserReg:UserRegister = {} as UserRegister
   @Input()Email :string = '';
   constructor(private router:Router,private _ActivatedRoute: ActivatedRoute,private userSer:UserService){}
-  
+
   ngOnInit(): void {
     this.Email = this._ActivatedRoute.snapshot.params['Email'];
   }
@@ -23,13 +23,13 @@ export class RegisterComponent implements OnInit {
   onSubmit()
   {
     this.UserReg.Email = this.Email
-   this.UserReg.ConfirmPassword = this.UserReg.Password 
-   this.UserReg.Address = "ss"  
-   this.UserReg.ImageUrl =".." 
+   this.UserReg.ConfirmPassword = this.UserReg.Password
+   this.UserReg.Address = "ss"
+   this.UserReg.ImageUrl =".."
    this.UserReg.Username =`${this.Email.split('@')[0]}00${this.UserReg.FirstName}00${this.UserReg.LastName}`;
      this.userSer.RegisterUser(this.UserReg).subscribe({
       next:(val)=>{
-        this.router.navigate(['/home'])
+        this.router.navigateByUrl('/home')
       },error:(err)=>{
         console.log(this.UserReg)
         console.log(err)
