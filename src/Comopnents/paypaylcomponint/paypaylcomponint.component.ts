@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ICreateOrderRequest, IPayPalConfig, NgxPayPalModule } from 'ngx-paypal';
+import { ICreateOrderRequest, IPayPalConfig, ITransactionItem, NgxPayPalModule } from 'ngx-paypal';
+import { IproductEn } from '../../InterFaces/product';
 
 @Component({
   selector: 'app-paypaylcomponint',
@@ -10,39 +11,71 @@ import { ICreateOrderRequest, IPayPalConfig, NgxPayPalModule } from 'ngx-paypal'
 })
 export class PaypaylcomponintComponent implements OnInit {
 
-
   public payPalConfig?: IPayPalConfig;
 
   ngOnInit(): void {
     this.initConfig()
   }
 
+  totalprice!: string;
+  totalproduct!: IproductEn[]|any;
+
+  getprice() {
+
+    let item = localStorage.getItem("SelectedProducts")
+    let prod = item ? JSON.parse(item) : []
+    let total = 0;
+    this.totalproduct = prod;
+    if (Array.isArray(prod)) {
+
+      for (let i = 0; i < prod.length; i++) {
+
+        total += prod[i].price * prod[i].quantity
+
+      }
+
+    }
+    console.log(total);
+    console.log(this.totalproduct);
+
+    this.totalprice = total.toString();
+
+
+  }
+
   private initConfig(): void {
+    this.getprice();
+    console.log(this.totalprice);
+
+    const curnc = 'EUR';
     this.payPalConfig = {
-        currency: 'EUR',
-        clientId: 'sb',// add paypal client id here
+        currency: curnc,
+        clientId: 'AXBNKLI0_hLXjQmeEzc8i7AUWY0OyPipJlYay5CUpGV5dtUOurM8dhee9-iXf2nJoBy4Z4NPWFDOETCT',// add paypal client id here
         createOrderOnClient: (data) => <ICreateOrderRequest> {
             intent: 'CAPTURE',
             purchase_units: [{
                 amount: {
-                    currency_code: 'EUR',
-                    value: '9.99',
+                    currency_code: curnc,
+                    value: this.totalprice,
                     breakdown: {
                         item_total: {
-                            currency_code: 'EUR',
-                            value: '9.99'
+                            currency_code: curnc,
+                            value: this.totalprice
                         }
                     }
                 },
-                items: [{
-                    name: 'Enterprise Subscription',
-                    quantity: '1',
-                    category: 'DIGITAL_GOODS',
-                    unit_amount: {
-                        currency_code: 'EUR',
-                        value: '9.99',
-                    },
-                }]
+              items: this.totalproduct.map( (p:IproductEn[]| any) => <ITransactionItem>
+                {
+                  name: p.title_en,
+                  quantity:p.quantity.toString(),
+                  category: 'DIGITAL_GOODS',
+                  unit_amount: {
+                      currency_code: curnc,
+                      value: p.price.toString(),
+                  },
+              }
+              )
+
             }]
         },
         advanced: {

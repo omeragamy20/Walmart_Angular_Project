@@ -1,4 +1,4 @@
-import { NgFor } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
 import { Component,input,Input, OnInit,Pipe } from '@angular/core';
 import { pipe } from 'rxjs';
 import { ProductService } from '../../Services/Product/product.service';
@@ -7,7 +7,7 @@ import { IproductEn } from '../../InterFaces/product';
 @Component({
   selector: 'app-supcatdeatials',
   standalone: true,
-  imports: [NgFor],
+  imports: [NgFor,NgIf],
   templateUrl: './supcatdeatials.component.html',
   styleUrl: './supcatdeatials.component.css'
 })
@@ -26,7 +26,6 @@ implements OnInit {
   bestSeller: boolean = true;
   imageUrl: string = 'https://i5.walmartimages.com/seo/Terra-Sky-Women-s-Plus-Size-Button-Down-Waffle-Knit-Shacket-0X-4X_e94d9de7-b793-4629-a3e0-5ab667f1b7c8.495a3cb7b3db85bca303859ca0ba9279.jpeg?odnHeight=2000&odnWidth=2000&odnBg=FFFFFF';
   currencyCode: string = 'USD'; //
-  
   constructor(private productapiserv:ProductService) {
   }
   ngOnInit(): void {
@@ -43,7 +42,6 @@ implements OnInit {
 
       },
     });
-    
   }
 
   // cards = [

@@ -5,7 +5,8 @@
         
         "How_do_you_want_your_items?": "How do you want your items?",
         "Reorder_My_Items": "Reorder My Items" ,
-        "Sign_In_Account": "Sign In Account", 
+
+       
        
 
              "GROCERY": "Grocery",
@@ -20,39 +21,65 @@
         "BEAUTY": "Beauty",
         "AUTO_TIRES": "Auto & tires",
            "WALMART_PLUS": "Walmart+",
- "DEPARTMENT": "Department"
+ "DEPARTMENT": "Department",
 
+        "Sign_In_Account": "Sign In Account"
 
     },
-    
-    
-        "footer": {
-          "all_departments": "All Departments",
-          "store_directory": "Store Directory",
-          "careers": "Careers",
-          "our_company": "Our Company",
-          "sell_on_walmart": "Sell on Walmart.com",
-          "help": "Help",
-          "product_recalls": "Product Recalls",
-          "accessibility": "Accessibility",
-          "tax_exempt_program": "Tax Exempt Program",
-          "get_the_app": "Get the Walmart App",
-          "sign_up_for_email": "Sign-up for Email",
-          "safety_data_sheet": "Safety Data Sheet",
-          "terms_of_use": "Terms of Use",
-          "privacy_notice": "Privacy Notice",
-          "supply_chain_act": "California Supply Chain Act",
-          "privacy_choices": "Your Privacy Choices",
-          "notice_at_collection": "Notice at Collection",
-          "ad_choices": "AdChoices",
-          "nv_privacy_notice": "NV Consumer Health Data Privacy Notice",
-          "wa_privacy_notice": "WA Consumer Health Data Privacy Notice",
-          "request_info": "Request My Personal Information",
-          "delete_account": "Delete Account",
-          "brand_shop_directory": "Brand Shop Directory",
-          "pharmacy": "Pharmacy",
-          "walmart_business": "Walmart Business",
-          "iywyk": "#IYWYK",
-          "copyright": "© 2024 Walmart. All Rights Reserved."
+    "nav":{
+
+    }, 
+    "accLang":{
+        "Hi": "Hi , " ,
+        "My_Account": "My Account" ,
+        "Save_Changes":"Save Changes",
+        "Arabic" : "Arabic",
+        "English" : "English",
+        "Language_Settings":"Language Settings",
+        "Account":"Account",
+        "Home" :"Home" , 
+        "Purchase_History":"Purchase History",
+        "My_items" : "My Items", 
+        "Reorder":"Reorder" , 
+        "Lists" : "Lists" , 
+        "Setting" : "Setting" , 
+        "Personal_information" : "Personal_information" , 
+        "Contact_info" : "Contact info and password" , 
+        "Addresses" : "Addresses" , 
+        "Shopping_settings" : "Shopping_settings" ,
+        "ss" : "Sign Out",
+        "para1" : "We're excited to offer a Arabic language Walmart shopping experience for customers. We'll automatically switch to Arabic when we detect a preference for it in your browser or operating system. You can change your language settings for browsing Walmart at any time in your Account.",
+        "para2" : "Our Arabic shopping experience works by converting English to Arabic via a machine translated model. The model is not perfect, and the proper context of the text may not always be taken into account during translation. We're continuously improving the Arabic language experience at Walmart. While many of our features are available in Arabic, there are some site features or communications which are not available in Arabic at this time. As a result, the user assumes the risk of any reliance on the translation. Some items on the site including images containing text, videos with captioning, PDF documents, or maps may not be translated, and some features on the site may not work in the translated versions."
+    },
+    "footer":{
+            "About Walmart":"",
+            "aboutWalText":"Walmart is a comprehensive online shopping platform offering a wide range of products, at competitive prices. Designed for seamless browsing and a smooth user experience, our website provides fast delivery and easy returns, making shopping convenient for everyone. Explore unbeatable deals and exceptional customer service all in one place!",
+            "all_departments": "All Departments",
+            "store_directory": "Store Directory",
+            "careers": "Careers",
+            "our_company": "Our Company",
+            "sell_on_walmart": "Sell on Walmart.com",
+            "help": "Help",
+            "product_recalls": "Product Recalls",
+            "accessibility": "Accessibility",
+            "tax_exempt_program": "Tax Exempt Program",
+            "get_the_app": "Get the Walmart App",
+            "sign_up_for_email": "Sign-up for Email",
+            "safety_data_sheet": "Safety Data Sheet",
+            "terms_of_use": "Terms of Use",
+            "privacy_notice": "Privacy Notice",
+            "supply_chain_act": "California Supply Chain Act",
+            "privacy_choices": "Your Privacy Choices",
+            "notice_at_collection": "Notice at Collection",
+            "ad_choices": "AdChoices",
+            "nv_privacy_notice": "NV Consumer Health Data Privacy Notice",
+            "wa_privacy_notice": "WA Consumer Health Data Privacy Notice",
+            "request_info": "Request My Personal Information",
+            "delete_account": "Delete Account",
+            "brand_shop_directory": "Brand Shop Directory",
+            "pharmacy": "Pharmacy",
+            "walmart_business": "Walmart Business",
+            "iywyk": "#IYWYK",
+            "copyright": "© 2024 Walmart. All Rights Reserved."
         }
     }

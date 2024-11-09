@@ -1,0 +1,70 @@
+<h2>Contact Info and Password</h2>
+<h3>Your personal information</h3>
+
+<hr>
+
+<div class="row">
+ <p id="Massage" style="padding: 3px; width: 80%; color: white;"></p>
+    <div class="col-7">
+    
+    <form (submit)="UpdateUserInfo()">
+   
+            <div class="mb-3">
+              <label for="fname" class="form-label">First Name</label>
+              <input type="text" name="firstName" [(ngModel)]="user.firstName" class="form-control" id="fname">
+            </div>
+    
+            <div class="mb-3">
+                <label for="lname" class="form-label">Last Name</label>
+                <input type="text" name="Lastname" [(ngModel)]="user.lastName" class="form-control" id="lname">
+              </div>
+        
+       <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Email address</label>
+          <input type="email" name="Email" class="form-control" [(ngModel)]="user.email" id="exampleInputEmail1" aria-describedby="emailHelp">
+          <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+        </div>
+    
+    
+        <div class="mb-3">
+            <label for="Phone" class="form-label">Phone number</label>
+            <input type="text" name="phone" [(ngModel)]="user.phoneNumber" class="form-control" id="Phone" >
+        </div>
+    
+        <button type="submit" class="btn btn-primary">Update</button>
+      </form>
+    </div>
+    
+    
+    
+    <!-- Reset Password -->
+      <div class="col-5">
+        <form (submit)="RestPassord()" #myForm ="ngForm">
+            <div class="mb-3">
+              <label for="Cpass" class="form-label">Current Password</label>
+              <input type="password" name="oldPassword" [(ngModel)]="ResetPass.oldPassword" class="form-control" id="Cpass">
+            </div>
+    
+            <div class="mb-3">
+                <label for="Npass" class="form-label">New Password</label>
+                <input type="password" name="newPass" 
+                min="8" 
+                required
+                pattern ='^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*(),.?\":{}|<>]).+$'
+                #nameInp = "ngModel"
+                [(ngModel)]="ResetPass.newPassword"   [(ngModel)]="ResetPass.confirmNewPassword" class="form-control" id="Npass">
+              </div>
+
+              
+              @if(nameInp.invalid && nameInp.touched){
+                <p class="text-danger">Must be at least one uppercase letter.</p>
+                <p class="text-danger">Must be at least one special character.</p>
+                <p class="text-danger">Must be at least one uppercase letter.</p>
+                <p class="text-danger"> Must be at least one digit</p>
+                <p class="text-danger">Min 8 charachter</p>
+              }
+    
+        <button type="submit"   [disabled]="myForm.invalid" class="btn btn-primary">Reset Password</button>
+      </form>
+      </div>
+</div>

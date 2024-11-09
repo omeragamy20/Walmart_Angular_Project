@@ -1,10 +1,12 @@
 import { Component, DoCheck, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { ShapMentViewComponent } from '../shap-ment-view/shap-ment-view.component';
+import { OrderComponent } from '../order/order.component';
 
 @Component({
   selector: 'app-summery',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, ShapMentViewComponent, OrderComponent, SummeryComponent],
   templateUrl: './summery.component.html',
   styleUrl: './summery.component.css'
 })

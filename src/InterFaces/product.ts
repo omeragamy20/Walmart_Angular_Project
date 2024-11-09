@@ -48,6 +48,7 @@ export interface IproductEn {
   price: number,
   imageUrls: string,
   stock: number,
-  quantity: number
+  quantity: number,
+  totall: number
 }
 

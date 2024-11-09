@@ -18,11 +18,14 @@ export class ProductService {
   GetAllPagenation(subcatId: number):Observable<IproductEn[]> {
     return this.httpClient.get<IproductEn[]>(`${environment.baseuRL}/Product/ProductPagination/${subcatId}`)
   }
-  getAllPagination(subcatid:number,pageNumber:number,count:number):Observable<Pagination<IProduct>>{
-    const params = new HttpParams()
+  getAllPagination(subcatid:number,pageNumber:number,count:number,searchTerm: string = ''):Observable<Pagination<IProduct>>{
+   let params = new HttpParams()
       .set('subcatid',subcatid.toString())
       .set('pageNumber', pageNumber.toString())
       .set('count', count.toString());
+      if (searchTerm) {
+        params = params.set('searchTerm', searchTerm);
+      }
     return this.httpClient.get<Pagination<IProduct>>(this.url,{params})
    }
    getproductbyId(id:number):Observable<IProduct[]>{
@@ -40,4 +43,5 @@ export class ProductService {
   getRate(productId:number):Observable<number>{
     return this.httpClient.get<number>(`${environment.baseuRL}/Rate?productId=${productId}`);
   }
+ 
 }

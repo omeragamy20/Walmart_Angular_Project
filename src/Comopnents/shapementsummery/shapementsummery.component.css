@@ -1,0 +1,28 @@
+.side {
+  position: sticky !important;
+  top: 15px;
+
+  border-radius: 15px !important;
+}
+
+.btnA {
+  border-radius: 20px;
+  font-weight: bold;
+  color: #fff;
+}
+
+
+.seconde {
+  height: 100%;
+  width: 100%;
+  padding: 3.7%;
+  color: #fff;
+  background-color: #021749;
+  font-size: 14px;
+  border-radius: 10px;
+}
+
+span {
+  margin-bottom: 10px;
+  font-size: 15px;
+}

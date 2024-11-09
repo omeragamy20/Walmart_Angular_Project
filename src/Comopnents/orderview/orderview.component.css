@@ -1,0 +1,202 @@
+.shape {
+  padding-left: 25px;
+  font-size: 20px;
+  font-weight: 500;
+
+}
+
+
+.sumery {
+  padding: 40px;
+  position: sticky !important;
+  top: 10 !important;
+}
+
+.shape {
+  box-shadow: 1px 0px 2px 0px grey;
+  background-color: #f2f8fd !important;
+  color: black !important;
+
+}
+
+.row {
+  --bs-gutter-x: -7rem;
+}
+
+
+.shipping-address {
+  /* max-width: 600px; */
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+}
+
+.shipping-address span {
+  font-size: 14px;
+  color: #333;
+}
+
+.itemDetails p {
+  font-size: 14px;
+  color: #333;
+  font-weight: 400 !important;
+}
+
+.shipping-address p {
+  font-size: 1em;
+  color: #666;
+  margin-bottom: 1em;
+}
+
+
+
+.shapetime {
+  padding-inline: 20px;
+}
+
+.shapetime p {
+  padding: 10px;
+  padding-block: 20px;
+  border: 2px solid #0071dc;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: 500;
+  color: black;
+}
+
+
+
+
+
+label {
+  font-size: 0.9em;
+  margin-bottom: 0.2em;
+  color: #333;
+}
+
+input,
+select,
+textarea {
+  padding: 10px;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+}
+
+textarea {
+  resize: vertical;
+  height: 80px;
+}
+
+.prfere {
+  padding-inline: 20px;
+  font-weight: 620;
+  font-size: 14px;
+  color: black;
+  justify-content: space-between;
+}
+
+.prfere a {
+  margin-top: 80px;
+}
+
+.prfere input {
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: auto;
+  margin-right: 10px;
+}
+
+
+.itemDetails {
+  padding-inline: 20px;
+}
+
+hr {
+  padding: 5px;
+  width: 90%;
+  margin-left: 5%;
+}
+
+.itemDetails p {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.item {
+  padding-inline: 20px;
+
+}
+
+.headd {
+  height: 60px;
+  line-height: 60px;
+  background-color: #0071dc;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+
+}
+
+.back {
+  position: relative;
+  top: 0;
+  left: -50%;
+  font-size: 25px;
+  cursor: pointer;
+  /* display: inline-block; */
+
+
+}
+
+.paymentoff {
+  height: 90px;
+  line-height: 90px;
+  padding-inline: 30px;
+  box-shadow: 1px 1px 1px 0px #e3e3e9;
+  justify-content: space-between;
+  border: 2px solid #d0d1d4 !important;
+  border-radius: 10px !important;
+  color: black;
+  background-color: #f2f8fd;
+}
+
+.paypal {
+  padding-inline: 20px;
+}
+
+.iconwalet {
+  font-size: 25px;
+
+}
+
+.iconwalet h4 {
+  font-weight: 700 !important;
+  margin: 20px !important;
+}
+
+.on i {
+  padding: 7px;
+  border-radius: 50%;
+
+  background-color: green;
+}
+
+.onfirst {
+
+  margin-left: 0%;
+  margin-top: -7%;
+
+}
+
+.onfirst i {
+  padding: 7px;
+  border-radius: 50%;
+
+  background-color: green !important;
+}
