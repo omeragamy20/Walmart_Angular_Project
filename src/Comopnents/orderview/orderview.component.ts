@@ -12,6 +12,8 @@ import { User } from '../../InterFaces/user';
 import { ShepmentServiceService } from '../../Services/Shepment/shepment-service.service';
 import { createShipment } from '../../InterFaces/createShipment';
 import { JsonPipe } from '@angular/common';
+import { PaymentServiceService } from '../../Services/payment-service.service';
+import { Payment } from '../../InterFaces/payment';
 
 @Component({
   selector: 'app-orderview',
@@ -28,12 +30,15 @@ export class OrderviewComponent implements OnInit ,AfterContentInit {
 
   user:User ={} as User
 
+  // userpaymntid:User ={} as User
+  paymnt: Payment = {} as Payment
   order: Order = {} as Order
 
   constructor(private orderservice: OrderService,
     private shipService:ShepmentServiceService,
      private _ActivatedRoute :ActivatedRoute ,
-      private _uSer:UserService) {
+    private _uSer: UserService,
+  private paymentserv:PaymentServiceService) {
 
 
   }
@@ -51,6 +56,7 @@ export class OrderviewComponent implements OnInit ,AfterContentInit {
 
 
   num: any;
+  paymnttimee: Date = new Date;
   timee: Date | any;
   Month: Date | any;
   Day: Date | any;
@@ -70,13 +76,9 @@ export class OrderviewComponent implements OnInit ,AfterContentInit {
       }
     })
 
-
-
-
-
     this.count();
     this.datee();
-
+    this.paymnttimee.setDate(this.paymnttimee.getDate())
   }
 
 
@@ -155,9 +157,36 @@ export class OrderviewComponent implements OnInit ,AfterContentInit {
 
   // ////////////////////////payment paypal work ////////////////////
 
+  userid!: string;
+  totalprice!: number;
+  // totalproduct!: IproductEn[] | any;
+  getprice() {
+
+    let item = localStorage.getItem("SelectedProducts")
+    let prod = item ? JSON.parse(item) : []
+    let total = 0;
+    // this.totalproduct = prod;
+    if (Array.isArray(prod)) {
+
+      for (let i = 0; i < prod.length; i++) {
+
+        total += prod[i].price * prod[i].quantity
+
+      }
+
+    }
+    console.log(total);
+    // console.log(this.totalproduct);
+
+    this.totalprice = total;
+  }
 
   CreatePayment() {
-
+    this.paymnt.Amount = this.totalprice;
+    this.paymnt.CustomerId = this.user.id;
+    this.paymnt.PaymentDate = this.paymnttimee;
+    this.paymnt.PaymentMethod_en = '';
+// this.paymentserv.createPayment()
 }
 
 
