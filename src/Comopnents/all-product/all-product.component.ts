@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, input, OnInit, signal } from '@angular/core';
+import { Component, Input, input, OnInit, signal, SimpleChanges, OnChanges } from '@angular/core';
 import { IProduct } from '../../InterFaces/product';
 import { ProductService } from '../../Services/Product/product.service';
 import { Router } from '@angular/router';
@@ -7,20 +7,24 @@ import { Pagination } from '../../InterFaces/pagination';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { Facilities } from '../../InterFaces/facilities';
 import { LanguageService } from '../../Services/Language/language.service';
+import { HeaderComponent } from "../header/header.component";
+import { SearchService } from '../../Services/search.service';
 
 @Component({
   selector: 'app-all-product',
   standalone: true,
-  imports: [CommonModule,MatExpansionModule],
+  imports: [CommonModule, MatExpansionModule],
   templateUrl: './all-product.component.html',
   styleUrl: './all-product.component.css'
 })
-export class AllProductComponent implements OnInit{
+export class AllProductComponent implements OnInit , OnChanges {
   allProducts:IProduct[]=[] as IProduct[];
   filteredProducts : IProduct[]=[] as IProduct[];
   selectedFilters = new Set<string>();
   specifictions:Facilities[]=[] as Facilities[];
   @Input('id') subcatid:number=0;
+  searchProducts:IProduct[]=[] as IProduct[];
+  // subcatid=2;
   totalProducts = 0;
   pageSize = 4;
   currentPage = 1;
@@ -29,21 +33,26 @@ export class AllProductComponent implements OnInit{
   readonly panelOpenState = signal(false);
   ratingvalue:number=0;
   lang:string='';
-  constructor(private productService:ProductService,private router: Router,private _Language:LanguageService){}
 
+  constructor(private productService:ProductService,private router: Router,
+    private _Language:LanguageService,private searchService: SearchService){}
+  ngOnChanges(changes: SimpleChanges): void {
+    throw new Error('Method not implemented.');
+  }
   ngOnInit(): void {
     this._Language.getLangugae().subscribe({
       next: (res) => {
         this.lang = res
       }
-    })
+    });
+     this.searchService.searchTerm$.subscribe(searchTerm => {
+      this.products(searchTerm);
+    });
     this.products();
     this.Facilities();
   }
-
-
- products():void{
-  this.productService.getAllPagination(this.subcatid ,this.currentPage,this.pageSize).subscribe({
+ products(searchTerm: string = ''):void{
+  this.productService.getAllPagination(this.subcatid ,this.currentPage,this.pageSize,searchTerm).subscribe({
     next: (res: Pagination<IProduct>) => {
       console.log(res.data);
       this.allProducts = res.data;
@@ -115,7 +124,30 @@ Details(id:number){
       this.filteredProducts = this.allProducts;
     } else {
       this.filteredProducts = this.allProducts.filter(product => {
-        return Array.from(this.selectedFilters).every(filter => product.facilities.includes(filter));
+        return Array.from(this.selectedFilters).some(filter => product.facilities.includes(filter));
+      });
+      console.log(this.filteredProducts)
+    }
+  }
+  onFilterChangeAr(value: string, event: Event) {
+    const target = event.target as HTMLInputElement;
+    const checked = target.checked;
+
+    if (checked) {
+      this.selectedFilters.add(value);
+    } else {
+      this.selectedFilters.delete(value);
+    }
+    this.applyFiltersAr();
+  }
+
+
+  applyFiltersAr() {
+    if (this.selectedFilters.size === 0) {
+      this.filteredProducts = this.allProducts;
+    } else {
+      this.filteredProducts = this.allProducts.filter(product => {
+        return Array.from(this.selectedFilters).some(filter => product.facilities_Ar.includes(filter));
       });
     }
   }
@@ -123,12 +155,10 @@ Details(id:number){
   getStarClass(rate: number, star: number): string {
     if (rate >= star) {
       return 'fa-star rating filled';
-    } else if (star==5&& rate>4&&(rate >= star - 0.5 || star-rate>0.5)) {
+    } else if (rate >= star - 0.5)  {
       return 'fa-star-half-alt rating filled';
     } else {
       return 'fa-star rating';
     }
   }
-
-
 }

@@ -3,10 +3,11 @@ import { NgModel } from '@angular/forms';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { LanguageService } from '../../Services/Language/language.service';
-import { Component, DoCheck, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, DoCheck, EventEmitter, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { UserService } from '../../Services/User/user.service';
 import { User } from '../../InterFaces/user';
+import { SearchService } from '../../Services/search.service';
 
 interface Department {
   name: string;
@@ -28,10 +29,22 @@ export class HeaderComponent implements OnInit, DoCheck {
   count: number = 0;
   moneyy: any;
   totalprice: number = 0;
+  @Output() searchEvent = new EventEmitter<string>();
+  lang: string = '';
+  searchTerm:string = '';
+  constructor(private lanSer: LanguageService, private _UserService: UserService, private searchService: SearchService) {
+  }
+  // constructor(private lanSer:LanguageService,private searchService: SearchService){
 
-  lang:string=''
-  constructor(private lanSer:LanguageService,private _UserService:UserService){
+  // }
 
+
+  onSearchInput(event: Event): void {
+    const target = event.target as HTMLInputElement;
+    this.searchTerm = target.value;
+  }
+  onSearchClick(): void {
+    this.searchService.setSearchTerm(this.searchTerm);
   }
   ngDoCheck(): void {
     this.many();

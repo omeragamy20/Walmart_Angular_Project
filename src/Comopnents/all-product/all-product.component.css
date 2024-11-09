@@ -67,7 +67,9 @@ p{
 .rating.filled {
   color: gold;
 }
-
+.fa-star-half-alt {
+  color: #ffd700; 
+}
 .pagination {
     display: flex;
     /* position: absolute; */

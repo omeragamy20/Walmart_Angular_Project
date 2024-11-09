@@ -53,37 +53,21 @@
               <hr>
               <div class="col">
                 <h5>About This Item</h5>
-                <p>{{product[0].description_en}} </p>
+                <p class="dec">{{product[0].description_en}} </p>
               </div>
               <div class="col">
                 <div class="container text-center">
                   <div class="row">
                     <p>At a glance</p>
-                    <div class="col specifaction">
-                      {{product[0].values[0]}}
-                      <span>{{product[0].facilities[0]}}</span>
-                    </div>
-                    <div class="col specifaction">
-                      {{product[0].values[1]}}
-                      <span>{{product[0].facilities[1]}}</span>
-                    </div>
-                    <div class="col specifaction">
-                      {{product[0].values[0]}}
-                      <span>{{product[0].facilities[0]}}</span>
+                   <div class="col specifaction" *ngFor="let pro of product[0].values.slice(0,2); let i=index">
+                      <span>{{product[0].values[i]}}</span><br>
+                      <span>{{product[0].facilities[i]}}</span>
                     </div>
                   </div>
                   <div class="row">
-                    <div class="col specifaction">
-                      {{product[0].values[1]}}
-                      <span>{{product[0].facilities[1]}}</span>
-                    </div>
-                    <div class="col specifaction">
-                      {{product[0].values[0]}}
-                      <span>{{product[0].facilities[0]}}</span>
-                    </div>
-                    <div class="col specifaction">
-                      {{product[0].values[0]}}
-                      <span>{{product[0].facilities[0]}}</span>
+                    <div class="col specifaction" *ngFor="let pro of product[0].values.slice(3,5); let i=index">
+                      {{product[0].values[i]}}<br>
+                      <span>{{product[0].facilities[i]}}</span>
                     </div>
                   </div>
                 </div>
@@ -138,13 +122,7 @@
                   <span>Sacramento, 95829 <a href="#">Change</a></span>
                   <span>Arrives by Sun, Oct 27 | <a href="#">More options</a></span>
                   <hr>
-              </div>
-              <div class="col">
-                Column
-              </div>
-              <div class="col">
-                Column
-              </div>
+                </div>
             </div>
           </div>
         </div>
@@ -169,7 +147,7 @@
                   <ng-container *ngIf="item.contentType === 'specifications'">
                     <div *ngFor="let spec of product[0].values; let j = index">
                       <h5>{{ spec }}</h5>
-                      <p>{{ product[0].facilities[j] }}</p>
+                      <p class="val">{{ product[0].facilities[j] }}</p>
                     </div>
                   </ng-container>
                 </div>
@@ -322,11 +300,11 @@
                 <!-- <a href="#">visist HP store</a> -->
                 <p>{{product[0].title_ar}} </p>
                 <div>
-                  <i class="fa-solid" [ngClass]="getStarClass(ratingvalue, 1)"></i>
-                  <i class="fa-solid" [ngClass]="getStarClass(ratingvalue, 2)"></i>
-                  <i class="fa-solid" [ngClass]="getStarClass(ratingvalue, 3)"></i>
-                  <i class="fa-solid" [ngClass]="getStarClass(ratingvalue, 4)"></i>
-                  <i class="fa-solid" [ngClass]="getStarClass(ratingvalue, 5)"></i>
+                  <i class="fa-solid" [ngClass]="getStarClass(product[0].rate, 1)"></i>
+                  <i class="fa-solid" [ngClass]="getStarClass(product[0].rate, 2)"></i>
+                  <i class="fa-solid" [ngClass]="getStarClass(product[0].rate, 3)"></i>
+                  <i class="fa-solid" [ngClass]="getStarClass(product[0].rate, 4)"></i>
+                  <i class="fa-solid" [ngClass]="getStarClass(product[0].rate, 5)"></i>
                   <p>({{ratingvalue}}) | {{product[0].totalRate}} </p>
                 </div>     
               </div>
@@ -451,7 +429,7 @@
                   <ng-container *ngIf="item.contentType === 'specifications'">
                     <div *ngFor="let spec of product[0].values_Ar; let j = index">
                       <h5>{{ spec }}</h5>
-                      <p>{{ product[0].facilities_Ar[0] }}</p>
+                      <p class="val"> {{ product[0].facilities_Ar[j] }}</p>
                     </div>
                   </ng-container>
                 </div>
