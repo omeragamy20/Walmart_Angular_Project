@@ -11,14 +11,15 @@ import { UserService } from '../../Services/User/user.service';
 import { User } from '../../InterFaces/user';
 import { ShepmentServiceService } from '../../Services/Shepment/shepment-service.service';
 import { createShipment } from '../../InterFaces/createShipment';
-import { JsonPipe } from '@angular/common';
+import { JsonPipe, NgIf } from '@angular/common';
 import { PaymentServiceService } from '../../Services/payment-service.service';
 import { Payment } from '../../InterFaces/payment';
+import { FormsModule, NgModel } from '@angular/forms';
 
 @Component({
   selector: 'app-orderview',
   standalone: true,
-  imports: [RouterLink, ShapementsummeryComponent, OrderitemsComponent, OrderShapmentfooterComponent,PaypaylcomponintComponent],
+  imports: [FormsModule,RouterLink, ShapementsummeryComponent, OrderitemsComponent, OrderShapmentfooterComponent,PaypaylcomponintComponent,NgIf],
   templateUrl: './orderview.component.html',
   styleUrl: './orderview.component.css'
 })
@@ -78,7 +79,9 @@ export class OrderviewComponent implements OnInit ,AfterContentInit {
 
     this.count();
     this.datee();
-    this.paymnttimee.setDate(this.paymnttimee.getDate())
+    this.paymnttimee.setDate(this.paymnttimee.getDate());
+
+    this.getprice();
   }
 
 
@@ -157,6 +160,13 @@ export class OrderviewComponent implements OnInit ,AfterContentInit {
 
   // ////////////////////////payment paypal work ////////////////////
 
+  selectedValue: any;
+
+  onDivClick(value: any) {
+    this.selectedValue = value;
+    console.log('Selected Value:', this.selectedValue); // For debugging
+  }
+
   userid!: string;
   totalprice!: number;
   // totalproduct!: IproductEn[] | any;
@@ -181,12 +191,30 @@ export class OrderviewComponent implements OnInit ,AfterContentInit {
     this.totalprice = total;
   }
 
+  selectedOption: string = '';
+
+
+  showFirstDiv: boolean = true;
+
   CreatePayment() {
     this.paymnt.Amount = this.totalprice;
-    this.paymnt.CustomerId = this.user.id;
+    this.paymnt.CustomerId = this.id;
     this.paymnt.PaymentDate = this.paymnttimee;
-    this.paymnt.PaymentMethod_en = '';
-// this.paymentserv.createPayment()
+    this.paymnt.PaymentMethod_en = this.selectedOption;
+    this.paymnt.PaymentMethod_ar = (this.selectedOption);
+    console.log(this.paymnt);
+    this.showFirstDiv = false;
+// this.paymentserv.createPayment(this.paymnt).subscribe({
+//   next:(res)=>{
+//     console.log(res)
+//     this.paymnt.id = res.id
+//     console.log(this.paymnt.id)
+//     // this.router.navigateByUrl(`/orderview/${this.shepment.CustomerId}/${this.shepment.id}`)
+//   },error:(err)=> {
+//     console.log(err);
+
+//   },
+// })
 }
 
 

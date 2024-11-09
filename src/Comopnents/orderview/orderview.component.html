@@ -1,144 +1,129 @@
-
 <div class="headd">
-
   <span>Checkout</span>
 
-  <span class="back" routerLink="/order">
-    &lt; </span>
-
+  <span class="back" routerLink="/order"> &lt; </span>
 </div>
-<div class="row ">
+<div class="row">
   <div class="onfirst">
-
-    <i class="fa-solid fa-check" style="color: #fafcff;"></i>
-
+    <i class="fa-solid fa-check" style="color: #fafcff"></i>
   </div>
-  <div class="all   mt-4 col-lg-8  border rounded">
+  <div class="all mt-4 col-lg-8 border rounded">
     <!-- < class="origalcon d-flex"> -->
     <div class="shape p-4 bg-light border rounded mb-3 text-primary d-flex">
-      <div style="margin-right: 2%;">
+      <div style="margin-right: 2%">
         <img
           src="https://i5.walmartimages.com/dfw/63fd9f59-1b5e/5452ae02-a31f-4ef1-9a45-62ac0b06c13b/v1/mci-shipping.svg"
-          alt="">
+          alt=""
+        />
       </div>
       <div>
-        <p class="mb-0 ">1. Shipping, arrives by {{Day}}, {{Month}}</p>
+        <p class="mb-0">1. Shipping, arrives by {{ Day }}, {{ Month }}</p>
       </div>
     </div>
-    <br>
-
-
-
-
-
+    <br />
 
     <!-- Cart Items Section -->
     <div class="shipping-address ps-3">
-      <span>{{user.firstName }} {{user.lastName}}</span>
-      <h1>{{xx.address}}</h1>
-      <br>
-
+      <span>{{ user.firstName }} {{ user.lastName }}</span>
+      <h1>{{ xx.address }}</h1>
+      <br />
     </div>
-
-
 
     <hr />
     <div class="itemDetails">
-
-      <h5 style="color:black;">Delivery instructions</h5>
-      <br>
+      <h5 style="color: black">Delivery instructions</h5>
+      <br />
       <!-- <p>Arrives by {{Day}}, {{Month}},order within 1 hr 44 min</p> -->
       <p>House</p>
-
     </div>
 
-    <hr>
+    <hr />
     <div class="shapetime">
-
-      <h5 style="color:black;">Shipping Date</h5>
-      <br>
-      <p>Arrives by {{Day}}, {{Month}}</p>
-
-
+      <h5 style="color: black">Shipping Date</h5>
+      <br />
+      <p>Arrives by {{ Day }}, {{ Month }}</p>
     </div>
 
-    <hr>
-
+    <hr />
 
     <div class="item">
       <app-orderitems></app-orderitems>
     </div>
 
+    <br />
 
-
-
-
-    <br>
-
-
+    <!-- payment  -->
     <div class="">
-
-      <div class="paymentoff  border rounded d-flex">
+      <div class="paymentoff border rounded d-flex">
         <div class="iconwalet">
-          <i class="fa-solid fa-wallet" style="color:rgb(63, 62, 62);"></i>
+          <i class="fa-solid fa-wallet" style="color: rgb(63, 62, 62)"></i>
 
-          <h4 style="display: inline;">2. Payment method</h4>
-
+          <h4 style="display: inline">2. Payment method</h4>
         </div>
 
         <div class="on">
-          <i class="fa-solid fa-check" style="color: #fafcff;"></i>
+          <i class="fa-solid fa-check" style="color: #fafcff"></i>
         </div>
+      </div>
+      <br />
+      <!-- show the mthod -->
+      <div *ngIf="!showFirstDiv">
+        <h3 class="text-success text-center"> User: {{user.firstName}} Pay: {{totalprice}} With Method type: {{selectedOption}}</h3>
+      </div>
+      <div *ngIf="showFirstDiv">
+        <select [(ngModel)]="selectedOption" onchange="changmethod()">
+          <option value="">Select an option</option>
+          <option value="Paypal">PayPal</option>
+          <option value="Cash">Cash On Dlivery</option>
+        </select>
 
+        <div *ngIf="selectedOption === 'Paypal'">
+          <app-paypaylcomponint (click)="onDivClick('Paypal')"></app-paypaylcomponint>
+        </div>
+        <div *ngIf="selectedOption === 'Cash'">
+          <div class="form-check" (click)="onDivClick('Cash')">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
+            <label class="form-check-label" for="flexCheckIndeterminate">
+              Cash On Delivery
+            </label>
+          </div>
+        </div>
+        <br>
+        <br>
+        <!-- btn  -->
+        <div >
+          <button class="btn btn-primary" (click)="CreatePayment()">Svae Change</button>
+        </div>
       </div>
 
-      <div class="paypal">
-          <app-paypaylcomponint></app-paypaylcomponint>
-      </div>
 
     </div>
 
-    <br>
+    <br />
 
     <div class="">
-
-      <div class="paymentoff  border rounded d-flex">
+      <div class="paymentoff border rounded d-flex">
         <div class="iconwalet">
-          <i class="fa-solid fa-mobile" style="color:rgb(63, 62, 62);"></i>
+          <i class="fa-solid fa-mobile" style="color: rgb(63, 62, 62)"></i>
 
-          <h4 style="display: inline;">
-            3. Text updates for this order</h4>
-
+          <h4 style="display: inline">3. Text updates for this order</h4>
         </div>
 
         <div class="on">
-          <i class="fa-solid fa-check" style="color: #fafcff;"></i>
+          <i class="fa-solid fa-check" style="color: #fafcff"></i>
         </div>
       </div>
 
       <div>
         <button (click)="Createorder()">Submit</button>
       </div>
-
-
-
-
-
     </div>
-
-
-
   </div>
-
-
-
 
   <!-- Checkout Summary Section -->
   <div class="col-lg-4 sumery">
     <app-shapementsummery></app-shapementsummery>
   </div>
-
-
 </div>
 
 <app-order-shapmentfooter></app-order-shapmentfooter>
