@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { AfterContentInit, Component, Input, OnChanges, OnInit } from '@angular/core';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { ShapementsummeryComponent } from '../shapementsummery/shapementsummery.component';
 import { OrderitemsComponent } from '../orderitems/orderitems.component';
 import { OrderShapmentfooterComponent } from '../order-shapmentfooter/order-shapmentfooter.component';
@@ -7,6 +7,11 @@ import { OrderService } from '../../Services/Order/order.service';
 import { Order } from '../../InterFaces/order';
 import { OrderItems } from '../../InterFaces/order-items';
 import { PaypaylcomponintComponent } from '../paypaylcomponint/paypaylcomponint.component';
+import { UserService } from '../../Services/User/user.service';
+import { User } from '../../InterFaces/user';
+import { ShepmentServiceService } from '../../Services/Shepment/shepment-service.service';
+import { createShipment } from '../../InterFaces/createShipment';
+import { JsonPipe } from '@angular/common';
 
 @Component({
   selector: 'app-orderview',
@@ -15,12 +20,32 @@ import { PaypaylcomponintComponent } from '../paypaylcomponint/paypaylcomponint.
   templateUrl: './orderview.component.html',
   styleUrl: './orderview.component.css'
 })
-export class OrderviewComponent implements OnInit {
+export class OrderviewComponent implements OnInit ,AfterContentInit {
+  @Input()id :string = '';
+  @Input()ShipID :number = 0;
+  xx:createShipment ={} as createShipment
+  address:string =""
+
+  user:User ={} as User
 
   order: Order = {} as Order
 
-  constructor(private orderservice: OrderService) {
+  constructor(private orderservice: OrderService,
+    private shipService:ShepmentServiceService,
+     private _ActivatedRoute :ActivatedRoute ,
+      private _uSer:UserService) {
 
+
+  }
+  ngAfterContentInit(): void {
+    this.shipService.Getshipment(this.ShipID).subscribe({
+      next:(res)=>{
+        this.xx = res
+        console.log(this.xx)
+      },error:(err)=>{
+        console.log(err)
+      }
+    })
 
   }
 
@@ -34,7 +59,20 @@ export class OrderviewComponent implements OnInit {
   ngDoCheck(): void {
     this.count();
   }
+
   ngOnInit(): void {
+    this.id = this._ActivatedRoute.snapshot.params['CusId'];
+    this.ShipID = this._ActivatedRoute.snapshot.params['shipID'];
+
+    this._uSer.GetUserById(this.id).subscribe({
+      next:(res)=>{
+        this.user = res
+      }
+    })
+
+
+
+
 
     this.count();
     this.datee();
@@ -117,7 +155,7 @@ export class OrderviewComponent implements OnInit {
 
   // ////////////////////////payment paypal work ////////////////////
 
-  
+
   CreatePayment() {
 
 }

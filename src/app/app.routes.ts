@@ -5,7 +5,6 @@ import { CategoryComponent } from '../Comopnents/category/category.component';
 import { ProductComponent } from '../Comopnents/product/product.component';
 import { OrderComponent } from '../Comopnents/order/order.component';
 import { OrderitemsComponent } from '../Comopnents/orderitems/orderitems.component';
-import { ShepmentsComponent } from '../Comopnents/shepments/shepments.component';
 import { AllProductComponent } from '../Comopnents/all-product/all-product.component';
 import { SignInOrRegisterComponent } from '../Comopnents/Account/sign-in-or-register/sign-in-or-register.component';
 import { LogoutComponent } from '../Comopnents/Account/logout/logout.component';
@@ -37,14 +36,12 @@ export const routes: Routes = [
   { path: 'product/:id', component: ProductComponent },
   { path: 'order', component: OrderComponent },
   { path: 'orderitems', canActivate:[authGuard],component: OrderitemsComponent },
-  { path: 'shepments', component: ShepmentsComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'categryditals/:id', component: DeatailscatogiryComponent },
   { path: 'category', component: CategoryComponent },
   { path: 'product', component: ProductComponent },
   { path: 'orderitems', component: OrderitemsComponent },
-  { path: 'shepments', component: ShepmentsComponent },
   { path: 'supcatogiarydeatails/:id', component: SupcatdeatialsComponent },
   { path: 'account',canActivate:[authGuard] ,  component: AccountComponent , children:[
 
@@ -64,8 +61,8 @@ export const routes: Routes = [
   { path: 'SignOrRegister', component: SignInOrRegisterComponent },
   { path: 'Login/:Email', component: LoginComponent },
   { path: 'Register/:Email', component: RegisterComponent },
-  { path: 'shap-ment-view', component: ShapMentViewComponent },
-  { path: 'orderview', component: OrderviewComponent },
+  { path: 'shap-ment-view',canActivate:[authGuard], component: ShapMentViewComponent },
+  { path: 'orderview/:CusId/:shipID', canActivate:[authGuard],component: OrderviewComponent },
 
 
   // Wild Path Component
