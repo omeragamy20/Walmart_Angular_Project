@@ -118,7 +118,7 @@ export class OrderviewComponent implements OnInit ,AfterContentInit {
 
 
   Createorder() {
-    this.order.orderItems = [];
+    this.order.OrderItems = [];
 
     let all = localStorage.getItem("SelectedProducts");
     let prod = all ? JSON.parse(all) : []
@@ -133,24 +133,41 @@ export class OrderviewComponent implements OnInit ,AfterContentInit {
 
         let orderitem: OrderItems = {} as OrderItems
 
-        orderitem.productId = include.id
-        orderitem.quantity = include.quantity
-        orderitem.price = include.quantity * include.price
-        this.order.orderItems.push(orderitem)
+        if (this.order.Id) {
+          orderitem.OrderId = this.order.Id;  // Set OrderId here before sending to backend
+        }
+        orderitem.ProductId = include.id
+        orderitem.Quantity = include.quantity
+        orderitem.Price = include.quantity * include.price
+
+
+        this.order.OrderItems.push(orderitem)
 
       }
     }
 
 
-    this.order.totalPrice = many
+    this.order.TotalPrice = many
+
+
+    // Handle paymentId and shipmentId as numbers: Set to null if not defined
+    this.order.CustomerId = this.order.CustomerId ?? "";
+    this.order.PaymentId = this.order.PaymentId ?? 0; // Default to 0 if undefined
+    this.order.ShipmentId = this.order.ShipmentId ?? 0; // Default to 0 if undefined
+    this.order.Status = this.order.Status ?? 0; // Default to 0 if undefined
+
 
     console.log(this.order);
 
 
 
     this.orderservice.CreateOrder(this.order).subscribe({
-      next: (res) => {
-        console.log(res);
+      next: (createdOrder) => {
+        const orderId = createdOrder.Id;
+        this.order.OrderItems.forEach(item => {
+          item.OrderId = orderId; // Set the OrderId for each order item
+        });
+        console.log("Order created with items:", this.order);
       },
       error: (err) => {
         console.log(err);
