@@ -1,7 +1,28 @@
 {
     "header":{
+
+   
+        
         "How_do_you_want_your_items?": "How do you want your items?",
         "Reorder_My_Items": "Reorder My Items" ,
+
+       
+       
+
+             "GROCERY": "Grocery",
+            "HOME": "Home",
+         "PATIO_GARDEN": "Patio & Garden",
+       "CLOTHING_ACCESSORIES": "Clothing & Accessories",
+           "ELECTRONICS": "Electronics",
+              "BABY": "Baby",
+            "TOYS": "Toys",
+        "HEALTH_WELLNESS": "Health & wellness",
+       "PERSONAL_CARE": "Personal Care",
+        "BEAUTY": "Beauty",
+        "AUTO_TIRES": "Auto & tires",
+           "WALMART_PLUS": "Walmart+",
+ "DEPARTMENT": "Department",
+
         "Sign_In_Account": "Sign In Account"
 
     },

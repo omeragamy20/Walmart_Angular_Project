@@ -12,8 +12,43 @@
         </a>
         <div class="location ">
           <p>{{'header.How_do_you_want_your_items?'| translate}}</p>
+      
         </div>
       </div>
+
+<!-- /////////////////////////////////////////////////////////////////// -->
+
+
+
+
+<!-- <nav>
+  <ul>
+    <li>{{ 'HOME' | translate }}</li>
+    <li>{{ 'GROCERY' | translate }}</li>
+    <li>{{ 'CLOTHING' | translate }}</li>
+    <li>{{ 'ELECTRONICS' | translate }}</li>
+    <li>{{ 'BABY' | translate }}</li>
+    <li>{{ 'TOYS' | translate }}</li>
+    <li>{{ 'HEALTH_WELLNESS' | translate }}</li>
+    <li>{{ 'PERSONAL_CARE' | translate }}</li>
+    <li>{{ 'BEAUTY' | translate }}</li>
+    <li>{{ 'AUTO_TIRES' | translate }}</li>
+  </ul>
+</nav> -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- /////////////////////////////////////////////////////////////////// -->
+
 
       <div class="dropdown">
         <button class="btn btn-light dropdown-toggle bt-lang" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="true">
@@ -22,6 +57,7 @@
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
           <li><button class="dropdown-item"  (click)="switchLanguage('en')">En - English</button></li>
           <li><button class="dropdown-item"  (click)="switchLanguage('ar')">Ar - العربية</button></li>
+
         </ul>
       </div>
 
@@ -322,7 +358,8 @@
             data-bs-toggle="dropdown"
             aria-expanded="false"
           >
-            Departments
+          {{ 'Departments' | translate }}
+            <!-- Departments -->
           </a>
           <ul
             class="dropdown-menu"
@@ -358,8 +395,12 @@
           </ul>
         </li>
         <div id="fasel" class="flex ph2 items-center blue mr1 mh1">|</div>
-        <li><a routerLink="/supcatogiarydeatails/1" routerLinkActive=" active_link">Grocery</a></li>
+        <!-- <li><a routerLink="/supcatogiarydeatails/1" routerLinkActive=" active_link">Grocery</a></li> -->
+        <li><a routerLink="/supcatogiarydeatails/1" routerLinkActive="active_link">{{ 'GROCERY' | translate }}</a></li>
+
         <li><a routerLink="/categryditals/3" routerLinkActive=" active_link">Home</a></li>
+
+
         <li><a routerLink="/categryditals/4" routerLinkActive=" active_link">Patio & Garden</a></li>
         <li><a routerLink="/categryditals/2" routerLinkActive=" active_link">Clothing & Accessories</a></li>
         <li><a routerLink="/categryditals/1" routerLinkActive=" active_link">Electronics</a></li>
