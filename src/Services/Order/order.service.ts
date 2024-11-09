@@ -13,7 +13,7 @@ export class OrderService {
 
 
   CreateOrder(order: Order): Observable<Order> {
-    return this.httpclient.post<Order>(`${environment.baseURL}/order`, JSON.stringify(order), {
+    return this.httpclient.post<Order>(`${environment.baseURL}/Order`, JSON.stringify(order), {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       })
