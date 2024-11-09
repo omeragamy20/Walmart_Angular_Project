@@ -15,6 +15,7 @@ import { JsonPipe, NgIf } from '@angular/common';
 import { PaymentServiceService } from '../../Services/payment-service.service';
 import { Payment } from '../../InterFaces/payment';
 import { FormsModule, NgModel } from '@angular/forms';
+import { OrderitemService } from '../../Services/OrderItem/orderitem.service';
 
 @Component({
   selector: 'app-orderview',
@@ -23,23 +24,24 @@ import { FormsModule, NgModel } from '@angular/forms';
   templateUrl: './orderview.component.html',
   styleUrl: './orderview.component.css'
 })
+
 export class OrderviewComponent implements OnInit ,AfterContentInit {
-  @Input()id :string = '';
+
+  @Input() id: string = '';
   @Input()ShipID :number = 0;
   xx:createShipment ={} as createShipment
   address:string =""
-
   user:User ={} as User
-
-  // userpaymntid:User ={} as User
   paymnt: Payment = {} as Payment
   order: Order = {} as Order
+  paymnetId!: number;
 
   constructor(private orderservice: OrderService,
     private shipService:ShepmentServiceService,
      private _ActivatedRoute :ActivatedRoute ,
     private _uSer: UserService,
-  private paymentserv:PaymentServiceService) {
+    private paymentserv: PaymentServiceService,
+  private orderitemserv:OrderitemService) {
 
 
   }
@@ -84,9 +86,6 @@ export class OrderviewComponent implements OnInit ,AfterContentInit {
     this.getprice();
   }
 
-
-
-
   count() {
 
     let all = localStorage.getItem("SelectedProducts");
@@ -98,24 +97,72 @@ export class OrderviewComponent implements OnInit ,AfterContentInit {
       }
     }
     this.num = many
-
   }
-
-
 
   datee() {
-
     let timee = new Date();
     timee.setDate(timee.getDate() + 3)
-
     this.Day = timee.toLocaleString('default', { weekday: 'long' })
     this.Month = timee.toLocaleString('default', { month: 'long' })
-
-
   }
 
 
+  // ////////////////////////payment paypal work ////////////////////
 
+  selectedValue: any;
+
+  onDivClick(value: any) {
+    this.selectedValue = value;
+    console.log('Selected Value:', this.selectedValue); // For debugging
+  }
+
+  userid!: string;
+  totalprice!: number;
+  getprice() {
+
+    let item = localStorage.getItem("SelectedProducts")
+    let prod = item ? JSON.parse(item) : []
+    let total = 0;
+    if (Array.isArray(prod)) {
+
+      for (let i = 0; i < prod.length; i++) {
+
+        total += prod[i].price * prod[i].quantity
+
+      }
+
+    }
+    console.log(total);
+
+    this.totalprice = total;
+  }
+
+  selectedOption: string = '';
+
+
+  showFirstDiv: boolean = true;
+
+  CreatePayment() {
+    this.paymnt.Amount = this.totalprice;
+    this.paymnt.CustomerId = this.id;
+    this.paymnt.PaymentDate = this.paymnttimee;
+    this.paymnt.PaymentMethod_en = this.selectedOption;
+    this.paymnt.PaymentMethod_ar = (this.selectedOption);
+    console.log(this.paymnt);
+    this.showFirstDiv = false;
+this.paymentserv.createPayment(this.paymnt).subscribe({
+  next:(res)=>{
+    console.log(res)
+    this.paymnetId = res.id
+    console.log(this.paymnetId)
+  },error:(err)=> {
+    console.log(err);
+
+  },
+})
+}
+
+//////////////////// create order
 
   Createorder() {
     this.order.OrderItems = [];
@@ -140,6 +187,14 @@ export class OrderviewComponent implements OnInit ,AfterContentInit {
         orderitem.Quantity = include.quantity
         orderitem.Price = include.quantity * include.price
 
+        this.orderitemserv.CreateOrderItem(orderitem).subscribe({
+          next: (orderitem) => {
+            console.log(orderitem);
+          },
+          error: (err) => {
+            console.log(err);
+          }
+        });
 
         this.order.OrderItems.push(orderitem)
 
@@ -147,14 +202,14 @@ export class OrderviewComponent implements OnInit ,AfterContentInit {
     }
 
 
-    this.order.TotalPrice = many
+    this.order.TotalPrice = this.totalprice;
 
 
     // Handle paymentId and shipmentId as numbers: Set to null if not defined
-    this.order.CustomerId = this.order.CustomerId ?? "";
-    this.order.PaymentId = this.order.PaymentId ?? 0; // Default to 0 if undefined
-    this.order.ShipmentId = this.order.ShipmentId ?? 0; // Default to 0 if undefined
-    this.order.Status = this.order.Status ?? 0; // Default to 0 if undefined
+    this.order.CustomerId = this.id;
+    this.order.PaymentId = this.paymnetId; // Default to 0 if undefined
+    this.order.ShipmentId = this.ShipID; // Default to 0 if undefined
+    this.order.Status = 0; // Default to 0 if undefined
 
 
     console.log(this.order);
@@ -173,66 +228,8 @@ export class OrderviewComponent implements OnInit ,AfterContentInit {
         console.log(err);
       }
     });
+    
   }
-
-  // ////////////////////////payment paypal work ////////////////////
-
-  selectedValue: any;
-
-  onDivClick(value: any) {
-    this.selectedValue = value;
-    console.log('Selected Value:', this.selectedValue); // For debugging
-  }
-
-  userid!: string;
-  totalprice!: number;
-  // totalproduct!: IproductEn[] | any;
-  getprice() {
-
-    let item = localStorage.getItem("SelectedProducts")
-    let prod = item ? JSON.parse(item) : []
-    let total = 0;
-    // this.totalproduct = prod;
-    if (Array.isArray(prod)) {
-
-      for (let i = 0; i < prod.length; i++) {
-
-        total += prod[i].price * prod[i].quantity
-
-      }
-
-    }
-    console.log(total);
-    // console.log(this.totalproduct);
-
-    this.totalprice = total;
-  }
-
-  selectedOption: string = '';
-
-
-  showFirstDiv: boolean = true;
-
-  CreatePayment() {
-    this.paymnt.Amount = this.totalprice;
-    this.paymnt.CustomerId = this.id;
-    this.paymnt.PaymentDate = this.paymnttimee;
-    this.paymnt.PaymentMethod_en = this.selectedOption;
-    this.paymnt.PaymentMethod_ar = (this.selectedOption);
-    console.log(this.paymnt);
-    this.showFirstDiv = false;
-// this.paymentserv.createPayment(this.paymnt).subscribe({
-//   next:(res)=>{
-//     console.log(res)
-//     this.paymnt.id = res.id
-//     console.log(this.paymnt.id)
-//     // this.router.navigateByUrl(`/orderview/${this.shepment.CustomerId}/${this.shepment.id}`)
-//   },error:(err)=> {
-//     console.log(err);
-
-//   },
-// })
-}
 
 
 }

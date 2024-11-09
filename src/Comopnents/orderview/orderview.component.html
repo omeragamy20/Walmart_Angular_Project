@@ -68,7 +68,7 @@
       <br />
       <!-- show the mthod -->
       <div *ngIf="!showFirstDiv">
-        <h3 class="text-success text-center"> User: {{user.firstName}} Pay: {{totalprice}} With Method type: {{selectedOption}}</h3>
+        <h3 class="text-success text-center">{{user.firstName}} Pay: {{totalprice}} With Method type: {{selectedOption}}</h3>
       </div>
       <div *ngIf="showFirstDiv">
         <select [(ngModel)]="selectedOption" onchange="changmethod()">
