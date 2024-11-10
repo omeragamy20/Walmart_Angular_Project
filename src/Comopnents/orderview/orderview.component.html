@@ -1,10 +1,10 @@
 
 <div class="headd">
 
-  <span>Checkout</span>
+  <span>{{ 'checkout' | translate }}</span>
 
   <span class="back" routerLink="/order">
-    &lt; </span>
+    &lt; {{ 'back' | translate }}</span>
 
 </div>
 <div class="row ">
@@ -22,7 +22,7 @@
           alt="">
       </div>
       <div>
-        <p class="mb-0 ">1. Shipping, arrives by {{Day}}, {{Month}}</p>
+        <p class="mb-0 ">{{ 'shipping' | translate:{Day: Day, Month: Month} }}</p>
       </div>
     </div>
     <br>
@@ -35,7 +35,7 @@
     <!-- Cart Items Section -->
     <div class="shipping-address ps-3">
       <span>{{user.firstName }} {{user.lastName}}</span>
-      <h1>{{xx.address}}</h1>
+      <h1>{{ 'address' | translate }}</h1>
       <br>
 
     </div>
@@ -45,7 +45,7 @@
     <hr />
     <div class="itemDetails">
 
-      <h5 style="color:black;">Delivery instructions</h5>
+      <h5 style="color:black;">{{ 'delivery_instructions' | translate }}</h5>
       <br>
       <!-- <p>Arrives by {{Day}}, {{Month}},order within 1 hr 44 min</p> -->
       <p>House</p>
@@ -55,9 +55,9 @@
     <hr>
     <div class="shapetime">
 
-      <h5 style="color:black;">Shipping Date</h5>
+      <h5 style="color:black;">{{ 'shipping_date' | translate }}</h5>
       <br>
-      <p>Arrives by {{Day}}, {{Month}}</p>
+      <p>{{ 'shipping' | translate:{Day: Day, Month: Month} }}</p>
 
 
     </div>

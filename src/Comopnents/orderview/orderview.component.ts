@@ -14,11 +14,12 @@ import { createShipment } from '../../InterFaces/createShipment';
 import { JsonPipe } from '@angular/common';
 import { PaymentServiceService } from '../../Services/payment-service.service';
 import { Payment } from '../../InterFaces/payment';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-orderview',
   standalone: true,
-  imports: [RouterLink, ShapementsummeryComponent, OrderitemsComponent, OrderShapmentfooterComponent,PaypaylcomponintComponent],
+  imports: [RouterLink, ShapementsummeryComponent, OrderitemsComponent, OrderShapmentfooterComponent,PaypaylcomponintComponent,TranslateModule],
   templateUrl: './orderview.component.html',
   styleUrl: './orderview.component.css'
 })
