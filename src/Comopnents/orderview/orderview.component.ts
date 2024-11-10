@@ -164,8 +164,10 @@ this.paymentserv.createPayment(this.paymnt).subscribe({
 
 //////////////////// create order
 
+orderidinitem!:number;
+
   Createorder() {
-    this.order.OrderItems = [];
+    this.order.orderItems = [];
 
     let all = localStorage.getItem("SelectedProducts");
     let prod = all ? JSON.parse(all) : []
@@ -180,56 +182,78 @@ this.paymentserv.createPayment(this.paymnt).subscribe({
 
         let orderitem: OrderItems = {} as OrderItems
 
-        if (this.order.Id) {
-          orderitem.OrderId = this.order.Id;  // Set OrderId here before sending to backend
+        if (this.order.id) {
+          orderitem.orderId = this.order.id;  // Set OrderId here before sending to backend
         }
-        orderitem.ProductId = include.id
-        orderitem.Quantity = include.quantity
-        orderitem.Price = include.quantity * include.price
+        orderitem.productId = include.id
+        orderitem.quantity = include.quantity
+        orderitem.price = include.quantity * include.price
 
-        this.orderitemserv.CreateOrderItem(orderitem).subscribe({
-          next: (orderitem) => {
-            console.log(orderitem);
-          },
-          error: (err) => {
-            console.log(err);
-          }
-        });
-
-        this.order.OrderItems.push(orderitem)
+        this.order.orderItems.push(orderitem)
 
       }
     }
 
 
-    this.order.TotalPrice = this.totalprice;
+    this.order.totalPrice = this.totalprice;
 
 
     // Handle paymentId and shipmentId as numbers: Set to null if not defined
-    this.order.CustomerId = this.id;
-    this.order.PaymentId = this.paymnetId; // Default to 0 if undefined
-    this.order.ShipmentId = this.ShipID; // Default to 0 if undefined
-    this.order.Status = 0; // Default to 0 if undefined
+    this.order.customerId = this.id;
+    this.order.paymentId = this.paymnetId; // Default to 0 if undefined
+    this.order.shipmentId = this.ShipID; // Default to 0 if undefined
+    this.order.status = 0; // Default to 0 if undefined
 
 
     console.log(this.order);
 
 
-
     this.orderservice.CreateOrder(this.order).subscribe({
       next: (createdOrder) => {
-        const orderId = createdOrder.Id;
-        this.order.OrderItems.forEach(item => {
-          item.OrderId = orderId; // Set the OrderId for each order item
+        const orderId = createdOrder.id;
+        console.log(createdOrder.id);
+        this.order.orderItems.forEach(item => {
+          item.orderId = orderId; // Set the OrderId for each order item
         });
         console.log("Order created with items:", this.order);
+        this.CreateOrderItem(createdOrder.id)
       },
       error: (err) => {
         console.log(err);
       }
     });
-    
+
+
   }
 
+    // ///// create order Items//////////
+  CreateOrderItem(orderiditem:number) {
+    let all = localStorage.getItem("SelectedProducts");
+    let prod = all ? JSON.parse(all) : []
+    for (let i = 0; i < prod.length; i++) {
+
+      let include = prod[i]
+
+      let orderitem: OrderItems = {} as OrderItems
+      orderitem.orderId =orderiditem;
+      // if (this.order.Id) {
+      //     // Set OrderId here before sending to backend
+      // }
+      orderitem.productId = include.id
+      orderitem.quantity = include.quantity
+      orderitem.price = include.quantity * include.price
+
+      console.log(orderitem);
+
+      this.orderitemserv.CreateOrderItem(orderitem).subscribe({
+        next: (value) => {
+          console.log(value);
+        },
+        error: (err) => {
+          console.log(err);
+        }
+      });
+    }
+  }
 
 }

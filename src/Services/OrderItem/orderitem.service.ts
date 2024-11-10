@@ -12,7 +12,7 @@ export class OrderitemService {
   constructor(private httpclient: HttpClient) { }
 
   CreateOrderItem(orderItem: OrderItems): Observable<OrderItems> {
-    return this.httpclient.post<OrderItems>(`${environment.baseURL}/OrderItem`, JSON.stringify(orderItem), {
+    return this.httpclient.post<OrderItems>(`${environment.baseURL}/OrderItem/Create`, JSON.stringify(orderItem), {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       })
