@@ -115,7 +115,7 @@
       </div>
 
       <div>
-        <button (click)="Createorder()">Submit</button>
+        <button class="btn btn-primary mt-4" [disabled]="paymnetId == null" (click)="Createorder()">Submit</button>
       </div>
     </div>
   </div>
