@@ -14,6 +14,8 @@ export class PaypaylcomponintComponent implements OnInit {
   public payPalConfig?: IPayPalConfig;
 
   ngOnInit(): void {
+    this.getprice();
+    console.log(this.totalprice);
     this.initConfig()
   }
 
@@ -44,37 +46,35 @@ export class PaypaylcomponintComponent implements OnInit {
   }
 
   private initConfig(): void {
-    this.getprice();
-    console.log(this.totalprice);
 
     const curnc = 'EUR';
     this.payPalConfig = {
-        currency: curnc,
-        clientId: 'ATSGazDqxdtxPV7W1ypo089220_aejTObv7rTIqcWq5Am2RvmJfuALf_WhN8aKewRkpTcIppyXoZjDJY',// add paypal client id here
+        currency: 'EUR',
+        clientId: 'AVhyMOIeULOMnlO8t9LLikrCZ5BxmDIjFsI1LkzBbHyak0r4iyWm-9Z05VCYxdxXlIS9hJ9uUFst2X_d',// add paypal client id here
         createOrderOnClient: (data) => <ICreateOrderRequest> {
             intent: 'CAPTURE',
             purchase_units: [{
                 amount: {
-                    currency_code: curnc,
+                    currency_code: 'EUR',
                     value: this.totalprice,
                     breakdown: {
                         item_total: {
-                            currency_code: curnc,
+                            currency_code: 'EUR',
                             value: this.totalprice
                         }
                     }
                 },
-              items: this.totalproduct.map( (p:IproductEn[]| any) => <ITransactionItem>
+              items: [
                 {
-                  name: p.title_en,
-                  quantity:p.quantity.toString(),
+                  name: 'Phone',
+                  quantity:'1',
                   category: 'DIGITAL_GOODS',
                   unit_amount: {
-                      currency_code: curnc,
-                      value: p.price.toString(),
+                      currency_code: 'EUR',
+                      value: this.totalprice,
                   },
               }
-              )
+              ]
 
             }]
         },
