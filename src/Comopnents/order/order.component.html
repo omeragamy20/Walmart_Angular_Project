@@ -1,7 +1,13 @@
 <div class="row">
   <div class="all mt-4 col-lg-8">
     <!-- Shipping Information -->
-    <h4 class="fw-bold mb-3 p-2"> {{ 'CART_TITLE' | translate }}  <span style="font-weight: 400;"> ({{ num }} {{ 'ITEMS' | translate }})</span> </h4>
+    <h4 class="fw-bold mb-3 p-2"> 
+      {{ 'CART_TITLE' | translate }}  
+      <span style="font-weight: 400;"> 
+        ({{ num }} {{ 'ITEMS' | translate }}) 
+      </span> 
+    </h4>
+    
     <div class="shape p-4 bg-light border rounded mb-3 text-primary d-flex">
       <div style="margin-right: 2%;">
         <img
@@ -9,32 +15,26 @@
           alt="">
       </div>
       <div>
-        <p class="mb-0 fw-bold"> {{ 'FREE_SHIPPING' | translate }}, 
-          {{ 'ARRIVES_BY' | translate }} {{Day}}, {{Month}}</p>
-        <small>{{ 'ORDER_WITHIN' | translate }}  <span class="fw-bold">7 {{ 'HOURS_MINUTES' | translate }}</span></small> |
+        <p class="mb-0 fw-bold"> 
+          {{ 'FREE_SHIPPING' | translate }}, 
+          {{ 'ARRIVES_BY' | translate }} {{ Day }}, {{ Month }}
+        </p>
+        <small>
+          {{ 'ORDER_WITHIN' | translate }}  
+          <span class="fw-bold">7 {{ 'HOURS_MINUTES' | translate }}</span>
+        </small> |
         <a style="display: block;" href="#" class="text-decoration-none">95829</a>
       </div>
     </div>
 
     <!-- Cart Items Section -->
-
     <div class="">
-
       <app-orderitems></app-orderitems>
-      <!-- <app-cart-item *ngFor="let product of products" [product]="product"></app-cart-item> -->
     </div>
-
-
-
-
-
   </div>
 
   <!-- Checkout Summary Section -->
   <div class="col-lg-4 sumery">
-    <!-- <app-checkout-summary [products]="products"></app-checkout-summary> -->
     <app-summery></app-summery>
   </div>
-
-
 </div>

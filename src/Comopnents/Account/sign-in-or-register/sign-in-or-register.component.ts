@@ -3,12 +3,13 @@ import { FormsModule } from '@angular/forms';
 import { User } from '../../../InterFaces/user';
 import { UserService } from '../../../Services/User/user.service';
 import { Route, Router } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 @Component({
   selector: 'app-sign-in-or-register',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule,TranslateModule],
   templateUrl: './sign-in-or-register.component.html',
   styleUrl: './sign-in-or-register.component.css'
 })

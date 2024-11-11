@@ -118,11 +118,12 @@
 "order":{
 
 
-  "CART_TITLE": "سلة التسوق",
+  "CART_TITLE": "سلة المشتريات",
   "ITEMS": "عناصر",
-  "FREE_SHIPPING": "الشحن المجاني يصل بحلول",
+  "FREE_SHIPPING": "شحن مجاني",
+  "ARRIVES_BY": "يصل في",
   "ORDER_WITHIN": "اطلب خلال",
-  "HOURS_MINUTES": "ساعة دقيقة"
+  "HOURS_MINUTES": "ساعات دقائق"
     
 },
 
@@ -131,18 +132,65 @@
 
 
 
+"login":{
+    
+
+"Sign_In": "تسجيل الدخول",
+  "Email": "البريد الإلكتروني",
+  "Password": "كلمة المرور",
+  "Remember_Me": "تذكرني",
+  "Submit": "إرسال",
+  "Dont_Have_Account": "لا تمتلك حساب؟",
+  "Create_Account": "إنشاء حساب",
+  "Forget_Your": "نسيت",
+ 
+
+},
+
+"account":{
+  "My_Account": "حسابي",
+    "Account": "الحساب",
+    "Home": "الرئيسية",
+    "Purchase_History": "تاريخ الشراء",
+    "My_items": "عناصرتي",
+    "Reorder": "إعادة الطلب",
+    "Lists": "القوائم",
+    "Setting": "الإعدادات",
+    "Personal_information": "المعلومات الشخصية",
+    "Contact_info": "معلومات الاتصال",
+    "Addresses": "العناوين",
+    "Shopping_settings": "إعدادات التسوق",
+    "Language_Settings": "إعدادات اللغة",
+    "ss": "تسجيل الخروج"
+    
+},
+
+
+
+
+
+
+"language":{
+"Language_Settings": "إعدادات اللغة",
+    "para1": "الرجاء اختيار لغتك المفضلة.",
+    "para2": "اختر اللغة التي ترغب في استخدامها في التطبيق.",
+    "English": "الإنجليزية",
+    "Arabic": "العربية",
+    "Save_Changes": "حفظ التغييرات"    
+},
+
+
 
 "order-shapmentfooter":{
 
-  "COPYRIGHT": "&copy; 2024 Walmart. جميع الحقوق محفوظة.",
-  "GIVE_FEEDBACK": "أرسل ملاحظاتك",
+  "COPYRIGHT": "© 2024 شركتك",
+  "GIVE_FEEDBACK": "تقديم ملاحظات",
   "CA_PRIVACY_RIGHTS": "حقوق الخصوصية في كاليفورنيا",
-  "PRIVACY_CHOICES": "خيارات الخصوصية الخاصة بك",
-  "NOTICE_AT_COLLECTION": "إشعار عند التجميع",
-  "REQUEST_PERSONAL_INFO": "طلب معلوماتي الشخصية",
+  "PRIVACY_CHOICES": "خيارات الخصوصية",
+  "NOTICE_AT_COLLECTION": "إشعار عند الجمع",
+  "REQUEST_PERSONAL_INFO": "طلب المعلومات الشخصية",
   "DELETE_ACCOUNT": "حذف الحساب",
-  "CALIFORNIA_SUPPLY_CHAINS": "قانون سلاسل الإمداد في كاليفورنيا"
-
+  "CALIFORNIA_SUPPLY_CHAINS": "قانون سلاسل التوريد في كاليفورنيا"
 
 
 
@@ -434,7 +482,15 @@
 
 
 
+"home-section-one":{
 
+  "FLASH_DEALS": "عروض فلاش",
+  "UP_TO_65_OFF": "حتى 65% خصم",
+  "OPTIONS": "خيارات",
+  "NO_PRODUCTS": "لا توجد منتجات"
+
+    
+},
 
 
 
@@ -444,7 +500,9 @@
     
 },
 
-
+"home-lay-out.component":{
+   "PRODUCTS": "المنتجات"
+},
 
 
 "video-slider":{

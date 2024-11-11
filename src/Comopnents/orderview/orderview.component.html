@@ -1,144 +1,95 @@
-
 <div class="headd">
-
   <span>{{ 'checkout' | translate }}</span>
-
   <span class="back" routerLink="/order">
     &lt; {{ 'back' | translate }}</span>
-
 </div>
-<div class="row ">
+
+<div class="row">
   <div class="onfirst">
-
     <i class="fa-solid fa-check" style="color: #fafcff;"></i>
-
   </div>
-  <div class="all   mt-4 col-lg-8  border rounded">
-    <!-- < class="origalcon d-flex"> -->
+
+  <div class="all mt-4 col-lg-8 border rounded">
     <div class="shape p-4 bg-light border rounded mb-3 text-primary d-flex">
       <div style="margin-right: 2%;">
-        <img
-          src="https://i5.walmartimages.com/dfw/63fd9f59-1b5e/5452ae02-a31f-4ef1-9a45-62ac0b06c13b/v1/mci-shipping.svg"
-          alt="">
+        <img src="https://i5.walmartimages.com/dfw/63fd9f59-1b5e/5452ae02-a31f-4ef1-9a45-62ac0b06c13b/v1/mci-shipping.svg" alt="">
       </div>
       <div>
-        <p class="mb-0 ">{{ 'shipping' | translate:{Day: Day, Month: Month} }}</p>
+        <p class="mb-0">{{ 'shipping' | translate:{Day: Day, Month: Month} }}</p>
       </div>
     </div>
     <br>
 
-
-
-
-
-
     <!-- Cart Items Section -->
     <div class="shipping-address ps-3">
-      <span>{{user.firstName }} {{user.lastName}}</span>
+      <span>{{ user.firstName }} {{ user.lastName }}</span>
       <h1>{{ 'address' | translate }}</h1>
       <br>
-
     </div>
-
-
 
     <hr />
     <div class="itemDetails">
-
       <h5 style="color:black;">{{ 'delivery_instructions' | translate }}</h5>
       <br>
-      <!-- <p>Arrives by {{Day}}, {{Month}},order within 1 hr 44 min</p> -->
+      <!-- Static text (no translation needed) -->
       <p>House</p>
-
     </div>
 
     <hr>
     <div class="shapetime">
-
       <h5 style="color:black;">{{ 'shipping_date' | translate }}</h5>
       <br>
       <p>{{ 'shipping' | translate:{Day: Day, Month: Month} }}</p>
-
-
     </div>
 
     <hr>
-
 
     <div class="item">
       <app-orderitems></app-orderitems>
     </div>
 
-
-
-
-
     <br>
 
-
     <div class="">
-
-      <div class="paymentoff  border rounded d-flex">
+      <div class="paymentoff border rounded d-flex">
         <div class="iconwalet">
           <i class="fa-solid fa-wallet" style="color:rgb(63, 62, 62);"></i>
-
-          <h4 style="display: inline;">2. Payment method</h4>
-
+          <h4 style="display: inline;">{{ 'payment_method' | translate }}</h4>
         </div>
-
         <div class="on">
           <i class="fa-solid fa-check" style="color: #fafcff;"></i>
         </div>
-
       </div>
 
       <div class="paypal">
-          <app-paypaylcomponint></app-paypaylcomponint>
+        <app-paypaylcomponint></app-paypaylcomponint>
       </div>
-
     </div>
 
     <br>
 
     <div class="">
-
-      <div class="paymentoff  border rounded d-flex">
+      <div class="paymentoff border rounded d-flex">
         <div class="iconwalet">
           <i class="fa-solid fa-mobile" style="color:rgb(63, 62, 62);"></i>
-
-          <h4 style="display: inline;">
-            3. Text updates for this order</h4>
-
+          <h4 style="display: inline;">{{ 'text_updates' | translate }}</h4>
         </div>
-
         <div class="on">
           <i class="fa-solid fa-check" style="color: #fafcff;"></i>
         </div>
       </div>
 
       <div>
-        <button (click)="Createorder()">Submit</button>
+        <button (click)="Createorder()">{{ 'submit' | translate }}</button>
       </div>
-
-
-
-
-
     </div>
 
-
-
   </div>
-
-
-
 
   <!-- Checkout Summary Section -->
   <div class="col-lg-4 sumery">
     <app-shapementsummery></app-shapementsummery>
   </div>
-
-
 </div>
 
 <app-order-shapmentfooter></app-order-shapmentfooter>

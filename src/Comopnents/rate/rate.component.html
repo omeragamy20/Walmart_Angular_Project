@@ -1,39 +1,24 @@
-@if(lang=='en'){
-  
-<div class="feedback-overlay " *ngIf="isVisible">
+<div class="feedback-overlay" *ngIf="isVisible">
   <div class="feedback-container feedback">
-    <p>{{ 'feedback' | translate }}</p><button class="close-button" (click)="closeFeedbackForm()">X</button><hr>
+    <!-- Static text with translation -->
+    <p>{{ 'feedback' | translate }}</p>
+    <button class="close-button" (click)="closeFeedbackForm()">X</button><hr>
     <h3>{{ 'feedback_message' | translate }}</h3>
     <p>{{ 'rating_scale' | translate }}</p>
-    <div class="stars">
-      <span *ngFor="let star of stars; let index = index" 
-            class="star" 
-            [class.filled]="index < rating" 
-            (click)="rate(index + 1)">
-            <i class="fa-solid fa-star"></i>
-       </span>
-    </div>
-    <button class="submit-button" (click)="submitRating()">{{ 'share_feedback' | translate }}</button>
-  </div>
-</div>
 
-}
-@if(lang=='ar'){
-  
-<div class="feedback-overlay " *ngIf="isVisible">
-  <div class="feedback-container feedback">
-    <p>{{ 'feedback' | translate }}</p><button class="close-button" (click)="closeFeedbackForm()">X</button><hr>
-    <h3>{{ 'feedback_message' | translate }}</h3>
-    <p>{{ 'rating_scale' | translate }}</p>
+    <!-- Dynamic content (No translation applied) -->
     <div class="stars">
       <span *ngFor="let star of stars; let index = index" 
             class="star" 
             [class.filled]="index < rating" 
             (click)="rate(index + 1)">
-            <i class="fa-solid fa-star"></i>
-       </span>
+        <i class="fa-solid fa-star"></i>
+      </span>
     </div>
-    <button class="submit-button" (click)="submitRating()">{{ 'share_feedback' | translate }}</button>
+
+    <!-- Static text with translation -->
+    <button class="submit-button" (click)="submitRating()">
+      {{ 'share_feedback' | translate }}
+    </button>
   </div>
 </div>
-}

@@ -57,7 +57,53 @@
     "resetPasswordButton": "Reset Password"
 },
 
+"home-lay-out":{
+    "PRODUCTS": "Products"
+},
 
+
+
+"login":{
+    "Sign_In": "Sign In",
+  "Email": "Email",
+ 
+  "Remember_Me": "Remember Me",
+  "Submit": "Submit",
+  "Dont_Have_Account": "Don't have an account?",
+  "Create_Account": "Create an account",
+  "Forget_Your": "Forget your",
+  "Password": "Password"
+},
+
+"account":{
+"My_Account": "My Account",
+    "Account": "Account",
+    "Home": "Home",
+    "Purchase_History": "Purchase History",
+    "My_items": "My Items",
+    "Reorder": "Reorder",
+    "Lists": "Lists",
+    "Setting": "Settings",
+    "Personal_information": "Personal Information",
+    "Contact_info": "Contact Info",
+    "Addresses": "Addresses",
+    "Shopping_settings": "Shopping Settings",
+    "Language_Settings": "Language Settings",
+    "ss": "Sign Out"
+
+},
+
+
+
+"language":{
+"Language_Settings": "Language Settings",
+    "para1": "Please choose your preferred language.",
+    "para2": "Select the language you wish to use for the application.",
+    "English": "English",
+    "Arabic": "Arabic",
+    "Save_Changes": "Save Changes"
+
+},
 
 
 
@@ -101,15 +147,27 @@
 
 
 
+
+"home-section-one":{
+
+    "FLASH_DEALS": "Flash Deals",
+    "UP_TO_65_OFF": "Up to 65% off",
+    "OPTIONS": "Options",
+    "NO_PRODUCTS": "There are no products"
+
+
+},
+
+
 "order":{
 
 
-
-    "CART_TITLE": "Cart",
-    "ITEMS": "items",
-    "FREE_SHIPPING": "Free shipping, arrives by",
-    "ORDER_WITHIN": "Order within",
-    "HOURS_MINUTES": "hr min"
+"CART_TITLE": "Your Cart",
+  "ITEMS": "items",
+  "FREE_SHIPPING": "Free Shipping",
+  "ARRIVES_BY": "Arrives by",
+  "ORDER_WITHIN": "Order within",
+  "HOURS_MINUTES": "hours minutes"
 
 },
 
@@ -120,18 +178,14 @@
 
 "order-shapmentfooter":{
 
-"COPYRIGHT": "&copy; 2024 Walmart. All Rights Reserved.",
-  "GIVE_FEEDBACK": "Give feedback",
-  "CA_PRIVACY_RIGHTS": "CA Privacy Rights",
-  "PRIVACY_CHOICES": "Your Privacy Choices",
+"COPYRIGHT": "© 2024 Your Company",
+  "GIVE_FEEDBACK": "Give Feedback",
+  "CA_PRIVACY_RIGHTS": "California Privacy Rights",
+  "PRIVACY_CHOICES": "Privacy Choices",
   "NOTICE_AT_COLLECTION": "Notice at Collection",
-  "REQUEST_PERSONAL_INFO": "Request My Personal Information",
+  "REQUEST_PERSONAL_INFO": "Request Personal Information",
   "DELETE_ACCOUNT": "Delete Account",
   "CALIFORNIA_SUPPLY_CHAINS": "California Supply Chains Act"
-
-
-
-
 
 },
 
