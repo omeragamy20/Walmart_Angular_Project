@@ -5,6 +5,7 @@
     <div class="col-md-2 mb-2" *ngFor="let product of paginatedProducts">
       <div class="card h-100 text-center" >
       <!-- <button href="" style="border: none;"> -->
+     
       <a (click)="Details(product.id)">
         <div>
           <img [src]="url +product.imageUrls" class="card-img-top" alt="{{ product.title_en }}" width="175px" height="175px">
@@ -30,7 +31,13 @@
           </span>
 
           <button class="btn btn-link text-decoration-none">
-            <i class="far fa-heart"></i>
+            @if(favStatus == true){
+              <i class="fa-solid fa-heart" (click)="addtoFavourite(product.id)"></i>
+            }
+            @if(favStatus != true){
+
+              <i class="far fa-heart" (click)="addtoFavourite(product.id)" ></i>
+            }
           </button>
 
         </div>
@@ -47,7 +54,7 @@
 <div class="d-flex justify-content-between mt-4">
   <div class="buttonRL">
     <button class="circle-button" style="right:100%;" (click)="prevPage()" [disabled]="currentPage === 1">
-      <i class="bi bi-chevron-left"></i>
+      <i class="bi bi-chevron-left" ></i>
     </button>
   </div>
   <div class="buttonRL">
