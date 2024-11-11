@@ -1,6 +1,6 @@
 import { AfterContentChecked, Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { CommonModule, NgFor } from '@angular/common';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { SubcategoryService } from '../../Services/SubCategory/subcategory.service';
 import { ISubcategoryAr, ISubcategoryEn } from '../../InterFaces/sub-category';
 import { LanguageService } from '../../Services/Language/language.service';
@@ -22,7 +22,8 @@ export class DeatailscatogiryComponent implements OnInit  {
   SubCatinCatAr!: ISubcategoryAr[];
   @Input() id: number = 0;
   lang:string=''
-  constructor(private _ActivatedRoute: ActivatedRoute,private subcatserviceapi:SubcategoryService,private _languageSer:LanguageService)
+  constructor(private _ActivatedRoute: ActivatedRoute,private subcatserviceapi:SubcategoryService,
+    private _languageSer:LanguageService,private router: Router)
 {
 
 
@@ -68,8 +69,11 @@ ngOnInit(): void {
         }
       });
   }
-  }
 
+  }
+products(id:number){
+  this.router.navigate(['allproduct', id]);
+}
  // صور دائرية
   circularImages = [
     { url: 'https://i5.walmartimages.com/dfw/4ff9c6c9-c740/k2-_49c2b8ed-576f-4883-9b85-c731050b3cde.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF', name: 'ًwomens' },
