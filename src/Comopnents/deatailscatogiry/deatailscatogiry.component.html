@@ -76,7 +76,7 @@
     <div class="image-row d-flex flex-wrap justify-content-center">
 
       @if(lang == 'en'){
-      <div *ngFor="let subcat of SubCatinCatEn" class="image-container col-2">
+      <div *ngFor="let subcat of SubCatinCatEn" class="image-container col-2" (click)="products(subcat.id)" >
         <a [routerLink]="['/allproduct', subcat.id]">
           <img [src]="subcat.image" />
           <p class="text-center">{{ subcat.name_en }}</p>
