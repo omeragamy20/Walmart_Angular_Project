@@ -1,15 +1,13 @@
 <div class="headd">
-
-  <span>Checkout</span>
-
+  <span>{{ 'checkout' | translate }}</span>
   <span class="back" routerLink="/order">
     &lt; </span>
-
 </div>
-<div class="row ">
-  <div class="all   mt-4 col-lg-8  border rounded">
+
+<div class="row">
+  <div class="all mt-4 col-lg-8 border rounded">
+    
     <!-- Shipping Information -->
-    <!-- <h4 class="fw-bold mb-3 p-2">Cart <span style="font-weight: 400;"> ({{ num }} items)</span> </h4> -->
     <div class="shape p-4 bg-light border rounded mb-3 text-primary d-flex">
       <div style="margin-right: 2%;">
         <img
@@ -17,128 +15,84 @@
           alt="">
       </div>
       <div>
-        <p class="mb-0 fw-bold"> Shipping, arrives by {{Day}}, {{Month}}</p>
-        <small>Order within <span class="fw-bold">7 hr 44 min</span></small> |
+        <p class="mb-0 fw-bold">{{ 'shipping_arrives' | translate: { day: Day, month: Month } }}</p>
+        <small>{{ 'order_within' | translate }} <span class="fw-bold">7 hr 44 min</span></small> |
       </div>
     </div>
 
     <!-- Cart Items Section -->
-    <p class="text-muted ps-3" style="font-size: 13px;">* Required fields</p>
+    <p class="text-muted ps-3" style="font-size: 13px;">* {{ 'required_fields' | translate }}</p>
+
     <div class="shipping-address ps-3">
-      <h4 style="font-size: 15px; font-weight: bold;">Shipping address</h4>
-      <p>Where should we deliver your order?</p>
-
+      <h4 style="font-size: 15px; font-weight: bold;">{{ 'shipping_address' | translate }}</h4>
+      <p>{{ 'where_deliver' | translate }}</p>
     </div>
+
     <form (ngSubmit)="Addshapment()">
-      <div class=" row p-3" style="--bs-gutter-x: 1rem">
-<!-- 
-          <label for="">First Name : {{user.firstName}}</label>
-          <label for="">Address : {{user.address}}</label> -->
-
+      <div class="row p-3" style="--bs-gutter-x: 1rem">
         <div class="left col-lg-6">
-         
-
           <div class="form-group">
-            <label>Street address*</label>
-            <input type="text" [(ngModel)]="shepment.address" name="Address" placeholder="Street address"
+            <label>{{ 'street_address' | translate }}</label>
+            <input type="text" [(ngModel)]="shepment.address" name="Address" placeholder="{{ 'street_address' | translate }}"
               #addinp="ngModel" required minlength="3" maxlength="150">
-            @if(addinp.invalid && addinp.touched)
-            {
-            @if(addinp.hasError('required')){
-
-            <p class="text-danger">Address Is Requaried</p>
-            }
-            @if(addinp.hasError('minlength')){
-
-            <p class="text-danger">Address Must be More than 3 Char </p>
-            }
-            @if(addinp.hasError('maxlength')){
-
-            <p class="text-danger">maxlength Must be less than 150 Char </p>
-            }
-            }
+            <div *ngIf="addinp.invalid && addinp.touched">
+              <p *ngIf="addinp.hasError('required')" class="text-danger">{{ 'address_required' | translate }}</p>
+              <p *ngIf="addinp.hasError('minlength')" class="text-danger">{{ 'address_min_length' | translate }}</p>
+              <p *ngIf="addinp.hasError('maxlength')" class="text-danger">{{ 'address_max_length' | translate }}</p>
+            </div>
           </div>
-
-
         </div>
+
         <div class="right col-lg-6">
           <div class="d-flex">
-            <div class="form-group" style="width: 100%;margin-right: 10px;">
-              <label>State*</label>
+            <div class="form-group" style="width: 100%; margin-right: 10px;">
+              <label>{{ 'state' | translate }}</label>
               <select [(ngModel)]="shepment.Country" name="Country">
                 <option value="NY">NY</option>
-                <!-- Add other states here -->
               </select>
             </div>
 
-
             <div class="form-group" style="width: 100%;">
-              <label>Zip code*</label>
-              <input type="text" [(ngModel)]="shepment.ZipCode" name="ZipCode" placeholder="Zip code" #zipinp="ngModel"
-                required minlength="3" maxlength="10">
-              @if(zipinp.invalid && zipinp.touched)
-              {
-              @if(zipinp.hasError('required')){
-
-              <p class="text-danger">ZipCode Is Requaried</p>
-              }
-              @if(zipinp.hasError('minlength')){
-
-              <p class="text-danger">ZipCode Must be More than 3 Char </p>
-              }
-              }
+              <label>{{ 'zip_code' | translate }}</label>
+              <input type="text" [(ngModel)]="shepment.ZipCode" name="ZipCode" placeholder="{{ 'zip_code' | translate }}"
+                #zipinp="ngModel" required minlength="3" maxlength="10">
+              <div *ngIf="zipinp.invalid && zipinp.touched">
+                <p *ngIf="zipinp.hasError('required')" class="text-danger">{{ 'zip_required' | translate }}</p>
+                <p *ngIf="zipinp.hasError('minlength')" class="text-danger">{{ 'zip_min_length' | translate }}</p>
+              </div>
             </div>
-
-
-
           </div>
+
           <div class="form-group">
-            <label>City*</label>
-            <input type="text" [(ngModel)]="shepment.City" name="City" placeholder="City">
+            <label>{{ 'city' | translate }}</label>
+            <input type="text" [(ngModel)]="shepment.City" name="City" placeholder="{{ 'city' | translate }}">
           </div>
-
-
-
         </div>
 
-
-
         <div class="form-group">
-          <label>Delivery notes</label>
-          <textarea placeholder="Building description, nearby landmark, etc."></textarea>
+          <label>{{ 'delivery_notes' | translate }}</label>
+          <textarea placeholder="{{ 'delivery_notes_placeholder' | translate }}"></textarea>
         </div>
       </div>
 
       <div class="prfere d-flex">
         <div>
-
-          <p>More delivery instructions</p>
-
-          <span style="color: rgb(44, 43, 43);"> <input type="checkbox" name="" id="">Set as my preferred
-            delivery
-            address</span>
+          <p>{{ 'more_delivery_instructions' | translate }}</p>
+          <span style="color: rgb(44, 43, 43);">
+            <input type="checkbox" name="" id="">{{ 'set_as_preferred' | translate }}
+          </span>
         </div>
         <div>
-          <!-- <a type="Submit" routerLinkActive="router-link-active"
-            class="btnA btn btn-primary">Save 
-          </a> -->
-
-          <input type="submit" value="Save">
+          <input type="submit" value="{{ 'save' | translate }}">
         </div>
       </div>
 
     </form>
 
-
-
-
-
-
     <hr />
     <div class="itemDetails">
-
-      <h5 style="color: #2e2f32;">Item details</h5>
-      <p>Arrives by {{Day}}, {{Month}},order within 1 hr 44 min</p>
+      <h5 style="color: #2e2f32;">{{ 'item_details' | translate }}</h5>
+      <p>{{ 'arrives_by' | translate: { day: Day, month: Month } }}</p>
     </div>
 
     <hr>
@@ -147,61 +101,36 @@
       <app-orderitems></app-orderitems>
     </div>
 
-
-
-
-
     <br>
 
-
-    <div class="paymentoff  border rounded d-flex">
-
+    <div class="paymentoff border rounded d-flex">
       <div class="iconwalet">
         <i class="fa-solid fa-wallet" style="color: #a6adb9;"></i>
-
-        <h4 style="display: inline;">2. Payment method</h4>
-
+        <h4 style="display: inline;">2. {{ 'payment_method' | translate }}</h4>
       </div>
-
       <div class="off">
         <i class="fa-solid fa-minus" style="color: #5b5f67;"></i>
       </div>
-
-
     </div>
 
     <br>
 
-    <div class="paymentoff  border rounded d-flex">
-
+    <div class="paymentoff border rounded d-flex">
       <div class="iconwalet">
-        <i class="fa-solid fa-mobile" style="color:  #a6adb9;"></i>
-
-        <h4 style="display: inline;">
-          3. Text updates for this order</h4>
-
+        <i class="fa-solid fa-mobile" style="color: #a6adb9;"></i>
+        <h4 style="display: inline;">3. {{ 'text_updates' | translate }}</h4>
       </div>
-
       <div class="off">
         <i class="fa-solid fa-minus" style="color: #5b5f67;"></i>
       </div>
-
-
     </div>
-
-
-
   </div>
-
-
-
 
   <!-- Checkout Summary Section -->
   <div class="col-lg-4 sumery">
-    <!-- <app-checkout-summary [products]="products"></app-checkout-summary> -->
     <app-shapementsummery></app-shapementsummery>
   </div>
 
-
 </div>
+
 <app-order-shapmentfooter></app-order-shapmentfooter>

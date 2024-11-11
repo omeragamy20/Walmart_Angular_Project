@@ -1,5 +1,5 @@
-<h2>Contact Info and Password</h2>
-<h3>Your personal information</h3>
+<h2>{{ 'contactInfoAndPassword' | translate }}</h2>
+<h3>{{ 'personalInformation' | translate }}</h3>
 
 <hr>
 
@@ -10,28 +10,28 @@
     <form (submit)="UpdateUserInfo()">
    
             <div class="mb-3">
-              <label for="fname" class="form-label">First Name</label>
+              <label for="fname" class="form-label">{{ 'firstName' | translate }}</label>
               <input type="text" name="firstName" [(ngModel)]="user.firstName" class="form-control" id="fname">
             </div>
     
             <div class="mb-3">
-                <label for="lname" class="form-label">Last Name</label>
+                <label for="lname" class="form-label">{{ 'lastName' | translate }}</label>
                 <input type="text" name="Lastname" [(ngModel)]="user.lastName" class="form-control" id="lname">
               </div>
         
        <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label">Email address</label>
+          <label for="exampleInputEmail1" class="form-label">{{ 'emailAddress' | translate }}</label>
           <input type="email" name="Email" class="form-control" [(ngModel)]="user.email" id="exampleInputEmail1" aria-describedby="emailHelp">
-          <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+          <div id="emailHelp" class="form-text">{{ 'emailHelp' | translate }}</div>
         </div>
     
     
         <div class="mb-3">
-            <label for="Phone" class="form-label">Phone number</label>
+            <label for="Phone" class="form-label">{{ 'phoneNumber' | translate }}</label>
             <input type="text" name="phone" [(ngModel)]="user.phoneNumber" class="form-control" id="Phone" >
         </div>
     
-        <button type="submit" class="btn btn-primary">Update</button>
+        <button type="submit" class="btn btn-primary">{{ 'updateButton' | translate }}</button>
       </form>
     </div>
     
@@ -41,12 +41,12 @@
       <div class="col-5">
         <form (submit)="RestPassord()" #myForm ="ngForm">
             <div class="mb-3">
-              <label for="Cpass" class="form-label">Current Password</label>
+              <label for="Cpass" class="form-label">{{ 'currentPassword' | translate }}</label>
               <input type="password" name="oldPassword" [(ngModel)]="ResetPass.oldPassword" class="form-control" id="Cpass">
             </div>
     
             <div class="mb-3">
-                <label for="Npass" class="form-label">New Password</label>
+                <label for="Npass" class="form-label">{{ 'newPassword' | translate }}</label>
                 <input type="password" name="newPass" 
                 min="8" 
                 required
@@ -57,14 +57,14 @@
 
               
               @if(nameInp.invalid && nameInp.touched){
-                <p class="text-danger">Must be at least one uppercase letter.</p>
-                <p class="text-danger">Must be at least one special character.</p>
-                <p class="text-danger">Must be at least one uppercase letter.</p>
-                <p class="text-danger"> Must be at least one digit</p>
+                <p class="text-danger">{{ 'passwordUppercaseRequirement' | translate }}</p>
+                <p class="text-danger">{{ 'passwordSpecialCharRequirement' | translate }}</p>
+                <p class="text-danger">{{ 'passwordDigitRequirement' | translate }}</p>
+                <p class="text-danger"> {{ 'passwordMinLengthRequirement' | translate }}</p>
                 <p class="text-danger">Min 8 charachter</p>
               }
     
-        <button type="submit"   [disabled]="myForm.invalid" class="btn btn-primary">Reset Password</button>
+        <button type="submit"   [disabled]="myForm.invalid" class="btn btn-primary">{{ 'resetPasswordButton' | translate }}</button>
       </form>
       </div>
 </div>
