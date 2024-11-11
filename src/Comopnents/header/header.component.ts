@@ -8,11 +8,18 @@ import { CookieService } from 'ngx-cookie-service';
 import { UserService } from '../../Services/User/user.service';
 import { User } from '../../InterFaces/user';
 import { SearchService } from '../../Services/search.service';
+import { CategoryService } from '../../Services/Category/category.service';
+import { SubcategoryService } from '../../Services/SubCategory/subcategory.service';
+import { ICategoryAr, ICategoryEn } from '../../InterFaces/category';
+import { ISubcategoryAr, ISubcategoryEn } from '../../InterFaces/sub-category';
 
 interface Department {
-  name: string;
-  parts: string[];
+  Category: string;
+  Subcategory: string[];
+  SubcategoryId: number[];
+
 }
+
 
 @Component({
   selector: 'app-header',
@@ -31,12 +38,16 @@ export class HeaderComponent implements OnInit, DoCheck {
   totalprice: number = 0;
   @Output() searchEvent = new EventEmitter<string>();
   lang: string = '';
-  searchTerm:string = '';
-  constructor(private lanSer: LanguageService, private _UserService: UserService, private searchService: SearchService) {
+  searchTerm: string = '';
+  catlisst_En!: ICategoryEn[];
+  catlisst_Ar!: ICategoryAr[];
+  SubCat_En!: ISubcategoryEn[];
+  SubCat_Ar!: ISubcategoryAr[];
+  constructor(private lanSer: LanguageService, private _UserService: UserService, private searchService: SearchService,
+          private catservice:CategoryService,private Subcatservic:SubcategoryService
+  ) {
   }
-  // constructor(private lanSer:LanguageService,private searchService: SearchService){
 
-  // }
 
 
   onSearchInput(event: Event): void {
@@ -57,25 +68,42 @@ export class HeaderComponent implements OnInit, DoCheck {
     this.lanSer.getLangugae().subscribe({
       next:(res)=>{
         this.lang=res
-      }
+      },error:(err)=> {
+        console.log(err);
+
+      },
     })
 
-        this.id =sessionStorage.getItem("id")!
-        this._UserService.GetUserById(this.id).subscribe({
-          next:(res)=>{
-            this.user = res
-            console.log(this.user)
-          },
-          error:(err)=> {
-            console.log(err);
+    this.id =sessionStorage.getItem("id")!
+    this._UserService.GetUserById(this.id).subscribe({
+      next:(res)=>{
+        this.user = res
+        console.log(this.user)
+      },
+      error:(err)=> {
+        console.log(err);
 
-          },
-        })
+      },
+    })
 
-
+    this.catservice.GetAllCategory().subscribe({
+      next:(value)=> {
+        this.catlisst_En = value;
+      },
+      error:(err)=> {
+        console.log(err);
+      },
+    });
+    this.catservice.GetAllCategory_Ar().subscribe({
+      next:(value)=> {
+        this.catlisst_Ar = value;
+      },
+      error:(err)=> {
+        console.log(err);
+      },
+    });
 
   }
-
 
   many(): void {
 
@@ -112,51 +140,43 @@ export class HeaderComponent implements OnInit, DoCheck {
 
   }
 
+  switchLanguage(lang: string) {
+  console.log(lang);
 
-
-
-  // ngOnInit(): void {
-  //   this.lanSer.getLangugae().subscribe({
-  //     next:(res)=>{
-  //       this.lang=res
-  //     }
-  //   })
-  // }
-
-switchLanguage(lang:string){
   this.lanSer.changeLang(lang);
 }
 
+  // ///////Department Dropdowin///////////
 
-  departments: Department[] = [
-    { name: 'Savings', parts: ['Shop All Savings', 'Clothing & Accessories', 'Electronics', 'Home','Shop All Savings', 'Clothing & Accessories', 'Electronics', 'Home','Shop All Savings', 'Clothing & Accessories', 'Electronics', 'Home','Shop All Savings', 'Clothing & Accessories', 'Electronics', 'Home','Shop All Savings', 'Clothing & Accessories', 'Electronics', 'Home','Shop All Savings', 'Clothing & Accessories', 'Electronics', 'Home'] },
-    { name: 'Grocery', parts: ['Beverages', 'Snacks', 'Frozen Food', 'Dairy'] },
-    { name: 'Electronics &Video Games', parts: ['Latest Arrivals', 'Trending Now', 'Bestsellers'] },
-    { name: 'Clothing & Accessories', parts: ['Latest Arrivals', 'Trending Now', 'Bestsellers'] },
-    { name: 'Home', parts: ['Latest Arrivals', 'Trending Now', 'Bestsellers'] },
-    { name: 'Patio & Garden', parts: ['Latest Arrivals', 'Trending Now', 'Bestsellers'] },
-    { name: 'Toys', parts: ['Latest Arrivals', 'Trending Now', 'Bestsellers'] },
-    { name: 'Personal Care', parts: ['Latest Arrivals', 'Trending Now', 'Bestsellers'] },
-    { name: 'Beauty', parts: ['Latest Arrivals', 'Trending Now', 'Bestsellers'] },
-    { name: 'Health & wellness', parts: ['Latest Arrivals', 'Trending Now', 'Bestsellers'] },
-    { name: 'Baby', parts: ['Latest Arrivals', 'Trending Now', 'Bestsellers'] },
-    { name: 'Auto & tires', parts: ['Latest Arrivals', 'Trending Now', 'Bestsellers'] },
-    { name: 'Home Improvement', parts: ['Latest Arrivals', 'Trending Now', 'Bestsellers'] },
 
-  ];
 
-  // activeDepartment: Department | null = null;
-
-  // setActiveDepartment(department: Department): void {
-  //   this.activeDepartment = department;
-  // }
-
-  activeDepartment: Department | null = null;
+  activeCAten:ISubcategoryEn[] |null = null;
+  activeCAtar:ISubcategoryAr[] |null = null;
   isDropdownOpen = false;
 
-  setActiveDepartment(department: Department): void {
-    this.activeDepartment = department;
+  setActiveDepartment(catid: number): void {
+    // console.log(catid);
+    // this.Subcatservic.GetAllSubCAtbyCatid(catid).subscribe({
+    //   next: (value) => {
+    //     this.activeCAt = value;
+    //   },
+    // });
+    if (this.lang == 'en') {
+      this.Subcatservic.GetAllSubCAtbyCatid(catid).subscribe({
+        next: (value) => {
+          this.activeCAten = value;
+        },
+      });
+    }
+    else {
+      this.Subcatservic.GetAllSubCAtbyCatid_Ar(catid).subscribe({
+        next:(value)=>{
+          this.activeCAtar = value;
+        },
+      });
+    }
   }
+
 
   toggleDropdown(): void {
     this.isDropdownOpen = !this.isDropdownOpen;

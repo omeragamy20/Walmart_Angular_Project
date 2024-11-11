@@ -68,7 +68,10 @@
       <br />
       <!-- show the mthod -->
       <div *ngIf="!showFirstDiv">
-        <h3 class="text-success text-center">{{user.firstName}} Pay: {{totalprice}} With Method type: {{selectedOption}}</h3>
+        <h3 class="text-success text-center">
+          {{ user.firstName }} Pay: {{ totalprice }} With Method type:
+          {{ selectedOption }}
+        </h3>
       </div>
       <div *ngIf="showFirstDiv">
         <select [(ngModel)]="selectedOption" onchange="changmethod()">
@@ -78,25 +81,32 @@
         </select>
 
         <div *ngIf="selectedOption === 'Paypal'">
-          <app-paypaylcomponint (click)="onDivClick('Paypal')"></app-paypaylcomponint>
+          <app-paypaylcomponint
+            (click)="onDivClick('Paypal')"
+          ></app-paypaylcomponint>
         </div>
         <div *ngIf="selectedOption === 'Cash'">
           <div class="form-check" (click)="onDivClick('Cash')">
-            <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value=""
+              id="flexCheckIndeterminate"
+            />
             <label class="form-check-label" for="flexCheckIndeterminate">
               Cash On Delivery
             </label>
           </div>
         </div>
-        <br>
-        <br>
+        <br />
+        <br />
         <!-- btn  -->
-        <div >
-          <button class="btn btn-primary" (click)="CreatePayment()">Save Change</button>
+        <div>
+          <button class="btn btn-primary" (click)="CreatePayment()">
+            Save Change
+          </button>
         </div>
       </div>
-
-
     </div>
 
     <br />
@@ -114,8 +124,14 @@
         </div>
       </div>
 
-      <div>
-        <button (click)="Createorder()">Submit</button>
+      <div class="text-center">
+        <button
+          routerLink="/Delivery"
+          class="btn btn-primary"
+          (click)="Createorder()"
+        >
+          Confirme Order
+        </button>
       </div>
     </div>
   </div>
