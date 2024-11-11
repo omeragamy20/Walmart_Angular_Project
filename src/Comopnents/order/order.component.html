@@ -1,0 +1,39 @@
+<div class="row">
+  <div class="all mt-4 col-lg-8">
+    <!-- Shipping Information -->
+    <h4 class="fw-bold mb-3 p-2">Cart <span style="font-weight: 400;"> ({{ num }} items)</span> </h4>
+    <div class="shape p-4 bg-light border rounded mb-3 text-primary d-flex">
+      <div style="margin-right: 2%;">
+        <img
+          src="https://i5.walmartimages.com/dfw/63fd9f59-1b5e/5452ae02-a31f-4ef1-9a45-62ac0b06c13b/v1/mci-shipping.svg"
+          alt="">
+      </div>
+      <div>
+        <p class="mb-0 fw-bold">Free shipping, arrives by {{Day}}, {{Month}}</p>
+        <small>Order within <span class="fw-bold">7 hr 44 min</span></small> |
+        <a style="display: block;" href="#" class="text-decoration-none">95829</a>
+      </div>
+    </div>
+
+    <!-- Cart Items Section -->
+
+    <div class="">
+
+      <app-orderitems></app-orderitems>
+      <!-- <app-cart-item *ngFor="let product of products" [product]="product"></app-cart-item> -->
+    </div>
+
+
+
+
+
+  </div>
+
+  <!-- Checkout Summary Section -->
+  <div class="col-lg-4 sumery">
+    <!-- <app-checkout-summary [products]="products"></app-checkout-summary> -->
+    <app-summery></app-summery>
+  </div>
+
+
+</div>

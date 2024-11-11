@@ -1,0 +1,538 @@
+@if(lang=='en'){
+  <section class="product">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-5">
+          <div class="row images">
+            <div class="col-2 img">
+              <ng-container *ngIf="product[0].imageUrls">
+                <div *ngFor="let img of  product[0].imageUrls.slice(0, 2); let i = index">
+                  <img class="image" style="width:100px; height:100px; border:2px solid transparent;" [src]="url + img" [ngStyle]="{'border-color': i === activeImageIndex ? '#1E90FF' : 'transparent'}" (click)="setActiveImage(i)">
+               </div>
+               <button *ngIf="product[0].imageUrls.length > 2" (click)="openImageModal()" class="allbtn">
+                + {{ product[0].imageUrls.length - 2 }} View All
+              </button>
+              </ng-container>
+            </div>
+            <ng-container>
+              <div id="carouselExampleFade" style="width:300px; height:200px;" class="col-2 loop carousel slide carousel-fade">
+                <div class="carousel-inner">
+                  <div *ngFor="let img of product[0].imageUrls; let i = index" class="carousel-item" [ngClass]="{'active': i === activeImageIndex}">
+                    <img [src]="url + img" class="d-block w-100" alt="Image">
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev" (click)="prevImage()">
+                  <span class="carousel-control-prev-icon btnImg" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next" (click)="nextImage()">
+                  <span class="carousel-control-next-icon btnImg" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
+            </ng-container>
+          </div>
+        </div>      
+        <div class="col-4">
+          <div class="container text-center">
+            <div class="row more_info">
+              <div class="col">
+                <!-- <a href="#">visist HP store</a> -->
+                <p>{{product[0].title_en}} </p>
+                <div>
+                  <i class="fa-solid" [ngClass]="getStarClass(ratingvalue, 1)"></i>
+                  <i class="fa-solid" [ngClass]="getStarClass(ratingvalue, 2)"></i>
+                  <i class="fa-solid" [ngClass]="getStarClass(ratingvalue, 3)"></i>
+                  <i class="fa-solid" [ngClass]="getStarClass(ratingvalue, 4)"></i>
+                  <i class="fa-solid" [ngClass]="getStarClass(ratingvalue, 5)"></i>
+                  <p>({{ratingvalue}}) | {{product[0].totalRate}} </p>
+                </div>     
+              </div>
+              <br>
+              <br>
+              <hr>
+              <div class="col">
+                <h5>About This Item</h5>
+                <p class="dec">{{product[0].description_en}} </p>
+              </div>
+              <div class="col">
+                <div class="container text-center">
+                  <div class="row">
+                    <p>At a glance</p>
+                   <div class="col specifaction" *ngFor="let pro of product[0].values.slice(0,2); let i=index">
+                      <span>{{product[0].values[i]}}</span><br>
+                      <span>{{product[0].facilities[i]}}</span>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col specifaction" *ngFor="let pro of product[0].values.slice(3,5); let i=index">
+                      {{product[0].values[i]}}<br>
+                      <span>{{product[0].facilities[i]}}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <a><button mat-button (click)="openDialog()">View All Specifications</button></a>
+        </div>
+        </div>
+        <div>     
+        </div>
+        </div>
+        <div class="col-3">
+          <div class="container text-center">
+            <div class="row more_info prise_info">
+              <div class="col">
+                <div class="prise_details">
+                  <h3 class="prise">Now ${{product[0].price}}</h3>
+                  <h6 class="prise">You save $61.04</h6>
+                  <p>price when purchased online</p>
+                  <button class="add">Add To Cart</button>
+                </div>
+                <hr>
+                <div class="plan">
+                  <img class="imgIcon walmart_icon" src="https://i5.walmartimages.com/dfw/63fd9f59-2c2e/b8053833-2295-47f4-80f1-448eb55fa0ba/v1/wpp-shield.svg">
+                  <span>Add a protection plan</span><br>                         
+                  <input type="checkbox"><label>2-Year plan - $45.00</label>
+                </div>
+                <div class="plan">
+                  <img class="imgIcon walmart_icon" src="https://i5.walmartimages.com/dfw/63fd9f59-e685/7e6c8c3a-3ba7-437a-a066-de3ad3a6a15a/v1/Wrench%20Icon.svg">
+                  <span>Get expert help</span><br>
+                  <input type="checkbox">Premium Tech Support & Security - $99.00<br>
+                  <input type="checkbox">Standard Setup & Security - $59.00
+                  
+                </div>
+                <hr>
+                <div class="row shipping_way">
+                  <span style="font-size: .875rem;">How you'll get this item:</span>
+                  <div class="col-3 shipping" [ngStyle]="{'border': borderStyle}" (click)="changeBorder()">
+                    <img class="imgIcon" src="https://i5.walmartimages.com/dfwrs/76316474-f13c/k2-_d4e8ebb4-9d70-46b4-8f2b-ecc4ac774e07.v1.png">
+                    <span class="ship">Shipping</span>
+                    <span>Arrives Oct 27 free</span>
+                  </div>
+                  <div class="col-3 shipping" [ngStyle]="{'border': borderStyle}" (click)="changeBorder()">
+                    <img class="imgIcon" src="https://i5.walmartimages.com/dfwrs/76316474-8720/k2-_d747b89f-5900-404d-a101-1a3452480882.v1.png">
+                    <span class="ship">Pickup</span>
+                    <span>Not Available</span>
+                  </div>
+                  <div class="col-3 shipping" [ngStyle]="{'border': borderStyle}" (click)="changeBorder()">
+                    <img class="imgIcon" src="https://i5.walmartimages.com/dfwrs/76316474-39c2/k2-_8deea800-0d44-4984-b1ce-5a3f12b192b7.v1.png">
+                    <span class="ship">Delivery</span>
+                    <span>Not Available</span>
+                  </div>
+                  <span>Sacramento, 95829 <a href="#">Change</a></span>
+                  <span>Arrives by Sun, Oct 27 | <a href="#">More options</a></span>
+                  <hr>
+                </div>
+            </div>
+          </div>
+        </div>
+        </div>
+    </div>
+    <div class="row more" id="specific-section">
+      <div class="col-9">
+        <div class="col-12">
+          <h5>About this item</h5>
+          <div class="accordion" id="accordionExample">
+            <div class="accordion-item" *ngFor="let item of accordionItems; let i = index">
+              <h2 class="accordion-header" [attr.id]="'heading' + i">
+                <button class="accordion-button" [class.collapsed]="!item.isOpen" type="button" (click)="toggleAccordion(i)">
+                  {{ item.title }}
+                </button>
+              </h2>
+              <div [attr.id]="'collapse' + i" class="accordion-collapse collapse" [class.show]="item.isOpen" [attr.aria-labelledby]="'heading' + i" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <ng-container *ngIf="item.contentType === 'description'">
+                    {{ product[0].description_en }}
+                  </ng-container>
+                  <ng-container *ngIf="item.contentType === 'specifications'">
+                    <div *ngFor="let spec of product[0].values; let j = index">
+                      <h5>{{ spec }}</h5>
+                      <p class="val">{{ product[0].facilities[j] }}</p>
+                    </div>
+                  </ng-container>
+                </div>
+              </div>
+            </div>
+          </div>
+                     
+        </div>
+        <div class="row">
+          <div class="col- rate" id="rating">
+            <h4>Customer ratings & reviews</h4>
+            <div class="row">
+              <div class="col-6">
+                <h2>{{ratingvalue}} out of 5</h2>
+                <div>
+                  <i class="fa-solid" [ngClass]="getStarClass(product[0].rate, 1)"></i>
+                  <i class="fa-solid" [ngClass]="getStarClass(product[0].rate, 2)"></i>
+                  <i class="fa-solid" [ngClass]="getStarClass(product[0].rate, 3)"></i>
+                  <i class="fa-solid" [ngClass]="getStarClass(product[0].rate, 4)"></i>
+                  <i class="fa-solid" [ngClass]="getStarClass(product[0].rate, 5)"></i>
+                  <p>({{ratingvalue}}) | <a href="#">{{product[0].totalRate}}</a></p>
+                </div> 
+              </div>
+              <div class="col-6">
+                <div class="skill-item">
+                  <a class="skill-title">5 stars <span class="float-end">{{num5}}%({{temp5}})</span></a>
+                  <div class="progress" style="height:10px;">
+                      <div class="progress-bar" role="progressbar" [style.width.%]="num5"  aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+              </div>
+              <div class="skill-item">
+                <a class="skill-title">4 stars <span class="float-end">{{num4}}%({{temp4}})</span></a>
+                <div class="progress" style="height:10px;">
+                      <div class="progress-bar" role="progressbar" [style.width.%]="num4" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+              </div>
+              <div class="skill-item">
+                  <a class="skill-title">3 stars <span class="float-end">{{num3}}%({{temp3}})</span></a>
+                  <div class="progress" style="height:10px;">
+                      <div class="progress-bar" role="progressbar" [style.width.%]="num3" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+              </div>
+              <div class="skill-item">
+                <a class="skill-title">2 stars <span class="float-end">{{num2}}%({{temp2}})</span></a>
+                <div class="progress" style="height:10px;">
+                      <div class="progress-bar" role="progressbar" [style.width.%]="num2" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+              </div>
+              <div class="skill-item">
+                <a class="skill-title">1 star <span class="float-end">{{num1}}%({{temp1}})</span></a>
+                <div class="progress" style="height:10px;">
+                      <div class="progress-bar" role="progressbar" [style.width.%]="num1" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+              </div>
+              </div>
+            </div>     
+          </div> 
+        </div> 
+      </div>
+      <div class="col-3" *ngIf="showSidebar" [ngClass]="{'fixed-sidebar': showSidebar}">
+        <div class="container text-center">
+          <div class="row more_info prise_info">
+            <div class="col">
+              <div class="prise_details">
+                <h3 class="prise">Now ${{product[0].price}}</h3>
+                <h6 class="prise">You save $61.04</h6>
+                <p>price when purchased online</p>
+                <button class="add">Add To Cart</button>
+              </div>
+              <hr>
+              <div class="row shipping_way">
+                <span style="font-size: .875rem;">How you'll get this item:</span>
+                <div class="col-3 shipping" [ngStyle]="{'border': borderStyle}" (click)="changeBorder()">
+                  <img class="imgIcon" src="https://i5.walmartimages.com/dfwrs/76316474-f13c/k2-_d4e8ebb4-9d70-46b4-8f2b-ecc4ac774e07.v1.png">
+                  <span class="ship">Shipping</span>
+                  <span>Arrives Oct 27 free</span>
+                </div>
+                <div class="col-3 shipping" [ngStyle]="{'border': borderStyle}" (click)="changeBorder()">
+                  <img class="imgIcon" src="https://i5.walmartimages.com/dfwrs/76316474-8720/k2-_d747b89f-5900-404d-a101-1a3452480882.v1.png">
+                  <span class="ship">Pickup</span>
+                  <span>Not Available</span>
+                </div>
+                <div class="col-3 shipping" [ngStyle]="{'border': borderStyle}" (click)="changeBorder()">
+                  <img class="imgIcon" src="https://i5.walmartimages.com/dfwrs/76316474-39c2/k2-_8deea800-0d44-4984-b1ce-5a3f12b192b7.v1.png">
+                  <span class="ship">Delivery</span>
+                  <span>Not Available</span>
+                </div>
+                <span>Sacramento, 95829 <a href="#">Change</a></span>
+                <span>Arrives by Sun, Oct 27 | <a href="#">More options</a></span>
+                <hr>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="feedback">
+        <p>We’d love to hear what you think!</p>
+        <button (click)="openFeedbackForm()">Give feedback</button>
+        <app-rate *ngIf="isfeedbackformOpend" [productId]="product[0].id" (formClosed)="closeFeedbackForm()"></app-rate>
+      </div>
+    </div>
+  </div>
+  </section>
+}
+
+
+<!-- عربى -->
+
+@if(lang=='ar'){
+  <section class="product">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-5">
+          <div class="row images">
+            <div class="col-2 img">
+              <ng-container *ngIf="product[0].imageUrls">
+                <div *ngFor="let img of  product[0].imageUrls.slice(0, 2); let i = index">
+                  <img class="image" style="width:100px; height:100px; border:2px solid transparent;" [src]="url + img" [ngStyle]="{'border-color': i === activeImageIndex ? '#1E90FF' : 'transparent'}" (click)="setActiveImage(i)">
+               </div>
+               <button *ngIf="product[0].imageUrls.length > 2" (click)="openImageModal()" class="allbtn">
+                + {{ product[0].imageUrls.length - 2 }} View All
+              </button>
+              </ng-container>
+            </div>
+            <ng-container>
+              <div id="carouselExampleFade" style="width:300px; height:200px;" class="col-2 loop carousel slide carousel-fade">
+                <div class="carousel-inner">
+                  <div *ngFor="let img of product[0].imageUrls; let i = index" class="carousel-item" [ngClass]="{'active': i === activeImageIndex}">
+                    <img [src]="url + img" class="d-block w-100" alt="Image">
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev" (click)="prevImage()">
+                  <span class="carousel-control-prev-icon btnImg" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next" (click)="nextImage()">
+                  <span class="carousel-control-next-icon btnImg" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
+            </ng-container>
+          </div>
+        </div>      
+        <div class="col-4">
+          <div class="container text-center">
+            <div class="row more_info">
+              <div class="col">
+                <!-- <a href="#">visist HP store</a> -->
+                <p>{{product[0].title_ar}} </p>
+                <div>
+                  <i class="fa-solid" [ngClass]="getStarClass(product[0].rate, 1)"></i>
+                  <i class="fa-solid" [ngClass]="getStarClass(product[0].rate, 2)"></i>
+                  <i class="fa-solid" [ngClass]="getStarClass(product[0].rate, 3)"></i>
+                  <i class="fa-solid" [ngClass]="getStarClass(product[0].rate, 4)"></i>
+                  <i class="fa-solid" [ngClass]="getStarClass(product[0].rate, 5)"></i>
+                  <p>({{ratingvalue}}) | {{product[0].totalRate}} </p>
+                </div>     
+              </div>
+              <br>
+              <br>
+              <hr>
+              <div class="col">
+                <h5>عن  هذا المنتج</h5>
+                <p>{{product[0].description_ar}} </p>
+              </div>
+              <div class="col">
+                <div class="container text-center">
+                  <div class="row">
+                    <p>نظرة سريعة</p>
+                    <div class="col specifaction">
+                      {{product[0].values_Ar[0]}}
+                      <span>{{product[0].facilities_Ar[0]}}</span>
+                    </div>
+                    <div class="col specifaction">
+                      {{product[0].values_Ar[1]}}
+                      <span>{{product[0].facilities_Ar[1]}}</span>
+                    </div>
+                    <div class="col specifaction">
+                      {{product[0].values_Ar[0]}}
+                      <span>{{product[0].facilities_Ar[0]}}</span>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col specifaction">
+                      {{product[0].values_Ar[1]}}
+                      <span>{{product[0].facilities_Ar[1]}}</span>
+                    </div>
+                    <div class="col specifaction">
+                      {{product[0].values_Ar[0]}}
+                      <span>{{product[0].facilities_Ar[0]}}</span>
+                    </div>
+                    <div class="col specifaction">
+                      {{product[0].values_Ar[0]}}
+                      <span>{{product[0].facilities_Ar[0]}}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <a><button mat-button (click)="openDialog()">كل المواصفات</button></a>
+        </div>
+        </div>
+        <div>     
+        </div>
+        </div>
+        <div class="col-3">
+          <div class="container text-center">
+            <div class="row more_info prise_info">
+              <div class="col">
+                <div class="prise_details">
+                  <h3 class="prise">Now ${{product[0].price}}</h3>
+                  <h6 class="prise">You save $61.04</h6>
+                  <p>price when purchased online</p>
+                  <button class="add">Add To Cart</button>
+                </div>
+                <hr>
+                <div class="plan">
+                  <img class="imgIcon walmart_icon" src="https://i5.walmartimages.com/dfw/63fd9f59-2c2e/b8053833-2295-47f4-80f1-448eb55fa0ba/v1/wpp-shield.svg">
+                  <span>Add a protection plan</span><br>                         
+                  <input type="checkbox"><label>2-Year plan - $45.00</label>
+                </div>
+                <div class="plan">
+                  <img class="imgIcon walmart_icon" src="https://i5.walmartimages.com/dfw/63fd9f59-e685/7e6c8c3a-3ba7-437a-a066-de3ad3a6a15a/v1/Wrench%20Icon.svg">
+                  <span>Get expert help</span><br>
+                  <input type="checkbox">Premium Tech Support & Security - $99.00<br>
+                  <input type="checkbox">Standard Setup & Security - $59.00
+                  
+                </div>
+                <hr>
+                <div class="row shipping_way">
+                  <span style="font-size: .875rem;">How you'll get this item:</span>
+                  <div class="col-3 shipping" [ngStyle]="{'border': borderStyle}" (click)="changeBorder()">
+                    <img class="imgIcon" src="https://i5.walmartimages.com/dfwrs/76316474-f13c/k2-_d4e8ebb4-9d70-46b4-8f2b-ecc4ac774e07.v1.png">
+                    <span class="ship">Shipping</span>
+                    <span>Arrives Oct 27 free</span>
+                  </div>
+                  <div class="col-3 shipping" [ngStyle]="{'border': borderStyle}" (click)="changeBorder()">
+                    <img class="imgIcon" src="https://i5.walmartimages.com/dfwrs/76316474-8720/k2-_d747b89f-5900-404d-a101-1a3452480882.v1.png">
+                    <span class="ship">Pickup</span>
+                    <span>Not Available</span>
+                  </div>
+                  <div class="col-3 shipping" [ngStyle]="{'border': borderStyle}" (click)="changeBorder()">
+                    <img class="imgIcon" src="https://i5.walmartimages.com/dfwrs/76316474-39c2/k2-_8deea800-0d44-4984-b1ce-5a3f12b192b7.v1.png">
+                    <span class="ship">Delivery</span>
+                    <span>Not Available</span>
+                  </div>
+                  <span>Sacramento, 95829 <a href="#">Change</a></span>
+                  <span>Arrives by Sun, Oct 27 | <a href="#">More options</a></span>
+                  <hr>
+              </div>
+              <!-- <div class="col">
+                Column
+              </div>
+              <div class="col">
+                Column
+              </div> -->
+            </div>
+          </div>
+        </div>
+        </div>
+    </div>
+    <div class="row more" id="specific-section">
+      <div class="col-9">
+        <div class="col-12">
+          <h5>عن المنتج</h5>
+          <div class="accordion" id="accordionExample">
+            <div class="accordion-item" *ngFor="let item of accordionItemsAr; let i = index">
+              <h2 class="accordion-header" [attr.id]="'heading' + i">
+                <button class="accordion-button" [class.collapsed]="!item.isOpen" type="button" (click)="toggleAccordionAr(i)">
+                  {{ item.title }}
+                </button>
+              </h2>
+              <div [attr.id]="'collapse' + i" class="accordion-collapse collapse" [class.show]="item.isOpen" [attr.aria-labelledby]="'heading' + i" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <ng-container *ngIf="item.contentType === 'description'">
+                    {{ product[0].description_ar }}
+                  </ng-container>
+                  <ng-container *ngIf="item.contentType === 'specifications'">
+                    <div *ngFor="let spec of product[0].values_Ar; let j = index">
+                      <h5>{{ spec }}</h5>
+                      <p class="val"> {{ product[0].facilities_Ar[j] }}</p>
+                    </div>
+                  </ng-container>
+                </div>
+              </div>
+            </div>
+          </div>
+                     
+        </div>
+        <div class="row">
+          <div class="col- rate" id="rating">
+            <h4>تقييمات ومراجعات العملاء</h4>
+            <div class="row">
+              <div class="col-6">
+                <h2>{{ratingvalue}} من 5</h2>
+                <div>
+                  <i class="fa-solid" [ngClass]="getStarClass(product[0].rate, 1)"></i>
+                  <i class="fa-solid" [ngClass]="getStarClass(product[0].rate, 2)"></i>
+                  <i class="fa-solid" [ngClass]="getStarClass(product[0].rate, 3)"></i>
+                  <i class="fa-solid" [ngClass]="getStarClass(product[0].rate, 4)"></i>
+                  <i class="fa-solid" [ngClass]="getStarClass(product[0].rate, 5)"></i>
+                  <p>({{ratingvalue}}) | <a href="#">{{product[0].totalRate}}</a></p>
+                </div> 
+              </div>
+              <div class="col-6">
+                <div class="skill-item">
+                  <a class="skill-title">5 نجوم <span class="float-end">{{num5}}%({{temp5}})</span></a>
+                  <div class="progress" style="height:10px;">
+                      <div class="progress-bar" role="progressbar" [style.width.%]="num5"  aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+              </div>
+              <div class="skill-item">
+                <a class="skill-title">4 نجوم <span class="float-end">{{num4}}%({{temp4}})</span></a>
+                <div class="progress" style="height:10px;">
+                      <div class="progress-bar" role="progressbar" [style.width.%]="num4" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+              </div>
+              <div class="skill-item">
+                  <a class="skill-title">3 نجوم <span class="float-end">{{num3}}%({{temp3}})</span></a>
+                  <div class="progress" style="height:10px;">
+                      <div class="progress-bar" role="progressbar" [style.width.%]="num3" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+              </div>
+              <div class="skill-item">
+                <a class="skill-title">2 نجوم <span class="float-end">{{num2}}%({{temp2}})</span></a>
+                <div class="progress" style="height:10px;">
+                      <div class="progress-bar" role="progressbar" [style.width.%]="num2" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+              </div>
+              <div class="skill-item">
+                <a class="skill-title">1 نجوم <span class="float-end">{{num1}}%({{temp1}})</span></a>
+                <div class="progress" style="height:10px;">
+                      <div class="progress-bar" role="progressbar" [style.width.%]="num1" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+              </div>
+              </div>
+            </div>     
+          </div> 
+        </div> 
+      </div>
+      <div class="col-3" *ngIf="showSidebar" [ngClass]="{'fixed-sidebar': showSidebar}">
+        <div class="container text-center">
+          <div class="row more_info prise_info">
+            <div class="col">
+              <div class="prise_details">
+                <h3 class="prise">Now ${{product[0].price}}</h3>
+                <h6 class="prise">You save $61.04</h6>
+                <p>price when purchased online</p>
+                <button class="add">Add To Cart</button>
+              </div>
+              <hr>
+              <div class="row shipping_way">
+                <span style="font-size: .875rem;">How you'll get this item:</span>
+                <div class="col-3 shipping" [ngStyle]="{'border': borderStyle}" (click)="changeBorder()">
+                  <img class="imgIcon" src="https://i5.walmartimages.com/dfwrs/76316474-f13c/k2-_d4e8ebb4-9d70-46b4-8f2b-ecc4ac774e07.v1.png">
+                  <span class="ship">Shipping</span>
+                  <span>Arrives Oct 27 free</span>
+                </div>
+                <div class="col-3 shipping" [ngStyle]="{'border': borderStyle}" (click)="changeBorder()">
+                  <img class="imgIcon" src="https://i5.walmartimages.com/dfwrs/76316474-8720/k2-_d747b89f-5900-404d-a101-1a3452480882.v1.png">
+                  <span class="ship">Pickup</span>
+                  <span>Not Available</span>
+                </div>
+                <div class="col-3 shipping" [ngStyle]="{'border': borderStyle}" (click)="changeBorder()">
+                  <img class="imgIcon" src="https://i5.walmartimages.com/dfwrs/76316474-39c2/k2-_8deea800-0d44-4984-b1ce-5a3f12b192b7.v1.png">
+                  <span class="ship">Delivery</span>
+                  <span>Not Available</span>
+                </div>
+                <span>Sacramento, 95829 <a href="#">Change</a></span>
+                <span>Arrives by Sun, Oct 27 | <a href="#">More options</a></span>
+                <hr>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="feedback">
+        <p>نود ان نسمع رأيك</p>
+        <button (click)="openFeedbackForm()">رأيك</button>
+        <app-rate *ngIf="isfeedbackformOpend" [productId]="product[0].id" (formClosed)="closeFeedbackForm()"></app-rate>
+      </div>
+    </div>
+  </div>
+  </section>
+}

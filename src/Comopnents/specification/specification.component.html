@@ -1,0 +1,35 @@
+@if(lang=='en'){
+  <h2 mat-dialog-title>All Specifications</h2>
+<mat-dialog-content class="mat-typography">
+    <table class="table table-striped table-hover">
+          <tbody>
+            <tr *ngFor="let spec of data?.specifications; let i = index">
+              <th scope="row">{{ spec }}</th>
+              <td> {{ data.specificationsValues[i] }}</td>
+            </tr>
+          </tbody>
+      </table>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Close</button>
+</mat-dialog-actions>
+
+}
+
+@if(lang=='ar'){
+  <h2 mat-dialog-title>All Specifications</h2>
+<mat-dialog-content class="mat-typography">
+    <table class="table table-striped table-hover">
+          <tbody>
+            <tr *ngFor="let spec of data?.specificationsAr; let i = index">
+              <th scope="row">{{ spec }}</th>
+              <td> {{ data.specificationsValuesAr[i] }}</td>
+            </tr>
+          </tbody>
+      </table>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Close</button>
+</mat-dialog-actions>
+
+}

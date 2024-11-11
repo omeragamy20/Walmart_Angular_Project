@@ -1,0 +1,33 @@
+<h2 mat-dialog-title>All Images</h2>
+<div class="dialog">
+<mat-dialog-content class="mat-typography">
+    <div class="container">
+        <div class="row images">
+            <div class="col img">
+              <div *ngFor="let img of data?.images; let i = index">
+                <img class="image" style="width:100px; height:100px; border:2px solid transparent;" [src]="url + img" [ngStyle]="{'border-color': i === activeImageIndex ? '#1E90FF' : 'transparent'}" (click)="setActiveImage(i)">
+             </div>
+            </div>
+            <div id="carouselExampleFade" style="width:300px; height:200px;" class="col loop carousel slide carousel-fade">
+                <div class="carousel-inner">
+                  <div *ngFor="let img of data?.images; let i = index" class="carousel-item" [ngClass]="{'active': i === activeImageIndex}">
+                    <img [src]="url + img" class="d-block w-100" alt="Image">
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev" (click)="prevImage()">
+                  <span class="carousel-control-prev-icon btnImg" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next" (click)="nextImage()">
+                  <span class="carousel-control-next-icon btnImg" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>             
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Close</button>
+</mat-dialog-actions>
+</div>
+

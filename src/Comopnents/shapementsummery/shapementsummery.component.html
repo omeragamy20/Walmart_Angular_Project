@@ -1,0 +1,38 @@
+<!-- <p>summery works!</p> -->
+<div class="side p-3  border rounded">
+  <hr>
+  <!-- Summary Details -->
+  <ul class="list-unstyled mb-3">
+    <li class="d-flex justify-content-between">
+      <span><strong>Subtotal</strong> ({{num}} Items)</span>
+      <!-- //({{ products.length }} items) -->
+      <span class="">${{totalprice}}</span>
+    </li>
+    <li class="d-flex justify-content-between text-success">
+      <span style="color: black;">Savings</span>
+      <span>$0</span>
+    </li>
+    <li class="d-flex justify-content-between fw-bold">
+      <span></span>
+      <span class="text-success">${{totalprice}}</span>
+    </li>
+    <hr>
+    <li class="d-flex justify-content-between">
+      <span>Shipping</span>
+
+      <span class="text-success">Free</span>
+    </li>
+    <li class="d-flex justify-content-between">
+      <span><strong>Taxes</strong> </span>
+      <span>Calculated at checkout</span>
+    </li>
+    <hr>
+    <li class="d-flex justify-content-between fw-bold">
+      <span>Estimated Total</span>
+      <span class="text-success">${{totalprice}}</span>
+    </li>
+    <br>
+  </ul>
+  <hr>
+  <p class="">Have a promo code? </p>
+</div>
