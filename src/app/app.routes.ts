@@ -24,6 +24,7 @@ import { PurchaseComponent } from '../Comopnents/Account/account/Component/purch
 import { ReorderComponent } from '../Comopnents/Account/account/Component/reorder/reorder.component';
 import { ListsComponent } from '../Comopnents/Account/account/Component/lists/lists.component';
 import { AccountHomeComponent } from '../Comopnents/Account/account/Component/account-home/account-home.component';
+import { DeliveryComponent } from '../Comopnents/delivery/delivery.component';
 
 export const routes: Routes = [
 
@@ -42,6 +43,7 @@ export const routes: Routes = [
   { path: 'category', component: CategoryComponent },
   { path: 'product', component: ProductComponent },
   { path: 'orderitems', component: OrderitemsComponent },
+  { path: 'Delivery', component: DeliveryComponent },
   { path: 'supcatogiarydeatails/:id', component: SupcatdeatialsComponent },
   { path: 'account',canActivate:[authGuard] ,  component: AccountComponent , children:[
 

@@ -11,34 +11,38 @@ import { UserService } from '../../Services/User/user.service';
 import { User } from '../../InterFaces/user';
 import { ShepmentServiceService } from '../../Services/Shepment/shepment-service.service';
 import { createShipment } from '../../InterFaces/createShipment';
-import { JsonPipe } from '@angular/common';
+import { JsonPipe, NgIf } from '@angular/common';
 import { PaymentServiceService } from '../../Services/payment-service.service';
 import { Payment } from '../../InterFaces/payment';
+import { FormsModule, NgModel } from '@angular/forms';
+import { OrderitemService } from '../../Services/OrderItem/orderitem.service';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-orderview',
   standalone: true,
-  imports: [RouterLink, ShapementsummeryComponent, OrderitemsComponent, OrderShapmentfooterComponent,PaypaylcomponintComponent],
+  imports: [FormsModule,RouterLink, ShapementsummeryComponent, OrderitemsComponent, OrderShapmentfooterComponent,PaypaylcomponintComponent,NgIf,TranslateModule],
   templateUrl: './orderview.component.html',
   styleUrl: './orderview.component.css'
 })
+
 export class OrderviewComponent implements OnInit ,AfterContentInit {
-  @Input()id :string = '';
+
+  @Input() id: string = '';
   @Input()ShipID :number = 0;
   xx:createShipment ={} as createShipment
   address:string =""
-
   user:User ={} as User
-
-  // userpaymntid:User ={} as User
   paymnt: Payment = {} as Payment
   order: Order = {} as Order
+  paymnetId!: number;
 
   constructor(private orderservice: OrderService,
     private shipService:ShepmentServiceService,
      private _ActivatedRoute :ActivatedRoute ,
     private _uSer: UserService,
-  private paymentserv:PaymentServiceService) {
+    private paymentserv: PaymentServiceService,
+  private orderitemserv:OrderitemService) {
 
 
   }
@@ -78,11 +82,10 @@ export class OrderviewComponent implements OnInit ,AfterContentInit {
 
     this.count();
     this.datee();
-    this.paymnttimee.setDate(this.paymnttimee.getDate())
+    this.paymnttimee.setDate(this.paymnttimee.getDate());
+
+    this.getprice();
   }
-
-
-
 
   count() {
 
@@ -95,27 +98,77 @@ export class OrderviewComponent implements OnInit ,AfterContentInit {
       }
     }
     this.num = many
-
   }
-
-
 
   datee() {
-
     let timee = new Date();
     timee.setDate(timee.getDate() + 3)
-
     this.Day = timee.toLocaleString('default', { weekday: 'long' })
     this.Month = timee.toLocaleString('default', { month: 'long' })
-
-
   }
 
 
+  // ////////////////////////payment paypal work ////////////////////
 
+  selectedValue: any;
+
+  onDivClick(value: any) {
+    this.selectedValue = value;
+    console.log('Selected Value:', this.selectedValue); // For debugging
+  }
+
+  userid!: string;
+  totalprice!: number;
+  getprice() {
+
+    let item = localStorage.getItem("SelectedProducts")
+    let prod = item ? JSON.parse(item) : []
+    let total = 0;
+    if (Array.isArray(prod)) {
+
+      for (let i = 0; i < prod.length; i++) {
+
+        total += prod[i].price * prod[i].quantity
+
+      }
+
+    }
+    console.log(total);
+
+    this.totalprice = total;
+  }
+
+  selectedOption: string = '';
+
+
+  showFirstDiv: boolean = true;
+
+  CreatePayment() {
+    this.paymnt.Amount = this.totalprice;
+    this.paymnt.CustomerId = this.id;
+    this.paymnt.PaymentDate = this.paymnttimee;
+    this.paymnt.PaymentMethod_en = this.selectedOption;
+    this.paymnt.PaymentMethod_ar = (this.selectedOption);
+    console.log(this.paymnt);
+    this.showFirstDiv = false;
+this.paymentserv.createPayment(this.paymnt).subscribe({
+  next:(res)=>{
+    console.log(res)
+    this.paymnetId = res.id
+    console.log(this.paymnetId)
+  },error:(err)=> {
+    console.log(err);
+
+  },
+})
+}
+
+//////////////////// create order
+
+orderidinitem!:number;
 
   Createorder() {
-    this.order.OrderItems = [];
+    this.order.orderItems = [];
 
     let all = localStorage.getItem("SelectedProducts");
     let prod = all ? JSON.parse(all) : []
@@ -130,81 +183,78 @@ export class OrderviewComponent implements OnInit ,AfterContentInit {
 
         let orderitem: OrderItems = {} as OrderItems
 
-        if (this.order.Id) {
-          orderitem.OrderId = this.order.Id;  // Set OrderId here before sending to backend
+        if (this.order.id) {
+          orderitem.orderId = this.order.id;  // Set OrderId here before sending to backend
         }
-        orderitem.ProductId = include.id
-        orderitem.Quantity = include.quantity
-        orderitem.Price = include.quantity * include.price
+        orderitem.productId = include.id
+        orderitem.quantity = include.quantity
+        orderitem.price = include.quantity * include.price
 
-
-        this.order.OrderItems.push(orderitem)
+        this.order.orderItems.push(orderitem)
 
       }
     }
 
 
-    this.order.TotalPrice = many
+    this.order.totalPrice = this.totalprice;
 
 
     // Handle paymentId and shipmentId as numbers: Set to null if not defined
-    this.order.CustomerId = this.order.CustomerId ?? "";
-    this.order.PaymentId = this.order.PaymentId ?? 0; // Default to 0 if undefined
-    this.order.ShipmentId = this.order.ShipmentId ?? 0; // Default to 0 if undefined
-    this.order.Status = this.order.Status ?? 0; // Default to 0 if undefined
+    this.order.customerId = this.id;
+    this.order.paymentId = this.paymnetId; // Default to 0 if undefined
+    this.order.shipmentId = this.ShipID; // Default to 0 if undefined
+    this.order.status = 0; // Default to 0 if undefined
 
 
     console.log(this.order);
 
 
-
     this.orderservice.CreateOrder(this.order).subscribe({
       next: (createdOrder) => {
-        const orderId = createdOrder.Id;
-        this.order.OrderItems.forEach(item => {
-          item.OrderId = orderId; // Set the OrderId for each order item
+        const orderId = createdOrder.id;
+        console.log(createdOrder.id);
+        this.order.orderItems.forEach(item => {
+          item.orderId = orderId; // Set the OrderId for each order item
         });
         console.log("Order created with items:", this.order);
+        this.CreateOrderItem(createdOrder.id)
       },
       error: (err) => {
         console.log(err);
       }
     });
+
+
   }
 
-  // ////////////////////////payment paypal work ////////////////////
+    // ///// create order Items//////////
+  CreateOrderItem(orderiditem:number) {
+    let all = localStorage.getItem("SelectedProducts");
+    let prod = all ? JSON.parse(all) : []
+    for (let i = 0; i < prod.length; i++) {
 
-  userid!: string;
-  totalprice!: number;
-  // totalproduct!: IproductEn[] | any;
-  getprice() {
+      let include = prod[i]
 
-    let item = localStorage.getItem("SelectedProducts")
-    let prod = item ? JSON.parse(item) : []
-    let total = 0;
-    // this.totalproduct = prod;
-    if (Array.isArray(prod)) {
+      let orderitem: OrderItems = {} as OrderItems
+      orderitem.orderId =orderiditem;
+      // if (this.order.Id) {
+      //     // Set OrderId here before sending to backend
+      // }
+      orderitem.productId = include.id
+      orderitem.quantity = include.quantity
+      orderitem.price = include.quantity * include.price
 
-      for (let i = 0; i < prod.length; i++) {
+      console.log(orderitem);
 
-        total += prod[i].price * prod[i].quantity
-
-      }
-
+      this.orderitemserv.CreateOrderItem(orderitem).subscribe({
+        next: (value) => {
+          console.log(value);
+        },
+        error: (err) => {
+          console.log(err);
+        }
+      });
     }
-    console.log(total);
-    // console.log(this.totalproduct);
-
-    this.totalprice = total;
   }
-
-  CreatePayment() {
-    this.paymnt.Amount = this.totalprice;
-    this.paymnt.CustomerId = this.user.id;
-    this.paymnt.PaymentDate = this.paymnttimee;
-    this.paymnt.PaymentMethod_en = '';
-// this.paymentserv.createPayment()
-}
-
 
 }

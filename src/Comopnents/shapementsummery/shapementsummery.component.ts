@@ -1,9 +1,10 @@
 import { Component, DoCheck, OnInit } from '@angular/core';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-shapementsummery',
   standalone: true,
-  imports: [],
+  imports: [TranslateModule],
   templateUrl: './shapementsummery.component.html',
   styleUrl: './shapementsummery.component.css'
 })

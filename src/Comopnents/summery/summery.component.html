@@ -1,51 +1,48 @@
-<!-- <p>summery works!</p> -->
-<div class="side p-3  border rounded">
-  <a routerLink='/shap-ment-view' routerLinkActive="router-link-active" class="btnA btn btn-primary w-100 mb-3">Continue
-    to
-    checkout</a>
+<div class="side p-3 border rounded">
+  <a routerLink='/shap-ment-view' routerLinkActive="router-link-active" class="btnA btn btn-primary w-100 mb-3">
+    {{ 'continue_to_checkout' | translate }}
+  </a>
   <div class="seconde alert alert-primary d-flex" role="alert">
     <div>
-      <img style="margin: 5px;"
-        src=" https://i5.walmartimages.com/dfw/4ff9c6c9-69ed/k2-_c5fc89eb-a765-445a-846c-c88b31ebf4f2.v1.png" alt="">
-
+      <img style="margin: 5px;" src="https://i5.walmartimages.com/dfw/4ff9c6c9-69ed/k2-_c5fc89eb-a765-445a-846c-c88b31ebf4f2.v1.png" alt="">
     </div>
     <div>
-      <p> Items in your cart have reduced prices. Check out now for extra savings!</p>
-
+      <p>{{ 'cart_items_discount' | translate }}</p>
     </div>
   </div>
 
   <!-- Summary Details -->
   <ul class="list-unstyled mb-3">
     <li class="d-flex justify-content-between">
-      <span><strong>Subtotal</strong></span>
-      <!-- //({{ products.length }} items) -->
-      <span class="text-decoration-line-through">${{totalprice}}</span>
+      <span><strong>{{ 'subtotal' | translate }}</strong></span>
+      <span class="text-decoration-line-through">${{ totalprice }}</span>
     </li>
     <li class="d-flex justify-content-between text-success">
-      <span style="color: black;">Savings</span>
+      <span style="color: black;">{{ 'savings' | translate }}</span>
       <span>$0</span>
     </li>
     <li class="d-flex justify-content-between fw-bold">
       <span></span>
-      <span class="text-success">${{totalprice}}</span>
+      <span class="text-success">${{ totalprice }}</span>
     </li>
     <hr>
     <li class="d-flex justify-content-between">
-      <span>Shipping</span>
-
-      <span class="text-success">Free</span>
+      <span>{{ 'shipping' | translate }}</span>
+      <span class="text-success">{{ 'free' | translate }}</span>
     </li>
     <li class="d-flex justify-content-between">
-      <span><strong>Taxes</strong> </span>
-      <span>Calculated at checkout</span>
+      <span><strong>{{ 'taxes' | translate }}</strong></span>
+      <span>{{ 'calculated_at_checkout' | translate }}</span>
     </li>
     <hr>
     <li class="d-flex justify-content-between fw-bold">
-      <span>Estimated Total</span>
-      <span class="text-success">${{totalprice}}</span>
+      <span>{{ 'estimated_total' | translate }}</span>
+      <span class="text-success">${{ totalprice }}</span>
     </li>
     <br>
   </ul>
-  <small class="text-muted">As low as $12/mo or 0% APR <a href="#" class="text-decoration-none">Learn how</a></small>
+  <small class="text-muted">
+    {{ 'payment_info' | translate }}
+    <a href="#" class="text-decoration-none">{{ 'learn_how' | translate }}</a>
+  </small>
 </div>

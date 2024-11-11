@@ -4,11 +4,12 @@ import { NgModel } from '@angular/forms';
 import { CookieService } from 'ngx-cookie-service';
 import { IproductEn, Product } from '../../InterFaces/product';
 import { RouterLink } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-orderitems',
   standalone: true,
-  imports: [NgFor, NgIf, RouterLink],
+  imports: [NgFor, NgIf, RouterLink,TranslateModule],
   templateUrl: './orderitems.component.html',
   styleUrl: './orderitems.component.css'
 })

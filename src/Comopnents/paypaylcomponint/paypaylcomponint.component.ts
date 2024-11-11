@@ -50,7 +50,7 @@ export class PaypaylcomponintComponent implements OnInit {
     const curnc = 'EUR';
     this.payPalConfig = {
         currency: curnc,
-        clientId: 'AXBNKLI0_hLXjQmeEzc8i7AUWY0OyPipJlYay5CUpGV5dtUOurM8dhee9-iXf2nJoBy4Z4NPWFDOETCT',// add paypal client id here
+        clientId: 'ATSGazDqxdtxPV7W1ypo089220_aejTObv7rTIqcWq5Am2RvmJfuALf_WhN8aKewRkpTcIppyXoZjDJY',// add paypal client id here
         createOrderOnClient: (data) => <ICreateOrderRequest> {
             intent: 'CAPTURE',
             purchase_units: [{
