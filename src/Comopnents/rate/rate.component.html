@@ -1,0 +1,39 @@
+@if(lang=='en'){
+  
+<div class="feedback-overlay " *ngIf="isVisible">
+  <div class="feedback-container feedback">
+    <p>Feedback</p><button class="close-button" (click)="closeFeedbackForm()">X</button><hr>
+    <h3>Your feedback matters! Help us improve the Walmart website</h3>
+    <p>(1 = Very poor, 5 = Excellent!)</p>
+    <div class="stars">
+      <span *ngFor="let star of stars; let index = index" 
+            class="star" 
+            [class.filled]="index < rating" 
+            (click)="rate(index + 1)">
+            <i class="fa-solid fa-star"></i>
+       </span>
+    </div>
+    <button class="submit-button" (click)="submitRating()">Share with Walmart</button>
+  </div>
+</div>
+
+}
+@if(lang=='ar'){
+  
+<div class="feedback-overlay " *ngIf="isVisible">
+  <div class="feedback-container feedback">
+    <p>تقييم</p><button class="close-button" (click)="closeFeedbackForm()">X</button><hr>
+    <h3>تقييمك من الممكن ان يساعدنا فى تحسين موقعنا </h3>
+    <p>(1 = ضعيف جدا, 5 = رائع!)</p>
+    <div class="stars">
+      <span *ngFor="let star of stars; let index = index" 
+            class="star" 
+            [class.filled]="index < rating" 
+            (click)="rate(index + 1)">
+            <i class="fa-solid fa-star"></i>
+       </span>
+    </div>
+    <button class="submit-button" (click)="submitRating()">شاركه مع وول مارت</button>
+  </div>
+</div>
+}

@@ -1,0 +1,99 @@
+<div class="product-card">
+
+  <div *ngIf="bestSeller" class="best-seller-badge">الأكثر مبيعًا</div>
+
+
+  <div class="product-image">
+    <img [src]="imageUrl" alt="{{ productName }}" />
+    <button class="favorite-button">❤️</button>
+  </div>
+
+
+  <div class="product-info">
+     <div class="price">
+
+      <span class="current-price">{{ price  }}</span>
+      <!-- <span *ngIf="originalPrice > price" class="original-price">{{ originalPrice}}</span> -->
+     </div>
+    <div class="product-name">{{ productName }}</div>
+    <div class="rating">
+      <span class="stars">⭐⭐⭐⭐⭐</span>
+      <span class="review-count">({{ reviewCount }})</span>
+    </div>
+    <div class="delivery-options">day arrive</div>
+  </div>
+</div>
+
+<!--
+<div class="container">
+  <div class="row">
+    <div class="col-md-2 mb-2" *ngFor="let product of cards">
+      <div class="card h-100 text-center" >
+      <button href="" style="border: none;">
+        <div>
+          <img [src]="product.image" class="card-img-top" alt="{{ product.name }}" width="175px" height="175px">
+        </div>
+        <div class="card-body" style="background-color: white;text-align: left;">
+          <div id="product_price" class="flex flex-wrap justify-start items-center lh-title mb1-m">
+            <div id="discountprice" class="mr1 mr2-xl b black green lh-copy f5 f4-l" aria-hidden="true">Now ${{ product.price }}</div>
+            <span class="w_iUH7">current price ${{ product.price }}</span>
+            <p class="text-muted"><s>${{ product.price + product.price * 0.1 }}</s></p>
+            <div id="oldprice" class="gray mr1 strike f7 f6-l" aria-hidden="true">${{ product.price + product.price * 0.1 }}</div>
+            <span class="w_iUH7">Was ${{ product.price + product.price * 0.1 }}</span>
+          </div>
+          <span id="title1" class>
+            <span id="title2" class="w_V_DM" style="-webkit-line-clamp: 2; padding-bottom: 0em; margin-bottom: 0em;">
+              <span id="title3" data-automation-id="product-title" class="normal dark-gray mb0 mt1 lh-title f6 f5-l">
+                {{ product.details }}
+              </span>
+            </span>
+          </span>
+
+          <button class="btn btn-link text-decoration-none">
+            <i class="far fa-heart"></i>
+          </button>
+
+        </div>
+      </button>
+      <div id="btnadd" class="relative dib" dib>
+          <button id="btnbtnadd"    class="w_hhLG w_XK4d w_0_LY pointer bn sans-serif b ph2 flex items-center justify-center w-auto">
+        (click)="addProductToCookie(product)"
+        <div>
+          <button>
+              <i class="bi bi-plus-lg"></i>
+            <span class="mr2">Add</span>
+          </button>
+        </div>
+
+      </div>
+
+  </div>
+</div>
+</div>
+</div> -->
+
+
+<!-- <div class="product-card">
+
+  <div *ngIf="bestSeller" class="best-seller-badge">الأكثر مبيعًا</div>
+
+
+  <div class="product-image">
+    <img [src]="imageUrl" alt="{{ productName }}" />
+    <button class="favorite-button">❤️</button>
+  </div>
+
+
+  <div class="product-info">
+     <div class="price">
+
+      <span class="current-price">{{ price  }}</span>
+      <span *ngIf="originalPrice > price" class="original-price">{{ originalPrice}}</span>
+     </div>
+    <div class="product-name">{{ productName }}</div>
+    <div class="rating">
+      <span class="stars">⭐⭐⭐⭐⭐</span>
+      <span class="review-count">({{ reviewCount }})</span>
+    </div>
+    <div class="delivery-options">day arrive</div>
+  </div> -->

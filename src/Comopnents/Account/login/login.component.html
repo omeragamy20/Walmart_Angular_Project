@@ -1,0 +1,87 @@
+<style>
+  body{
+      height: 100%;
+      margin: 0;
+      align-items: center;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif, sans-serif;
+  }
+  .cont {
+        padding-top: 50px;
+          max-width: 350px; /* Optional, for limiting width */
+          /* Optional, for centering text inside */
+      
+      }
+    
+      label{
+        font-size: 18px;
+        font-weight: bolder;
+      }
+      .inp{
+        min-height: 56px;
+      }
+
+      button{
+        width: 100%;
+        margin-bottom: 3px;
+        border-radius: 62.5rem;
+            
+
+        }
+        .Forget , .account a{
+          font-weight: bolder;
+          text-align: center;
+          text-decoration: none;
+          margin-top: 5px;
+        }
+        .Forget a{
+          text-decoration: none;
+        }
+        
+        .account{
+          margin-top: 5px;
+          font-weight: bold;
+          font-size: 14px;
+          color: #999;
+        }
+        input:focus{
+    border-style: none !important; 
+    box-shadow: none !important;
+    outline: none !important;
+    border: 4px solid black !important;
+}
+
+     
+</style>
+
+<div class="container cont ">
+  <div class="row row1">
+
+    <img class="mb-3" src="5977595.png" style="max-width: 75px; max-height: 74px; margin: auto;">
+<h1 class="mb-3" style="margin: auto; text-align: center;"> Sign In </h1>
+<form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="exampleInputEmail1">Email</label><br>
+      <p>{{Email}}</p>
+    </div>
+
+    <div class="form-group pass mb-3">
+      <label for="exampleInputPassword1" >Password</label>
+      <input type="password" class="form-control inp" [(ngModel)]="userLogin.paswword" name="pass" id="exampleInputPassword1" placeholder="Password">
+    </div>
+
+    <div class="form-check mb-2">
+      <input type="checkbox" class="form-check-input " [(ngModel)]="userLogin.rememberMe" name="rememberMe"  id="exampleCheck1">
+      <label class="form-check-label" for="exampleCheck1" >Remember Me</label>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+    <div class="account">
+      <span>Don`t Have An Account Yet ? </span>
+      <a routerLink="/SignOrRegister">Create Account</a>
+    </div>
+
+    <div class="Forget">
+      <a href="#"><span style="color: #999;">Forget Your</span> Password ?</a>
+    </div>
+</div>
+</div>

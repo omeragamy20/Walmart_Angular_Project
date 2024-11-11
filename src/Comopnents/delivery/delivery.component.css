@@ -1,0 +1,51 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: white;
+}
+
+.container {
+  text-align: center;
+  padding: 50px;
+}
+
+h1 {
+  margin-bottom: 50px;
+  font-size: 36px;
+  color: #333;
+}
+
+.road {
+  position: relative;
+  width: 100%;
+  height: 150px;
+  background-color: white;
+  overflow: hidden;
+}
+
+.truck {
+  position: absolute;
+  left: -200px;
+  top: 20px;
+  width: 200px;
+  height: 100px;
+  animation: drive 5s linear infinite;
+}
+
+.truck img {
+  width: 100%;
+  height: auto;
+}
+
+@keyframes drive {
+  0% {
+    left: -200px;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+
+/* Omer Agamy Change in CSS files*/
