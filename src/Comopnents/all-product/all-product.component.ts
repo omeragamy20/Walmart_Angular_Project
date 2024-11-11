@@ -33,13 +33,13 @@ export class AllProductComponent implements OnInit , OnChanges {
   readonly panelOpenState = signal(false);
   ratingvalue:number=0;
   lang:string='';
-  
+
   constructor(private productService:ProductService,private router: Router,
     private _Language:LanguageService,private searchService: SearchService,private route: ActivatedRoute){}
   ngOnChanges(changes: SimpleChanges): void {
     throw new Error('Method not implemented.');
   }
-  
+
   ngOnInit(): void {
     this._Language.getLangugae().subscribe({
       next: (res) => {
@@ -164,4 +164,7 @@ Details(id:number){
       return 'fa-star rating';
     }
   }
+
+
+
 }

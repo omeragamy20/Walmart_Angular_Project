@@ -1,5 +1,5 @@
 @if(lang=='en'){
-  
+
   <div class="container-fluid parent">
     <div class="col-2 sidebar">
       <div class="">
@@ -18,13 +18,13 @@
     </div>
   </div>}
   </div>
-  
+
     </div>
     <div class="felx">
       <!-- loop -->
         <div class="product-card" style="width: 24%;" *ngFor="let pro of filteredProducts" (click)="Details(pro.id)">
             <img [src]="url + pro.imageUrls[0]" class="card-img-top" alt="productImage"><br>
-            <a><button class="btn">+ Add</button> </a><br>          
+            <a><button class="btn" >+ Add</button> </a><br>
             <div class="card-body">
               <span class="price">{{pro.price}}</span><br>
               <span class="card-text">{{pro.description_en}}</span><br>
@@ -35,7 +35,7 @@
                 <i class="fa-solid" [ngClass]="getStarClass(pro.rate, 4)"></i>
                 <i class="fa-solid" [ngClass]="getStarClass(pro.rate, 5)"></i>
                 ({{pro.rate}}) | {{pro.totalRate}}
-              </div>                           
+              </div>
             </div>
           </div>
           <!-- end loop -->
@@ -65,7 +65,7 @@
 
 <!-- عربى -->
 @if(lang=='ar'){
- 
+
   <div class="container-fluid parent">
     <div class="col-2 sidebar">
       <div class="">
@@ -90,7 +90,7 @@
       <!-- loop -->
         <div class="product-card" style="width: 24%;" *ngFor="let pro of filteredProducts" (click)="Details(pro.id)">
             <img [src]="url + pro.imageUrls[0]" class="card-img-top" alt="productImage"><br>
-            <a><button class="btn">+ اضافة</button> </a><br>          
+            <a><button class="btn">+ اضافة</button> </a><br>
             <div class="card-body">
               <span class="price">{{pro.price}}</span><br>
               <span class="card-text"> {{pro.description_ar}} </span><br>
@@ -101,7 +101,7 @@
                 <i class="fa-solid" [ngClass]="getStarClass(pro.rate, 4)"></i>
                 <i class="fa-solid" [ngClass]="getStarClass(pro.rate, 5)"></i>
                 ({{pro.rate}}) | {{pro.totalRate}}
-              </div>                           
+              </div>
             </div>
           </div>
           <!-- end loop -->
@@ -127,5 +127,5 @@
       </li>
     </ul>
   </nav>
-  
+
 }
