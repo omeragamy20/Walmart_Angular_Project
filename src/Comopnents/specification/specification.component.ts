@@ -3,12 +3,11 @@ import { MatButtonModule } from '@angular/material/button';
 import { MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
 import { CommonModule } from '@angular/common';
 import { LanguageService } from '../../Services/Language/language.service';
-import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-specification',
   standalone: true,
-  imports: [MatDialogModule, MatButtonModule,CommonModule,TranslateModule],
+  imports: [MatDialogModule, MatButtonModule,CommonModule],
   templateUrl: './specification.component.html',
   styleUrl: './specification.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush

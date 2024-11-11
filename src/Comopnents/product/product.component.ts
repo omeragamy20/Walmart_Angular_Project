@@ -13,12 +13,11 @@ import { LanguageService } from '../../Services/Language/language.service';
 import { TranslateDirective, TranslatePipe } from '@ngx-translate/core';
 // import { Component } from '@angular/core';
 // import { TranslatePipe, TranslateDirective } from '@ngx-translate/core';
-import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-product',
   standalone: true,
-  imports: [CommonModule,MatButtonModule, MatDialogModule,MatExpansionModule,RateComponent,TranslateModule],
+  imports: [CommonModule,MatButtonModule, MatDialogModule,MatExpansionModule,RateComponent],
   templateUrl: './product.component.html',
   styleUrl: './product.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,

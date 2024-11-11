@@ -3,12 +3,11 @@ import { Component,input,Input, OnInit,Pipe } from '@angular/core';
 import { pipe } from 'rxjs';
 import { ProductService } from '../../Services/Product/product.service';
 import { IproductEn } from '../../InterFaces/product';
-import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-supcatdeatials',
   standalone: true,
-  imports: [NgFor,NgIf,TranslateModule],
+  imports: [NgFor,NgIf],
   templateUrl: './supcatdeatials.component.html',
   styleUrl: './supcatdeatials.component.css'
 })

@@ -3,12 +3,11 @@ import { ProductService } from '../../Services/Product/product.service';
 import { Rate } from '../../InterFaces/Rate';
 import { CommonModule } from '@angular/common';
 import { LanguageService } from '../../Services/Language/language.service';
-import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-rate',
   standalone: true,
-  imports: [CommonModule,TranslateModule],
+  imports: [CommonModule],
   templateUrl: './rate.component.html',
   styleUrl: './rate.component.css'
 })

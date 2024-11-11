@@ -4,12 +4,11 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
 import { SubcategoryService } from '../../Services/SubCategory/subcategory.service';
 import { ISubcategoryAr, ISubcategoryEn } from '../../InterFaces/sub-category';
 import { LanguageService } from '../../Services/Language/language.service';
-import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-deatailscatogiry',
   standalone: true,
-  imports: [RouterLink, CommonModule , NgFor,TranslateModule],
+  imports: [RouterLink, CommonModule , NgFor],
   templateUrl: './deatailscatogiry.component.html',
   styleUrls: ['./deatailscatogiry.component.css']
 })

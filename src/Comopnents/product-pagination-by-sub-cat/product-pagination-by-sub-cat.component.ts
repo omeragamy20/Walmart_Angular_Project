@@ -12,7 +12,7 @@ import { TranslateModule } from '@ngx-translate/core';
 @Component({
   selector: 'app-product-pagination-by-sub-cat',
   standalone: true,
-  imports: [NgFor, FormsModule, RouterLink,TranslateModule],
+  imports: [NgFor, FormsModule, RouterLink],
   templateUrl: './product-pagination-by-sub-cat.component.html',
   styleUrl: './product-pagination-by-sub-cat.component.css'
 })
