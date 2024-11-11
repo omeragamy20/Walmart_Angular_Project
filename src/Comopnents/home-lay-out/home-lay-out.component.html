@@ -91,7 +91,7 @@ Products
 
 -->
 
-<app-product-pagination-by-sub-cat [subcatid]="4"></app-product-pagination-by-sub-cat>
+    <app-product-pagination-by-sub-cat [subcatid]="4"></app-product-pagination-by-sub-cat>
 
 
 
@@ -119,6 +119,43 @@ Products
         </div>
       </div>
       <br>
+
+
+      <!-- <app-product-pagination-by-sub-cat></app-product-pagination-by-sub-cat> -->
+
+      <div class="all-vid mb-4">
+        <div class="vdesc ">
+          <h3>Featured in video</h3>
+          <span class="text-muted">See what creators are sharing</span>
+        </div>
+        <div class="embed-responsive embed-responsive-16by9">
+          <video #myVideo (mouseenter)="playVideo(myVideo)" (mouseleave)="pauseVideo(myVideo)" muted
+            class="embed-responsive-item" controls>
+            <source src="Videos/720x1280_PROGRESSIVE_17a.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <video #myVideo1 (mouseenter)="playVideo(myVideo1)" (mouseleave)="pauseVideo(myVideo1)" muted
+            class="embed-responsive-item" controls>
+            <source src="Videos/720x1280_PROGRESSIVE_2f5.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <video #myVideo2 (mouseenter)="playVideo(myVideo2)" (mouseleave)="pauseVideo(myVideo2)" muted
+            class="embed-responsive-item" controls>
+            <source src="Videos/720x1280_PROGRESSIVE_aca.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <video #myVideo3 (mouseenter)="playVideo(myVideo3)" (mouseleave)="pauseVideo(myVideo3)" muted
+            class="embed-responsive-item" controls>
+            <source src="Videos/720x1280_PROGRESSIVE_db3.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+
+
+
+
       <!--
 
 
@@ -130,7 +167,15 @@ Products
 
 
 -->
-<!-- <app-product-pagination-by-sub-cat></app-product-pagination-by-sub-cat> -->
+      <!-- <app-product-pagination-by-sub-cat></app-product-pagination-by-sub-cat> -->
+
+
+
+
+
+
+
+
 
       <div class="bigDealfour">
         <div class="row">
@@ -158,7 +203,7 @@ Products
 Products
 
 -->
-<!-- <app-video-slider></app-video-slider> -->
+        <!-- <app-video-slider></app-video-slider> -->
 
 
 

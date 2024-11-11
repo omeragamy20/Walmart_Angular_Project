@@ -1,17 +1,26 @@
-.bt-lang{
-  border-radius: 0px !important;
-  width: 50px;
+.bt-lang {
+  border-radius: 5px !important;
+  padding-inline: 5px;
+  padding-block: 1px;
+  background-color: #f2f8fd;
 }
+
+.bt-lang:hover {
+  color: #0071dc !important;
+}
+
+
 
 .navbar {
   background-color: #0071dc;
-  position: sticky;
-  top: 0;
+  position: sticky !important;
+  top: 0 !important;
   /* Green background */
   color: #ffffff;
 
   z-index: 1;
   padding: 0;
+  /* width: auto !important; */
 }
 
 .navbar-top {
@@ -60,6 +69,11 @@
   padding: 10px;
   border: none;
   border-radius: 20px;
+
+}
+
+.navbar-search {
+  color: #0842c7;
 }
 
 .search-button {
@@ -166,24 +180,34 @@
 
 .active_link {
   color: #f2f8fd !important;
-  font-weight: bold;
-  padding: 5px;
+  font-weight: 500;
+  padding: 2.5px;
   background-color: #0071dc;
   border-radius: 30px;
 }
 
-#fasel{
+#fasel {
   --rem: 16;
-  font-family: Bogle,Helvetica Neue,Helvetica,Arial,sans-serif;
+  font-family: Bogle, Helvetica Neue, Helvetica, Arial, sans-serif;
   box-sizing: border-box;
   display: flex;
   align-items: center;
   color: #0071dc;
-  padding-left: .5rem;
-  padding-right: .5rem;
-  margin-left: .25rem;
-  margin-right: .25rem;
+  padding-left: 2px;
+  padding-right: 2px;
+  margin-left: 2px;
+  margin-right: 2px;
 }
+
+/* @media (max-width: 1071px) {
+
+  .second {
+    display: none !important;
+  }
+} */
+
+
+
 
 /* //////////// */
 
@@ -220,14 +244,16 @@
 
 /* Limit the height of the main category list and add a scrollbar */
 .list-group {
-  max-height: 400px; /* Adjust height as needed */
+  max-height: 400px;
+  /* Adjust height as needed */
   overflow-y: auto;
   min-width: 300px;
 }
 
 /* Limit the height of the subcategory list and add a scrollbar */
 .dropdown-menu .flex-fill {
-  max-height: 400px; /* Adjust height as needed */
+  max-height: 400px;
+  /* Adjust height as needed */
   overflow-y: auto;
 }
 
@@ -252,7 +278,7 @@
 
 
 
- .navbar-brand img {
+.navbar-brand img {
   width: 30px;
   height: 30px;
 }
@@ -260,49 +286,154 @@
 .form-control {
   max-width: 600px;
 }
-@media (max-width: 768px) {
+
+@media (max-width: 1120px) {
   .navbar-brand span {
-    display: none;
+    display: none !important;
   }
 
   .navbar-toggler {
-    color: white;
-    border: none;
+    color: white !important;
+    border: none !important;
   }
+
+  /* .navbar-search .form-control {
+    font-size: 0.8em !important;
+  } */
+
+  .navbar-search {
+    width: 50% !important;
+  }
+
+  /* .navbar-logo-location {
+    width: 7px !important;
+  } */
+
+  .navbar-bottom {
+    width: 40% !important;
+  }
+
+  .navbar-links {
+    visibility: hidden !important;
+
+  }
+
+
+  .navbar-bottom {
+
+    background-color: #0071dc !important;
+  }
+
+  .location {
+    display: none !important;
+  }
+
+  .smallline {
+    display: block !important;
+    color: white;
+
+  }
+
+  .locsmall {
+    display: block !important;
+    display: flex !important;
+
+  }
+
+  .navbar-search {
+    width: 190% !important;
+  }
+
+  .locsmall p {
+    margin-right: 10px;
+    font-size: 14px;
+  }
+
+  .user {
+    display: none;
+
+  }
+
+  .navbar .row {
+    width: auto !important;
+
+
+  }
+
+  .topresponsive {
+    display: block !important;
+    display: flex !important;
+
+    /* justify-content: space-between; */
+    /* width: 100% !important; */
+    /* display: flex; */
+    justify-content: space-between !important;
+    padding: 5px 0px !important;
+
+    align-items: center;
+  }
+
+
 }
 
+/* .topresponsive {
+  display: none;
+} */
+
+.locsmall {
+  display: none;
+}
+
+.smallline {
+  display: none;
+}
+
+
 .navbar-top {
-  font-size: 16px;
+  font-size: 16px !important;
 }
 
 .navbar-search .form-control {
-  font-size: 0.9em;
+  font-size: 0.9em !important;
 }
 
 .cart-total {
-  font-size: 1em;
+  font-size: 1em !important;
 }
 
 /* Adjust styling for mobile devices */
 @media (max-width: 576px) {
   .navbar-top {
-    font-size: 14px;
+    font-size: 14px !important;
+    /* justify-content: space-between !important; */
   }
 
   .navbar-search .form-control {
-    font-size: 0.8em;
+    font-size: 0.8em !important;
   }
 
   .cart-total {
-    font-size: 0.9em;
+    font-size: 0.9em !important;
   }
 
-     #smallnav{
-    display: block;
+  #smallnav {
+    display: block !important;
   }
-  #largsmall{
-    display: none;
+
+  #largsmall {
+    display: none !important;
   }
+
+
+  .navbar-logo-location {
+    width: 70px !important;
+  }
+
+
+  .navbar-search {
+    width: 60% !important;
+  }
+
 }
 
 

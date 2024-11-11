@@ -1,63 +1,68 @@
-<!-- <h1>{{user|json}}</h1> -->
-<div class="container-fluid">
 <nav class="navbar">
   <div class="row ">
     <!-- navbar navbar-expand-lg navbar-light bg-light py-3  -->
-    <div class="navbar-top ">
+    <div class="topresponsive">
+      <div class="navbar-top ">
 
-      <div class="navbar-logo-location  col-s-12 col-md-2">
-        <a routerLink="/" class="logo">
-          <a routerLink="home"><img src="/5977595.png" alt="Logo"></a>
 
-        </a>
-        <div class="location ">
-          <p>{{'header.How_do_you_want_your_items?'| translate}}</p>
+
+        <div class="navbar-logo-location  col-s-12 col-md-2">
+          <a routerLink="/" class="logo">
+            <a routerLink="home"><img src="/5977595.png" alt="Logo"></a>
+
+          </a>
+          <div class=" location ">
+            <p>{{'header.How_do_you_want_your_items?'| translate}}</p>
+          </div>
         </div>
-      </div>
 
-      <div class="dropdown">
-        <button class="btn btn-light dropdown-toggle bt-lang" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="true">
-          {{lang}}
-        </button>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-          <li><button class="dropdown-item"  (click)="switchLanguage('en')">En - English</button></li>
-          <li><button class="dropdown-item"  (click)="switchLanguage('ar')">Ar - العربية</button></li>
-        </ul>
-      </div>
+        <div class="dropdown">
+          <button class="btn dropdown-toggle bt-lang" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+            aria-expanded="true">
+            {{lang}}
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <li><button class="dropdown-item" (click)="switchLanguage('en')">En - English</button></li>
+            <li><button class="dropdown-item" (click)="switchLanguage('ar')">Ar - العربية</button></li>
+          </ul>
+        </div>
 
-      <div class="navbar-search col-s-12 col-md-5">
-        <input type="text"  (input)="onSearchInput($event)" placeholder="Search everything at Walmart online and in store">
-        <button  class="search-button">
-          <i (click)="onSearchClick()" class="fa fa-search"></i>
-        </button>
-      </div>
+        <div class="navbar-search col-s-12 col-md-5">
+          <input type="text" (input)="onSearchInput($event)"
+            placeholder="Search everything at Walmart online and in store">
+          <button class="search-button">
+            <i (click)="onSearchClick()" class="fa fa-search"></i>
+          </button>
+        </div>
 
 
-      <div class="navbar-actions col-s-12  col-md-3">
-        <a href="#" class="action-item">{{'header.Reorder_My_Items'|translate}} <span> <i class="fa-regular fa-heart"
-              style="color: #FFD43B;"></i></span></a>
+        <div class="navbar-actions col-s-12  col-md-3">
+          <a href="#" class="user action-item">{{'header.Reorder_My_Items'|translate}} <span> <i
+                class="fa-regular fa-heart" style="color: #FFD43B;"></i></span></a>
 
-              @if(user.id == null){
-        <a routerLink="SignOrRegister" routerLinkActive="active_link" class="action-item">{{'header.Sign_In_Account'|translate}} <span><i class="fa-regular fa-user"
-              style="color: #FFD43B;"></i></span></a>
-            }
+          @if(user.id == null){
+          <a routerLink="SignOrRegister" routerLinkActive="active_link"
+            class="user action-item">{{'header.Sign_In_Account'|translate}} <span><i class="fa-regular fa-user"
+                style="color: #FFD43B;"></i></span></a>
+          }
 
-            @if(user.id != null){
-              <a routerLink="account" routerLinkActive="active_link" class="action-item">{{user.firstName}} <span><i class="fa-regular fa-user"
-                    style="color: #FFD43B;"></i></span></a>
-                  }
-        <!-- <a routerLink="/" class="cart-icon">
+          @if(user.id != null){
+          <a routerLink="account" routerLinkActive="active_link" class="user action-item">{{user.firstName}} <span><i
+                class=" fa-regular fa-user" style="color: #FFD43B;"></i></span></a>
+          }
+          <!-- <a routerLink="/" class="cart-icon">
           <i class="fa fa-shopping-cart " style="color: #FFD43B;"></i>
           <span class="cart-total">$0.00</span>
 
         <a routerLink="SignOrRegister" routerLinkActive="active_link" class="action-item">Sign In Account <span><i
               class="fa-regular fa-user" style="color: #FFD43B;"></i></span></a>
                -->
-        <a routerLink="order" class="cart-icon">
-          <i class="fa fa-shopping-cart" style="position: relative !important;"></i>
-          <span class="cont">{{count}}</span>
-          <span routerLink="order" class="cart-total">${{totalprice}}</span>
-        </a>
+          <a routerLink="order" class="cart-icon">
+            <i class="fa fa-shopping-cart" style="position: relative !important;"></i>
+            <span class="cont">{{count}}</span>
+            <span routerLink="order" class="user cart-total">${{totalprice}}</span>
+          </a>
+        </div>
       </div>
     </div>
 
@@ -234,130 +239,51 @@
 
 
     <!-- header -->
+    <hr style="color: white;" class="smallline">
     <div class="navbar-bottom col-s-12" style="height: 48px;">
+      <div class="locsmall ">
+
+        <p>{{'header.How_do_you_want_your_items?'| translate}}</p>
+        <div class="flex  items-center blue mr-1 mh-1" style="margin-right: 10px;">|</div>
+        <hr>
+        <p>Sacramento Supercenter</p>
+      </div>
+
+
+
       <ul class="navbar-links " style="cursor: pointer;">
-        <!-- <a routerLink=" " routerLinkActive=" active_link">Departments</a> -->
-        <!-- <li>
-          <div class="dropdown">
-            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false" >
-              Departments
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <div class="d-flex">
 
-                <div class="list-group">
-                  <button
-                    *ngFor="let department of departments"
-                    class="list-group-item list-group-item-action"
-                    (mouseenter)="setActiveDepartment(department)"
-                  >
-                    {{ department.name }}
-                  </button>
-                </div>
 
-                <div class="list-group flex-fill ms-3 p-3 bg-light" *ngIf="activeDepartment">
-                  <h5>{{ activeDepartment.name }}</h5>
-                  <button
-                    *ngFor="let part of activeDepartment.parts"
-                    class="list-group-item list-group-item-action border-0"
-                  >
-                    {{ part }}
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </li> -->
-        <!-- /////// -->
-        <!-- <li class="nav-item dropdown" (click)="toggleDropdown()">
-          <a
-            class="nav-link dropdown-toggle"
-            id="departmentsDropdown"
-            role="button"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            Departments
-          </a>
-          <ul
-            class="dropdown-menu"
-            aria-labelledby="departmentsDropdown"
-            [ngClass]="{ show: isDropdownOpen }"
-          >
-            <li class="d-flex">
-
-              <ul class="list-group">
-                <li
-                  *ngFor="let department of departments"
-                  class="list-group-item list-group-item-action"
-                  (mouseenter)="setActiveDepartment(department)"
-                >
-                  {{ department.name }}
-                </li>
-              </ul>
-
-              <ul
-                class="list-group flex-fill ms-3 p-3 bg-light"
-                *ngIf="activeDepartment"
-              >
-                <h5>{{ activeDepartment.name }}</h5>
-                <li
-                  *ngFor="let part of activeDepartment.parts"
-                  class="list-group-item list-group-item-action border-0"
-                >
-                  {{ part }}
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </li> -->
-        <!--  -->
 
         <li class="nav-item dropdown" (click)="toggleDropdown()">
-          <a
-            class="nav-link dropdown-toggle"
-            id="departmentsDropdown"
-            role="button"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
+          <a class="nav-link dropdown-toggle" id="departmentsDropdown" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
             Departments
           </a>
-          <ul
-            class="dropdown-menu"
-            aria-labelledby="departmentsDropdown"
-            [ngClass]="{ show: isDropdownOpen }"
-          >
+          <ul class="dropdown-menu" aria-labelledby="departmentsDropdown" [ngClass]="{ show: isDropdownOpen }">
             <li class="d-flex">
               <!-- Left Side: Main Categories with Scroll -->
               <ul class="list-group">
-                <li
-                  *ngFor="let department of departments"
-                  class="list-group-item list-group-item-action"
-                  (mouseenter)="setActiveDepartment(department)"
-                >
+                <li *ngFor="let department of departments" class="list-group-item list-group-item-action"
+                  (mouseenter)="setActiveDepartment(department)">
                   {{ department.name }}
                 </li>
               </ul>
 
               <!-- Right Side: Subcategories with Scroll -->
-              <ul
-                class="list-group flex-fill ms-3 p-3 bg-light"
-                *ngIf="activeDepartment"
-              >
+              <ul class="list-group flex-fill ms-3 p-3 bg-light" *ngIf="activeDepartment">
                 <h5>{{ activeDepartment.name }}</h5>
-                <li
-                  *ngFor="let part of activeDepartment.parts"
-                  class="list-group-item list-group-item-action border-0"
-                >
+                <li *ngFor="let part of activeDepartment.parts" class="list-group-item list-group-item-action border-0">
                   {{ part }}
                 </li>
               </ul>
             </li>
           </ul>
+
         </li>
-        <div id="fasel" class="flex ph2 items-center blue mr1 mh1">|</div>
+
+
+        <div id="fasel" class="flex  items-center blue mr-1 mh-1">|</div>
         <li><a routerLink="/supcatogiarydeatails/1" routerLinkActive=" active_link">Grocery</a></li>
         <li><a routerLink="/categryditals/3" routerLinkActive=" active_link">Home</a></li>
         <li><a routerLink="/categryditals/4" routerLinkActive=" active_link">Patio & Garden</a></li>
@@ -369,12 +295,11 @@
         <li><a routerLink="/categryditals/7" routerLinkActive=" active_link">Personal Care</a></li>
         <li><a routerLink="/categryditals/8" routerLinkActive=" active_link">Beauty</a></li>
         <li><a routerLink="/categryditals/11" routerLinkActive=" active_link">Auto & tires</a></li>
-        <li><a routerLink="/categryditals/" routerLinkActive=" active_link">Walmart+</a></li>
-      </ul>
+        <li><a routerLink="/" routerLinkActive=" active_link">Walmart+</a></li>
 
+      </ul>
 
 
     </div>
   </div>
 </nav>
-</div>
