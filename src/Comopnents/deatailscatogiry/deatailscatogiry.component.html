@@ -87,7 +87,7 @@
 
           </div>
       } @if(lang == 'ar'){
-      <div *ngFor="let subcat of SubCatinCatAr" class="image-container col-2">
+      <div *ngFor="let subcat of SubCatinCatAr" class="image-container col-2" (click)="products(subcat.id)">
         <a [routerLink]="['/allproduct', subcat.id]">
 
           <img [src]="url+subcat.image" />
