@@ -1,12 +1,11 @@
 import { NgClass, NgFor, NgIf } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-video-slider',
   standalone: true,
-  imports: [NgIf,NgFor,FormsModule,NgClass,TranslateModule],
+  imports: [NgIf,NgFor,FormsModule,NgClass],
   templateUrl: './video-slider.component.html',
   styleUrl: './video-slider.component.css'
 })

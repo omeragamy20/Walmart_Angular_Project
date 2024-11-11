@@ -7,7 +7,7 @@
           style="text-decoration: none; color: black"
         >
           <img [src]="item.image" alt="{{ item.name_en }}" />
-          <p>{{ item.name_en | translate }}</p>
+          <p>{{ item.name_en }}</p>
         </a>
       </div>
     </div>
@@ -19,7 +19,7 @@
           (click)="prevPage()"
           [disabled]="currentPage === 0"
         >
-          <i class="bi bi-chevron-left"></i>{{ 'PREVIOUS' | translate }}
+          <i class="bi bi-chevron-left"></i>
         </button>
       </div>
       <div class="buttonRL">
@@ -29,7 +29,7 @@
           (click)="nextPage()"
           [disabled]="currentPage * itemsPerPage >= AllCAtegory.length"
         >
-          <i class="bi bi-chevron-right"></i>{{ 'NEXT' | translate }}
+          <i class="bi bi-chevron-right"></i>
         </button>
       </div>
     </div>

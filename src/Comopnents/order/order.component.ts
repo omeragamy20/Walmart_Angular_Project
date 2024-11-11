@@ -5,12 +5,11 @@ import { CookieService } from 'ngx-cookie-service';
 import { ShapMentViewComponent } from '../shap-ment-view/shap-ment-view.component';
 import { SummeryComponent } from '../summery/summery.component';
 import { OrderitemsComponent } from '../orderitems/orderitems.component';
-import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-order',
   standalone: true,
-  imports: [OrderComponent, SummeryComponent, OrderitemsComponent, OrderitemsComponent,TranslateModule],
+  imports: [OrderComponent, SummeryComponent, OrderitemsComponent, OrderitemsComponent],
   templateUrl: './order.component.html',
   styleUrl: './order.component.css'
 })

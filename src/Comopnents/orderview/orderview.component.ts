@@ -16,12 +16,11 @@ import { PaymentServiceService } from '../../Services/payment-service.service';
 import { Payment } from '../../InterFaces/payment';
 import { FormsModule, NgModel } from '@angular/forms';
 import { OrderitemService } from '../../Services/OrderItem/orderitem.service';
-import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-orderview',
   standalone: true,
-  imports: [FormsModule,RouterLink, ShapementsummeryComponent, OrderitemsComponent, OrderShapmentfooterComponent,PaypaylcomponintComponent,NgIf,TranslateModule],
+  imports: [FormsModule,RouterLink, ShapementsummeryComponent, OrderitemsComponent, OrderShapmentfooterComponent,PaypaylcomponintComponent,NgIf],
   templateUrl: './orderview.component.html',
   styleUrl: './orderview.component.css'
 })

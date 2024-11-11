@@ -5,11 +5,11 @@ import { ProductService } from '../../Services/Product/product.service';
 import { ActivatedRoute } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
-import { TranslateModule } from '@ngx-translate/core';
+
 @Component({
   selector: 'app-all-images',
   standalone: true,
-  imports: [MatDialogModule, MatButtonModule,CommonModule,TranslateModule],
+  imports: [MatDialogModule, MatButtonModule,CommonModule],
   templateUrl: './all-images.component.html',
   styleUrl: './all-images.component.css'
 })
