@@ -127,12 +127,10 @@
       <div class="text-center">
         <button
           routerLink="/Delivery"
-          class="btn btn-primary"
-          (click)="Createorder()"
+          class="btn btn-primary mt-4" [disabled]="paymnetId == null"          (click)="Createorder()"
         >
           Confirme Order
         </button>
-      </div>
     </div>
   </div>
 
