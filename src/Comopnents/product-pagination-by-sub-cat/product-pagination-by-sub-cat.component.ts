@@ -7,11 +7,12 @@ import { Router, RouterLink } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { FavouriteService } from '../../Services/Favourite/favourite.service';
 import { FavouritePrd } from '../../InterFaces/favourite-prd';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-product-pagination-by-sub-cat',
   standalone: true,
-  imports: [NgFor, FormsModule, RouterLink],
+  imports: [NgFor, FormsModule, RouterLink,TranslateModule],
   templateUrl: './product-pagination-by-sub-cat.component.html',
   styleUrl: './product-pagination-by-sub-cat.component.css'
 })
