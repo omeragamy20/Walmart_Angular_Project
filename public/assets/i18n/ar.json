@@ -2,7 +2,7 @@
     "header":{
         "How_do_you_want_your_items?": "كيف تريد العناصر الخاصة بك",
         "Reorder_My_Items": "إعادة طلب العناصر الخاصة بي" ,
-        "Sign_In_Account": "تسجيل الدخول إلى الحساب" , 
+        "Sign_In_Account": "تسجيل الدخول إلى الحساب" ,
 
         "GROCERY": "البقالة",
         "HOME": "المنزل",
@@ -17,24 +17,20 @@
         "AUTO_TIRES": "السيارات والإطارات",
         "WALMART_PLUS": "Walmart+"
 
-
-
-       
     },
 
 
 
 
     "account-home":{
-
       "accLang.Hi" : "مرحبًا"
    },
-   
 
 
 
 
-"contact-info":{ 
+
+"contact-info":{
 
 "contactInfoAndPassword": "معلومات الاتصال وكلمة المرور",
 "personalInformation": "معلوماتك الشخصية",
@@ -52,8 +48,6 @@
 "passwordMinLengthRequirement": "يجب أن تكون على الأقل 8 أحرف.",
 "resetPasswordButton": "إعادة تعيين كلمة المرور"
 
-
-
 },
 
 
@@ -67,7 +61,7 @@
   "NEXT": "التالي",
   "CLOSE": "إغلاق"
 
-    
+
 },
 
 
@@ -90,12 +84,10 @@
 
 
 "category":{
-  
+
     "PREVIOUS": "السابق",
     "NEXT": "التالي"
-  
-  
-    
+
 },
 
 
@@ -103,8 +95,6 @@
 
 
 "deatailscatogiry.component":{
-
-
 
  "SUB_CATEGORIES": "الفئات الفرعية"
 },
@@ -117,13 +107,12 @@
 
 "order":{
 
-
   "CART_TITLE": "سلة التسوق",
   "ITEMS": "عناصر",
   "FREE_SHIPPING": "الشحن المجاني يصل بحلول",
   "ORDER_WITHIN": "اطلب خلال",
   "HOURS_MINUTES": "ساعة دقيقة"
-    
+
 },
 
 
@@ -144,9 +133,6 @@
   "CALIFORNIA_SUPPLY_CHAINS": "قانون سلاسل الإمداد في كاليفورنيا"
 
 
-
-
-    
 },
 
 
@@ -170,9 +156,6 @@
   "REMOVE": "إزالة",
   "NO_PRODUCT_AVAILABLE": "لا يوجد منتج متاح"
 
-
-
-    
 },
 
 
@@ -190,7 +173,7 @@
   "payment_method": "طريقة الدفع",
   "text_updates": "التحديثات النصية لهذا الطلب",
   "submit": "إرسال"
-    
+
 },
 
 
@@ -316,8 +299,6 @@
   "give_feedback": "رأيك"
 
 
-
-    
 },
 
 
@@ -332,13 +313,11 @@
   "pagination": {
     "prev": "السابق",
     "next": "التالي"
- 
 
 
+
+}
 },
-
-
-
 
 
 
@@ -383,7 +362,7 @@
   "text_updates": "التحديثات النصية لهذا الطلب"
 
 
-    
+
 },
 
 
@@ -408,9 +387,9 @@
 
 
 "specification":{
- "all_specifications": "جميع المواصفات",
+  "all_specifications": "جميع المواصفات",
   "close": "إغلاق"
-    
+
 },
 
 
@@ -429,7 +408,7 @@
   "payment_info": "ابتداءً من $12/شهريًا أو 0% APR",
   "learn_how": "تعرف كيف"
 
-    
+
 },
 
 
@@ -441,7 +420,7 @@
 "supcatdeatials":{
   "best_seller": "الأكثر مبيعًا",
   "day_arrive": "يصل خلال يوم"
-    
+
 },
 
 
@@ -450,27 +429,14 @@
 "video-slider":{
  "previous": "السابق",
   "next": "التالي"
-    
+
 },
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-    
-        "footer": {
+"footer": {
           "all_departments": "كل الأقسام",
           "store_directory": "دليل المتجر",
           "careers": "الوظائف",

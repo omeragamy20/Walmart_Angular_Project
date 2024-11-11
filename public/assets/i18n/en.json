@@ -1,13 +1,13 @@
 {
     "header":{
 
-   
-        
+
+
         "How_do_you_want_your_items?": "How do you want your items?",
         "Reorder_My_Items": "Reorder My Items" ,
 
         "Sign_In_Account": "Sign In Account",
-       
+
 
              "GROCERY": "Grocery",
             "HOME": "Home",
@@ -23,7 +23,7 @@
            "WALMART_PLUS": "Walmart+",
  "DEPARTMENT": "Department",
 
-       
+
 
     },
 
@@ -85,7 +85,7 @@
 
 
 
-"category":{ 
+"category":{
      "PREVIOUS": "Previous",
   "NEXT": "Next"
 
@@ -128,10 +128,6 @@
   "REQUEST_PERSONAL_INFO": "Request My Personal Information",
   "DELETE_ACCOUNT": "Delete Account",
   "CALIFORNIA_SUPPLY_CHAINS": "California Supply Chains Act"
-
-
-
-
 
 },
 
@@ -236,7 +232,7 @@
   "more_options": "More options",
   "about_this_item": "About this item",
 
- "pickup": "Pickup",
+  "pickup": "Pickup",
   "delivery": "Delivery",
   "not_available": "Not Available",
   "sacramento_address": "Sacramento, 95829",
@@ -273,7 +269,7 @@
   "more_options": "More options",
   "about_product": "About the product",
 
-"customer_reviews": "Customer Reviews",
+  "customer_reviews": "Customer Reviews",
   "out_of": "out of",
   "five_stars": "5 Stars",
   "four_stars": "4 Stars",
@@ -337,7 +333,6 @@
 
 "shap-ment-view":{
 
-
 "checkout": "Checkout",
   "shipping_arrives": "Shipping, arrives by {{day}}, {{month}}",
   "order_within": "Order within",
@@ -362,8 +357,6 @@
   "arrives_by": "Arrives by {{day}}, {{month}}",
   "payment_method": "Payment method",
   "text_updates": "Text updates for this order"
-
-    
 },
 
 
@@ -417,7 +410,7 @@
   "day_arrive": "Arrives in a day"
 },
 
-     
+
 
 
 "video-slider":{
@@ -429,8 +422,9 @@
 
     "nav":{
 
-    }, 
-    "accLang":{
+    },
+
+"accLang":{
         "Hi": "Hi , " ,
         "My_Account": "My Account" ,
         "Save_Changes":"Save Changes",
@@ -438,21 +432,22 @@
         "English" : "English",
         "Language_Settings":"Language Settings",
         "Account":"Account",
-        "Home" :"Home" , 
+        "Home" :"Home" ,
         "Purchase_History":"Purchase History",
-        "My_items" : "My Items", 
-        "Reorder":"Reorder" , 
-        "Lists" : "Lists" , 
-        "Setting" : "Setting" , 
-        "Personal_information" : "Personal_information" , 
-        "Contact_info" : "Contact info and password" , 
-        "Addresses" : "Addresses" , 
+        "My_items" : "My Items",
+        "Reorder":"Reorder" ,
+        "Lists" : "Lists" ,
+        "Setting" : "Setting" ,
+        "Personal_information" : "Personal_information" ,
+        "Contact_info" : "Contact info and password" ,
+        "Addresses" : "Addresses" ,
         "Shopping_settings" : "Shopping_settings" ,
         "ss" : "Sign Out",
         "para1" : "We're excited to offer a Arabic language Walmart shopping experience for customers. We'll automatically switch to Arabic when we detect a preference for it in your browser or operating system. You can change your language settings for browsing Walmart at any time in your Account.",
         "para2" : "Our Arabic shopping experience works by converting English to Arabic via a machine translated model. The model is not perfect, and the proper context of the text may not always be taken into account during translation. We're continuously improving the Arabic language experience at Walmart. While many of our features are available in Arabic, there are some site features or communications which are not available in Arabic at this time. As a result, the user assumes the risk of any reliance on the translation. Some items on the site including images containing text, videos with captioning, PDF documents, or maps may not be translated, and some features on the site may not work in the translated versions."
-    },
-    "footer":{
+},
+
+"footer":{
             "About Walmart":"",
             "aboutWalText":"Walmart is a comprehensive online shopping platform offering a wide range of products, at competitive prices. Designed for seamless browsing and a smooth user experience, our website provides fast delivery and easy returns, making shopping convenient for everyone. Explore unbeatable deals and exceptional customer service all in one place!",
             "all_departments": "All Departments",
@@ -483,4 +478,4 @@
             "iywyk": "#IYWYK",
             "copyright": "© 2024 Walmart. All Rights Reserved."
         }
-    }
+}

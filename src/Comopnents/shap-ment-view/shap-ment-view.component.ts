@@ -11,11 +11,12 @@ import { createShipment } from '../../InterFaces/createShipment';
 import { UserService } from '../../Services/User/user.service';
 import { User } from '../../InterFaces/user';
 import { TranslateModule } from '@ngx-translate/core';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-shap-ment-view',
   standalone: true,
-  imports: [RouterLink, ReactiveFormsModule, FormsModule, OrderitemsComponent, SummeryComponent, ShapMentViewComponent, OrderComponent, RouterOutlet, ShapementsummeryComponent, OrderShapmentfooterComponent,TranslateModule],
+  imports: [RouterLink, ReactiveFormsModule, FormsModule, OrderitemsComponent, SummeryComponent, ShapMentViewComponent, OrderComponent, RouterOutlet, ShapementsummeryComponent, OrderShapmentfooterComponent,TranslateModule,NgIf],
   templateUrl: './shap-ment-view.component.html',
   styleUrl: './shap-ment-view.component.css'
 })
@@ -24,12 +25,12 @@ export class ShapMentViewComponent implements OnInit {
   timee: Date = new Date;
   Month: Date | any;
   Day: Date | any;
-  
+
   user:User ={} as User
   shepment: createShipment = {} as createShipment
-  
-  constructor(private fb: FormBuilder 
-    ,private shempmentservice: ShepmentServiceService, 
+
+  constructor(private fb: FormBuilder
+    ,private shempmentservice: ShepmentServiceService,
     private router: Router , private userSer:UserService) {
   }
 
@@ -70,7 +71,7 @@ export class ShapMentViewComponent implements OnInit {
       next:(res)=>{
         console.log(res)
         this.shepment.id = res.id
-        console.log(this.shepment.id) 
+        console.log(this.shepment.id)
         this.router.navigateByUrl(`/orderview/${this.shepment.CustomerId}/${this.shepment.id}`)
       }
     })
