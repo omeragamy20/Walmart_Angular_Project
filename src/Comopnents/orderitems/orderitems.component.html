@@ -1,47 +1,48 @@
 <ng-container *ngFor="let item of productlocal">
-  <div *ngIf="productlocal; else noProductTemplate">
+  <div *ngIf="productlocal ;else noProductTemplate">
     <div class="border-bottom py-3">
-      <p class="headP text-muted mb-1" style="font-weight: bold; color: black;"> 
-        {{ 'FULFILLED_BY_WALMART' | translate }}
-      </p>
-      <p class="headP text-primary mb-1">{{ 'FREE_SHIPPING' | translate }}</p>
+      <p class="headP text-muted mb-1 " style="font-weight: bold; color: black;">Fulfilled by Walmart</p>
+      <p class="headP text-primary mb-1">Free shipping</p>
       <div class="d-flex align-items-center mb-2">
-        <span class="flashb badge me-1">{{ 'FLASH_DEAL' | translate }}</span>
-        <span class="Bestb text-primary badge ">{{ 'BEST_SELLER' | translate }}</span>
+        <span class="flashb badge me-1">Flash Deal</span>
+        <span class="Bestb text-primary badge ">Best Seller</span>
       </div>
       <div class="d-flex">
         <img [src]="URL + item.imageUrls" alt="Product Image" class="me-3" width="80" height="80">
         <div class="flex-grow-1">
-          <p class="fw-bold mb-1">{{ item?.title_en }}</p>
-          <p style="width: 70%;" class="mb-1">{{ item?.description_en }}</p>
-          <p style="font-size: 14px;" class="text-muted ">${{ item?.price }}/ea</p>
-          <p style="font-size: 14px;" class="text-muted ">
-            <img src="//i5.walmartimages.com/dfw/63fd9f59-e685/7e6c8c3a-3ba7-437a-a066-de3ad3a6a15a/v1/roundReturn.svg" alt="">
-            {{ 'FREE_HOLIDAY_RETURNS' | translate }} {{ month }} {{ day }}
-          </p>
-          <p style="font-size: 14px;" class="text-muted "><i class="fa-solid fa-shield"></i> 
-            {{ 'ADD_PROTECTION_PLAN' | translate }}
-          </p>
-          <a style="color: black;" class="text-muted" routerLink=''>View Details</a>
+          <p class="fw-bold mb-1">{{item?.title_en}}</p>
+          <p style="width: 70%;" class=" mb-1">{{item?.description_en}}</p>
+          <p style="font-size: 14px;" class=" text-muted ">${{item?.price}}/ea</p>
+          <p style="font-size: 14px;" class=" text-muted "> <img
+              src="//i5.walmartimages.com/dfw/63fd9f59-e685/7e6c8c3a-3ba7-437a-a066-de3ad3a6a15a/v1/roundReturn.svg"
+              alt=""> Free Holiday returns until {{month}} {{day}}</p>
+          <p style="font-size: 14px;" class=" text-muted "><i class="fa-solid fa-shield"></i> Add Walmart Protection
+            Plan
+            by Allstate</p>
+          <a style="color: black;" class=" text-muted " routerLink=''>View Details</a>
           <p class="text-muted" style="font-size: 12px;">(Only one option can be selected at a time.)</p>
-          <input class="me-2" type="checkbox">3-Year plan - $4.00 <br>
+          <input class="me-2 " type="checkbox">3-Year plan - $4.00 <br>
           <input class="me-2" type="checkbox">2-Year plan - $3.00
         </div>
         <div class="text-end">
-          <p class="fw-bold fs-6" *ngIf="item.quantity == 1; else morethanone">
-            ${{ item.price }}
-          </p>
+          <p class="fw-bold fs-6 " *ngIf="item.quantity == 1  ;else morethanone">${{item.price}}</p>
           <ng-template #morethanone>
-            <p class="fw-bold fs-6">${{ item.totall }}</p>
+            <p class="fw-bold fs-6">${{item.totall}}</p>
           </ng-template>
+          <!-- <p class="text-muted text-decoration-line-through">$300</p> -->
+          <!-- <p class="text-success">You save $ 20</p> -->
           <div class="d-flex">
-            <button class="btn btn-link text-decoration-none p-0 mt-2" (click)="remove(item)">
-              {{ 'REMOVE' | translate }}
+
+            <button class="btn btn-link text-decoration-none  p-0 mt-2" (click)="remove(item)">
+              Remove
             </button>
-            <div class="d-flex p-2 ms-2" style="border: 1px solid black; border-radius: 20px;">
+            <div class="d-flex p-2 ms-2" style="border: 1px solid black;border-radius: 20px;">
+
+
               <i (click)="min(item.id)" class="min fa-solid fa-minus me-4"></i>
-              <span style="font-size: 15px; font-weight: 500;margin-top: -3px;">{{ item.quantity }}</span>
+              <span style="font-size: 15px; font-weight: 500;margin-top: -3px;">{{item.quantity}}</span>
               <i (click)="plus(item.id)" class="plus fa-solid fa-plus ms-4"></i>
+
             </div>
           </div>
         </div>
@@ -49,9 +50,8 @@
     </div>
   </div>
 </ng-container>
-
 <ng-template #noProductTemplate>
   <div class="alert alert-info mt-3" role="alert">
-    {{ 'NO_PRODUCT_AVAILABLE' | translate }}
+    No product available.
   </div>
 </ng-template>

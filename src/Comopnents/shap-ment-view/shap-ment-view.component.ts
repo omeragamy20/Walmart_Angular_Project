@@ -1,4 +1,4 @@
-import { Component, OnInit, } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { OrderComponent } from '../order/order.component';
 import { OrderitemsComponent } from '../orderitems/orderitems.component';
@@ -10,13 +10,11 @@ import { ShepmentServiceService } from '../../Services/Shepment/shepment-service
 import { createShipment } from '../../InterFaces/createShipment';
 import { UserService } from '../../Services/User/user.service';
 import { User } from '../../InterFaces/user';
-import { TranslateModule } from '@ngx-translate/core';
-import { CommonModule } from '@angular/common'; // تأكد من استيراده
 
 @Component({
   selector: 'app-shap-ment-view',
   standalone: true,
-  imports: [RouterLink,CommonModule ,ReactiveFormsModule, FormsModule, OrderitemsComponent, SummeryComponent, ShapMentViewComponent, OrderComponent, RouterOutlet, ShapementsummeryComponent, OrderShapmentfooterComponent,TranslateModule],
+  imports: [RouterLink, ReactiveFormsModule, FormsModule, OrderitemsComponent, SummeryComponent, ShapMentViewComponent, OrderComponent, RouterOutlet, ShapementsummeryComponent, OrderShapmentfooterComponent],
   templateUrl: './shap-ment-view.component.html',
   styleUrl: './shap-ment-view.component.css'
 })

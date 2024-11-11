@@ -1,29 +1,28 @@
 <div class="product-card">
 
-  <div *ngIf="bestSeller" class="best-seller-badge">
-    {{ 'best_seller' | translate }}
-  </div>
+  <div *ngIf="bestSeller" class="best-seller-badge">الأكثر مبيعًا</div>
+
 
   <div class="product-image">
     <img [src]="imageUrl" alt="{{ productName }}" />
     <button class="favorite-button">❤️</button>
   </div>
 
+
   <div class="product-info">
-    <div class="price">
-      <span class="current-price">{{ price }}</span>
+     <div class="price">
+
+      <span class="current-price">{{ price  }}</span>
       <!-- <span *ngIf="originalPrice > price" class="original-price">{{ originalPrice}}</span> -->
-    </div>
+     </div>
     <div class="product-name">{{ productName }}</div>
     <div class="rating">
       <span class="stars">⭐⭐⭐⭐⭐</span>
       <span class="review-count">({{ reviewCount }})</span>
     </div>
-    <div class="delivery-options">{{ 'day_arrive' | translate }}</div>
+    <div class="delivery-options">day arrive</div>
   </div>
 </div>
-
-
 
 <!--
 <div class="container">

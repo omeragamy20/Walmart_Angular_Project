@@ -4,22 +4,17 @@ import { UserService } from '../../../../../Services/User/user.service';
 import { FormsModule } from '@angular/forms';
 import { User } from '../../../../../InterFaces/user';
 import { ResetPassword } from '../../../../../InterFaces/reset-password';
-import { TranslateModule } from '@ngx-translate/core';
-import { CommonModule } from '@angular/common'; 
-import { FormControl } from '@angular/forms';
+
 @Component({
   selector: 'app-contact-info',
   standalone: true,
-  imports: [RouterLink , FormsModule,TranslateModule,CommonModule],
+  imports: [RouterLink , FormsModule],
   templateUrl: './contact-info.component.html',
   styleUrl: './contact-info.component.css'
 })
-
-
 export class ContactInfoComponent implements OnInit  {
   success:string =" "
   id:string =""
-  nameInp = new FormControl(); 
   user:User ={} as User
   ResetPass : ResetPassword ={} as ResetPassword
    msg = document.getElementById("Massage")
