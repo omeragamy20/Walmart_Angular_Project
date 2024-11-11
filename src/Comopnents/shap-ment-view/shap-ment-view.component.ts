@@ -10,12 +10,11 @@ import { ShepmentServiceService } from '../../Services/Shepment/shepment-service
 import { createShipment } from '../../InterFaces/createShipment';
 import { UserService } from '../../Services/User/user.service';
 import { User } from '../../InterFaces/user';
-import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-shap-ment-view',
   standalone: true,
-  imports: [RouterLink, ReactiveFormsModule, FormsModule, OrderitemsComponent, SummeryComponent, ShapMentViewComponent, OrderComponent, RouterOutlet, ShapementsummeryComponent, OrderShapmentfooterComponent,TranslateModule],
+  imports: [RouterLink, ReactiveFormsModule, FormsModule, OrderitemsComponent, SummeryComponent, ShapMentViewComponent, OrderComponent, RouterOutlet, ShapementsummeryComponent, OrderShapmentfooterComponent],
   templateUrl: './shap-ment-view.component.html',
   styleUrl: './shap-ment-view.component.css'
 })
