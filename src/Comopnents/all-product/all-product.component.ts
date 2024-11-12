@@ -2,19 +2,18 @@ import { CommonModule } from '@angular/common';
 import { Component, Input, input, OnInit, signal, SimpleChanges, OnChanges } from '@angular/core';
 import { IProduct } from '../../InterFaces/product';
 import { ProductService } from '../../Services/Product/product.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Pagination } from '../../InterFaces/pagination';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { Facilities } from '../../InterFaces/facilities';
 import { LanguageService } from '../../Services/Language/language.service';
 import { HeaderComponent } from "../header/header.component";
 import { SearchService } from '../../Services/search.service';
-import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-all-product',
   standalone: true,
-  imports: [CommonModule, MatExpansionModule,TranslateModule],
+  imports: [CommonModule, MatExpansionModule],
   templateUrl: './all-product.component.html',
   styleUrl: './all-product.component.css'
 })
@@ -23,7 +22,7 @@ export class AllProductComponent implements OnInit , OnChanges {
   filteredProducts : IProduct[]=[] as IProduct[];
   selectedFilters = new Set<string>();
   specifictions:Facilities[]=[] as Facilities[];
-  @Input('id') subcatid:number=0;
+  subcatid:number=0;
   searchProducts:IProduct[]=[] as IProduct[];
   // subcatid=2;
   totalProducts = 0;
@@ -36,10 +35,11 @@ export class AllProductComponent implements OnInit , OnChanges {
   lang:string='';
 
   constructor(private productService:ProductService,private router: Router,
-    private _Language:LanguageService,private searchService: SearchService){}
+    private _Language:LanguageService,private searchService: SearchService,private route: ActivatedRoute){}
   ngOnChanges(changes: SimpleChanges): void {
     throw new Error('Method not implemented.');
   }
+
   ngOnInit(): void {
     this._Language.getLangugae().subscribe({
       next: (res) => {
@@ -53,6 +53,7 @@ export class AllProductComponent implements OnInit , OnChanges {
     this.Facilities();
   }
  products(searchTerm: string = ''):void{
+  this.subcatid=  this.route.snapshot.params['id'];
   this.productService.getAllPagination(this.subcatid ,this.currentPage,this.pageSize,searchTerm).subscribe({
     next: (res: Pagination<IProduct>) => {
       console.log(res.data);
@@ -78,6 +79,7 @@ export class AllProductComponent implements OnInit , OnChanges {
 
 
  Facilities():void{
+  this.subcatid=  this.route.snapshot.params['id'];
   this.productService.getFacilitiybysubid(this.subcatid).subscribe({
     next:(res)=>{
       this.specifictions=res;
@@ -162,4 +164,7 @@ Details(id:number){
       return 'fa-star rating';
     }
   }
+
+
+
 }

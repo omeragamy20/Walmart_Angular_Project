@@ -6,13 +6,12 @@ import { CategoryService } from '../../Services/Category/category.service';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { AsideComponent } from "../aside/aside.component.spec";
-import { TranslateModule } from '@ngx-translate/core';
 
 
 @Component({
   selector: 'app-category',
   standalone: true,
-  imports: [NgFor,FormsModule,RouterLink, CommonModule, AsideComponent,TranslateModule],
+  imports: [NgFor,FormsModule,RouterLink, CommonModule, AsideComponent],
   templateUrl: './category.component.html',
   styleUrls: ['./category.component.css']
 

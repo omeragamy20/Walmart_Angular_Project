@@ -81,14 +81,9 @@
 
       <ul class="navbar-links " style="cursor: pointer;">
         <li class="nav-item dropdown" (click)="toggleDropdown()">
-          <a
-            class="nav-link dropdown-toggle"
-            id="departmentsDropdown"
-            role="button"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-          {{ 'Departments' | translate }}
+          <a class="nav-link dropdown-toggle" id="departmentsDropdown" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            {{ 'Departments' | translate }}
             <!-- Departments -->
           </a>
           <ul class="dropdown-menu" aria-labelledby="departmentsDropdown" [ngClass]="{ show: isDropdownOpen }">
@@ -96,24 +91,15 @@
               <!-- Left Side: Main Categories with Scroll -->
               <!-- Right Side: Subcategories with Scroll -->
               @if(lang=='en'){
-                <ul class="list-group">
-                  <li
-                    *ngFor="let department of catlisst_En"
-                    class="list-group-item list-group-item-action"
-                    (mouseenter)="setActiveDepartment(department.id)"
-                    >
-                    {{ department.name_en }}
-                  </li>
-                </ul>
-                <ul
-                class="list-group flex-fill ms-3 p-3 bg-light"
-                *ngIf="activeCAten"
-              >
+              <ul class="list-group">
+                <li *ngFor="let department of catlisst_En" class="list-group-item list-group-item-action"
+                  (mouseenter)="setActiveDepartment(department.id)">
+                  {{ department.name_en }}
+                </li>
+              </ul>
+              <ul class="list-group flex-fill ms-3 p-3 bg-light" *ngIf="activeCAten">
                 <!-- <h5>{{ activeDepartment.Category }}</h5> -->
-                <li
-                  *ngFor="let part of activeCAten"
-                  class="list-group-item list-group-item-action border-0"
-                >
+                <li *ngFor="let part of activeCAten" class="list-group-item list-group-item-action border-0">
                   <a routerLink="/supcatogiarydeatails/{{part.id}}">
                     {{ part.name_en }}
                   </a>
@@ -121,24 +107,15 @@
               </ul>
               }
               @if(lang=='ar'){
-                <ul class="list-group">
-                  <li
-                    *ngFor="let department of catlisst_Ar"
-                    class="list-group-item list-group-item-action"
-                    (mouseenter)="setActiveDepartment(department.id)"
-                    >
-                    {{ department.name_ar }}
-                  </li>
-                </ul>
-                <ul
-                class="list-group flex-fill ms-3 p-3 bg-light"
-                *ngIf="activeCAtar"
-              >
+              <ul class="list-group">
+                <li *ngFor="let department of catlisst_Ar" class="list-group-item list-group-item-action"
+                  (mouseenter)="setActiveDepartment(department.id)">
+                  {{ department.name_ar }}
+                </li>
+              </ul>
+              <ul class="list-group flex-fill ms-3 p-3 bg-light" *ngIf="activeCAtar">
                 <!-- <h5>{{ activeDepartment.Category }}</h5> -->
-                <li
-                  *ngFor="let part of activeCAtar"
-                  class="list-group-item list-group-item-action border-0"
-                >
+                <li *ngFor="let part of activeCAtar" class="list-group-item list-group-item-action border-0">
                   <a routerLink="/supcatogiarydeatails/{{part.id}}">
                     {{ part.name_ar }}
                   </a>
@@ -149,14 +126,11 @@
           </ul>
 
         </li>
-
-
-        <div id="fasel" class="flex  items-center blue mr-1 mh-1">|</div>
+        <div id="fasel" class="flex  items-center blue mr-1 mh-1">|
+        </div>
         <li><a routerLink="/supcatogiarydeatails/1" routerLinkActive=" active_link">Grocery</a></li>
-        <!-- <li><a routerLink="/supcatogiarydeatails/1" routerLinkActive="active_link">{{ 'GROCERY' | translate }}</a></li> -->
-
-        <!-- <li><a routerLink="/categryditals/3" routerLinkActive=" active_link">Home</a></li>
-        <li><a routerLink="/categryditals/4" routerLinkActive=" active_link">Patio & Garden</a></li>
+        <li><a routerLink="/categryditals/3" routerLinkActive=" active_link">Home</a></li>
+        <!-- <li><a routerLink="/Delivery" routerLinkActive=" active_link">Home</a></li> -->
         <li><a routerLink="/categryditals/2" routerLinkActive=" active_link">Clothing & Accessories</a></li>
         <li><a routerLink="/categryditals/1" routerLinkActive=" active_link">Electronics</a></li>
         <li><a routerLink="/categryditals/10" routerLinkActive=" active_link">Baby</a></li>
@@ -165,22 +139,10 @@
         <li><a routerLink="/categryditals/7" routerLinkActive=" active_link">Personal Care</a></li>
         <li><a routerLink="/categryditals/8" routerLinkActive=" active_link">Beauty</a></li>
         <li><a routerLink="/categryditals/11" routerLinkActive=" active_link">Auto & tires</a></li>
-        <li><a routerLink="/categryditals/" routerLinkActive=" active_link">Walmart+</a></li> -->
-
-        <li><a routerLink="/categryditals/3" routerLinkActive=" active_link">{{ 'HOME' | translate }}</a></li>
-        <li><a routerLink="/categryditals/4" routerLinkActive=" active_link">{{ 'PATIO_GARDEN' | translate }}</a></li>
-        <li><a routerLink="/categryditals/2" routerLinkActive=" active_link">{{ 'CLOTHING_ACCESSORIES' | translate }}</a></li>
-        <li><a routerLink="/categryditals/1" routerLinkActive=" active_link">{{ 'ELECTRONICS' | translate }}</a></li>
-        <li><a routerLink="/categryditals/10" routerLinkActive=" active_link">{{ 'BABY' | translate }}</a></li>
-        <li><a routerLink="/categryditals/5" routerLinkActive=" active_link">{{ 'TOYS' | translate }}</a></li>
-        <li><a routerLink="/categryditals/9" routerLinkActive=" active_link">{{ 'HEALTH_WELLNESS' | translate }}</a></li>
-        <li><a routerLink="/categryditals/7" routerLinkActive=" active_link">{{ 'PERSONAL_CARE' | translate }}</a></li>
-        <li><a routerLink="/categryditals/8" routerLinkActive=" active_link">{{ 'BEAUTY' | translate }}</a></li>
-        <li><a routerLink="/categryditals/11" routerLinkActive=" active_link">{{ 'AUTO_TIRES' | translate }}</a></li>
-        <li><a routerLink="/categryditals/" routerLinkActive=" active_link">{{ 'WALMART_PLUS' | translate }}</a></li>
+        <li><a routerLink="/categryditals/" routerLinkActive=" active_link">Walmart+</a></li>
       </ul>
 
-      
+
 
 
     </div>
