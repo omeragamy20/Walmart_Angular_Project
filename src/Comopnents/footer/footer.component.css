@@ -91,10 +91,12 @@ footer img {
 .copy-right li:hover {
   color: rgb(126, 182, 182);
 } */
+
 .footer {
   background-color: #0071ce; 
   color: #ffffff;
   font-size: 14px;
+  margin-bottom:0px;
 }
 
 .footer a {

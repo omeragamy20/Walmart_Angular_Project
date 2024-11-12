@@ -7,7 +7,7 @@
 </div>
 
 <hr>
-<div class="container">
+<div class="container" style="min-height: 50vh;">
     <div class="row">
        
         <div class="col-4 sideBar" [style]="(lang=='en')?'border-right: 1px solid #ccc;':'border-left: 1px solid #ccc; border-right:none' ">
@@ -32,8 +32,8 @@
 
                 <div class="card card-body carSection">
                     <h3> {{'accLang.My_items' | translate}} </h3>
-                    <a routerLink="reorder" routerLinkActive="active">{{'accLang.Reorder' | translate}}</a>
-                    <a routerLink="lists" routerLinkActive="active">{{'accLang.Lists' | translate}}</a>
+                    <a routerLink="/items/reorder" routerLinkActive="active">{{'accLang.Reorder' | translate}}</a>
+                    <a routerLink="/items/lists" routerLinkActive="active">{{'accLang.Lists' | translate}}</a>
                  
                 </div>
               </div>

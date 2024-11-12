@@ -1,3 +1,6 @@
+body{
+    height: 100vh;
+}
 .active{
    border-bottom:2px solid #2e2f32;
     font-weight: 700;

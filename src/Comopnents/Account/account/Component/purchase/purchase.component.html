@@ -1,1 +1,54 @@
-<p>purchase works!</p>
+<h2>Purchase History</h2>
+
+@for (item of customerOrders; track item.id ;let idx = $index)
+{
+    <div class="card">
+        <div class="card-header">
+          Order {{idx+1}}
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Total Price : {{item.totalPrice}}</h5>
+
+            <h5 class="card-title">Date : {{item.orderDate}}</h5>
+           
+            @if(lang =='en'){
+                
+                <p class="card-text">Payment Method : {{item.payment_en}}</p>
+                
+           
+            }
+            @if(lang =='ar'){
+               
+               <p class="card-text">Payment Method :  {{item.payment_ar}} </p>
+              
+           }
+
+
+            
+           <p>
+            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#collapseExample' + idx" aria-expanded="false" [attr.aria-controls]="'collapseExample' + idx">
+              
+              Show Order Item
+            </button>
+          </p>
+          <div class="collapse" [id]="'collapseExample' + idx">
+            <div class="card card-body">
+              <div class="row">
+              <div class="col-6" *ngFor="let pr of Prds; index as i; trackBy: trackByFn">
+                  <p> Title:- {{pr.title_en}}    Price:-{{pr.price}} </p>
+                </div>
+
+                <div class="col-6" *ngFor="let pr of prdsQuantity; index as i; trackBy: trackByFn">
+                  <p> Quantity {{pr}}  </p>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+
+
+        </div>
+      </div>
+}
+
