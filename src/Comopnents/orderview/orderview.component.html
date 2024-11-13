@@ -1,5 +1,5 @@
 <div class="headd">
-  <span>Checkout</span>
+  <span>{{ 'orderview.CHECKOUT' | translate }}</span>
 
   <span class="back" routerLink="/order"> &lt; </span>
 </div>
@@ -17,7 +17,7 @@
         />
       </div>
       <div>
-        <p class="mb-0">1. Shipping, arrives by {{ Day }}, {{ Month }}</p>
+        <p class="mb-0">1. {{ 'orderview.SHIPPING_ARRIVES' | translate }} {{ Day }}, {{ Month }}</p>
       </div>
     </div>
     <br />
@@ -31,17 +31,17 @@
 
     <hr />
     <div class="itemDetails">
-      <h5 style="color: black">Delivery instructions</h5>
+      <h5 style="color: black">{{ 'orderview.DELIVERY_INSTRUCTIONS' | translate }}</h5>
       <br />
       <!-- <p>Arrives by {{Day}}, {{Month}},order within 1 hr 44 min</p> -->
-      <p>House</p>
+      <p>{{ 'orderview.HOUSE' | translate }}</p>
     </div>
 
     <hr />
     <div class="shapetime">
-      <h5 style="color: black">Shipping Date</h5>
+      <h5 style="color: black">{{ 'orderview.SHIPPING_DATE' | translate }}</h5>
       <br />
-      <p>Arrives by {{ Day }}, {{ Month }}</p>
+      <p>{{ 'orderview.ARRIVES_BY' | translate }}{{ Day }}, {{ Month }}</p>
     </div>
 
     <hr />
@@ -58,7 +58,7 @@
         <div class="iconwalet">
           <i class="fa-solid fa-wallet" style="color: rgb(63, 62, 62)"></i>
 
-          <h4 style="display: inline">2. Payment method</h4>
+          <h4 style="display: inline">2. {{ 'orderview.PAYMENT_METHOD' | translate }}</h4>
         </div>
 
         <div class="on">
@@ -75,9 +75,9 @@
       </div>
       <div *ngIf="showFirstDiv">
         <select [(ngModel)]="selectedOption" onchange="changmethod()">
-          <option value="">Select an option</option>
-          <option value="Paypal">PayPal</option>
-          <option value="Cash">Cash On Dlivery</option>
+          <option value="">{{ 'orderview.SELECT_OPTION' | translate }}</option>
+          <option value="Paypal">{{ 'orderview.PAYPAL' | translate }}</option>
+          <option value="Cash">{{ 'orderview.CASH_ON_DELIVERY' | translate }}</option>
         </select>
 
         <div *ngIf="selectedOption === 'Paypal'">
@@ -94,7 +94,7 @@
               id="flexCheckIndeterminate"
             />
             <label class="form-check-label" for="flexCheckIndeterminate">
-              Cash On Delivery
+              {{ 'orderview.CASH_ON_DELIVERY' | translate }}
             </label>
           </div>
         </div>
@@ -103,7 +103,7 @@
         <!-- btn  -->
         <div>
           <button class="btn btn-primary" (click)="CreatePayment()">
-            Save Change
+            {{ 'orderview.SAVE_CHANGE' | translate }}
           </button>
         </div>
       </div>

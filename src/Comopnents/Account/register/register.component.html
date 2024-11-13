@@ -43,28 +43,28 @@ input:focus{
             <div class=" card p-4">
     <img class="mb-3" src="5977595.png" style="max-width: 75px; max-height: 74px; margin:auto;">
 
-                <h2 class="text-center mb-4">Create Your Walmart Account</h2>
-                <form (ngSubmit)="onSubmit()"  #myForm ="ngForm">
+    <h2 class="text-center mb-4">{{ 'register.Create_Account' | translate }}</h2>
+    <form (ngSubmit)="onSubmit()"  #myForm ="ngForm">
                     <div class="form-group mb-3">
                         <label for="email"  name="Email">{{Email}}</label>
-                        <a routerLink="/SignOrRegister" style="float: right;" >Change it</a>
+                        <a routerLink="/SignOrRegister" style="float: right;" >{{ 'register.Change_Email' | translate }}</a>
                     </div>
                     <div class="form-group">
-                        <label for="fname">First Name</label>
+                        <label for="fname">{{ 'register.First_Name' | translate }}</label>
                         <input type="text" class="form-control" id="fname" [(ngModel)]="UserReg.FirstName" name="firstname" placeholder="Enter your email" required>
                     </div>
                     <div class="form-group">
-                        <label for="email">Last name</label>
+                        <label for="lname">{{ 'register.Last_Name' | translate }}</label>
                         <input type="text" class="form-control " id="lname" [(ngModel)]="UserReg.LastName" name="lastname"  required>
                     </div>
 
                     <div class="form-group">
-                        <label for="phone">Phone Number</label>
+                        <label for="phone">{{ 'register.Phone_Number' | translate }}</label>
                         <input type="text" class="form-control" id="phone" [(ngModel)]="UserReg.PhoneNumber" name="phone" required>
                     </div>
 
                     <div class="form-group">
-                        <label for="pass">Create Password</label>
+                        <label for="pass">{{ 'register.Create_Password' | translate }}</label>
                         <input type="password"
                         min="8"
                         required
@@ -73,20 +73,20 @@ input:focus{
                         class="form-control" id="pass" [(ngModel)]="UserReg.Password" name="password" required>
 
                         @if(nameInp.invalid && nameInp.touched){
-                        <p class="text-danger">Must be at least one uppercase letter.</p>
-                        <p class="text-danger">Must be at least one special character.</p>
-                        <p class="text-danger">Must be at least one uppercase letter.</p>
-                        <p class="text-danger"> Must be at least one digit</p>
-                        <p class="text-danger">Min 8 charachter</p>
+                            <p>{{ 'register.Password_Requirement1' | translate }}</p>
+                            <p>{{ 'register.Password_Requirement2' | translate }}</p>
+                            <p>{{ 'register.Password_Requirement3' | translate }}</p>
+                            <p>{{ 'register.Password_Requirement4' | translate }}</p>
+                            <p>{{ 'register.Password_Requirement5' | translate }}</p>
                     }
                     </div>
                     <div class="form-group">
                         <input type="checkbox" id="check" style="display: inline;">
-                        <label for="check">Send me emails about new arrivals, hot items, daily savings and more.</label>
+                        <label for="check">{{'register.Email_Promotions'| translate }}</label>
                     </div>
-                    <button type="submit" [disabled]="myForm.invalid" class="btn btn-primary btn-block">Sign Up</button>
+                    <button type="submit" [disabled]="myForm.invalid" class="btn btn-primary btn-block">{{'register.Sign_Up'| translate }}</button>
                 </form>
-                <p class="text-center mt-3">Already have an account? <a routerLink="/SignOrRegister">Log in</a></p>
+                <p class="text-center mt-3">{{ 'register.Already_Have_Account' | translate }} <a routerLink="/SignOrRegister">{{'register.Log_In'| translate }}</a></p>
             </div>
         </div>
     </div>

@@ -1,6 +1,6 @@
 <div class="headd">
 
-  <span>Checkout</span>
+  <span>{{ 'shap-ment-view.CHECKOUT' | translate }}</span>
 
   <span class="back" routerLink="/order">
     &lt; </span>
@@ -17,16 +17,16 @@
           alt="">
       </div>
       <div>
-        <p class="mb-0 fw-bold"> Shipping, arrives by {{Day}}, {{Month}}</p>
-        <small>Order within <span class="fw-bold">7 hr 44 min</span></small> |
+        <p class="mb-0 fw-bold"> {{ 'shap-ment-view.SHIPPING_ARRIVES_BY' | translate }}  {{Day}}, {{Month}}</p>
+        <small>{{ 'shap-ment-view.ORDER_WITHIN' | translate }} <span class="fw-bold">7 hr 44 min</span></small> |
       </div>
     </div>
 
     <!-- Cart Items Section -->
-    <p class="text-muted ps-3" style="font-size: 13px;">* Required fields</p>
+    <p class="text-muted ps-3" style="font-size: 13px;">{{ 'shap-ment-view.REQUIRED_FIELDS' | translate }}</p>
     <div class="shipping-address ps-3">
-      <h4 style="font-size: 15px; font-weight: bold;">Shipping address</h4>
-      <p>Where should we deliver your order?</p>
+      <h4 style="font-size: 15px; font-weight: bold;">{{ 'shap-ment-view.SHIPPING_ADDRESS' | translate }}</h4>
+      <p>{{ 'shap-ment-view.WHERE_DELIVER' | translate }}</p>
 
     </div>
     <form (ngSubmit)="Addshapment()">
@@ -39,22 +39,22 @@
          
 
           <div class="form-group">
-            <label>Street address*</label>
+            <label>{{ 'shap-ment-view.STREET_ADDRESS' | translate }}*</label>
             <input type="text" [(ngModel)]="shepment.address" name="Address" placeholder="Street address"
               #addinp="ngModel" required minlength="3" maxlength="150">
             @if(addinp.invalid && addinp.touched)
             {
             @if(addinp.hasError('required')){
 
-            <p class="text-danger">Address Is Requaried</p>
+              <p class="text-danger">{{ 'shap-ment-view.ADDRESS_REQUIRED' | translate }}</p>
             }
             @if(addinp.hasError('minlength')){
 
-            <p class="text-danger">Address Must be More than 3 Char </p>
+              <p class="text-danger">{{ 'shap-ment-view.ADDRESS_MINLENGTH' | translate }}</p>
             }
             @if(addinp.hasError('maxlength')){
 
-            <p class="text-danger">maxlength Must be less than 150 Char </p>
+              <p class="text-danger">{{ 'shap-ment-view.ADDRESS_MAXLENGTH' | translate }}</p>
             }
             }
           </div>
@@ -64,7 +64,7 @@
         <div class="right col-lg-6">
           <div class="d-flex">
             <div class="form-group" style="width: 100%;margin-right: 10px;">
-              <label>State*</label>
+              <label>{{ 'shap-ment-view.STATE' | translate }}*</label>
               <select [(ngModel)]="shepment.Country" name="Country">
                 <option value="NY">NY</option>
                 <!-- Add other states here -->
@@ -73,18 +73,18 @@
 
 
             <div class="form-group" style="width: 100%;">
-              <label>Zip code*</label>
+              <label>{{ 'shap-ment-view.ZIP_CODE' | translate }}*</label>
               <input type="text" [(ngModel)]="shepment.ZipCode" name="ZipCode" placeholder="Zip code" #zipinp="ngModel"
                 required minlength="3" maxlength="10">
               @if(zipinp.invalid && zipinp.touched)
               {
               @if(zipinp.hasError('required')){
 
-              <p class="text-danger">ZipCode Is Requaried</p>
+                <p class="text-danger">{{ 'shap-ment-view.ZIP_REQUIRED' | translate }}</p>
               }
               @if(zipinp.hasError('minlength')){
 
-              <p class="text-danger">ZipCode Must be More than 3 Char </p>
+                <p class="text-danger">{{ 'shap-ment-view.ZIP_MINLENGTH' | translate }}</p>
               }
               }
             </div>
@@ -93,7 +93,7 @@
 
           </div>
           <div class="form-group">
-            <label>City*</label>
+            <label>{{ 'shap-ment-view.CITY' | translate }}*</label>
             <input type="text" [(ngModel)]="shepment.City" name="City" placeholder="City">
           </div>
 
@@ -104,7 +104,7 @@
 
 
         <div class="form-group">
-          <label>Delivery notes</label>
+          <label>{{ 'shap-ment-view.DELIVERY_NOTES' | translate }}</label>
           <textarea placeholder="Building description, nearby landmark, etc."></textarea>
         </div>
       </div>
@@ -112,11 +112,11 @@
       <div class="prfere d-flex">
         <div>
 
-          <p>More delivery instructions</p>
+          <p>{{ 'shap-ment-view.MORE_INSTRUCTIONS' | translate }}</p>
 
-          <span style="color: rgb(44, 43, 43);"> <input type="checkbox" name="" id="">Set as my preferred
-            delivery
-            address</span>
+          <span style="color: rgb(44, 43, 43);">
+            <input type="checkbox" name="" id="">{{ 'shap-ment-view.PREFERRED_DELIVERY_ADDRESS' | translate }}
+          </span>
         </div>
         <div>
           <!-- <a type="Submit" routerLinkActive="router-link-active"
@@ -137,8 +137,8 @@
     <hr />
     <div class="itemDetails">
 
-      <h5 style="color: #2e2f32;">Item details</h5>
-      <p>Arrives by {{Day}}, {{Month}},order within 1 hr 44 min</p>
+      <h5 style="color: #2e2f32;">{{ 'shap-ment-view.ITEM_DETAILS' | translate }}</h5>
+      <p>{{ 'shap-ment-view.ARRIVES_BY' | translate }}{{Day}}, {{Month}},order within 1 hr 44 min</p>
     </div>
 
     <hr>
@@ -159,7 +159,7 @@
       <div class="iconwalet">
         <i class="fa-solid fa-wallet" style="color: #a6adb9;"></i>
 
-        <h4 style="display: inline;">2. Payment method</h4>
+        <h4 style="display: inline;">{{ 'shap-ment-view.PAYMENT_METHOD' | translate }}</h4>
 
       </div>
 
@@ -177,8 +177,8 @@
       <div class="iconwalet">
         <i class="fa-solid fa-mobile" style="color:  #a6adb9;"></i>
 
-        <h4 style="display: inline;">
-          3. Text updates for this order</h4>
+        <h4 style="display: inline;">{{ 'shap-ment-view.TEXT_UPDATES' | translate }}</h4>
+
 
       </div>
 

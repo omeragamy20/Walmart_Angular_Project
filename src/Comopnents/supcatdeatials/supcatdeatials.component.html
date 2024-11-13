@@ -1,6 +1,6 @@
 <div class="product-card">
 
-  <div *ngIf="bestSeller" class="best-seller-badge">الأكثر مبيعًا</div>
+  <div *ngIf="bestSeller" class="best-seller-badge">{{ 'supcatdetails.BEST_SELLER' | translate }}</div>
 
 
   <div class="product-image">
@@ -20,7 +20,7 @@
       <span class="stars">⭐⭐⭐⭐⭐</span>
       <span class="review-count">({{ reviewCount }})</span>
     </div>
-    <div class="delivery-options">day arrive</div>
+    <div class="delivery-options">{{ 'supcatdetails.DELIVERY_OPTIONS' | translate }}</div>
   </div>
 </div>
 

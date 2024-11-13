@@ -42,19 +42,19 @@ label{
 <div class="container cont">
     <div class="row">
         <img src="5977595.png" style="max-width: 65px; max-height: 64px; margin: auto;">
-        <h1>Sign in or create your account</h1>
-        <p>Not sure if you have an account?</p>
-        <p>Enter your email and we’ll check for you.</p>
+        <h1>{{ 'sign-in-or-register.TITLE' | translate }}</h1>
+    <p>{{ 'sign-in-or-register.NOT_SURE_ACCOUNT' | translate }}</p>
+    <p>{{ 'sign-in-or-register.ENTER_EMAIL_CHECK' | translate }}</p>
         <form (ngSubmit)="onSubmit()">
             <div class="form-group mv3">
-              <label for="exampleInputEmail1">Email Address</label>
-              <input type="email" class="form-control "  [(ngModel)]="EmailUser" name="Email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                <label for="exampleInputEmail1">{{ 'sign-in-or-register.EMAIL_ADDRESS' | translate }}</label>
+                <input type="email" class="form-control "  [(ngModel)]="EmailUser" name="Email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
            
             </div>
            
-            <button type="submit" class="btn btn-primary mb-3">Continue</button>
-          </form>
-          <p>Securing your personal information is our priority.</p>
-          <p><a href="#">See our privacy measures.</a></p>
+            <button type="submit" class="btn btn-primary mb-3">{{ 'sign-in-or-register.CONTINUE' | translate }}</button>
+        </form>
+        <p>{{ 'sign-in-or-register.PRIORITY_INFO' | translate }}</p>
+        <p><a href="#">{{ 'sign-in-or-register.PRIVACY_MEASURES' | translate }}</a></p>
     </div>
 </div>

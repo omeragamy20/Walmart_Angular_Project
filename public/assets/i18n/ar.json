@@ -2,9 +2,327 @@
     "header":{
         "How_do_you_want_your_items?": "كيف تريد العناصر الخاصة بك",
         "Reorder_My_Items": "إعادة طلب العناصر الخاصة بي" ,
-        "Sign_In_Account": "تسجيل الدخول إلى الحساب" 
+        "Sign_In_Account": "تسجيل الدخول إلى الحساب", 
        
+        "GROCERY": "بقالة",
+        "HOME": "الصفحة الرئيسية",
+        "PATIO_GARDEN": "الحدائق والفناء",
+        "CLOTHING_ACCESSORIES": "الملابس والإكسسوارات",
+        "ELECTRONICS": "الإلكترونيات",
+        "BABY": "الطفل",
+        "TOYS": "الألعاب",
+        "HEALTH_WELLNESS": "الصحة والعافية",
+        "PERSONAL_CARE": "العناية الشخصية",
+        "BEAUTY": "الجمال",
+        "AUTO_TIRES": "السيارات والإطارات",
+        "WALMART_PLUS": "وولمارت+"
+
     },
+
+
+    "account-home": {
+      "accLang": {
+        "Hi": "مرحباً"
+      }
+    },
+
+"language": {
+        "Language_Settings": "إعدادات اللغة",
+        "para1": "اختر لغتك المفضلة لواجهة المستخدم.",
+        "para2": "سيتم حفظ اختيارك وتطبيقه على الفور.",
+        "English": "الإنجليزية",
+        "Arabic": "العربية",
+        "Save_Changes": "حفظ التغييرات"
+      },
+
+"account": {
+    "My_Account": "حسابي",
+    "Account": "الحساب",
+    "Home": "الصفحة الرئيسية",
+    "Purchase_History": "تاريخ الشراء",
+    "My_items": "عناصرى",
+    "Reorder": "إعادة الطلب",
+    "Lists": "القوائم",
+    "Setting": "الإعدادات",
+    "Personal_information": "المعلومات الشخصية",
+    "Contact_info": "معلومات الاتصال",
+    "Addresses": "العناوين",
+    "Shopping_settings": "إعدادات التسوق",
+    "Language_Settings": "إعدادات اللغة",
+    "ss": "تسجيل الخروج"
+  },
+
+
+
+
+
+
+
+
+
+
+    "video-slider": {
+    "prevButton": "السابق",
+    "nextButton": "التالي",
+    "noVideos": "لا توجد مقاطع فيديو متاحة"
+  },
+
+    "orderitems": {
+      "FULFILLED_BY_WALMART": "مُنفذ بواسطة وول مارت",
+      "FREE_SHIPPING": "شحن مجاني",
+      "FLASH_DEAL": "عرض خاص",
+      "BEST_SELLER": "أفضل بائع",
+      "FREE_HOLIDAY_RETURNS": "إرجاع مجاني خلال العطلات حتى",
+      "ADD_WALMART_PROTECTION_PLAN": "إضافة خطة حماية وول مارت من ألستيت",
+      "VIEW_DETAILS": "عرض التفاصيل",
+      "ONLY_ONE_OPTION": "(يمكن اختيار خيار واحد فقط في المرة)",
+      "REMOVE": "إزالة",
+      "NO_PRODUCT_AVAILABLE": "لا يوجد منتج متاح."
+    },
+
+
+    "order-shapmentfooter": {
+      "ALL_RIGHTS_RESERVED": "جميع الحقوق محفوظة.",
+      "GIVE_FEEDBACK": "إعطاء ملاحظات",
+      "CA_PRIVACY_RIGHTS": "حقوق الخصوصية في كاليفورنيا",
+      "YOUR_PRIVACY_CHOICES": "اختيارات الخصوصية الخاصة بك",
+      "NOTICE_AT_COLLECTION": "إشعار عند الجمع",
+      "REQUEST_MY_PERSONAL_INFORMATION": "طلب معلوماتي الشخصية",
+      "DELETE_ACCOUNT": "حذف الحساب",
+      "CALIFORNIA_SUPPLY_CHAINS_ACT": "قانون سلاسل الإمداد في كاليفورنيا"
+    },
+
+
+
+
+    "login": {
+      "Sign_In": "تسجيل الدخول",
+      "Email": "البريد الإلكتروني",
+      "Password": "كلمة المرور",
+      "Password_Placeholder": "أدخل كلمة المرور",
+      "Remember_Me": "تذكرني",
+      "Submit": "إرسال",
+      "No_Account": "ليس لديك حساب؟",
+      "Create_Account": "إنشاء حساب",
+      "Forgot": "نسيت"
+    },
+
+"register": {
+    "Create_Account": "إنشاء حسابك في Walmart",
+    "Email_Label": "البريد الإلكتروني",
+    "Change_Email": "تغييره",
+    "First_Name": "الاسم الأول",
+    "Last_Name": "اسم العائلة",
+    "Phone_Number": "رقم الهاتف",
+    "Create_Password": "إنشاء كلمة المرور",
+    "Password_Placeholder": "أدخل كلمة المرور",
+    "Password_Requirement1": "يجب أن تحتوي على حرف كبير واحد على الأقل.",
+    "Password_Requirement2": "يجب أن تحتوي على رمز خاص واحد على الأقل.",
+    "Password_Requirement3": "يجب أن تحتوي على رقم واحد على الأقل",
+    "Password_Requirement4": "على الأقل 8 أحرف",
+    "Email_Placeholder": "أدخل بريدك الإلكتروني",
+    "Email_Promotions": "أرسل لي رسائل حول المنتجات الجديدة، والعروض اليومية، والمزيد.",
+    "Sign_Up": "التسجيل",
+    "Already_Have_Account": "هل لديك حساب؟",
+    "Log_In": "تسجيل الدخول"
+  },
+
+"sign-in-or-register": {
+    "TITLE": "تسجيل الدخول أو إنشاء حساب",
+    "NOT_SURE_ACCOUNT": "غير متأكد ما إذا كان لديك حساب؟",
+    "ENTER_EMAIL_CHECK": "أدخل بريدك الإلكتروني وسنتحقق لك.",
+    "EMAIL_ADDRESS": "عنوان البريد الإلكتروني",
+    "CONTINUE": "استمر",
+    "PRIORITY_INFO": "حماية معلوماتك الشخصية هي أولويتنا.",
+    "PRIVACY_MEASURES": "اطلع على إجراءات الخصوصية الخاصة بنا."
+  },
+
+
+  "all-images": {
+    "TITLE": "كل الصور",
+    "CLOSE_BUTTON": "إغلاق",
+    "PREVIOUS": "السابق",
+    "NEXT": "التالي"
+  },
+
+
+
+
+"all-product":{ 
+
+"ADD": "+ اضافة",
+  "FILTER": "التصفية",
+  "PRICE": "السعر",
+  "DESCRIPTION": "الوصف"
+
+},
+
+
+"deatailscatogiry":{ "SUB_CATEGORIES": "الفئات الفرعية"},
+
+
+
+
+"category": {
+  "PAGE_TITLE": "الفئة",
+  "PREVIOUS_PAGE": "السابق",
+  "NEXT_PAGE": "التالي"
+},
+
+
+
+
+
+"delivery": {
+  "ORDER_ON_WAY": "طلبك في الطريق"
+},
+
+
+"product-pagination-by-sub-cat": {
+    "NOW": "الآن",
+    "CURRENT_PRICE": "السعر الحالي",
+    "WAS": "كان",
+    "ADD": "أضف"
+  },
+
+
+  "rate": {
+    "FEEDBACK": "تقييم",
+    "HELP_IMPROVE": "تقييمك من الممكن ان يساعدنا في تحسين موقعنا",
+    "RATING_INSTRUCTION": "(1 = ضعيف جدا, 5 = رائع!)",
+    "SHARE_WITH_WALMART": "شاركه مع وول مارت"
+  },
+
+
+
+
+
+
+
+
+
+  "shapementsummery": {
+    "SUBTOTAL": "الإجمالي الفرعي",
+    "ITEMS": "عناصر",
+    "SAVINGS": "التوفير",
+    "SAVINGS_AMOUNT": "$0",
+    "SHIPPING": "الشحن",
+    "SHIPPING_FREE": "مجاني",
+    "TAXES": "الضرائب",
+    "CALCULATED_AT_CHECKOUT": "يتم حسابها عند الدفع",
+    "ESTIMATED_TOTAL": "الإجمالي المقدر",
+    "PROMO_CODE": "هل لديك رمز ترويجي؟"
+  },
+
+  "shap-ment-view": {
+    "CHECKOUT": "الدفع",
+    "SHIPPING_ARRIVES_BY": "الشحن، يصل بحلول",
+    "ORDER_WITHIN": "اطلب خلال",
+    "REQUIRED_FIELDS": "* الحقول المطلوبة",
+    "SHIPPING_ADDRESS": "عنوان الشحن",
+    "WHERE_DELIVER": "أين يجب أن نسلم طلبك؟",
+    "MORE_INSTRUCTIONS": "تعليمات توصيل إضافية",
+    "PREFERRED_DELIVERY_ADDRESS": "حدد كعنوان التوصيل المفضل",
+    "SAVE": "حفظ",
+    "ITEM_DETAILS": "تفاصيل العنصر",
+    "ARRIVES_BY": "يصل بحلول",
+    "ORDER_WITHIN_TIME": "اطلب خلال 1 ساعة و 44 دقيقة"
+  },
+    
+
+
+  "summery": {
+    "CONTINUE_TO_CHECKOUT": "استمر إلى الدفع",
+    "CART_ITEMS_DISCOUNT": "تم تخفيض أسعار العناصر في سلة التسوق. استكمل الدفع الآن للحصول على خصومات إضافية!",
+    "SUBTOTAL": "المجموع الفرعي",
+    "SAVINGS": "التوفير",
+    "SHIPPING": "الشحن",
+    "TAXES": "الضرائب",
+    "FREE": "مجاناً",
+    "CALCULATED_AT_CHECKOUT": "يتم حسابها عند الدفع",
+    "ESTIMATED_TOTAL": "المجموع المتوقع",
+    "AS_LOW_AS": "ابتداءً من",
+    "LEARN_HOW": "تعلم كيفية"
+  },
+
+
+
+
+  "supcatdetails": {
+    "BEST_SELLER": "الأكثر مبيعًا",
+    "DELIVERY_OPTIONS": "يصل في اليوم"
+  },
+
+
+  "specification": {
+    "ALL_SPECIFICATIONS": "جميع المواصفات",
+    "CLOSE": "إغلاق"
+  },
+
+
+
+
+
+
+"product": {
+    "title": "عنوان المنتج",
+    "rating": "التقييم",
+    "viewAll": "عرض الكل",
+    "price": "السعر",
+   
+   
+    "addProtectionPlan": "أضف خطة الحماية",
+    "getExpertHelp": "احصل على مساعدة الخبراء",
+    "shipping": "الشحن",
+    "pickup": "الاستلام",
+  
+  
+
+    "delivery": "التوصيل",
+    "notAvailable": "غير متوفر",
+    "change": "تغيير",
+    "arrives": "يصل بحلول يوم الأحد، 27 أكتوبر",
+    "moreOptions": "مزيد من الخيارات",
+    "aboutThisItem": "حول هذا المنتج",
+    "customerRatings": "تقييمات العملاء & المراجعات",
+    "5stars": "5 نجوم",
+    "4stars": "4 نجوم",
+    "3stars": "3 نجوم",
+    "2stars": "2 نجوم",
+    "1star": "نجمة واحدة",
+    "now": "الآن",
+    "youSave": "أنت توفر",
+    
+    "free": "مجانا",
+    "sacramento": "ساكرامنتو، 95829",
+   
+    "feedback": "نود أن نسمع رأيك!",
+    "giveFeedback": "أعطِ ملاحظات",
+   
+    "priceWhenPurchased": "السعر عند الشراء عبر الإنترنت",
+    "addToCart": "أضف إلى السلة",
+    "protectionPlan": "إضافة خطة حماية",
+    "twoYearPlan": "خطة لمدة سنتين - $45.00",
+  "expertHelp": "احصل على مساعدة الخبراء",
+    "premiumTechSupport": "دعم تقني وحماية متميزة - 99.00 دولار",
+    "standardSetup": "إعداد وحماية قياسية - 59.00 دولار",
+   
+   
+    "ratingAndReviews": "التقييمات والمراجعات",
+    "fiveStars": "5 نجوم",
+    "fourStars": "4 نجوم",
+    "threeStars": "3 نجوم",
+    "twoStars": "2 نجوم",
+    "oneStar": "1 نجمة"
+
+
+
+  },
+
+
+
+
+
     
         "footer": {
           "all_departments": "كل الأقسام",

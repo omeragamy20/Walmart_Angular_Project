@@ -5,11 +5,12 @@ import { FormsModule } from '@angular/forms';
 import { User } from '../../../InterFaces/user';
 import { UserLogin } from '../../../InterFaces/user-login';
 import { AuthService } from '../../../Services/auth/auth.service';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule , RouterLink],
+  imports: [FormsModule , RouterLink,TranslateModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })

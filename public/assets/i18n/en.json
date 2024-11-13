@@ -11,24 +11,115 @@
 
              "GROCERY": "Grocery",
             "HOME": "Home",
-         "PATIO_GARDEN": "Patio & Garden",
-       "CLOTHING_ACCESSORIES": "Clothing & Accessories",
-           "ELECTRONICS": "Electronics",
-              "BABY": "Baby",
-            "TOYS": "Toys",
-        "HEALTH_WELLNESS": "Health & wellness",
-       "PERSONAL_CARE": "Personal Care",
-        "BEAUTY": "Beauty",
-        "AUTO_TIRES": "Auto & tires",
-           "WALMART_PLUS": "Walmart+",
+        
+      
  "DEPARTMENT": "Department",
 
-        "Sign_In_Account": "Sign In Account"
+        "Sign_In_Account": "Sign In Account",
+
+
+    "PATIO_GARDEN": "Patio & Garden",
+    "CLOTHING_ACCESSORIES": "Clothing & Accessories",
+    "ELECTRONICS": "Electronics",
+    "BABY": "Baby",
+    "TOYS": "Toys",
+    "HEALTH_WELLNESS": "Health & wellness",
+    "PERSONAL_CARE": "Personal Care",
+    "BEAUTY": "Beauty",
+    "AUTO_TIRES": "Auto & tires",
+    "WALMART_PLUS": "Walmart+"
+
+
+
+
+
 
     },
+
+    "account-home": {
+        "accLang": {
+          "Hi": "Hello"
+        }
+      },
+
+
+      
+"language": {
+    "Language_Settings": "Language Settings",
+    "para1": "Choose your preferred language for the interface.",
+    "para2": "Your selection will be saved and applied immediately.",
+    "English": "English",
+    "Arabic": "Arabic",
+    "Save_Changes": "Save Changes"
+  },
+
+
+
+  "account": {
+    "My_Account": "My Account",
+    "Account": "Account",
+    "Home": "Home",
+    "Purchase_History": "Purchase History",
+    "My_items": "My items",
+    "Reorder": "Reorder",
+    "Lists": "Lists",
+    "Setting": "Settings",
+    "Personal_information": "Personal Information",
+    "Contact_info": "Contact Information",
+    "Addresses": "Addresses",
+    "Shopping_settings": "Shopping Settings",
+    "Language_Settings": "Language Settings",
+    "ss": "Sign Out"
+  },
+
+
+
+
     "nav":{
 
     }, 
+
+
+    "order-shapmentfooter": {
+        "ALL_RIGHTS_RESERVED": "All Rights Reserved.",
+        "GIVE_FEEDBACK": "Give feedback",
+        "CA_PRIVACY_RIGHTS": "CA Privacy Rights",
+        "YOUR_PRIVACY_CHOICES": "Your Privacy Choices",
+        "NOTICE_AT_COLLECTION": "Notice at Collection",
+        "REQUEST_MY_PERSONAL_INFORMATION": "Request My Personal Information",
+        "DELETE_ACCOUNT": "Delete Account",
+        "CALIFORNIA_SUPPLY_CHAINS_ACT": "California Supply Chains Act"
+      },
+
+
+
+      "orderitems": {
+        "FULFILLED_BY_WALMART": "Fulfilled by Walmart",
+        "FREE_SHIPPING": "Free shipping",
+        "FLASH_DEAL": "Flash Deal",
+        "BEST_SELLER": "Best Seller",
+        "FREE_HOLIDAY_RETURNS": "Free Holiday returns until",
+        "ADD_WALMART_PROTECTION_PLAN": "Add Walmart Protection Plan by Allstate",
+        "VIEW_DETAILS": "View Details",
+        "ONLY_ONE_OPTION": "(Only one option can be selected at a time.)",
+        "REMOVE": "Remove",
+        "NO_PRODUCT_AVAILABLE": "No product available."
+      },
+
+
+    
+       "login": {
+    "Sign_In": "Sign In",
+    "Email": "Email",
+    "Password": "Password",
+    "Password_Placeholder": "Enter your password",
+    "Remember_Me": "Remember Me",
+    "Submit": "Submit",
+    "No_Account": "Don't have an account?",
+    "Create_Account": "Create an Account",
+    "Forgot": "Forgot Password"
+  },
+      
     "accLang":{
         "Hi": "Hi , " ,
         "My_Account": "My Account" ,
@@ -51,6 +142,244 @@
         "para1" : "We're excited to offer a Arabic language Walmart shopping experience for customers. We'll automatically switch to Arabic when we detect a preference for it in your browser or operating system. You can change your language settings for browsing Walmart at any time in your Account.",
         "para2" : "Our Arabic shopping experience works by converting English to Arabic via a machine translated model. The model is not perfect, and the proper context of the text may not always be taken into account during translation. We're continuously improving the Arabic language experience at Walmart. While many of our features are available in Arabic, there are some site features or communications which are not available in Arabic at this time. As a result, the user assumes the risk of any reliance on the translation. Some items on the site including images containing text, videos with captioning, PDF documents, or maps may not be translated, and some features on the site may not work in the translated versions."
     },
+
+
+
+
+
+"sign-in-or-register": {
+    "TITLE": "Sign in or create your account",
+    "NOT_SURE_ACCOUNT": "Not sure if you have an account?",
+    "ENTER_EMAIL_CHECK": "Enter your email and we’ll check for you.",
+    "EMAIL_ADDRESS": "Email Address",
+    "CONTINUE": "Continue",
+    "PRIORITY_INFO": "Securing your personal information is our priority.",
+    "PRIVACY_MEASURES": "See our privacy measures."
+  },
+
+  "all-images": {
+    "TITLE": "All Images",
+    "CLOSE_BUTTON": "Close",
+    "PREVIOUS": "Previous",
+    "NEXT": "Next"
+  },
+
+   
+
+
+
+
+  "video-slider": {
+    "prevButton": "Previous",
+    "nextButton": "Next",
+    "noVideos": "No videos available"
+  } ,
+
+
+
+"register": {
+    "Create_Account": "Create Your Walmart Account",
+    "Email_Label": "Email",
+    "Change_Email": "Change it",
+    "First_Name": "First Name",
+    "Last_Name": "Last name",
+    "Phone_Number": "Phone Number",
+    "Create_Password": "Create Password",
+    "Password_Placeholder": "Enter your password",
+    "Password_Requirement1": "Must be at least one uppercase letter.",
+    "Password_Requirement2": "Must be at least one special character.",
+    "Password_Requirement3": "Must be at least one digit",
+    "Password_Requirement4": "Min 8 characters",
+    "Email_Placeholder": "Enter your email",
+    "Email_Promotions": "Send me emails about new arrivals, hot items, daily savings and more.",
+    "Sign_Up": "Sign Up",
+    "Already_Have_Account": "Already have an account?",
+    "Log_In": "Log in"},
+
+
+"all-product": {
+    "FILTER_HEADER": "Filter",
+    "ADD_BUTTON": "+ Add",
+    "PRICE_LABEL": "Price",
+    "DESCRIPTION_LABEL": "Description",
+    "RATING_LABEL": "Rating",
+    "TOTAL_RATE": "Total Rate"
+  },
+
+
+  "category": {
+    "PAGE_TITLE": "Category",
+    "PREVIOUS_PAGE": "Previous",
+    "NEXT_PAGE": "Next"
+  },
+
+
+
+
+  "deatailscatogiry": {
+    "SUB_CATEGORIES": "Sub Categories"
+  },
+
+
+"rate": {
+    "FEEDBACK": "Feedback",
+    "HELP_IMPROVE": "Your feedback matters! Help us improve the Walmart website",
+    "RATING_INSTRUCTION": "(1 = Very poor, 5 = Excellent!)",
+    "SHARE_WITH_WALMART": "Share with Walmart"
+  },
+
+
+
+
+  "shap-ment-view": {
+    "CHECKOUT": "Checkout",
+    "SHIPPING_ARRIVES_BY": "Shipping, arrives by",
+    "ORDER_WITHIN": "Order within",
+    "REQUIRED_FIELDS": "* Required fields",
+    "SHIPPING_ADDRESS": "Shipping address",
+    "WHERE_DELIVER": "Where should we deliver your order?",
+    "MORE_INSTRUCTIONS": "More delivery instructions",
+    "PREFERRED_DELIVERY_ADDRESS": "Set as my preferred delivery address",
+    "SAVE": "Save",
+    "ITEM_DETAILS": "Item details",
+    "ARRIVES_BY": "Arrives by",
+    "ORDER_WITHIN_TIME": "order within 1 hr 44 min"
+  },
+
+
+"shapementsummery": {
+    "SUBTOTAL": "Subtotal",
+    "ITEMS": "Items",
+    "SAVINGS": "Savings",
+    "SAVINGS_AMOUNT": "$0",
+    "SHIPPING": "Shipping",
+    "SHIPPING_FREE": "Free",
+    "TAXES": "Taxes",
+    "CALCULATED_AT_CHECKOUT": "Calculated at checkout",
+    "ESTIMATED_TOTAL": "Estimated total",
+    "PROMO_CODE": "Have a promo code?"
+  },
+
+
+
+
+
+
+
+
+
+
+  "summery": {
+    "CONTINUE_TO_CHECKOUT": "Continue to checkout",
+    "CART_ITEMS_DISCOUNT": "Items in your cart have reduced prices. Check out now for extra savings!",
+    "SUBTOTAL": "Subtotal",
+    "SAVINGS": "Savings",
+    "SHIPPING": "Shipping",
+    "TAXES": "Taxes",
+    "FREE": "Free",
+    "CALCULATED_AT_CHECKOUT": "Calculated at checkout",
+    "ESTIMATED_TOTAL": "Estimated Total",
+    "AS_LOW_AS": "As low as",
+    "LEARN_HOW": "Learn how"
+  },
+
+
+
+
+  "supcatdetails": {
+    "BEST_SELLER": "Best Seller",
+    "DELIVERY_OPTIONS": "Day Arrive"
+  },
+
+  "specification": {
+    "ALL_SPECIFICATIONS": "All Specifications",
+    "CLOSE": "Close"
+  },
+
+
+  "delivery": {
+    "ORDER_ON_WAY": "Your order is on the way"
+  },
+
+
+
+  "product-pagination-by-sub-cat": {
+    "NOW": "Now",
+    "CURRENT_PRICE": "Current price",
+    "WAS": "Was",
+    "ADD": "Add"
+  },
+
+
+
+
+
+
+
+"product": {
+    "title": "Product Title",
+    "rating": "Rating",
+    "viewAll": "View All",
+   
+    "price": "Price",
+   
+   
+    "addProtectionPlan": "Add a protection plan",
+    "getExpertHelp": "Get expert help",
+   
+    "free": "Free",
+   
+    "sacramento": "Sacramento, 95829",
+    
+    "feedback": "We’d love to hear what you think!",
+    "giveFeedback": "Give feedback",
+    
+   
+   
+    "delivery": "Delivery",
+    "notAvailable": "Not Available",
+    "change": "Change",
+    "arrives": "Arrives by Sun, Oct 27",
+    "moreOptions": "More options",
+    "aboutThisItem": "About this item",
+    "customerRatings": "Customer ratings & reviews",
+    "5stars": "5 stars",
+    "4stars": "4 stars",
+    "3stars": "3 stars",
+    "2stars": "2 stars",
+    "1star": "1 star",
+    "now": "Now",
+    "youSave": "You save",
+    
+
+    
+    "priceWhenPurchased": "Price when purchased online",
+    "addToCart": "Add To Cart",
+    "protectionPlan": "Add a protection plan",
+    "twoYearPlan": "2-Year plan - $45.00",
+
+    "expertHelp": "Get expert help",
+    "premiumTechSupport": "Premium Tech Support & Security - $99.00",
+    "standardSetup": "Standard Setup & Security - $59.00",
+    "howYouGetItem": "How you'll get this item:",
+    "shipping": "Shipping",
+    "pickup": "Pickup",
+    "arrivesFree": "Arrives Oct 27 free",
+   
+    
+    "ratingAndReviews": "Rating and Reviews",
+    "fiveStars": "5 stars",
+    "fourStars": "4 stars",
+    "threeStars": "3 stars",
+    "twoStars": "2 stars",
+    "oneStar": "1 star"
+
+  },
+
+
+  
+
+
     "footer":{
             "About Walmart":"",
             "aboutWalText":"Walmart is a comprehensive online shopping platform offering a wide range of products, at competitive prices. Designed for seamless browsing and a smooth user experience, our website provides fast delivery and easy returns, making shopping convenient for everyone. Explore unbeatable deals and exceptional customer service all in one place!",

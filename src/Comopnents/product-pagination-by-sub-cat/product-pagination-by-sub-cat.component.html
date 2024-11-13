@@ -15,11 +15,11 @@
         <div class="card-body" style="background-color: white;text-align: left;">
           <div id="product_price" class="flex flex-wrap justify-start items-center lh-title mb1-m">
             <div id="discountprice" class="mr1 mr2-xl b black green lh-copy f5 f4-l" aria-hidden="true">Now ${{ product.price }}</div>
-            <span class="w_iUH7">current price ${{ product.price }}</span>
+            <span class="w_iUH7">  {{ 'product-pagination-by-sub-cat.NOW' | translate }}  ${{ product.price }}</span>
             <!-- <h6 class="text-success fw-bold">Now ${{ product.price }}</h6> -->
             <!-- <p class="text-muted"><s>${{ product.price + product.price * 0.1 }}</s></p> -->
             <div id="oldprice" class="gray mr1 strike f7 f6-l" aria-hidden="true">${{ product.price + product.price * 0.1 }}</div>
-            <span class="w_iUH7">Was ${{ product.price + product.price * 0.1 }}</span>
+            <span class="w_iUH7">{{ 'product-pagination-by-sub-cat.WAS' | translate }} ${{ product.price + product.price * 0.1 }}</span>
           </div>
           <span id="title1" class>
             <span id="title2" class="w_V_DM" style="-webkit-line-clamp: 2; padding-bottom: 0em; margin-bottom: 0em;">
@@ -38,7 +38,7 @@
       <div id="btnadd" class="relative dib" dib>
         <button id="btnbtnadd" (click)="addProductToCookie(product)" class="w_hhLG w_XK4d w_0_LY pointer bn sans-serif b ph2 flex items-center justify-center w-auto">
         <i class="bi bi-plus-lg"></i>
-        <span class="mr2">Add</span>
+        <span class="mr2">{{ 'product-pagination-by-sub-cat.ADD' | translate }}</span>
       </button>
     </div>
     </div>

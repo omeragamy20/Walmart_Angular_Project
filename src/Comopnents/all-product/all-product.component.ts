@@ -9,11 +9,12 @@ import { Facilities } from '../../InterFaces/facilities';
 import { LanguageService } from '../../Services/Language/language.service';
 import { HeaderComponent } from "../header/header.component";
 import { SearchService } from '../../Services/search.service';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-all-product',
   standalone: true,
-  imports: [CommonModule, MatExpansionModule],
+  imports: [CommonModule, MatExpansionModule,TranslateModule],
   templateUrl: './all-product.component.html',
   styleUrl: './all-product.component.css'
 })

@@ -1,20 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { Route, Router, RouterLink } from '@angular/router';
 import { UserService } from '../../../../../Services/User/user.service';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,FormControl } from '@angular/forms';
 import { User } from '../../../../../InterFaces/user';
 import { ResetPassword } from '../../../../../InterFaces/reset-password';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-contact-info',
   standalone: true,
-  imports: [RouterLink , FormsModule],
+  imports: [RouterLink , FormsModule,TranslateModule],
   templateUrl: './contact-info.component.html',
   styleUrl: './contact-info.component.css'
 })
 export class ContactInfoComponent implements OnInit  {
   success:string =" "
   id:string =""
+ 
   user:User ={} as User
   ResetPass : ResetPassword ={} as ResetPassword
    msg = document.getElementById("Massage")
@@ -22,6 +24,7 @@ export class ContactInfoComponent implements OnInit  {
 
 
   ngOnInit(): void {
+   
     this.id = sessionStorage.getItem("id")! 
     if(this.id != null){
       this.userSer.GetUserById(this.id).subscribe({

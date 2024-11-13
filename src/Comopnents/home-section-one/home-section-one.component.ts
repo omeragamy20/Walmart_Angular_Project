@@ -2,10 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { IproductEn } from '../../InterFaces/product';
 import { ProductService } from '../../Services/Product/product.service';
+import { TranslateModule } from '@ngx-translate/core';
+
 @Component({
   selector: 'app-home-section-one',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink,TranslateModule],
   templateUrl: './home-section-one.component.html',
   styleUrl: './home-section-one.component.css'
 })

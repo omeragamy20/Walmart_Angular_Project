@@ -1,4 +1,4 @@
-<h2 mat-dialog-title>All Images</h2>
+<h2 mat-dialog-title>{{ 'all-images.TITLE' | translate }}</h2>
 <div class="dialog">
 <mat-dialog-content class="mat-typography">
     <div class="container">
@@ -16,18 +16,18 @@
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev" (click)="prevImage()">
                   <span class="carousel-control-prev-icon btnImg" aria-hidden="true"></span>
-                  <span class="visually-hidden">Previous</span>
+                  <span class="visually-hidden">{{ 'all-images.PREVIOUS' | translate }}</span>
                 </button>
                 <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next" (click)="nextImage()">
                   <span class="carousel-control-next-icon btnImg" aria-hidden="true"></span>
-                  <span class="visually-hidden">Next</span>
+                  <span class="visually-hidden">{{ 'all-images.NEXT' | translate }}</span>
                 </button>
             </div>
         </div>             
     </div>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
-  <button mat-button mat-dialog-close>Close</button>
+  <button mat-button mat-dialog-close>{{ 'all-images.CLOSE_BUTTON' | translate }}</button>
 </mat-dialog-actions>
 </div>
 

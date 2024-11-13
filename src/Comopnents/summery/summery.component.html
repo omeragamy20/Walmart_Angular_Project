@@ -1,8 +1,8 @@
 <!-- <p>summery works!</p> -->
 <div class="side p-3  border rounded">
-  <a routerLink='/shap-ment-view' routerLinkActive="router-link-active" class="btnA btn btn-primary w-100 mb-3">Continue
-    to
-    checkout</a>
+  <a routerLink='/shap-ment-view' routerLinkActive="router-link-active" class="btnA btn btn-primary w-100 mb-3">
+    {{ 'summery.CONTINUE_TO_CHECKOUT' | translate }}
+  </a>
   <div class="seconde alert alert-primary d-flex" role="alert">
     <div>
       <img style="margin: 5px;"
@@ -10,7 +10,7 @@
 
     </div>
     <div>
-      <p> Items in your cart have reduced prices. Check out now for extra savings!</p>
+      <p>{{ 'summery.CART_ITEMS_DISCOUNT' | translate }}</p>
 
     </div>
   </div>
@@ -18,12 +18,12 @@
   <!-- Summary Details -->
   <ul class="list-unstyled mb-3">
     <li class="d-flex justify-content-between">
-      <span><strong>Subtotal</strong></span>
+      <span><strong>{{ 'summery.SUBTOTAL' | translate }}</strong></span>
       <!-- //({{ products.length }} items) -->
       <span class="text-decoration-line-through">${{totalprice}}</span>
     </li>
     <li class="d-flex justify-content-between text-success">
-      <span style="color: black;">Savings</span>
+      <span style="color: black;">{{ 'summery.SAVINGS' | translate }}</span>
       <span>$0</span>
     </li>
     <li class="d-flex justify-content-between fw-bold">
@@ -32,20 +32,19 @@
     </li>
     <hr>
     <li class="d-flex justify-content-between">
-      <span>Shipping</span>
-
-      <span class="text-success">Free</span>
+      <span>{{ 'summery.SHIPPING' | translate }}</span>
+      <span class="text-success">{{ 'summery.FREE' | translate }}</span>
     </li>
     <li class="d-flex justify-content-between">
-      <span><strong>Taxes</strong> </span>
-      <span>Calculated at checkout</span>
+      <span><strong>{{ 'summery.TAXES' | translate }}</strong></span>
+      <span>{{ 'summery.CALCULATED_AT_CHECKOUT' | translate }}</span>
     </li>
     <hr>
     <li class="d-flex justify-content-between fw-bold">
-      <span>Estimated Total</span>
+      <span>{{ 'summery.ESTIMATED_TOTAL' | translate }}</span>
       <span class="text-success">${{totalprice}}</span>
     </li>
     <br>
   </ul>
-  <small class="text-muted">As low as $12/mo or 0% APR <a href="#" class="text-decoration-none">Learn how</a></small>
+  <small class="text-muted">{{ 'summery.AS_LOW_AS' | translate }}  $12/mo or 0% APR <a href="#" class="text-decoration-none">Learn how</a></small>
 </div>

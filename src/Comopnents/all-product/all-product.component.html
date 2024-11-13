@@ -24,7 +24,7 @@
       <!-- loop -->
         <div class="product-card" style="width: 24%;" *ngFor="let pro of filteredProducts" (click)="Details(pro.id)">
             <img [src]="url + pro.imageUrls[0]" class="card-img-top" alt="productImage"><br>
-            <a><button class="btn">+ Add</button> </a><br>          
+            <a><button class="btn">{{ 'all-product.ADD_BUTTON' | translate }}</button> </a><br>          
             <div class="card-body">
               <span class="price">{{pro.price}}</span><br>
               <span class="card-text">{{pro.description_en}}</span><br>

@@ -52,7 +52,7 @@
               <br>
               <hr>
               <div class="col">
-                <h5>About This Item</h5>
+                <h5>{{ 'product.aboutThisItem' | translate }}</h5>
                 <p class="dec">{{product[0].description_en}} </p>
               </div>
               <div class="col">
@@ -72,7 +72,7 @@
                   </div>
                 </div>
               </div>
-              <a><button mat-button (click)="openDialog()">View All Specifications</button></a>
+              <a><button mat-button (click)="openDialog()">{{ 'product.viewAll' | translate }}</button></a>
         </div>
         </div>
         <div>     
@@ -83,44 +83,56 @@
             <div class="row more_info prise_info">
               <div class="col">
                 <div class="prise_details">
-                  <h3 class="prise">Now ${{product[0].price}}</h3>
-                  <h6 class="prise">You save $61.04</h6>
-                  <p>price when purchased online</p>
-                  <button class="add">Add To Cart</button>
+                  <h3 class="prise">{{ 'product.price' | translate }} ${{product[0].price}}</h3>
+              <h6 class="prise">{{ 'product.youSave' | translate }} $61.04</h6>
+              <p>{{ 'product.price' | translate }} when purchased online</p>
+              <button class="add">{{ 'product.addToCart' | translate }}</button>
                 </div>
                 <hr>
                 <div class="plan">
                   <img class="imgIcon walmart_icon" src="https://i5.walmartimages.com/dfw/63fd9f59-2c2e/b8053833-2295-47f4-80f1-448eb55fa0ba/v1/wpp-shield.svg">
-                  <span>Add a protection plan</span><br>                         
+                  <span>{{ 'product.addProtectionPlan' | translate }}</span><br>                         
                   <input type="checkbox"><label>2-Year plan - $45.00</label>
                 </div>
                 <div class="plan">
                   <img class="imgIcon walmart_icon" src="https://i5.walmartimages.com/dfw/63fd9f59-e685/7e6c8c3a-3ba7-437a-a066-de3ad3a6a15a/v1/Wrench%20Icon.svg">
-                  <span>Get expert help</span><br>
+                  <span>{{ 'product.getExpertHelp' | translate }}</span><br>
                   <input type="checkbox">Premium Tech Support & Security - $99.00<br>
                   <input type="checkbox">Standard Setup & Security - $59.00
                   
                 </div>
                 <hr>
                 <div class="row shipping_way">
-                  <span style="font-size: .875rem;">How you'll get this item:</span>
+                  <span style="font-size: .875rem;">              
+                    <span>{{ 'product.shipping' | translate }}:</span>
+                </span>
                   <div class="col-3 shipping" [ngStyle]="{'border': borderStyle}" (click)="changeBorder()">
                     <img class="imgIcon" src="https://i5.walmartimages.com/dfwrs/76316474-f13c/k2-_d4e8ebb4-9d70-46b4-8f2b-ecc4ac774e07.v1.png">
-                    <span class="ship">Shipping</span>
+                    <span>{{ 'product.shipping' | translate }}:</span>
                     <span>Arrives Oct 27 free</span>
                   </div>
                   <div class="col-3 shipping" [ngStyle]="{'border': borderStyle}" (click)="changeBorder()">
                     <img class="imgIcon" src="https://i5.walmartimages.com/dfwrs/76316474-8720/k2-_d747b89f-5900-404d-a101-1a3452480882.v1.png">
-                    <span class="ship">Pickup</span>
-                    <span>Not Available</span>
+                   
+
+
+                    <span class="ship"> {{ 'product.Pickup' | translate }}</span>
+
+
+
+
+                    <span>{{ 'product.notAvailable' | translate }}</span>
                   </div>
+
+
+
                   <div class="col-3 shipping" [ngStyle]="{'border': borderStyle}" (click)="changeBorder()">
                     <img class="imgIcon" src="https://i5.walmartimages.com/dfwrs/76316474-39c2/k2-_8deea800-0d44-4984-b1ce-5a3f12b192b7.v1.png">
-                    <span class="ship">Delivery</span>
-                    <span>Not Available</span>
+                    <span class="ship">{{ 'product.delivery' | translate }}</span>
+                    <span>{{ 'product.arrives' | translate }} </span>
                   </div>
-                  <span>Sacramento, 95829 <a href="#">Change</a></span>
-                  <span>Arrives by Sun, Oct 27 | <a href="#">More options</a></span>
+                  <span>{{'product.sacramento' | translate }}, 95829 <a href="#">{{ 'product.change' | translate }}</a></span>
+                  <span>{{ 'product.arrives' | translate }}, Oct 27 | <a href="#">{{ 'product.moreOptions' | translate }}</a></span>
                   <hr>
                 </div>
             </div>
@@ -131,7 +143,7 @@
     <div class="row more" id="specific-section">
       <div class="col-9">
         <div class="col-12">
-          <h5>About this item</h5>
+          <h5>{{ 'product.aboutThisItem' | translate }}</h5>
           <div class="accordion" id="accordionExample">
             <div class="accordion-item" *ngFor="let item of accordionItems; let i = index">
               <h2 class="accordion-header" [attr.id]="'heading' + i">
@@ -158,10 +170,10 @@
         </div>
         <div class="row">
           <div class="col- rate" id="rating">
-            <h4>Customer ratings & reviews</h4>
+            <h4>{{ 'product.customerRatings' | translate }}</h4>
             <div class="row">
               <div class="col-6">
-                <h2>{{ratingvalue}} out of 5</h2>
+                <h2>{{ratingvalue}} {{ 'product.outOf5' | translate }}</h2>
                 <div>
                   <i class="fa-solid" [ngClass]="getStarClass(product[0].rate, 1)"></i>
                   <i class="fa-solid" [ngClass]="getStarClass(product[0].rate, 2)"></i>
@@ -171,33 +183,45 @@
                   <p>({{ratingvalue}}) | <a href="#">{{product[0].totalRate}}</a></p>
                 </div> 
               </div>
+
+
+
+
+
+
+
+
+
+
+
+
               <div class="col-6">
                 <div class="skill-item">
-                  <a class="skill-title">5 stars <span class="float-end">{{num5}}%({{temp5}})</span></a>
+                  <a class="skill-title">{{ 'product.5stars' | translate }} <span class="float-end">{{num5}}%({{temp5}})</span></a>
                   <div class="progress" style="height:10px;">
                       <div class="progress-bar" role="progressbar" [style.width.%]="num5"  aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
                   </div>
               </div>
               <div class="skill-item">
-                <a class="skill-title">4 stars <span class="float-end">{{num4}}%({{temp4}})</span></a>
+                <a class="skill-title">{{ 'product.4stars' | translate }} <span class="float-end">{{num4}}%({{temp4}})</span></a>
                 <div class="progress" style="height:10px;">
                       <div class="progress-bar" role="progressbar" [style.width.%]="num4" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
                   </div>
               </div>
               <div class="skill-item">
-                  <a class="skill-title">3 stars <span class="float-end">{{num3}}%({{temp3}})</span></a>
+                  <a class="skill-title">{{ 'product.3stars' | translate }}<span class="float-end">{{num3}}%({{temp3}})</span></a>
                   <div class="progress" style="height:10px;">
                       <div class="progress-bar" role="progressbar" [style.width.%]="num3" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
                   </div>
               </div>
               <div class="skill-item">
-                <a class="skill-title">2 stars <span class="float-end">{{num2}}%({{temp2}})</span></a>
+                <a class="skill-title">{{ 'product.2stars' | translate }} <span class="float-end">{{num2}}%({{temp2}})</span></a>
                 <div class="progress" style="height:10px;">
                       <div class="progress-bar" role="progressbar" [style.width.%]="num2" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
                   </div>
               </div>
               <div class="skill-item">
-                <a class="skill-title">1 star <span class="float-end">{{num1}}%({{temp1}})</span></a>
+                <a class="skill-title">{{ 'product.1star' | translate }} <span class="float-end">{{num1}}%({{temp1}})</span></a>
                 <div class="progress" style="height:10px;">
                       <div class="progress-bar" role="progressbar" [style.width.%]="num1" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
                   </div>
@@ -212,31 +236,36 @@
           <div class="row more_info prise_info">
             <div class="col">
               <div class="prise_details">
-                <h3 class="prise">Now ${{product[0].price}}</h3>
-                <h6 class="prise">You save $61.04</h6>
-                <p>price when purchased online</p>
-                <button class="add">Add To Cart</button>
+                <h3 class="prise">{{ 'product.now' | translate }} ${{product[0].price}}</h3>
+                <h6 class="prise">{{ 'product.youSave' | translate }} $61.04</h6>
+                <p>{{ 'product.priceWhenPurchased' | translate }}</p>
+                <button class="add">{{ 'product.addToCart' | translate }}</button>
               </div>
               <hr>
+
+
+
+
               <div class="row shipping_way">
                 <span style="font-size: .875rem;">How you'll get this item:</span>
                 <div class="col-3 shipping" [ngStyle]="{'border': borderStyle}" (click)="changeBorder()">
                   <img class="imgIcon" src="https://i5.walmartimages.com/dfwrs/76316474-f13c/k2-_d4e8ebb4-9d70-46b4-8f2b-ecc4ac774e07.v1.png">
-                  <span class="ship">Shipping</span>
-                  <span>Arrives Oct 27 free</span>
+                  <span class="ship">{{ 'product.shipping' | translate }}</span>
+                  <span>    <span>{{ 'product.arrives' | translate }} {{ 'product.free' | translate }}</span>
+                </span>
                 </div>
                 <div class="col-3 shipping" [ngStyle]="{'border': borderStyle}" (click)="changeBorder()">
                   <img class="imgIcon" src="https://i5.walmartimages.com/dfwrs/76316474-8720/k2-_d747b89f-5900-404d-a101-1a3452480882.v1.png">
-                  <span class="ship">Pickup</span>
-                  <span>Not Available</span>
+                  <span class="ship">{{ 'product.Pickup' | translate }}  </span>
+                  <span> {{ 'product.Not Available' | translate }} </span>
                 </div>
                 <div class="col-3 shipping" [ngStyle]="{'border': borderStyle}" (click)="changeBorder()">
                   <img class="imgIcon" src="https://i5.walmartimages.com/dfwrs/76316474-39c2/k2-_8deea800-0d44-4984-b1ce-5a3f12b192b7.v1.png">
-                  <span class="ship">Delivery</span>
-                  <span>Not Available</span>
+                  <span class="ship"> {{ 'product.Delivery' | translate }} </span>
+                  <span>{{ 'product.notAvailable' | translate }}</span>
                 </div>
-                <span>Sacramento, 95829 <a href="#">Change</a></span>
-                <span>Arrives by Sun, Oct 27 | <a href="#">More options</a></span>
+                <span>{{ 'product.sacramento' | translate }}, 95829 <a href="#">{{ 'product.change' | translate }}</a></span>
+                <span>{{ 'product.arrives' | translate }} {{ 'product.free' | translate }} | <a href="#">{{ 'product.moreOptions' | translate }}</a></span>
                 <hr>
             </div>
           </div>
@@ -246,8 +275,8 @@
     </div>
     <div class="row">
       <div class="feedback">
-        <p>We’d love to hear what you think!</p>
-        <button (click)="openFeedbackForm()">Give feedback</button>
+        <p>{{ 'product.feedback' | translate }}</p>
+        <button (click)="openFeedbackForm()">{{ 'product.giveFeedback' | translate }}</button>
         <app-rate *ngIf="isfeedbackformOpend" [productId]="product[0].id" (formClosed)="closeFeedbackForm()"></app-rate>
       </div>
     </div>
@@ -360,43 +389,46 @@
               <div class="col">
                 <div class="prise_details">
                   <h3 class="prise">Now ${{product[0].price}}</h3>
-                  <h6 class="prise">You save $61.04</h6>
-                  <p>price when purchased online</p>
-                  <button class="add">Add To Cart</button>
+                  <h6 class="prise">{{ 'product.youSave' | translate }} $61.04</h6>
+                  <p>{{ 'product.priceWhenPurchased' | translate }}</p>
+                  <button class="add">{{ 'product.addToCart' | translate }}</button>
                 </div>
                 <hr>
                 <div class="plan">
                   <img class="imgIcon walmart_icon" src="https://i5.walmartimages.com/dfw/63fd9f59-2c2e/b8053833-2295-47f4-80f1-448eb55fa0ba/v1/wpp-shield.svg">
-                  <span>Add a protection plan</span><br>                         
-                  <input type="checkbox"><label>2-Year plan - $45.00</label>
+                  <span>{{ 'product.protectionPlan' | translate }}</span><br>                         
+                  <input type="checkbox"><label>{{ 'product.twoYearPlan' | translate }}</label>
                 </div>
+
+
+
                 <div class="plan">
                   <img class="imgIcon walmart_icon" src="https://i5.walmartimages.com/dfw/63fd9f59-e685/7e6c8c3a-3ba7-437a-a066-de3ad3a6a15a/v1/Wrench%20Icon.svg">
-                  <span>Get expert help</span><br>
-                  <input type="checkbox">Premium Tech Support & Security - $99.00<br>
-                  <input type="checkbox">Standard Setup & Security - $59.00
+                  <span>{{ 'product.expertHelp' | translate }}</span><br>
+                  <input type="checkbox">{{ 'product.premiumTechSupport' | translate }}<br>
+                     <input type="checkbox">{{ 'product.standardSetup' | translate }}
                   
                 </div>
                 <hr>
                 <div class="row shipping_way">
-                  <span style="font-size: .875rem;">How you'll get this item:</span>
+                  <span style="font-size: .875rem;">{{ 'product.howYouGetItem' | translate }}</span>
                   <div class="col-3 shipping" [ngStyle]="{'border': borderStyle}" (click)="changeBorder()">
                     <img class="imgIcon" src="https://i5.walmartimages.com/dfwrs/76316474-f13c/k2-_d4e8ebb4-9d70-46b4-8f2b-ecc4ac774e07.v1.png">
-                    <span class="ship">Shipping</span>
-                    <span>Arrives Oct 27 free</span>
+                    <span class="ship">{{ 'product.shipping' | translate }}</span>
+                    <span>{{ 'product.arrivesFree' | translate }}</span>
                   </div>
                   <div class="col-3 shipping" [ngStyle]="{'border': borderStyle}" (click)="changeBorder()">
                     <img class="imgIcon" src="https://i5.walmartimages.com/dfwrs/76316474-8720/k2-_d747b89f-5900-404d-a101-1a3452480882.v1.png">
-                    <span class="ship">Pickup</span>
-                    <span>Not Available</span>
+                    <span class="ship">{{ 'product.pickup' | translate }}</span>
+    <span>{{ 'product.notAvailable' | translate }}</span>
                   </div>
                   <div class="col-3 shipping" [ngStyle]="{'border': borderStyle}" (click)="changeBorder()">
                     <img class="imgIcon" src="https://i5.walmartimages.com/dfwrs/76316474-39c2/k2-_8deea800-0d44-4984-b1ce-5a3f12b192b7.v1.png">
-                    <span class="ship">Delivery</span>
-                    <span>Not Available</span>
+                    <span class="ship">{{ 'product.pickup' | translate }}</span>
+                    <span>{{ 'product.notAvailable' | translate }}</span>
                   </div>
-                  <span>Sacramento, 95829 <a href="#">Change</a></span>
-                  <span>Arrives by Sun, Oct 27 | <a href="#">More options</a></span>
+                  <span>{{ 'product.sacramento' | translate }} <a href="#">{{ 'product.change' | translate }}</a></span>
+  <span>{{ 'product.arrivesFree' | translate }} | <a href="#">{{ 'product.moreOptions' | translate }}</a></span>
                   <hr>
               </div>
               <!-- <div class="col">
@@ -413,7 +445,7 @@
     <div class="row more" id="specific-section">
       <div class="col-9">
         <div class="col-12">
-          <h5>عن المنتج</h5>
+          <h5>{{ 'product.aboutThisItem' | translate }}</h5>
           <div class="accordion" id="accordionExample">
             <div class="accordion-item" *ngFor="let item of accordionItemsAr; let i = index">
               <h2 class="accordion-header" [attr.id]="'heading' + i">
@@ -440,11 +472,10 @@
         </div>
         <div class="row">
           <div class="col- rate" id="rating">
-            <h4>تقييمات ومراجعات العملاء</h4>
+            <h4>{{ 'product.ratingAndReviews' | translate }}</h4>
             <div class="row">
               <div class="col-6">
-                <h2>{{ratingvalue}} من 5</h2>
-                <div>
+                <h2>{{ratingvalue}} من 5</h2>                <div>
                   <i class="fa-solid" [ngClass]="getStarClass(product[0].rate, 1)"></i>
                   <i class="fa-solid" [ngClass]="getStarClass(product[0].rate, 2)"></i>
                   <i class="fa-solid" [ngClass]="getStarClass(product[0].rate, 3)"></i>
@@ -455,31 +486,31 @@
               </div>
               <div class="col-6">
                 <div class="skill-item">
-                  <a class="skill-title">5 نجوم <span class="float-end">{{num5}}%({{temp5}})</span></a>
+                  <a class="skill-title">{{ 'product.5stars' | translate }}<span class="float-end">{{num5}}%({{temp5}})</span></a>
                   <div class="progress" style="height:10px;">
                       <div class="progress-bar" role="progressbar" [style.width.%]="num5"  aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
                   </div>
               </div>
               <div class="skill-item">
-                <a class="skill-title">4 نجوم <span class="float-end">{{num4}}%({{temp4}})</span></a>
+                <a class="skill-title">{{ 'product.4stars' | translate }}<span class="float-end">{{num4}}%({{temp4}})</span></a>
                 <div class="progress" style="height:10px;">
                       <div class="progress-bar" role="progressbar" [style.width.%]="num4" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
                   </div>
               </div>
               <div class="skill-item">
-                  <a class="skill-title">3 نجوم <span class="float-end">{{num3}}%({{temp3}})</span></a>
+                  <a class="skill-title">{{ 'product.3stars' | translate }}<span class="float-end">{{num3}}%({{temp3}})</span></a>
                   <div class="progress" style="height:10px;">
                       <div class="progress-bar" role="progressbar" [style.width.%]="num3" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
                   </div>
               </div>
               <div class="skill-item">
-                <a class="skill-title">2 نجوم <span class="float-end">{{num2}}%({{temp2}})</span></a>
+                <a class="skill-title">{{ 'product.2stars' | translate }}<span class="float-end">{{num2}}%({{temp2}})</span></a>
                 <div class="progress" style="height:10px;">
                       <div class="progress-bar" role="progressbar" [style.width.%]="num2" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
                   </div>
               </div>
               <div class="skill-item">
-                <a class="skill-title">1 نجوم <span class="float-end">{{num1}}%({{temp1}})</span></a>
+                <a class="skill-title">{{ 'product.1stars' | translate }}<span class="float-end">{{num1}}%({{temp1}})</span></a>
                 <div class="progress" style="height:10px;">
                       <div class="progress-bar" role="progressbar" [style.width.%]="num1" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
                   </div>
@@ -494,31 +525,31 @@
           <div class="row more_info prise_info">
             <div class="col">
               <div class="prise_details">
-                <h3 class="prise">Now ${{product[0].price}}</h3>
-                <h6 class="prise">You save $61.04</h6>
-                <p>price when purchased online</p>
-                <button class="add">Add To Cart</button>
+                <h3 class="prise">{{ 'product.priceWhenPurchased' | translate }} ${{product[0].price}}</h3>
+                <h6 class="prise">{{ 'product.youSave' | translate }} $61.04</h6>
+                <p>{{ 'product.priceWhenPurchasedOnline' | translate }}</p>
+                <button class="add">{{ 'product.addToCart' | translate }}</button>
               </div>
               <hr>
               <div class="row shipping_way">
                 <span style="font-size: .875rem;">How you'll get this item:</span>
                 <div class="col-3 shipping" [ngStyle]="{'border': borderStyle}" (click)="changeBorder()">
                   <img class="imgIcon" src="https://i5.walmartimages.com/dfwrs/76316474-f13c/k2-_d4e8ebb4-9d70-46b4-8f2b-ecc4ac774e07.v1.png">
-                  <span class="ship">Shipping</span>
-                  <span>Arrives Oct 27 free</span>
+                  <span class="ship">{{ 'product.shipping' | translate }}</span>
+    <span>{{ 'product.arrivesFree' | translate }}</span>
                 </div>
                 <div class="col-3 shipping" [ngStyle]="{'border': borderStyle}" (click)="changeBorder()">
                   <img class="imgIcon" src="https://i5.walmartimages.com/dfwrs/76316474-8720/k2-_d747b89f-5900-404d-a101-1a3452480882.v1.png">
-                  <span class="ship">Pickup</span>
-                  <span>Not Available</span>
+                  <span class="ship">{{ 'product.pickup' | translate }}</span>
+                  <span>{{ 'product.notAvailable' | translate }}</span>
                 </div>
                 <div class="col-3 shipping" [ngStyle]="{'border': borderStyle}" (click)="changeBorder()">
                   <img class="imgIcon" src="https://i5.walmartimages.com/dfwrs/76316474-39c2/k2-_8deea800-0d44-4984-b1ce-5a3f12b192b7.v1.png">
-                  <span class="ship">Delivery</span>
-                  <span>Not Available</span>
+                  <span class="ship">{{ 'product.delivery' | translate }}</span>
+    <span>{{ 'product.notAvailable' | translate }}</span>
                 </div>
-                <span>Sacramento, 95829 <a href="#">Change</a></span>
-                <span>Arrives by Sun, Oct 27 | <a href="#">More options</a></span>
+                <span>{{ 'product.sacramento' | translate }} <a href="#">{{ 'product.change' | translate }}</a></span>
+  <span>{{ 'product.arrivesFree' | translate }} | <a href="#">{{ 'product.moreOptions' | translate }}</a></span>
                 <hr>
             </div>
           </div>
@@ -528,8 +559,8 @@
     </div>
     <div class="row">
       <div class="feedback">
-        <p>نود ان نسمع رأيك</p>
-        <button (click)="openFeedbackForm()">رأيك</button>
+        <p>{{ 'product.feedback' | translate }}</p>
+        <button (click)="openFeedbackForm()"> {{ 'product.feedback' | translate }}</button>
         <app-rate *ngIf="isfeedbackformOpend" [productId]="product[0].id" (formClosed)="closeFeedbackForm()"></app-rate>
       </div>
     </div>
