@@ -18,6 +18,7 @@ export interface IProduct {
     values:string[];
     values_Ar:string[];
     subCategoryNamesAr:string[];
+    
 
 }
 
