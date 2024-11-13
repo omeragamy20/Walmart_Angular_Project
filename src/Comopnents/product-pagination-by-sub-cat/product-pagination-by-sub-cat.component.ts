@@ -5,6 +5,9 @@ import { NgFor } from '@angular/common';
 import { FormsModule, NgModel } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
+import { FavouriteService } from '../../Services/Favourite/favourite.service';
+import { FavouritePrd } from '../../InterFaces/favourite-prd';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-product-pagination-by-sub-cat',
@@ -15,11 +18,21 @@ import { CookieService } from 'ngx-cookie-service';
 })
 
 export class ProductPaginationBySubCatComponent implements OnInit {
+  
+  CustomerId : string =''
+  favPrd : FavouritePrd = {} as FavouritePrd
+  favProducts : FavouritePrd[] = [] as FavouritePrd[]
+
+  favStatus : boolean = false
+
+       
+
+
   @Input() subcatid:number=0
   fillpagnationproduct: IproductEn[] = [] as IproductEn[];
   url = "http://localhost:5004/";
 
-  constructor(private productapi: ProductService, private coockieservice: CookieService,private router: Router) {
+  constructor(private productapi: ProductService, private favService :FavouriteService,  private coockieservice: CookieService,private router: Router) {
 
   }
 
@@ -27,7 +40,8 @@ export class ProductPaginationBySubCatComponent implements OnInit {
 
   ngOnInit(): void {
     this.getallpagnationprd()
-
+    this.CustomerId = sessionStorage.getItem("id")!
+   
   }
 
   Details(id:number){
@@ -86,4 +100,79 @@ export class ProductPaginationBySubCatComponent implements OnInit {
       this.currentPage--;
     }
   }
+
+
+// Favourite section 
+
+
+addtoFavourite(prdId:number){
+
+  if(this.CustomerId == undefined){
+    this.router.navigateByUrl('/SignOrRegister')
+  }else{
+    this.favPrd.customerId = this.CustomerId
+    this.favPrd.productId = prdId
+    this.favService.getAllByCusId(this.CustomerId).subscribe({
+      next:(res)=>{
+        this.favProducts = res
+
+        let check = this.favProducts.some((ele) => {
+          return ele.customerId === this.CustomerId && ele.productId === prdId;
+        });
+
+        if(check == true){
+           this.favService.DeleteFav(this.CustomerId,prdId).subscribe({
+              next:()=>{
+                console.log(this.favStatus)
+                
+              },error:(rej)=>{
+                console.log(rej);
+                
+              }
+            })
+        }else{
+    
+                  this.favService.createFav(this.favPrd).subscribe({
+              next:(res)=>{
+                this.favStatus = true
+                console.log(this.favStatus)
+              },error:(rej)=>{
+                console.log(rej);
+                
+              }
+            })
+    
+        }
+
+        
+      }
+    })
+
+    
+    
+  }
+
+  
+
+
+  
+
 }
+
+
+isFavorited(prdId: number): boolean {
+  return this.favProducts.find((ele=>{
+    return ele.productId == prdId
+  }));
+}
+
+
+
+
+
+
+
+}
+
+
+

@@ -1,5 +1,5 @@
 
-<div class="container links">
+<div class="container links my-3">
     <div class="accNav row">
       
         <a href="#">{{'accLang.My_Account'|translate}}</a>
@@ -7,33 +7,46 @@
 </div>
 
 <hr>
-<div class="container">
+<div class="container" style="min-height: 50vh;">
     <div class="row">
        
         <div class="col-4 sideBar" [style]="(lang=='en')?'border-right: 1px solid #ccc;':'border-left: 1px solid #ccc; border-right:none' ">
            <!-- Account Section  -->
-            <p class="d-inline-flex gap-1 pp">
+           <div class="row"> 
+           <div class="d-inline-flex gap-1 pp">
+               
+                
+              <div class="col-10">
                 <i class="bi bi-person iconAcc" ></i>
                 <span class="head">
                     
                     {{'accLang.Account' | translate}}
+                 
                 </span>
+              </div>
+              <div class="col-2">
 
                 <a class="btn btn-primary AccBtn" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
                     <i class="bi bi-arrow-down-short"></i>
                 </a>
-              </p>  
+              </div>
+                
+
+              
+
+            </div>  
+            </div>
               
               <div class="collapse" id="collapseExample">
                 <div class="card card-body carSection ">
-                    <a routerLink="Acchome" routerLinkActive="active">{{'accLang.Home' | translate}}</a>
-                    <a routerLink="purechase" routerLinkActive="active">{{'accLang.Purchase_History' | translate}}</a>
+                    <a routerLink="Acchome" routerLinkActive="accActive">{{'accLang.Home' | translate}}</a>
+                    <a routerLink="purechase" routerLinkActive="accActive">{{'accLang.Purchase_History' | translate}}</a>
                 </div>
 
                 <div class="card card-body carSection">
                     <h3> {{'accLang.My_items' | translate}} </h3>
-                    <a routerLink="reorder" routerLinkActive="active">{{'accLang.Reorder' | translate}}</a>
-                    <a routerLink="lists" routerLinkActive="active">{{'accLang.Lists' | translate}}</a>
+                    <a routerLink="/items/reorder" routerLinkActive="accActive">{{'accLang.Reorder' | translate}}</a>
+                    <a routerLink="/items/lists" routerLinkActive="accActive">{{'accLang.Lists' | translate}}</a>
                  
                 </div>
               </div>
@@ -42,39 +55,47 @@
               <hr>
               <!-- Setting Section  -->
 
+              <div class="row">
+              <div class="d-inline-flex gap-1 pp">
+               
+                    <div class="col-10">
+                        <i class="bi bi-gear iconAcc"></i>
+                        <span class="head">
+                            {{'accLang.Setting' | translate}}
+                        </span>
+                    </div>
+                    
+                    <div class="col-2">
+                        <a class="btn btn-primary AccBtn" data-bs-toggle="collapse" href="#collapse2" role="button" aria-expanded="false" aria-controls="collapse2">
+                            <i class="bi bi-arrow-down-short"></i>
+                        </a>
+                    </div>
+                    
+                </div>
+                
 
-              <p class="d-inline-flex gap-1 pp">
-                <i class="bi bi-gear iconAcc"></i>
-                <span class="head">
-                    {{'accLang.Setting' | translate}}
-                </span>
-
-                <a class="btn btn-primary AccBtn" data-bs-toggle="collapse" href="#collapse2" role="button" aria-expanded="false" aria-controls="collapse2">
-                    <i class="bi bi-arrow-down-short"></i>
-                </a>
-              </p>  
+               
+            </div>  
               
               <div class="collapse" id="collapse2">
                 <div class="card card-body carSection ">
-                    <a routerLink="#" routerLinkActive="active_link">{{'accLang.Home' | translate}}</a>
                 </div>
 
                 <div class="card card-body carSection">
                     <h3>{{'accLang.Personal_information' | translate}}</h3>
-                    <a routerLink="ContactInfo" routerLinkActive="active_link"> {{'accLang.Contact_info' | translate}}</a>
-                    <a routerLink="Addresses" routerLinkActive="active_link">{{'accLang.Addresses' | translate}}</a>
+                    <a routerLink="ContactInfo" routerLinkActive="accActive"> {{'accLang.Contact_info' | translate}}</a>
                 </div>
 
 
                 <div class="card card-body carSection">
                     <h3>{{'accLang.Shopping_settings' | translate}}</h3>
-                    <a routerLink="LanguageSetting" routerLinkActive="active_link">{{'accLang.Language_Settings' | translate}}</a>
+                    <a routerLink="LanguageSetting" routerLinkActive="accActive">{{'accLang.Language_Settings' | translate}}</a>
                 </div>
               </div>
               <hr>
               <div class="signOut carSection">
                 <i class="bi bi-box-arrow-right"></i>      
-                <a class="out" href="#"(click)="SignOut()"> {{'accLang.ss' | translate}} </a>
+                <a class="out" href="#" (click)="SignOut()" routerLinkActive="accActive" > {{'accLang.ss' | translate}} </a>
               </div>
           
         </div>

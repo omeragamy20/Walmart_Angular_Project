@@ -1,6 +1,6 @@
 import { CommonModule, JsonPipe, NgFor, NgIf } from '@angular/common';
 import { NgModel } from '@angular/forms';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { LanguageService } from '../../Services/Language/language.service';
 import { Component, DoCheck, EventEmitter, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
@@ -43,7 +43,7 @@ export class HeaderComponent implements OnInit, DoCheck {
   catlisst_Ar!: ICategoryAr[];
   SubCat_En!: ISubcategoryEn[];
   SubCat_Ar!: ISubcategoryAr[];
-  constructor(private lanSer: LanguageService, private _UserService: UserService, private searchService: SearchService,
+  constructor(private route:Router,private lanSer: LanguageService, private _UserService: UserService, private searchService: SearchService,
           private catservice:CategoryService,private Subcatservic:SubcategoryService
   ) {
   }
@@ -180,5 +180,13 @@ export class HeaderComponent implements OnInit, DoCheck {
 
   toggleDropdown(): void {
     this.isDropdownOpen = !this.isDropdownOpen;
+  }
+
+
+
+  SignOut(){
+    sessionStorage.removeItem("id")
+    sessionStorage.removeItem("authToken")
+    this.route.navigateByUrl("/home")
   }
 }

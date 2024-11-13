@@ -22,16 +22,15 @@ export class RegisterComponent implements OnInit {
 
   onSubmit()
   {
-    this.UserReg.Email = this.Email
-   this.UserReg.ConfirmPassword = this.UserReg.Password
+    this.UserReg.Email = this.Email.trim()
+   this.UserReg.ConfirmPassword = this.UserReg.Password.trim()
    this.UserReg.Address = "ss"
    this.UserReg.ImageUrl =".."
-   this.UserReg.Username =`${this.Email.split('@')[0]}00${this.UserReg.FirstName}00${this.UserReg.LastName}`;
+   this.UserReg.Username =`${this.Email.split('@')[0]}${(this.UserReg.FirstName.trim())}`;
      this.userSer.RegisterUser(this.UserReg).subscribe({
       next:(val)=>{
         this.router.navigateByUrl('/home')
       },error:(err)=>{
-        console.log(this.UserReg)
         console.log(err)
       },
      });

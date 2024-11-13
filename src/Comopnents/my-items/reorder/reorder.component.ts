@@ -1,29 +1,29 @@
-import { Component, OnInit } from '@angular/core';
-import { RouterLink, RouterLinkActive } from '@angular/router';
-import { OrderService } from '../../../../../Services/Order/order.service';
-import { CustomerOrder } from '../../../../../InterFaces/customer-order';
-import { LanguageService } from '../../../../../Services/Language/language.service';
-import { IProduct, Product } from '../../../../../InterFaces/product';
-import { ProductService } from '../../../../../Services/Product/product.service';
-import { NgFor, NgStyle } from '@angular/common';
+import { Component } from '@angular/core';
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { CustomerOrder } from '../../../InterFaces/customer-order';
+import { IProduct, IproductEn } from '../../../InterFaces/product';
+import { OrderService } from '../../../Services/Order/order.service';
+import { LanguageService } from '../../../Services/Language/language.service';
+import { ProductService } from '../../../Services/Product/product.service';
 import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
-  selector: 'app-purchase',
+  selector: 'app-reorder',
   standalone: true,
-  imports: [RouterLink,NgFor , RouterLinkActive,TranslateModule ,NgStyle],
-  templateUrl: './purchase.component.html',
-  styleUrl: './purchase.component.css'
+  imports: [RouterLink,RouterOutlet,RouterLinkActive,TranslateModule],
+  templateUrl: './reorder.component.html',
+  styleUrl: './reorder.component.css'
 })
-export class PurchaseComponent implements OnInit {
+export class ReorderComponent {
+  url:string ="https://localhost:7028/"
   customerOrders:CustomerOrder[] = [] ; 
   Prds :IProduct[] = [] as IProduct[]
   prdsIDs =[]
   prdsQuantity =[]
   lang:string =""
+  PrdEn:IproductEn={} as IproductEn
 
   constructor(private orderSer:OrderService , private langSer : LanguageService , private prdSer:ProductService ){}
-  
   ngOnInit(): void {
           this.langSer.getLangugae().subscribe({
             next:(res)=>{
@@ -34,8 +34,7 @@ export class PurchaseComponent implements OnInit {
 
    this.orderSer.GetCustomerOrders(sessionStorage.getItem("id")!).subscribe({
     next:(res)=>{
-      this.customerOrders = res 
-        
+      this.customerOrders = res   
       console.log(this.customerOrders)
       
           for(let i = 0 ; i< this.customerOrders.length ; i++)
@@ -85,5 +84,35 @@ loadprd(){
     return prd.id
 
   }
+
+
+
+  
+  addToCart(p: IProduct , quantity:number) {
+
+    this.PrdEn.id = p.id , 
+    this.PrdEn.description_en = p.description_en , 
+    this.PrdEn.price = p.price , 
+    this.PrdEn.imageUrls = p.imageUrls[0] , 
+    this.PrdEn.stock = p.stock , 
+    this.PrdEn.totall = p.price * quantity , 
+    this.PrdEn.quantity = quantity 
+
+
+    const item = localStorage.getItem("SelectedProducts");
+    let products = item ? JSON.parse(item) : [];
+    let sameprod = products.find((one: IproductEn) => one.id == this.PrdEn.id)
+    if (sameprod) {
+      sameprod.quantity += 1
+      localStorage.setItem("SelectedProducts", JSON.stringify(products))
+    } else {
+      this.PrdEn.quantity = 1;
+      products.push(this.PrdEn)
+      localStorage.setItem("SelectedProducts", JSON.stringify(products))
+    }
+
+    
+  }
+
 
 }

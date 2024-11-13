@@ -5,7 +5,7 @@
     <!-- navbar navbar-expand-lg navbar-light bg-light py-3  -->
     <div class="navbar-top ">
 
-      <div class="navbar-logo-location  col-s-12 col-md-2">
+      <div class="navbar-logo-location col-md-2 col-s-12 ">
         <a routerLink="/" class="logo">
           <a routerLink="home"><img src="/5977595.png" alt="Logo"></a>
 
@@ -19,8 +19,9 @@
 <!-- /////////////////////////////////////////////////////////////////// -->
 
 
-      <div class="dropdown">
-        <button class="btn btn-light dropdown-toggle bt-lang" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="true">
+      <div class="dropdown col-1">
+        <button class="btn btn-light dropdown-toggle bt-lang" type="button"
+        id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="true">
           {{lang}}
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
@@ -30,7 +31,7 @@
       </div>
 
 
-      <div class="navbar-search col-s-12 col-md-5">
+      <div class="navbar-search col-md-4 col-s-12 ">
         <input type="text"  (input)="onSearchInput($event)" placeholder="Search everything at Walmart online and in store">
         <button  class="search-button">
           <i (click)="onSearchClick()" class="fa fa-search"></i>
@@ -38,26 +39,47 @@
       </div>
 
 
-      <div class="navbar-actions col-s-12  col-md-3">
-        <a href="#" class="action-item">{{'header.Reorder_My_Items'|translate}} <span> <i class="fa-regular fa-heart"
-              style="color: #FFD43B;"></i></span></a>
+      <div class="navbar-actions col-md-4 col-s-12">
+
+              <div class="dropdown accoutList">
+                <button class="btn btn-light dropdown-toggle reorder" type="button"
+                id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="true">
+                <span> <i class="fa-regular fa-heart" style="color: #FFD43B;"></i></span>
+                <span> {{'header.Reorder'|translate}}</span>
+                <br>
+                <span>{{'header.My_Items'|translate}}</span>
+                </button>
+                <ul class="dropdown-menu accList" aria-labelledby="dropdownMenuButton1">
+                  <a class="dropdown-item accList11" routerLink="/items/lists" routerLinkActive="active">Lists</a>
+                  <a class="dropdown-item accList11" routerLink="/items/reorder" routerLinkActive="active">Reorder</a>
+                </ul>
+              </div>
+
+
+
 
               @if(user.id == null){
-        <a routerLink="SignOrRegister" routerLinkActive="active_link" class="action-item">{{'header.Sign_In_Account'|translate}} <span><i class="fa-regular fa-user"
-              style="color: #FFD43B;"></i></span></a>
+              <a routerLink="SignOrRegister" routerLinkActive="active_link" class="action-item">{{'header.Sign_In_Account'|translate}}
+                <span><i class="fa-regular fa-user"
+                    style="color: #FFD43B;"></i></span></a>
             }
 
             @if(user.id != null){
-              <a routerLink="account" routerLinkActive="active_link" class="action-item">{{user.firstName}} <span><i class="fa-regular fa-user"
-                    style="color: #FFD43B;"></i></span></a>
-                  }
-        <!-- <a routerLink="/" class="cart-icon">
-          <i class="fa fa-shopping-cart " style="color: #FFD43B;"></i>
-          <span class="cart-total">$0.00</span>
+              <div class="dropdown accoutList">
+                <button class="btn btn-light dropdown-toggle mx-3" type="button"
+                id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="true">
+                <span><i class="fa-regular fa-user"style="color: #FFD43B;"></i></span>
+                {{user.firstName}}
+                </button>
+                <ul class="dropdown-menu accList" aria-labelledby="dropdownMenuButton1">
+                  <a class="dropdown-item accList1 accList11" routerLink="/account/Acchome" routerLinkActive="active_link">Account</a>
 
-        <a routerLink="SignOrRegister" routerLinkActive="active_link" class="action-item">Sign In Account <span><i
-              class="fa-regular fa-user" style="color: #FFD43B;"></i></span></a>
-              -->
+                  <a class="dropdown-item accList11" href="#" (click)="SignOut()">Sign Out</a>
+                </ul>
+              </div>
+
+                  }
+
         <a routerLink="order" class="cart-icon">
           <i class="fa fa-shopping-cart" style="position: relative !important;"></i>
           <span class="cont">{{count}}</span>
@@ -146,8 +168,14 @@
         <!-- <li><a routerLink="/supcatogiarydeatails/1" routerLinkActive="active_link">{{ 'GROCERY' | translate }}</a></li> -->
         <!-- <li><a routerLink="/Delivery" routerLinkActive=" active_link">Home</a></li> -->
 
-        <li><a routerLink="/categryditals/6" routerLinkActive=" active_link">Grocery</a></li>
-        <li><a routerLink="/categryditals/3" routerLinkActive=" active_link">Home</a></li>
+        <!-- <li><a routerLink="/categryditals/6" routerLinkActive=" active_link">Grocery</a></li>
+        <li><a routerLink="/categryditals/3" routerLinkActive=" active_link">Home</a></li> -->
+        <!-- <div id="fasel" class="flex ph2 items-center blue mr1 mh1">|</div> -->
+
+        <!-- <li><a routerLink="/supcatogiarydeatails/1" routerLinkActive=" active_link">Grocery</a></li> -->
+        <li><a routerLink="/categryditals/6" routerLinkActive="active_link">{{ 'GROCERY' | translate }}</a></li>
+
+        <!-- <li><a routerLink="/categryditals/3" routerLinkActive=" active_link">Home</a></li>
         <li><a routerLink="/categryditals/4" routerLinkActive=" active_link">Patio & Garden</a></li>
         <li><a routerLink="/categryditals/2" routerLinkActive=" active_link">Clothing & Accessories</a></li>
         <li><a routerLink="/categryditals/1" routerLinkActive=" active_link">Electronics</a></li>
@@ -157,7 +185,19 @@
         <li><a routerLink="/categryditals/7" routerLinkActive=" active_link">Personal Care</a></li>
         <li><a routerLink="/categryditals/8" routerLinkActive=" active_link">Beauty</a></li>
         <li><a routerLink="/categryditals/11" routerLinkActive=" active_link">Auto & tires</a></li>
-        <li><a routerLink="/categryditals/" routerLinkActive=" active_link">Walmart+</a></li>
+        <li><a routerLink="/categryditals/" routerLinkActive=" active_link">Walmart+</a></li> -->
+
+      <li><a routerLink="/categryditals/3" routerLinkActive=" active_link">{{ 'header.HOME' | translate }}</a></li>
+        <li><a routerLink="/categryditals/4" routerLinkActive=" active_link">{{ 'header.PATIO_GARDEN' | translate }}</a></li>
+        <li><a routerLink="/categryditals/2" routerLinkActive=" active_link">{{ 'header.CLOTHING_ACCESSORIES' | translate }}</a></li>
+        <li><a routerLink="/categryditals/1" routerLinkActive=" active_link">{{ 'header.ELECTRONICS' | translate }}</a></li>
+        <li><a routerLink="/categryditals/10" routerLinkActive=" active_link">{{'header.BABY' | translate }}</a></li>
+        <li><a routerLink="/categryditals/5" routerLinkActive=" active_link">{{ 'header.TOYS' | translate }}</a></li>
+        <li><a routerLink="/categryditals/9" routerLinkActive=" active_link">{{ 'header.HEALTH_WELLNESS' | translate }}</a></li>
+        <li><a routerLink="/categryditals/7" routerLinkActive=" active_link">{{ 'header.PERSONAL_CARE' | translate }}</a></li>
+        <li><a routerLink="/categryditals/8" routerLinkActive=" active_link">{{ 'header.BEAUTY' | translate }}</a></li>
+        <li><a routerLink="/categryditals/11" routerLinkActive=" active_link">{{ 'header.AUTO_TIRES' | translate }}</a></li>
+        <li><a routerLink="/categryditals/" routerLinkActive=" active_link">{{ 'header.WALMART_PLUS' | translate }}</a></li>
       </ul>
 
 

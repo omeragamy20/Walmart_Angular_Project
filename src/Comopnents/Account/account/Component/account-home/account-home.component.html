@@ -1,1 +1,64 @@
-    <span style="font-size: 45px; font-weight: 400;">{{'accLang.Hi' | translate}} {{user.firstName}}</span>
+<div class="container-fluide">
+    <div class="row">
+        <div class="col-9">
+            <span style="font-size: 45px; font-weight: 400;">
+                <img src="/5977595.png" alt="" style="height: 50px; width: 50px;">
+                {{'accLang.Hi' | translate}} {{user.firstName}}
+            </span>
+        </div>
+        <div class="col-3">
+            <p>Setting  <i class="bi bi-gear mx-3"></i> </p>
+        </div>
+    </div>
+<br>
+            <!-- Purechas section  -->
+   
+</div>
+
+<a routerLink="/account/purechase" class="PureLink my-5">
+    <div class="card pureCard">
+        <div class="row">
+            <div class="col-11">
+                <h5 class="card-title"><i class="bi bi-receipt mx-2" style="color: #0071dc;" ></i>{{'accLang.Purchase_History' | translate}}</h5>
+            </div>
+            <div class="col-1">
+                @if(lang== 'en'){
+                    <i class="bi bi-arrow-right-square"></i>
+                }
+                @if(lang == 'ar') {
+                    <i class="bi bi-arrow-left-square"></i>
+                }
+            </div>
+        </div>
+    </div>
+    </a>
+
+
+
+    <!-- List Section -->
+
+    <div class="row my-3">
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title"><span> <i class="fa-regular fa-heart mx-2" style="color: #3b79ff;"></i></span> {{'accLang.Lists' | translate}} </h5>
+                <hr>
+
+                <div class="row">
+                    <div class="col-8">
+                        <h6 class="card-text">{{'accLang.Lists_to' | translate}} {{user.firstName}}.</h6>
+
+                    </div>
+                    <div class="col-4">
+                        <a routerLink="/items/lists" class="btn btn-primary bg-light " style="color: #000; border: 1px solid #000; border-radius: 15px;">{{'accLang.View_List' | translate}}</a>
+                    </div>
+                </div>
+             
+           
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
