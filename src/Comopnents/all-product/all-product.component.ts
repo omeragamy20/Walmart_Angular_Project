@@ -22,14 +22,14 @@ export class AllProductComponent implements OnInit , OnChanges {
   filteredProducts : IProduct[]=[] as IProduct[];
   selectedFilters = new Set<string>();
   specifictions:Facilities[]=[] as Facilities[];
-  subcatid:number=0;
+  @Input('id') subcatid:number=0;
   searchProducts:IProduct[]=[] as IProduct[];
   // subcatid=2;
   totalProducts = 0;
   pageSize = 4;
   currentPage = 1;
   totalPages = 0;
-  url="http://localhost:7028";
+  url="https://localhost:7028";
   readonly panelOpenState = signal(false);
   ratingvalue:number=0;
   lang:string='';
@@ -51,8 +51,11 @@ export class AllProductComponent implements OnInit , OnChanges {
     });
     this.products();
     this.Facilities();
+    console.log(this.subcatid);
+
   }
- products(searchTerm: string = ''):void{
+
+  products(searchTerm: string = ''):void{
   this.subcatid=  this.route.snapshot.params['id'];
   this.productService.getAllPagination(this.subcatid ,this.currentPage,this.pageSize,searchTerm).subscribe({
     next: (res: Pagination<IProduct>) => {

@@ -69,7 +69,7 @@
     <!-- header -->
     <div class="navbar-bottom col-s-12" style="height: 48px;">
       <ul class="navbar-links " style="cursor: pointer;">
-        <li class="nav-item dropdown" (click)="toggleDropdown()">
+        <li class="nav-item dropdown" (click)="toggleDropdown()" >
           <a
             class="nav-link dropdown-toggle"
             id="departmentsDropdown"
@@ -107,7 +107,7 @@
                   *ngFor="let part of activeCAten"
                   class="list-group-item list-group-item-action border-0"
                 >
-                  <a routerLink="/supcatogiarydeatails/{{part.id}}">
+                  <a routerLink="/allproduct/{{part.id}}">
                     {{ part.name_en }}
                   </a>
                 </li>
@@ -132,7 +132,7 @@
                   *ngFor="let part of activeCAtar"
                   class="list-group-item list-group-item-action border-0"
                 >
-                  <a routerLink="/supcatogiarydeatails/{{part.id}}">
+                  <a routerLink="/allproduct/{{part.id}}">
                     {{ part.name_ar }}
                   </a>
                 </li>
@@ -141,12 +141,13 @@
             </li>
           </ul>
         </li>
-        <div id="fasel" class="flex ph2 items-center blue mr1 mh1">|</div>
-        <li><a routerLink="/categryditals/6" routerLinkActive=" active_link">Grocery</a></li>
-        <!-- <li><a routerLink="/supcatogiarydeatails/1" routerLinkActive="active_link">{{ 'GROCERY' | translate }}</a></li> -->
 
-        <li><a routerLink="/categryditals/3" routerLinkActive=" active_link">Home</a></li>
+        <div id="fasel" class="flex ph2 items-center blue mr1 mh1">|</div>
+        <!-- <li><a routerLink="/supcatogiarydeatails/1" routerLinkActive="active_link">{{ 'GROCERY' | translate }}</a></li> -->
         <!-- <li><a routerLink="/Delivery" routerLinkActive=" active_link">Home</a></li> -->
+
+        <li><a routerLink="/categryditals/6" routerLinkActive=" active_link">Grocery</a></li>
+        <li><a routerLink="/categryditals/3" routerLinkActive=" active_link">Home</a></li>
         <li><a routerLink="/categryditals/4" routerLinkActive=" active_link">Patio & Garden</a></li>
         <li><a routerLink="/categryditals/2" routerLinkActive=" active_link">Clothing & Accessories</a></li>
         <li><a routerLink="/categryditals/1" routerLinkActive=" active_link">Electronics</a></li>

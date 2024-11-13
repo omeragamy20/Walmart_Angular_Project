@@ -1,13 +1,13 @@
 {
     "header":{
 
-   
-        
+
+
         "How_do_you_want_your_items?": "How do you want your items?",
         "Reorder_My_Items": "Reorder My Items" ,
 
-       
-       
+
+
 
              "GROCERY": "Grocery",
             "HOME": "Home",
@@ -28,7 +28,7 @@
     },
     "nav":{
 
-    }, 
+    },
     "accLang":{
         "Hi": "Hi , " ,
         "My_Account": "My Account" ,
@@ -37,15 +37,15 @@
         "English" : "English",
         "Language_Settings":"Language Settings",
         "Account":"Account",
-        "Home" :"Home" , 
+        "Home" :"Home" ,
         "Purchase_History":"Purchase History",
-        "My_items" : "My Items", 
-        "Reorder":"Reorder" , 
-        "Lists" : "Lists" , 
-        "Setting" : "Setting" , 
-        "Personal_information" : "Personal_information" , 
-        "Contact_info" : "Contact info and password" , 
-        "Addresses" : "Addresses" , 
+        "My_items" : "My Items",
+        "Reorder":"Reorder" ,
+        "Lists" : "Lists" ,
+        "Setting" : "Setting" ,
+        "Personal_information" : "Personal_information" ,
+        "Contact_info" : "Contact info and password" ,
+        "Addresses" : "Addresses" ,
         "Shopping_settings" : "Shopping_settings" ,
         "ss" : "Sign Out",
         "para1" : "We're excited to offer a Arabic language Walmart shopping experience for customers. We'll automatically switch to Arabic when we detect a preference for it in your browser or operating system. You can change your language settings for browsing Walmart at any time in your Account.",
@@ -81,5 +81,10 @@
             "walmart_business": "Walmart Business",
             "iywyk": "#IYWYK",
             "copyright": "© 2024 Walmart. All Rights Reserved."
-        }
+        },
+        "deatailscatogiry":{
+    "SUB_CATEGORIES": "Sub Categories"
+}
     }
+
+
