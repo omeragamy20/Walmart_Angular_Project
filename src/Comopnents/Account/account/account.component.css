@@ -1,28 +1,28 @@
-html, body {
-   
-    margin: 0;
-    padding: 0;
+body{
+    margin: 0px;
+}
+
+.accActive
+{
+    font-weight: 600;
+    color: #0071dc;
 }
 .links{
     padding: 10px;
-   
-}
-.active{
-    font-weight: 400;
-    color: #0071dc;
-}
-.accNav{
-
+    font-size: 14px;
 }
 
-.sideBar{
-    
+.accNav a{
+    text-decoration: none;
 }
+a{
+    color: #2e2f32;
+}
+
 .head{
     padding-top: 5px;
     padding-bottom: 15px;
 }
-
 .iconAcc{
         background-color: #e6f1fc;
         border-radius: 50%;
@@ -34,6 +34,7 @@ html, body {
         margin-right: 3px;
         padding-top: 3px;
 }
+
 .pp{
     width: 100%;
     margin-bottom: 0px;
@@ -59,12 +60,12 @@ html, body {
     padding: 5px;
 }
 .carSection a {
-    color: #444;
+
     padding: 10px 0px 10px 0px;
     font-size: 14px;
     text-decoration: none;
 }
-.carSection a:hover ,.signOut a  {
+.carSection a:hover ,.signOut a:hover  {
     color: #033a6d;
     text-decoration: underline;
 }
@@ -85,7 +86,7 @@ html, body {
 }
 
 .signOut a  {
-    color: #033a6d;
+    color: #2e2f32;
     text-decoration: underline;
 }
 

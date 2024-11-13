@@ -25,6 +25,8 @@ export class ProductPaginationBySubCatComponent implements OnInit {
 
   favStatus : boolean = false
 
+       
+
 
   @Input() subcatid:number=0
   fillpagnationproduct: IproductEn[] = [] as IproductEn[];
@@ -99,6 +101,7 @@ export class ProductPaginationBySubCatComponent implements OnInit {
     }
   }
 
+
 // Favourite section 
 
 
@@ -156,6 +159,12 @@ addtoFavourite(prdId:number){
 
 }
 
+
+isFavorited(prdId: number): boolean {
+  return this.favProducts.find((ele=>{
+    return ele.productId == prdId
+  }));
+}
 
 
 

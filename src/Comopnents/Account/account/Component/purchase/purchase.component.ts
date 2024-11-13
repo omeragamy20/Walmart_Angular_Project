@@ -1,16 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 import { OrderService } from '../../../../../Services/Order/order.service';
 import { CustomerOrder } from '../../../../../InterFaces/customer-order';
 import { LanguageService } from '../../../../../Services/Language/language.service';
 import { IProduct, Product } from '../../../../../InterFaces/product';
 import { ProductService } from '../../../../../Services/Product/product.service';
-import { NgFor } from '@angular/common';
+import { NgFor, NgStyle } from '@angular/common';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-purchase',
   standalone: true,
-  imports: [RouterLink,NgFor],
+  imports: [RouterLink,NgFor , RouterLinkActive,TranslateModule ,NgStyle],
   templateUrl: './purchase.component.html',
   styleUrl: './purchase.component.css'
 })
@@ -22,6 +23,7 @@ export class PurchaseComponent implements OnInit {
   lang:string =""
 
   constructor(private orderSer:OrderService , private langSer : LanguageService , private prdSer:ProductService ){}
+  
   ngOnInit(): void {
           this.langSer.getLangugae().subscribe({
             next:(res)=>{
@@ -32,7 +34,8 @@ export class PurchaseComponent implements OnInit {
 
    this.orderSer.GetCustomerOrders(sessionStorage.getItem("id")!).subscribe({
     next:(res)=>{
-      this.customerOrders = res   
+      this.customerOrders = res 
+        
       console.log(this.customerOrders)
       
           for(let i = 0 ; i< this.customerOrders.length ; i++)

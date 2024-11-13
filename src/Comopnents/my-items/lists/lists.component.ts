@@ -6,11 +6,12 @@ import { IProduct, IproductEn } from '../../../InterFaces/product';
 import { ProductService } from '../../../Services/Product/product.service';
 import { LanguageService } from '../../../Services/Language/language.service';
 import { NgFor } from '@angular/common';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-lists',
   standalone: true,
-  imports: [RouterLink,RouterOutlet ,RouterLinkActive , NgFor],
+  imports: [RouterLink,RouterOutlet ,RouterLinkActive , NgFor ,TranslateModule],
   templateUrl: './lists.component.html',
   styleUrl: './lists.component.css'
 })

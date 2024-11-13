@@ -5,11 +5,12 @@ import { IProduct, IproductEn } from '../../../InterFaces/product';
 import { OrderService } from '../../../Services/Order/order.service';
 import { LanguageService } from '../../../Services/Language/language.service';
 import { ProductService } from '../../../Services/Product/product.service';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-reorder',
   standalone: true,
-  imports: [RouterLink,RouterOutlet,RouterLinkActive],
+  imports: [RouterLink,RouterOutlet,RouterLinkActive,TranslateModule],
   templateUrl: './reorder.component.html',
   styleUrl: './reorder.component.css'
 })
