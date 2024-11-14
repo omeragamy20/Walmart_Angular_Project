@@ -555,3 +555,51 @@
   margin-top: 12px;
   margin-left: 25px;
 }
+
+
+
+/* El khall Bahagt work */
+
+.accoutList button
+{
+  background-color: #0071dc;
+  border: none;
+  color: white;
+}
+
+.accoutList button:hover
+{
+  background-color: #052369;
+}
+
+.accList
+{
+  padding: 15px;
+  color: #2e2f32;
+  font-size: 14px;
+}
+.accList1{
+  border-bottom: 1px #ccc solid;
+
+}
+
+.accList a{
+  padding: 10px;
+}
+
+
+/* active link reorder */
+
+.active
+{
+  background-color: #dbdbdb;
+  border-bottom: 1px solid #bbbbbb;
+  color:#333 ;
+  border-radius: 5px;
+}
+.accList11:hover{
+  background-color: #dbdbdb;
+  font-weight: 600;
+  border-radius: 5px;
+
+}

@@ -6,6 +6,7 @@ import { OrderService } from '../../../Services/Order/order.service';
 import { LanguageService } from '../../../Services/Language/language.service';
 import { ProductService } from '../../../Services/Product/product.service';
 import { TranslateModule } from '@ngx-translate/core';
+import { environment } from '../../../environments/environment.development';
 
 @Component({
   selector: 'app-reorder',
@@ -15,8 +16,8 @@ import { TranslateModule } from '@ngx-translate/core';
   styleUrl: './reorder.component.css'
 })
 export class ReorderComponent {
-  url:string ="https://localhost:7028/"
-  customerOrders:CustomerOrder[] = [] ; 
+  url = `${environment.url}`;
+  customerOrders:CustomerOrder[] = [] ;
   Prds :IProduct[] = [] as IProduct[]
   prdsIDs =[]
   prdsQuantity =[]
@@ -34,9 +35,9 @@ export class ReorderComponent {
 
    this.orderSer.GetCustomerOrders(sessionStorage.getItem("id")!).subscribe({
     next:(res)=>{
-      this.customerOrders = res   
+      this.customerOrders = res
       console.log(this.customerOrders)
-      
+
           for(let i = 0 ; i< this.customerOrders.length ; i++)
             {
               for(let j = 0 ; j< this.customerOrders[i].orderItems.length ; j++)
@@ -54,7 +55,7 @@ export class ReorderComponent {
 
 
 
-   
+
     console.log(this.Prds)
     console.log(this.prdsIDs)
 
@@ -62,20 +63,20 @@ export class ReorderComponent {
 
 
 loadprd(){
-  
+
   for(let i = 0 ; i<this.prdsIDs.length ; i++)
     {
       this.prdSer.getOrderPrd(this.prdsIDs[i]).subscribe({
         next:(res)=>{
           if (Array.isArray(res)) {
-            this.Prds = [...this.Prds, ...res]; 
+            this.Prds = [...this.Prds, ...res];
           } else {
-            this.Prds.push(res); 
+            this.Prds.push(res);
           }
         }
       })
     }
-    
+
 }
 
 
@@ -87,16 +88,16 @@ loadprd(){
 
 
 
-  
+
   addToCart(p: IProduct , quantity:number) {
 
-    this.PrdEn.id = p.id , 
-    this.PrdEn.description_en = p.description_en , 
-    this.PrdEn.price = p.price , 
-    this.PrdEn.imageUrls = p.imageUrls[0] , 
-    this.PrdEn.stock = p.stock , 
-    this.PrdEn.totall = p.price * quantity , 
-    this.PrdEn.quantity = quantity 
+    this.PrdEn.id = p.id ,
+    this.PrdEn.description_en = p.description_en ,
+    this.PrdEn.price = p.price ,
+    this.PrdEn.imageUrls = p.imageUrls[0] ,
+    this.PrdEn.stock = p.stock ,
+    this.PrdEn.totall = p.price * quantity ,
+    this.PrdEn.quantity = quantity
 
 
     const item = localStorage.getItem("SelectedProducts");
@@ -111,7 +112,7 @@ loadprd(){
       localStorage.setItem("SelectedProducts", JSON.stringify(products))
     }
 
-    
+
   }
 
 

@@ -1,11 +1,11 @@
 <h2>{{'accLang.Reorder'|translate}}</h2>
 
 <div class="row">
-   
+
     @for (item of Prds; track item.id; let idx = $index, e = $even) {
         @if(lang =='en'){
         <div class="card mx-3 my-3 col-6 col-sm-12" style="width: 18rem; padding: 5px;">
-            <img src="{{url+item.imageUrls}}" class="card-img-top" alt="...">
+            <img [src]="url +item.imageUrls[0]" class="card-img-top" alt="...">
             <div class="card-body">
               <p class="card-text">Title :-{{item.title_en}}</p>
               <p class="card-text">Price :- {{item.price}}</p>
@@ -16,7 +16,7 @@
         }
         @if(lang == 'ar'){
             <div class="card mx-3 my-3 col-6 col-sm-12" style="width: 18rem;">
-                <img src="{{url+item.imageUrls}}" class="card-img-top" alt="...">
+                <img [src]="url+item.imageUrls[0]" class="card-img-top" alt="...">
                 <div class="card-body">
                   <p class="card-text">المنتج :- {{item.title_ar}}  </p>
                   <p class="card-text"> السعر :- {{item.price}} </p>
@@ -26,7 +26,7 @@
               </div>
         }
     }
-    
-    
+
+
 </div>
 

@@ -93,8 +93,21 @@
 
 
         <div class="navbar-actions col-s-12  col-md-3">
-          <a href="#" class="user action-item">{{'header.Reorder_My_Items'|translate}} <span> <i
-                class="fa-regular fa-heart" style="color: #FFD43B;"></i></span></a>
+          <!-- <a href="#" class="user action-item">{{'header.Reorder_My_Items'|translate}} <span> <i
+                class="fa-regular fa-heart" style="color: #FFD43B;"></i></span></a> -->
+                <div class="dropdown accoutList">
+                  <button class="btn btn-light dropdown-toggle reorder" type="button"
+                  id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="true">
+                  <span> <i class="fa-regular fa-heart" style="color: #FFD43B;"></i></span>
+                  <span> {{'header.Reorder'|translate}}</span>
+                  <!-- <br> -->
+                  <span>{{'header.My_Items'|translate}}</span>
+                  </button>
+                  <ul class="dropdown-menu accList" aria-labelledby="dropdownMenuButton1">
+                    <a class="dropdown-item accList11" routerLink="/items/lists" routerLinkActive="active">Lists</a>
+                    <a class="dropdown-item accList11" routerLink="/items/reorder" routerLinkActive="active">Reorder</a>
+                  </ul>
+                </div>
 
           @if(user.id == null){
           <a routerLink="SignOrRegister" routerLinkActive="active_link"
