@@ -20,37 +20,37 @@ import { OrderitemService } from '../../Services/OrderItem/orderitem.service';
 @Component({
   selector: 'app-orderview',
   standalone: true,
-  imports: [FormsModule,RouterLink, ShapementsummeryComponent, OrderitemsComponent, OrderShapmentfooterComponent,PaypaylcomponintComponent,NgIf],
+  imports: [FormsModule, RouterLink, ShapementsummeryComponent, OrderitemsComponent, OrderShapmentfooterComponent, PaypaylcomponintComponent, NgIf],
   templateUrl: './orderview.component.html',
   styleUrl: './orderview.component.css'
 })
 
-export class OrderviewComponent implements OnInit ,AfterContentInit {
+export class OrderviewComponent implements OnInit, AfterContentInit {
 
   @Input() id: string = '';
-  @Input()ShipID :number = 0;
-  xx:createShipment ={} as createShipment
-  address:string =""
-  user:User ={} as User
+  @Input() ShipID: number = 0;
+  xx: createShipment = {} as createShipment
+  address: string = ""
+  user: User = {} as User
   paymnt: Payment = {} as Payment
   order: Order = {} as Order
   paymnetId!: number;
 
   constructor(private orderservice: OrderService,
-    private shipService:ShepmentServiceService,
-     private _ActivatedRoute :ActivatedRoute ,
+    private shipService: ShepmentServiceService,
+    private _ActivatedRoute: ActivatedRoute,
     private _uSer: UserService,
     private paymentserv: PaymentServiceService,
-  private orderitemserv:OrderitemService) {
+    private orderitemserv: OrderitemService) {
 
 
   }
   ngAfterContentInit(): void {
     this.shipService.Getshipment(this.ShipID).subscribe({
-      next:(res)=>{
+      next: (res) => {
         this.xx = res
         console.log(this.xx)
-      },error:(err)=>{
+      }, error: (err) => {
         console.log(err)
       }
     })
@@ -74,7 +74,7 @@ export class OrderviewComponent implements OnInit ,AfterContentInit {
     this.ShipID = this._ActivatedRoute.snapshot.params['shipID'];
 
     this._uSer.GetUserById(this.id).subscribe({
-      next:(res)=>{
+      next: (res) => {
         this.user = res
       }
     })
@@ -150,21 +150,21 @@ export class OrderviewComponent implements OnInit ,AfterContentInit {
     this.paymnt.PaymentMethod_ar = (this.selectedOption);
     console.log(this.paymnt);
     this.showFirstDiv = false;
-this.paymentserv.createPayment(this.paymnt).subscribe({
-  next:(res)=>{
-    console.log(res)
-    this.paymnetId = res.id
-    console.log(this.paymnetId)
-  },error:(err)=> {
-    console.log(err);
+    this.paymentserv.createPayment(this.paymnt).subscribe({
+      next: (res) => {
+        console.log(res)
+        this.paymnetId = res.id
+        console.log(this.paymnetId)
+      }, error: (err) => {
+        console.log(err);
 
-  },
-})
-}
+      },
+    })
+  }
 
-//////////////////// create order
+  //////////////////// create order
 
-orderidinitem!:number;
+  orderidinitem!: number;
 
   Createorder() {
     this.order.orderItems = [];
@@ -226,8 +226,8 @@ orderidinitem!:number;
 
   }
 
-    // ///// create order Items//////////
-  CreateOrderItem(orderiditem:number) {
+  // ///// create order Items//////////
+  CreateOrderItem(orderiditem: number) {
     let all = localStorage.getItem("SelectedProducts");
     let prod = all ? JSON.parse(all) : []
     for (let i = 0; i < prod.length; i++) {
@@ -235,7 +235,7 @@ orderidinitem!:number;
       let include = prod[i]
 
       let orderitem: OrderItems = {} as OrderItems
-      orderitem.orderId =orderiditem;
+      orderitem.orderId = orderiditem;
       // if (this.order.Id) {
       //     // Set OrderId here before sending to backend
       // }
@@ -254,6 +254,10 @@ orderidinitem!:number;
         }
       });
     }
+    localStorage.clear();
+    this.totalprice = 0;
+
+
   }
 
 }

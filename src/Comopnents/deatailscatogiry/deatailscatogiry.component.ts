@@ -4,11 +4,13 @@ import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { SubcategoryService } from '../../Services/SubCategory/subcategory.service';
 import { ISubcategoryAr, ISubcategoryEn } from '../../InterFaces/sub-category';
 import { LanguageService } from '../../Services/Language/language.service';
+import { TranslateModule } from '@ngx-translate/core';
+import { environment } from '../../environments/environment.development';
 
 @Component({
   selector: 'app-deatailscatogiry',
   standalone: true,
-  imports: [RouterLink, CommonModule , NgFor],
+  imports: [RouterLink, CommonModule , NgFor,TranslateModule],
   templateUrl: './deatailscatogiry.component.html',
   styleUrls: ['./deatailscatogiry.component.css']
 })
@@ -17,7 +19,7 @@ import { LanguageService } from '../../Services/Language/language.service';
 
 
 export class DeatailscatogiryComponent implements OnInit  {
-  url :string = "http://localhost:5004"
+  url = `${environment.url}`;
   SubCatinCatEn!: ISubcategoryEn[];
   SubCatinCatAr!: ISubcategoryAr[];
   @Input() id: number = 0;

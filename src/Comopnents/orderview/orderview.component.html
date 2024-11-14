@@ -13,8 +13,7 @@
       <div style="margin-right: 2%">
         <img
           src="https://i5.walmartimages.com/dfw/63fd9f59-1b5e/5452ae02-a31f-4ef1-9a45-62ac0b06c13b/v1/mci-shipping.svg"
-          alt=""
-        />
+          alt="" />
       </div>
       <div>
         <p class="mb-0">1. Shipping, arrives by {{ Day }}, {{ Month }}</p>
@@ -69,32 +68,24 @@
       <!-- show the mthod -->
       <div *ngIf="!showFirstDiv">
         <h3 class="text-success text-center">
-          {{ user.firstName }} Pay: {{ totalprice }} With Method type:
-          {{ selectedOption }}
+          Payment number: {{paymnetId}}, {{ user.firstName }} Pay: {{ totalprice }} In {{ selectedOption }}
         </h3>
       </div>
-      <div *ngIf="showFirstDiv">
+      <div *ngIf="showFirstDiv" >
         <select [(ngModel)]="selectedOption" onchange="changmethod()">
           <option value="">Select an option</option>
           <option value="Paypal">PayPal</option>
           <option value="Cash">Cash On Dlivery</option>
         </select>
-
         <div *ngIf="selectedOption === 'Paypal'">
-          <app-paypaylcomponint
-            (click)="onDivClick('Paypal')"
-          ></app-paypaylcomponint>
+          <app-paypaylcomponint (click)="onDivClick('Paypal')"></app-paypaylcomponint>
         </div>
+        <br>
         <div *ngIf="selectedOption === 'Cash'">
           <div class="form-check" (click)="onDivClick('Cash')">
-            <input
-              class="form-check-input"
-              type="checkbox"
-              value=""
-              id="flexCheckIndeterminate"
-            />
-            <label class="form-check-label" for="flexCheckIndeterminate">
-              Cash On Delivery
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+            <label class="form-check-label" for="flexCheckDefault">
+             Cash On Delivery
             </label>
           </div>
         </div>
@@ -125,19 +116,18 @@
       </div>
 
       <div class="text-center">
-        <button
-          routerLink="/Delivery"
-          class="btn btn-primary mt-4" [disabled]="paymnetId == null"          (click)="Createorder()"
-        >
+        <button routerLink="/Delivery" class="btn btn-primary mt-4" [disabled]="paymnetId == null"
+          (click)="Createorder()">
           Confirme Order
         </button>
+
+      </div>
+    </div>
+
+    <!-- Checkout Summary Section -->
+    <div class="col-lg-4 sumery">
+      <app-shapementsummery></app-shapementsummery>
     </div>
   </div>
 
-  <!-- Checkout Summary Section -->
-  <div class="col-lg-4 sumery">
-    <app-shapementsummery></app-shapementsummery>
-  </div>
-</div>
-
-<app-order-shapmentfooter></app-order-shapmentfooter>
+  <app-order-shapmentfooter></app-order-shapmentfooter>

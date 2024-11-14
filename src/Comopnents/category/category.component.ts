@@ -6,6 +6,7 @@ import { CategoryService } from '../../Services/Category/category.service';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { AsideComponent } from "../aside/aside.component.spec";
+import { environment } from '../../environments/environment.development';
 
 
 @Component({
@@ -18,7 +19,8 @@ import { AsideComponent } from "../aside/aside.component.spec";
 })
 export class CategoryComponent implements OnInit {
 
-  url:string = "http://localhost:5004"
+  // url:string = "http://localhost:5004"
+  url = `${environment.url}`;
   AllCAtegory: ICategoryEn[] = [] as ICategoryEn[];
 
   constructor(private catserviceapi:CategoryService) {

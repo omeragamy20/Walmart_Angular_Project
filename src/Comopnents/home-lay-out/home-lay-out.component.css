@@ -56,3 +56,24 @@ img {
   /* Styling for the "Read more" link */
   cursor: pointer;
 }
+
+
+
+/*  */
+video {
+  height: 550px;
+  border-radius: 10px;
+  margin-right: 10px;
+
+}
+
+.vdesc {
+  padding-block: 50px;
+  font-weight: bolder;
+}
+
+.vdesc span {
+  font-size: 15px;
+  font-weight: 300;
+
+}

@@ -11,6 +11,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { RateComponent } from '../rate/rate.component';
 import { LanguageService } from '../../Services/Language/language.service';
 import { TranslateDirective, TranslatePipe } from '@ngx-translate/core';
+import { environment } from '../../environments/environment.development';
 // import { Component } from '@angular/core';
 // import { TranslatePipe, TranslateDirective } from '@ngx-translate/core';
 
@@ -50,7 +51,7 @@ export class ProductComponent implements OnInit{
   temp3:number=0;
   temp4:number=0;
   temp5:number=0;
-  url="https://localhost:7028";
+  url= `${environment.url}`;
   openedSections: boolean[] = Array(this.sections.length).fill(false);
   readonly panelOpenState = signal(false);
   readonly dialog = inject(MatDialog);

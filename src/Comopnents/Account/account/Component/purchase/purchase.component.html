@@ -1,1 +1,67 @@
-<p>purchase works!</p>
+<h2>Purchase History</h2>
+
+@for (item of customerOrders; track item.id ;let idx = $index)
+{
+    <div class="card">
+        <div class="card-header">
+          {{'accLang.Order' | translate}} {{idx+1}}
+        </div>
+        <div class="card-body">
+            <h5 class="card-title"> {{'accLang.Total_Price' | translate}}: {{item.totalPrice}}</h5>
+
+            <h5 class="card-title"> {{'accLang.Date' | translate}} : {{item.orderDate}}</h5>
+
+            @if(lang =='en'){
+
+                <p class="card-text"> {{'accLang.Payment_Method' | translate}}: {{item.payment_en}}</p>
+
+
+            }
+            @if(lang =='ar'){
+
+               <p class="card-text"> {{'accLang.Payment_Method' | translate}}:  {{item.payment_ar}} </p>
+
+           }
+
+
+
+           <p>
+            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#collapseExample' + idx" aria-expanded="false" [attr.aria-controls]="'collapseExample' + idx">
+
+               {{'accLang.Show Order Item' | translate}}
+            </button>
+          </p>
+          <div class="collapse"  [id]="'collapseExample' + idx">
+            <div class="card card-body" >
+              <div class="row">
+              <div class="col-10" >
+                  <div  *ngFor="let pr of Prds; index as i; trackBy: trackByFn">
+                    <div class="row">
+                      <div class="col-5">
+                        <span  style="font-weight: 500; text-decoration: underline;"> {{'accLang.Title' | translate}}</span>:- {{pr.title_en   }}
+                      </div>
+                      <div class="col-5">
+                        <span  style="font-weight: 500; text-decoration: underline;"> {{'accLang.Price' | translate}}</span>:-{{pr.price}}
+                      </div>
+                    </div>
+                  </div>
+
+             </div>
+             <div class="col-2">
+              <div  *ngFor="let pr of prdsQuantity; index as i; trackBy: trackByFn">
+               <p> {{'accLang.Quantity' | translate}}:- {{pr}} </p>
+
+              </div>
+             </div>
+
+
+              </div>
+            </div>
+
+          </div>
+
+
+        </div>
+      </div>
+}
+

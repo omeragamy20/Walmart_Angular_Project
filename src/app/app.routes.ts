@@ -21,10 +21,11 @@ import { AddressessComponent } from '../Comopnents/Account/account/Component/add
 import { ContactInfoComponent } from '../Comopnents/Account/account/Component/contact-info/contact-info.component';
 import { LanguageComponent } from '../Comopnents/Account/account/Component/language/language.component';
 import { PurchaseComponent } from '../Comopnents/Account/account/Component/purchase/purchase.component';
-import { ReorderComponent } from '../Comopnents/Account/account/Component/reorder/reorder.component';
-import { ListsComponent } from '../Comopnents/Account/account/Component/lists/lists.component';
 import { AccountHomeComponent } from '../Comopnents/Account/account/Component/account-home/account-home.component';
 import { DeliveryComponent } from '../Comopnents/delivery/delivery.component';
+import { MyItemsComponent } from '../Comopnents/my-items/my-items.component';
+import { ReorderComponent } from '../Comopnents/my-items/reorder/reorder.component';
+import { ListsComponent } from '../Comopnents/my-items/lists/lists.component';
 
 export const routes: Routes = [
 
@@ -45,6 +46,11 @@ export const routes: Routes = [
   { path: 'orderitems', component: OrderitemsComponent },
   { path: 'Delivery', component: DeliveryComponent },
   { path: 'supcatogiarydeatails/:id', component: SupcatdeatialsComponent },
+ 
+  { path: 'items', component: MyItemsComponent , children:[
+    { path: 'reorder', component: ReorderComponent },
+    { path: 'lists', component: ListsComponent },
+  ] },
   { path: 'account',canActivate:[authGuard] ,  component: AccountComponent , children:[
 
 
@@ -53,8 +59,7 @@ export const routes: Routes = [
       { path: 'ContactInfo', component: ContactInfoComponent },
       { path: 'LanguageSetting', component: LanguageComponent },
       { path: 'purechase', component: PurchaseComponent },
-      { path: 'reorder', component: ReorderComponent },
-      { path: 'lists', component: ListsComponent },
+   
 
     ] },
   ]},

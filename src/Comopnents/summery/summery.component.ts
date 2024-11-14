@@ -13,6 +13,7 @@ import { OrderComponent } from '../order/order.component';
 export class SummeryComponent implements OnInit, DoCheck {
   ngDoCheck(): void {
     this.getprice();
+
   }
   totalprice: number = 0
 
@@ -39,9 +40,6 @@ export class SummeryComponent implements OnInit, DoCheck {
 
 
   }
-
-
-
 
 
 
