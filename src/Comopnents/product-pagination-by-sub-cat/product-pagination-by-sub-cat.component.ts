@@ -18,14 +18,14 @@ import { TranslateModule } from '@ngx-translate/core';
 })
 
 export class ProductPaginationBySubCatComponent implements OnInit {
-  
+
   CustomerId : string =''
   favPrd : FavouritePrd = {} as FavouritePrd
   favProducts : FavouritePrd[] = [] as FavouritePrd[]
 
   favStatus : boolean = false
 
-       
+
 
 
   @Input() subcatid:number=0
@@ -41,7 +41,7 @@ export class ProductPaginationBySubCatComponent implements OnInit {
   ngOnInit(): void {
     this.getallpagnationprd()
     this.CustomerId = sessionStorage.getItem("id")!
-   
+
   }
 
   Details(id:number){
@@ -102,7 +102,7 @@ export class ProductPaginationBySubCatComponent implements OnInit {
   }
 
 
-// Favourite section 
+// Favourite section
 
 
 addtoFavourite(prdId:number){
@@ -124,47 +124,47 @@ addtoFavourite(prdId:number){
            this.favService.DeleteFav(this.CustomerId,prdId).subscribe({
               next:()=>{
                 console.log(this.favStatus)
-                
+
               },error:(rej)=>{
                 console.log(rej);
-                
+
               }
             })
         }else{
-    
+
                   this.favService.createFav(this.favPrd).subscribe({
               next:(res)=>{
                 this.favStatus = true
                 console.log(this.favStatus)
               },error:(rej)=>{
                 console.log(rej);
-                
+
               }
             })
-    
+
         }
 
-        
+
       }
     })
 
-    
-    
+
+
   }
 
-  
 
 
-  
+
+
 
 }
 
 
-isFavorited(prdId: number): boolean {
-  return this.favProducts.find((ele=>{
-    return ele.productId == prdId
-  }));
-}
+// isFavorited(prdId: number): boolean {
+//   return this.favProducts.find((ele=>{
+//     return ele.productId == prdId
+//   }));
+// }
 
 
 
