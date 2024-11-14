@@ -13,8 +13,7 @@
       <div style="margin-right: 2%">
         <img
           src="https://i5.walmartimages.com/dfw/63fd9f59-1b5e/5452ae02-a31f-4ef1-9a45-62ac0b06c13b/v1/mci-shipping.svg"
-          alt=""
-        />
+          alt="" />
       </div>
       <div>
         <p class="mb-0">1. Shipping, arrives by {{ Day }}, {{ Month }}</p>
@@ -79,9 +78,7 @@
           <option value="Cash">Cash On Dlivery</option>
         </select>
         <div *ngIf="selectedOption === 'Paypal'">
-          <app-paypaylcomponint
-            (click)="onDivClick('Paypal')"
-          ></app-paypaylcomponint>
+          <app-paypaylcomponint (click)="onDivClick('Paypal')"></app-paypaylcomponint>
         </div>
         <br>
         <div *ngIf="selectedOption === 'Cash'">
@@ -119,19 +116,18 @@
       </div>
 
       <div class="text-center">
-        <button
-          routerLink="/Delivery"
-          class="btn btn-primary mt-4" [disabled]="paymnetId == null"          (click)="Createorder()"
-        >
+        <button routerLink="/Delivery" class="btn btn-primary mt-4" [disabled]="paymnetId == null"
+          (click)="Createorder()">
           Confirme Order
         </button>
+
+      </div>
+    </div>
+
+    <!-- Checkout Summary Section -->
+    <div class="col-lg-4 sumery">
+      <app-shapementsummery></app-shapementsummery>
     </div>
   </div>
 
-  <!-- Checkout Summary Section -->
-  <div class="col-lg-4 sumery">
-    <app-shapementsummery></app-shapementsummery>
-  </div>
-</div>
-
-<app-order-shapmentfooter></app-order-shapmentfooter>
+  <app-order-shapmentfooter></app-order-shapmentfooter>

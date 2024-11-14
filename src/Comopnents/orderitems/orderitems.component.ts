@@ -65,7 +65,9 @@ export class OrderitemsComponent implements OnInit, DoCheck {
   remove(p: IproductEn) {
 
     let item = localStorage.getItem("SelectedProducts")
+
     let prod = item ? JSON.parse(item) : null
+
     let x = prod.filter((prod: IproductEn) => prod.id !== p.id)
     localStorage.setItem("SelectedProducts", JSON.stringify(x));
     this.getdata()

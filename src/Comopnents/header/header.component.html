@@ -1,95 +1,140 @@
-<!-- <h1>{{user|json}}</h1> -->
-
 <nav class="navbar">
   <div class="row ">
     <!-- navbar navbar-expand-lg navbar-light bg-light py-3  -->
-    <div class="navbar-top ">
+    <div class="topresponsive">
+      <div class="navbar-top ">
 
-      <div class="navbar-logo-location col-md-2 col-s-12 ">
+      <!-- <div class="navbar-logo-location col-md-2 col-s-12 ">
         <a routerLink="/" class="logo">
-          <a routerLink="home"><img src="/5977595.png" alt="Logo"></a>
+          <a routerLink="home"><img src="/5977595.png" alt="Logo"></a> -->
 
-        </a>
-        <div class="location ">
-          <p>{{'header.How_do_you_want_your_items?'| translate}}</p>
 
+        <div class="navbar-logo-location  col-s-12 col-md-2">
+          <div class="smallScreenMenu">
+            <button class="menu-toggle" (click)="toggleMenu()">☰</button>
+            <div class="menu-content" [ngClass]="{'open': menuOpen}">
+              <button class="close-btn" (click)="toggleMenu()">✖</button>
+              <div style="display: flex; " class="sidlogo">
+                <img style="display: inline;" src="/5977595.png" alt="">
+                <a style="display: inline;" href="#">Sign in or create account</a>
+              </div>
+              <a href="#">Walmart+</a>
+
+              <hr>
+              <div class="iconside" style="display: flex; ">
+                <i class="fa-regular fa-newspaper" style="color: #b0b2b5; display: inline;"></i>
+                <a style="display: inline;" href="#">Purchase History</a>
+              </div>
+
+
+
+              <div class="iconside" style="display: flex; ">
+                <i class="fa-solid fa-cart-arrow-down" style="color: #b0b2b5; display: inline;"></i>
+                <a href="#">My Items</a>
+              </div>
+
+
+              <div class="iconside" style="display: flex; ">
+                <i class="fa-regular fa-user" style="color:#b0b2b5;"></i>
+                <a href="#">Account</a>
+              </div>
+
+              <hr>
+              <div class="iconside" style="display: flex; ">
+                <i class="fa-solid fa-circle-info" style="color:#b0b2b5;"></i>
+                <a href="#">Help</a>
+              </div>
+
+
+              <hr>
+
+              <div class="iconside" style="display: flex; ">
+                <i class="fa-solid fa-group-arrows-rotate" style="color:#b0b2b5;"></i>
+                <a href="#">Departments</a>
+              </div>
+
+
+              <div class="iconside" style="display: flex; ">
+                <i class="fa-solid fa-layer-group" style="color:#b0b2b5;"></i>
+                <a href="#">Services</a>
+              </div>
+
+
+            </div>
+          </div>
+
+          <a routerLink="/" class="logo">
+            <a routerLink="home"><img src="/5977595.png" alt="Logo"></a>
+
+          </a>
+          <div class=" location ">
+            <p>{{'header.How_do_you_want_your_items?'| translate}}</p>
+          </div>
         </div>
-      </div>
 
-<!-- /////////////////////////////////////////////////////////////////// -->
+        <div class="dropdown">
+          <button class="btn dropdown-toggle bt-lang" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+            aria-expanded="true">
+            {{lang}}
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <li><button class="dropdown-item" (click)="switchLanguage('en')">En - English</button></li>
+            <li><button class="dropdown-item" (click)="switchLanguage('ar')">Ar - العربية</button></li>
+          </ul>
+        </div>
 
-
-      <div class="dropdown col-1">
-        <button class="btn btn-light dropdown-toggle bt-lang" type="button"
-        id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="true">
-          {{lang}}
-        </button>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-          <li><button class="dropdown-item"  (click)="switchLanguage('en')">En - English</button></li>
-          <li><button class="dropdown-item"  (click)="switchLanguage('ar')">Ar - العربية</button></li>
-        </ul>
-      </div>
-
-
-      <div class="navbar-search col-md-4 col-s-12 ">
-        <input type="text"  (input)="onSearchInput($event)" placeholder="Search everything at Walmart online and in store">
-        <button  class="search-button">
-          <i (click)="onSearchClick()" class="fa fa-search"></i>
-        </button>
-      </div>
+        <div class="navbar-search col-s-12 col-md-5">
+          <input type="text" (input)="onSearchInput($event)"
+            placeholder="Search everything at Walmart online and in store">
+          <button class="search-button">
+            <i (click)="onSearchClick()" class="fa fa-search"></i>
+          </button>
+        </div>
 
 
-      <div class="navbar-actions col-md-4 col-s-12">
+        <div class="navbar-actions col-s-12  col-md-3">
+          <a href="#" class="user action-item">{{'header.Reorder_My_Items'|translate}} <span> <i
+                class="fa-regular fa-heart" style="color: #FFD43B;"></i></span></a>
 
-              <div class="dropdown accoutList">
-                <button class="btn btn-light dropdown-toggle reorder" type="button"
-                id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="true">
-                <span> <i class="fa-regular fa-heart" style="color: #FFD43B;"></i></span>
-                <span> {{'header.Reorder'|translate}}</span>
-                <br>
-                <span>{{'header.My_Items'|translate}}</span>
-                </button>
-                <ul class="dropdown-menu accList" aria-labelledby="dropdownMenuButton1">
-                  <a class="dropdown-item accList11" routerLink="/items/lists" routerLinkActive="active">Lists</a>
-                  <a class="dropdown-item accList11" routerLink="/items/reorder" routerLinkActive="active">Reorder</a>
-                </ul>
-              </div>
+          @if(user.id == null){
+          <a routerLink="SignOrRegister" routerLinkActive="active_link"
+            class="user action-item">{{'header.Sign_In_Account'|translate}} <span><i class="fa-regular fa-user"
+                style="color: #FFD43B;"></i></span></a>
+          }
 
+          @if(user.id != null){
+          <a routerLink="account" routerLinkActive="active_link" class="user action-item">{{user.firstName}} <span><i
+                class=" fa-regular fa-user" style="color: #FFD43B;"></i></span></a>
+          }
+          <!-- <a routerLink="/" class="cart-icon">
+          <i class="fa fa-shopping-cart " style="color: #FFD43B;"></i>
+          <span class="cart-total">$0.00</span>
 
-
-
-              @if(user.id == null){
-              <a routerLink="SignOrRegister" routerLinkActive="active_link" class="action-item">{{'header.Sign_In_Account'|translate}}
-                <span><i class="fa-regular fa-user"
-                    style="color: #FFD43B;"></i></span></a>
-            }
-
-            @if(user.id != null){
-              <div class="dropdown accoutList">
-                <button class="btn btn-light dropdown-toggle mx-3" type="button"
-                id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="true">
-                <span><i class="fa-regular fa-user"style="color: #FFD43B;"></i></span>
-                {{user.firstName}}
-                </button>
-                <ul class="dropdown-menu accList" aria-labelledby="dropdownMenuButton1">
-                  <a class="dropdown-item accList1 accList11" routerLink="/account/Acchome" routerLinkActive="active_link">Account</a>
-
-                  <a class="dropdown-item accList11" href="#" (click)="SignOut()">Sign Out</a>
-                </ul>
-              </div>
-
-                  }
-
-        <a routerLink="order" class="cart-icon">
-          <i class="fa fa-shopping-cart" style="position: relative !important;"></i>
-          <span class="cont">{{count}}</span>
-          <span routerLink="order" class="cart-total">${{totalprice}}</span>
-        </a>
+        <a routerLink="SignOrRegister" routerLinkActive="active_link" class="action-item">Sign In Account <span><i
+              class="fa-regular fa-user" style="color: #FFD43B;"></i></span></a>
+               -->
+          <a routerLink="order" class="cart-icon">
+            <i class="fa fa-shopping-cart" style="position: relative !important;"></i>
+            <span class="cont">{{count}}</span>
+            <span routerLink="order" class="user cart-total">${{totalprice}}</span>
+          </a>
+        </div>
       </div>
     </div>
 
     <!-- header -->
+    <hr style="color: white;" class="smallline">
     <div class="navbar-bottom col-s-12" style="height: 48px;">
+      <div class="locsmall ">
+
+        <p>{{'header.How_do_you_want_your_items?'| translate}}</p>
+        <div class="flex  items-center blue mr-1 mh-1" style="margin-right: 10px;">|</div>
+        <hr>
+        <p>Sacramento Supercenter</p>
+      </div>
+
+
+
       <ul class="navbar-links " style="cursor: pointer;">
         <li class="nav-item dropdown" (click)="toggleDropdown()" >
           <a
@@ -102,28 +147,18 @@
           {{ 'Departments' | translate }}
             <!-- Departments -->
           </a>
-          <ul
-            class="dropdown-menu"
-            aria-labelledby="departmentsDropdown"
-            [ngClass]="{ show: isDropdownOpen }"
-          >
+          <ul class="dropdown-menu" aria-labelledby="departmentsDropdown" [ngClass]="{ show: isDropdownOpen }">
             <li class="d-flex">
               <!-- Left Side: Main Categories with Scroll -->
               <!-- Right Side: Subcategories with Scroll -->
               @if(lang=='en'){
-                <ul class="list-group">
-                  <li
-                    *ngFor="let department of catlisst_En"
-                    class="list-group-item list-group-item-action"
-                    (mouseenter)="setActiveDepartment(department.id)"
-                    >
-                    {{ department.name_en }}
-                  </li>
-                </ul>
-                <ul
-                class="list-group flex-fill ms-3 p-3 bg-light"
-                *ngIf="activeCAten"
-              >
+              <ul class="list-group">
+                <li *ngFor="let department of catlisst_En" class="list-group-item list-group-item-action"
+                  (mouseenter)="setActiveDepartment(department.id)">
+                  {{ department.name_en }}
+                </li>
+              </ul>
+              <ul class="list-group flex-fill ms-3 p-3 bg-light" *ngIf="activeCAten">
                 <!-- <h5>{{ activeDepartment.Category }}</h5> -->
                 <li
                   *ngFor="let part of activeCAten"
@@ -136,19 +171,13 @@
               </ul>
               }
               @if(lang=='ar'){
-                <ul class="list-group">
-                  <li
-                    *ngFor="let department of catlisst_Ar"
-                    class="list-group-item list-group-item-action"
-                    (mouseenter)="setActiveDepartment(department.id)"
-                    >
-                    {{ department.name_ar }}
-                  </li>
-                </ul>
-                <ul
-                class="list-group flex-fill ms-3 p-3 bg-light"
-                *ngIf="activeCAtar"
-              >
+              <ul class="list-group">
+                <li *ngFor="let department of catlisst_Ar" class="list-group-item list-group-item-action"
+                  (mouseenter)="setActiveDepartment(department.id)">
+                  {{ department.name_ar }}
+                </li>
+              </ul>
+              <ul class="list-group flex-fill ms-3 p-3 bg-light" *ngIf="activeCAtar">
                 <!-- <h5>{{ activeDepartment.Category }}</h5> -->
                 <li
                   *ngFor="let part of activeCAtar"
@@ -202,7 +231,7 @@
 
 
 
+
     </div>
   </div>
 </nav>
-
