@@ -204,7 +204,7 @@
       <div *ngFor="let subcat of SubCatinCatAr" class="image-container col-2" (click)="products(subcat.id)">
         <a [routerLink]="['/allproduct', subcat.id]">
 
-          <img [src]="url+subcat.image" />
+          <img [src]="subcat.image" />
           <p class="text-center">{{ subcat.name_ar }}</p>
         </a>
       </div>

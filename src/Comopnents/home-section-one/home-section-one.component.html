@@ -30,142 +30,9 @@
 
 
 
-  <!--
-  <div class="row">
-
-
-    <div class="leftt col-s-12 col-3" style="position: relative;">
-
-
-      <div class="image-contain"
-        style="background-image: url('https://i5.walmartimages.com/dfw/4ff9c6c9-ff8a/k2-_48d93bf4-2f2e-483a-9bca-9ce8451c4152.v1.jpg?odnHeight=222&odnWidth=395&odnBg=FFFFFF');">
-        <div class="go" style="margin-top: -5%;">
-          <a [routerLink]="['/routePath']"><i class="fa-solid fa-cart-shopping fa-fade" style="color: #0e0d0d;"></i></a>
-        </div>
-      </div>
-
-      <div class="image-contain-one"
-        style="background-image: url('https://img.freepik.com/free-photo/warm-colors-vase-with-dark-flowers_23-2151843561.jpg?ga=GA1.1.1894664406.1694341712&semt=ais_hybrid');">
-
-      </div>
-      <br>
-      <div class="image-contain"
-        style="background-image: url('https://images.pexels.com/photos/939331/pexels-photo-939331.jpeg?auto=compress&cs=tinysrgb&w=600');">
-
-        <div class="go" style="margin-top: 5%;">
-          <a [routerLink]="['/routePath']"><i class="fa-solid fa-cart-shopping fa-fade" style="color: #faf6f6;"></i></a>
-        </div>
-
-      </div>
-
-
-
-
-
-
-
-    </div>
-
-
-    <div class="middlee col-s-12 col-6" style="position: relative;">
-
-      <div class="image-contain-middle"
-        style="background-image: url('section-one/WhatsApp\ Image\ 2024-11-11\ at\ 5.06.32\ AM.jpeg');">
-
-        <div class="go" style="margin-top: 5%;margin-left: -5%;">
-          <a [routerLink]="['/routePath']"><i class="fa-solid fa-cart-shopping fa-fade" style="color: #fff9f9;"></i></a>
-        </div>
-      </div>
-      <br>
-
-
-
-      <div class="row mt-2">
-        <div class="col-6">
-          <div class="image-contain-middle"
-            style="background-image: url('/section-one/WhatsApp\ Image\ 2024-11-11\ at\ 5.07.48\ AM.jpeg');">
-
-            <div class="go" style="margin-top: 5%;margin-left: -5%;">
-              <a [routerLink]="['/routePath']"><i class="fa-solid fa-cart-shopping fa-fade"
-                  style="color: #fff9f9;"></i></a>
-            </div>
-          </div>
-        </div>
-        <div class="col-6">
-          <div class="image-contain-middle"
-            style="background-image: url('/section-one/WhatsApp\ Image\ 2024-11-11\ at\ 5.07.48\ AM.jpeg');">
-
-            <div class="go" style="margin-top: 5%;margin-left: -5%;">
-              <a [routerLink]="['/routePath']"><i class="fa-solid fa-cart-shopping fa-fade"
-                  style="color: #fff9f9;"></i></a>
-            </div>
-          </div>
-
-
-
-
-
-          <br>
-          <div class="image-contain-middle"
-            style="background-image: url(' https://images.unsplash.com/photo-1488813340362-2a31b5522ebe?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGljdHVyZSUyMGZyYW1lfGVufDB8fDB8fHww');">
-
-            <div class="go" style="margin-top: 5%;margin-left: -5%;">
-              <a [routerLink]="['/routePath']"><i class="fa-solid fa-cart-shopping fa-fade"
-                  style="color: #fff9f9;"></i></a>
-            </div>
-          </div>
-
-
-
-
-
-        </div>
-
-
-        <div class="rightt col-s-12 col-3 " style="position: relative;">
-
-          <div class="image-contain"
-            style="background-image: url('https://i5.walmartimages.com/dfw/4ff9c6c9-51bb/k2-_6616babb-2c61-41ad-bcf6-8293c7f321ba.v1.jpg?odnHeight=222&odnWidth=395&odnBg=FFFFFF');">
-
-            <div class="go" style="margin-top: -5%;">
-              <a [routerLink]="['/routePath']"><i class="fa-solid fa-cart-shopping fa-fade"
-                  style="color: #0e0d0d;"></i></a>
-            </div>
-          </div>
-
-          <div class="image-contain-one"
-            style="background-image: url('https://img.freepik.com/free-photo/warm-colors-vase-with-dark-flowers_23-2151843530.jpg?ga=GA1.1.1894664406.1694341712&semt=ais_hybrid');">
-
-          </div>
-          <br>
-          <div class="image-contain"
-            style="background-image: url('https://i5.walmartimages.com/dfw/4ff9c6c9-71c0/k2-_d18f8241-d0c9-4e3b-a18e-98a0a4c7444a.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF');">
-
-            <div class="go">
-              <a [routerLink]="['/routePath']"><i class="fa-solid fa-cart-shopping fa-fade"
-                  style="color: #0f0f0f;"></i></a>
-            </div>
-          </div>
-
-
-
-
-        </div>
-
-
-
-
-
-
-
-
-      </div> -->
-
-
-
   <div class="container my-4">
-    <h2 class="mb-3">Flash Deals</h2>
-    <p>Up to 65% off</p>
+    <!-- <h2 class="mb-3">Flash Deals</h2> -->
+    <!-- <p>Up to 65% off</p> -->
     <div class="row row-cols-2 row-cols-md-3 row-cols-lg-6 g-6">
       @for(prd of fillpagnationproduct;track prd.id;let i = $index){
       <div class="card-deck">
@@ -186,8 +53,9 @@
           </div>
         </div>
       </div>
-      } @empty {
-      <h1>There is no products</h1>
       }
+       <!-- @empty {
+      <h1>There is no products</h1>
+      } -->
     </div>
   </div>

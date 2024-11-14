@@ -7,6 +7,7 @@ import { ProductService } from '../../../Services/Product/product.service';
 import { LanguageService } from '../../../Services/Language/language.service';
 import { NgFor } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
+import { environment } from '../../../environments/environment.development';
 
 @Component({
   selector: 'app-lists',
@@ -16,8 +17,9 @@ import { TranslateModule } from '@ngx-translate/core';
   styleUrl: './lists.component.css'
 })
 export class ListsComponent implements OnInit ,AfterContentInit {
-  url:string="https://localhost:7028"
-  ids:number[] = [] 
+  // url:string="https://localhost:7028"
+  url= `${environment.url}`;
+  ids:number[] = []
   lang:string =""
   favPrd :FavouritePrd[] = [] as FavouritePrd[]
   Prds :IProduct[] =[] as IProduct []
@@ -40,7 +42,7 @@ export class ListsComponent implements OnInit ,AfterContentInit {
         for (let i = 0; i < this.favPrd.length; i++) {
           this.ids.push(this.favPrd[i].productId)
         }
-        
+
         for (let i = 0; i < this.ids.length; i++) {
           this.prService.getOrderPrd(this.ids[i]).subscribe({
             next:(res)=>{
@@ -50,32 +52,32 @@ export class ListsComponent implements OnInit ,AfterContentInit {
                 this.Prds.push(res); // If `res` is a single product object
               }
 
-              console.log(this.Prds); 
+              console.log(this.Prds);
             }
           })
         }
-        
+
       }
     })
-    
-    
+
+
   }
   ngAfterContentInit(): void {
-    
+
 
 
   }
-  
+
 
   addToCart(p: IProduct , quantity:number) {
 
-    this.PrdEn.id = p.id , 
-    this.PrdEn.description_en = p.description_en , 
-    this.PrdEn.price = p.price , 
-    this.PrdEn.imageUrls = p.imageUrls[0] , 
-    this.PrdEn.stock = p.stock , 
-    this.PrdEn.totall = p.price * quantity , 
-    this.PrdEn.quantity = quantity 
+    this.PrdEn.id = p.id ,
+    this.PrdEn.description_en = p.description_en ,
+    this.PrdEn.price = p.price ,
+    this.PrdEn.imageUrls = p.imageUrls[0] ,
+    this.PrdEn.stock = p.stock ,
+    this.PrdEn.totall = p.price * quantity ,
+    this.PrdEn.quantity = quantity
 
 
     const item = localStorage.getItem("SelectedProducts");
@@ -90,7 +92,7 @@ export class ListsComponent implements OnInit ,AfterContentInit {
       localStorage.setItem("SelectedProducts", JSON.stringify(products))
     }
 
-    
+
   }
 
 

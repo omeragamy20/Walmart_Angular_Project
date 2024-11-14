@@ -5,6 +5,7 @@ import { ProductService } from '../../Services/Product/product.service';
 import { ActivatedRoute } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
+import { environment } from '../../environments/environment.development';
 
 @Component({
   selector: 'app-all-images',
@@ -16,7 +17,7 @@ import { CommonModule } from '@angular/common';
 export class AllImagesComponent {
   borderStyle: string = '1px solid black';
   product!:IProduct[];
-  url="http://localhost:5004";
+  url = `${environment.url}`;
   readonly dialog = inject(MatDialog);
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: { images: string[] }) { }

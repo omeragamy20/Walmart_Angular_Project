@@ -9,8 +9,9 @@
             <div class="row">
                 <div class="col-4">
                     <div class="right-content">
-                        <img src="{{url+item.imageUrls}}" alt="" style="width: 200px; height: 200px;">
-                        
+                        <!-- <img src="{{url+item.imageUrls}}" alt="" style="width: 200px; height: 200px;"> -->
+                        <img [src]="url+item.imageUrls[0]" alt="" style="width: 200px; height: 200px;">
+
                       </div>
                 </div>
                 <div class="col-8">
@@ -20,29 +21,29 @@
                         <div *ngFor="let val of item.values" class="col-4">
                             <p class="card-text">{{val}} :-</p>
                           </div>
-              
+
                           <!-- Display item facilities -->
                           <div *ngFor="let val of item.facilities" class="col-4">
                             <p class="card-text">{{val}}</p>
                           </div>
-              
+
                     </div>
                     <br>
                     <!-- Display item values -->
                     <label>Total Price :-</label>
                     <p class="card-text"> {{item.price}}</p>
                 </div>
-                
-                
+
+
             </div>
             <a href="#" class="btn btn-primary my-3" (click)="addToCart(item, 1)">Add to Cart</a>
             </div>
-            
+
           <!-- Left content: Description, Values, Facilities -->
           <div class="left-content" >
-            
+
           <!-- Right content: Image -->
-          
+
         </div>
     </div>
    }
@@ -54,8 +55,8 @@
             <div class="row">
                 <div class="col-2">
                     <div class="right-content">
-                        <img src="{{url+item.imageUrls}}" alt="" style="width: 200px; height: 200px;">
-                        
+                        <img [src]="url+item.imageUrls[0]" alt="" style="width: 200px; height: 200px;">
+
                       </div>
                 </div>
                 <div class="col-10">
@@ -65,29 +66,29 @@
                         <div *ngFor="let val of item.values_Ar" class="col-4">
                             <p class="card-text">{{val}} :-</p>
                           </div>
-              
+
                           <!-- Display item facilities -->
                           <div *ngFor="let val of item.facilities_Ar" class="col-4">
                             <p class="card-text">{{val}}</p>
                           </div>
-              
+
                     </div>
                     <br>
                     <!-- Display item values -->
                     <label>السعر الكلي :-</label>
                     <p class="card-text"> {{item.price}}</p>
                 </div>
-                
-                
+
+
             </div>
             <a href="#" class="btn btn-primary my-3" (click)="addToCart(item, 1)">أضف الي الكارت</a>
             </div>
-            
+
           <!-- Left content: Description, Values, Facilities -->
           <div class="left-content" >
-            
+
           <!-- Right content: Image -->
-          
+
         </div>
     </div>
    }

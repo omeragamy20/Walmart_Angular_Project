@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, input, OnInit, signal, SimpleChanges, OnChanges } from '@angular/core';
-import { IProduct } from '../../InterFaces/product';
+import { IProduct, IproductEn } from '../../InterFaces/product';
 import { ProductService } from '../../Services/Product/product.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Pagination } from '../../InterFaces/pagination';
@@ -9,6 +9,7 @@ import { Facilities } from '../../InterFaces/facilities';
 import { LanguageService } from '../../Services/Language/language.service';
 import { HeaderComponent } from "../header/header.component";
 import { SearchService } from '../../Services/search.service';
+import { environment } from '../../environments/environment.development';
 
 @Component({
   selector: 'app-all-product',
@@ -29,7 +30,7 @@ export class AllProductComponent implements OnInit , OnChanges {
   pageSize = 4;
   currentPage = 1;
   totalPages = 0;
-  url="https://localhost:7028";
+  url=`${environment.url}`;
   readonly panelOpenState = signal(false);
   ratingvalue:number=0;
   lang:string='';
@@ -165,6 +166,24 @@ Details(id:number){
       return 'fa-star-half-alt rating filled';
     } else {
       return 'fa-star rating';
+    }
+  }
+
+  // add product to cart
+  addProductToCookie(p: IProduct) {
+    // const products: IproductEn[] = JSON.parse(localStorage.getItem("SelectedProducts") || "[]");
+    const item = localStorage.getItem("SelectedProducts");
+    let products = item ? JSON.parse(item) : [];
+    let sameprod = products.find((one: IProduct) => one.id == p.id)
+    if (sameprod) {
+      sameprod.quantity += 1
+      localStorage.setItem("SelectedProducts", JSON.stringify(products))
+    } else {
+
+      p.quantity = 1;
+      products.push(p)
+
+      localStorage.setItem("SelectedProducts", JSON.stringify(products))
     }
   }
 
