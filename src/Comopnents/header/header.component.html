@@ -7,6 +7,59 @@
 
 
         <div class="navbar-logo-location  col-s-12 col-md-2">
+          <div class="smallScreenMenu">
+            <button class="menu-toggle" (click)="toggleMenu()">☰</button>
+            <div class="menu-content" [ngClass]="{'open': menuOpen}">
+              <button class="close-btn" (click)="toggleMenu()">✖</button>
+              <div style="display: flex; " class="sidlogo">
+                <img style="display: inline;" src="/5977595.png" alt="">
+                <a style="display: inline;" href="#">Sign in or create account</a>
+              </div>
+              <a href="#">Walmart+</a>
+
+              <hr>
+              <div class="iconside" style="display: flex; ">
+                <i class="fa-regular fa-newspaper" style="color: #b0b2b5; display: inline;"></i>
+                <a style="display: inline;" href="#">Purchase History</a>
+              </div>
+
+
+
+              <div class="iconside" style="display: flex; ">
+                <i class="fa-solid fa-cart-arrow-down" style="color: #b0b2b5; display: inline;"></i>
+                <a href="#">My Items</a>
+              </div>
+
+
+              <div class="iconside" style="display: flex; ">
+                <i class="fa-regular fa-user" style="color:#b0b2b5;"></i>
+                <a href="#">Account</a>
+              </div>
+
+              <hr>
+              <div class="iconside" style="display: flex; ">
+                <i class="fa-solid fa-circle-info" style="color:#b0b2b5;"></i>
+                <a href="#">Help</a>
+              </div>
+
+
+              <hr>
+
+              <div class="iconside" style="display: flex; ">
+                <i class="fa-solid fa-group-arrows-rotate" style="color:#b0b2b5;"></i>
+                <a href="#">Departments</a>
+              </div>
+
+
+              <div class="iconside" style="display: flex; ">
+                <i class="fa-solid fa-layer-group" style="color:#b0b2b5;"></i>
+                <a href="#">Services</a>
+              </div>
+
+
+            </div>
+          </div>
+
           <a routerLink="/" class="logo">
             <a routerLink="home"><img src="/5977595.png" alt="Logo"></a>
 

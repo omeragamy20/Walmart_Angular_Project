@@ -24,15 +24,15 @@ interface Department {
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [RouterLink, RouterLinkActive,NgFor,NgIf,CommonModule,TranslateModule,JsonPipe],
+  imports: [RouterLink, RouterLinkActive, NgFor, NgIf, CommonModule, TranslateModule, JsonPipe],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
 // export class HeaderComponent implements OnInit {
 
 export class HeaderComponent implements OnInit, DoCheck {
-  user:User ={} as User
-  id:string ="id"
+  user: User = {} as User
+  id: string = "id"
   count: number = 0;
   moneyy: any;
   totalprice: number = 0;
@@ -43,12 +43,17 @@ export class HeaderComponent implements OnInit, DoCheck {
   catlisst_Ar!: ICategoryAr[];
   SubCat_En!: ISubcategoryEn[];
   SubCat_Ar!: ISubcategoryAr[];
+  menuOpen = false;
   constructor(private lanSer: LanguageService, private _UserService: UserService, private searchService: SearchService,
-          private catservice:CategoryService,private Subcatservic:SubcategoryService
+    private catservice: CategoryService, private Subcatservic: SubcategoryService
   ) {
   }
 
+  toggleMenu() {
+    this.menuOpen = !this.menuOpen;
+    console.log('Menu Open:', this.menuOpen);
 
+  }
 
   onSearchInput(event: Event): void {
     const target = event.target as HTMLInputElement;
@@ -66,39 +71,39 @@ export class HeaderComponent implements OnInit, DoCheck {
     this.many();
     this.money();
     this.lanSer.getLangugae().subscribe({
-      next:(res)=>{
-        this.lang=res
-      },error:(err)=> {
+      next: (res) => {
+        this.lang = res
+      }, error: (err) => {
         console.log(err);
 
       },
     })
 
-    this.id =sessionStorage.getItem("id")!
+    this.id = sessionStorage.getItem("id")!
     this._UserService.GetUserById(this.id).subscribe({
-      next:(res)=>{
+      next: (res) => {
         this.user = res
         console.log(this.user)
       },
-      error:(err)=> {
+      error: (err) => {
         console.log(err);
 
       },
     })
 
     this.catservice.GetAllCategory().subscribe({
-      next:(value)=> {
+      next: (value) => {
         this.catlisst_En = value;
       },
-      error:(err)=> {
+      error: (err) => {
         console.log(err);
       },
     });
     this.catservice.GetAllCategory_Ar().subscribe({
-      next:(value)=> {
+      next: (value) => {
         this.catlisst_Ar = value;
       },
-      error:(err)=> {
+      error: (err) => {
         console.log(err);
       },
     });
@@ -141,17 +146,17 @@ export class HeaderComponent implements OnInit, DoCheck {
   }
 
   switchLanguage(lang: string) {
-  console.log(lang);
+    console.log(lang);
 
-  this.lanSer.changeLang(lang);
-}
+    this.lanSer.changeLang(lang);
+  }
 
   // ///////Department Dropdowin///////////
 
 
 
-  activeCAten:ISubcategoryEn[] |null = null;
-  activeCAtar:ISubcategoryAr[] |null = null;
+  activeCAten: ISubcategoryEn[] | null = null;
+  activeCAtar: ISubcategoryAr[] | null = null;
   isDropdownOpen = false;
 
   setActiveDepartment(catid: number): void {
@@ -170,7 +175,7 @@ export class HeaderComponent implements OnInit, DoCheck {
     }
     else {
       this.Subcatservic.GetAllSubCAtbyCatid_Ar(catid).subscribe({
-        next:(value)=>{
+        next: (value) => {
           this.activeCAtar = value;
         },
       });

@@ -297,6 +297,10 @@
     border: none !important;
   }
 
+  .smallScreenMenu {
+    display: block !important;
+  }
+
   /* .navbar-search .form-control {
     font-size: 0.8em !important;
   } */
@@ -359,6 +363,8 @@
 
 
   }
+
+
 
   .topresponsive {
     display: block !important;
@@ -450,4 +456,102 @@
   border: 0.1px solid black;
   border-radius: 50%;
   margin-top: -30%;
+}
+
+
+/*  side */
+
+.smallScreenMenu {
+  position: relative;
+}
+
+.menu-toggle {
+  background-color: #0071ce !important;
+  color: white;
+  font-size: 24px;
+  border: none;
+  cursor: pointer;
+}
+
+.menu-content {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  width: 270px !important;
+  height: 100% !important;
+  background-color: white !important;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5) !important;
+  padding-top: 20px !important;
+  z-index: 1050 !important;
+  transform: translateX(-100%) !important;
+  transition: transform 0.3s ease !important;
+}
+
+.menu-content a {
+  display: block;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: #333;
+  font-size: 13.5px;
+}
+
+.menu-content a:hover {
+  background-color: #f2f2f2;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.menu-content.open {
+  transform: translateX(0) !important;
+}
+
+.sidlogo img {
+  width: 33px;
+  height: 35px;
+  margin-right: 5px;
+}
+
+.sidlogo a {
+  padding: 7px;
+  color: white !important;
+  background-color: #0071dc;
+  border-radius: 20px;
+}
+
+.sidlogo a:hover {
+  background-color: #035eb4;
+}
+
+.sidlogo {
+  padding-bottom: 30px;
+  padding-top: 20px;
+  padding-left: 20px;
+  /* padding-right: 30px; */
+
+}
+
+.smallScreenMenu hr {
+  width: 80%;
+  margin-left: 20px;
+  color: gray;
+
+}
+
+.smallScreenMenu {
+  display: none;
+}
+
+.iconside:hover {
+  background-color: #f2f2f2;
+}
+
+.iconside i {
+  margin-top: 12px;
+  margin-left: 25px;
 }
