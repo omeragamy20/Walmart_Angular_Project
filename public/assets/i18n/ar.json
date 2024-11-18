@@ -2,8 +2,20 @@
     "header":{
         "How_do_you_want_your_items?": "كيف تريد العناصر الخاصة بك",
         "Reorder_My_Items": "إعادة طلب العناصر الخاصة بي" ,
-        "Sign_In_Account": "تسجيل الدخول إلى الحساب"
-
+        "Sign_In_Account": "تسجيل الدخول إلى الحساب",
+        "Departments":"الأقسام",
+        "GROCERY": "بقالة",
+        "HOME": "المنزل",
+        "PATIO_GARDEN": "الحدائق والفناء",
+        "CLOTHING_ACCESSORIES": "الملابس والإكسسوارات",
+        "ELECTRONICS": "الإلكترونيات",
+        "BABY": "الطفل",
+        "TOYS": "الألعاب",
+        "HEALTH_WELLNESS": "الصحة والعافية",
+        "PERSONAL_CARE": "العناية الشخصية",
+        "BEAUTY": "الجمال",
+        "AUTO_TIRES": "السيارات والإطارات",
+        "WALMART_PLUS": "وولمارت+"
     },
 
         "footer": {
@@ -35,6 +47,7 @@
           "iywyk": "#IYWYK",
           "copyright": "© 2024 Walmart. جميع الحقوق محفوظة."
         },
+        
         "deatailscatogiry":{"SUB_CATEGORIES": "الفئات الفرعية"},
 
         "accLang":{

@@ -18,14 +18,16 @@ export class ProductService {
   GetAllPagenation(subcatId: number):Observable<IproductEn[]> {
     return this.httpClient.get<IproductEn[]>(`${environment.baseuRL}/Product/ProductPagination/${subcatId}`)
   }
-  getAllPagination(subcatid:number,pageNumber:number,count:number,searchTerm: string = ''):Observable<Pagination<IProduct>>{
+  getAllPagination(subcatid:number=0,pageNumber:number,count:number,searchTerm: string = ''):Observable<Pagination<IProduct>>{
    let params = new HttpParams()
-      .set('subcatid',subcatid.toString())
       .set('pageNumber', pageNumber.toString())
       .set('count', count.toString());
       if (searchTerm) {
         params = params.set('searchTerm', searchTerm);
-      }
+    }
+    if (subcatid) {
+      params = params.set('subcatid',subcatid.toString());
+    }
     return this.httpClient.get<Pagination<IProduct>>(this.url,{params})
    }
 
@@ -53,13 +55,19 @@ export class ProductService {
 
    addRate(rate: Rate): Observable<Rate> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    return this.httpClient.post<Rate>(`${environment.baseuRL}/Rate`, rate, { headers });
+    return this.httpClient.post<Rate>(`${environment.baseuRL}/Rate/CreateRate`, rate);
   }
+  // https://localhost:7016/api/Rate/CreateRate
 
 
 
   getRate(productId:number):Observable<number>{
     return this.httpClient.get<number>(`${environment.baseuRL}/Rate?productId=${productId}`);
   }
- 
+  private searchurl='https://localhost:7016/api/Product/search';
+  SearchByProductname(searchTerm: string):Observable<Pagination<IProduct>>{
+    // let params = new HttpParams()
+    //   .set('searchTerm', searchTerm);
+     return this.httpClient.get<Pagination<IProduct>>(`${environment.baseuRL}/Product/search?ProductName=${searchTerm}`)
+    }
 }

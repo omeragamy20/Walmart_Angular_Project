@@ -19,7 +19,8 @@
   color: #ffffff;
 
   z-index: 1;
-  padding: 0;
+  padding: 0px;
+  margin: 0px;
   /* width: auto !important; */
 }
 
@@ -86,6 +87,19 @@
   border-radius: 50%;
   cursor: pointer;
   margin-left: -40px;
+}
+
+.search-buttonarab{
+  background-color: #004f9a;
+  border: none;
+  color: white;
+  /* padding: 6px; */
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 1;
+  margin-right: -40px;
 }
 
 .search-button:hover {

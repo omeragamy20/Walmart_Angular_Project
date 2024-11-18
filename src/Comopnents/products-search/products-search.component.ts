@@ -10,20 +10,20 @@ import { LanguageService } from '../../Services/Language/language.service';
 import { HeaderComponent } from "../header/header.component";
 import { SearchService } from '../../Services/search.service';
 import { environment } from '../../environments/environment.development';
-
 @Component({
-  selector: 'app-all-product',
+  selector: 'app-products-search',
   standalone: true,
   imports: [CommonModule, MatExpansionModule],
-  templateUrl: './all-product.component.html',
-  styleUrl: './all-product.component.css'
+  templateUrl: './products-search.component.html',
+  styleUrl: './products-search.component.css'
 })
-export class AllProductComponent implements OnInit , OnChanges {
+export class ProductsSearchComponent implements OnInit , OnChanges {
+
   allProducts:IProduct[]=[] as IProduct[];
   filteredProducts : IProduct[]=[] as IProduct[];
   selectedFilters = new Set<string>();
   specifictions:Facilities[]=[] as Facilities[];
-  @Input('id') subcatid:number=0;
+  subcatid:number=0;
   @Input('searchname') searchname:string='';
   searchProducts:IProduct[]=[] as IProduct[];
   // subcatid=2;
@@ -43,25 +43,31 @@ export class AllProductComponent implements OnInit , OnChanges {
   }
 
   ngOnInit(): void {
+    console.log(this.searchname);
+
     this._Language.getLangugae().subscribe({
       next: (res) => {
         this.lang = res
       }
     });
-     this.searchService.searchTerm$.subscribe(searchTerm => {
-      this.products(searchTerm);
-    });
+    //  this.searchService.searchTerm$.subscribe(searchTerm => {
+    //   this.products(searchTerm);
+    // });
     this.products();
     this.Facilities();
     console.log(this.subcatid);
 
   }
 
-  products(searchTerm: string = ''):void{
-  this.subcatid=  this.route.snapshot.params['id'];
-  this.productService.getAllPagination(this.subcatid ,this.currentPage,this.pageSize,searchTerm).subscribe({
+  products(): void{
+    // SearchByProductname
+    this.searchname=  this.route.snapshot.params['searchname'];
+    console.log(this.searchname);
+  this.productService.SearchByProductname(this.searchname).subscribe({
     next: (res: Pagination<IProduct>) => {
       console.log(res.data);
+      this.subcatid = res.data[0].subCategoryIds[0]
+      console.log(this.subcatid);
       this.allProducts = res.data;
       this.allProducts = this.allProducts.map(product => {
         return {
@@ -84,7 +90,7 @@ export class AllProductComponent implements OnInit , OnChanges {
 
 
  Facilities():void{
-  this.subcatid=  this.route.snapshot.params['id'];
+  // this.subcatid=  this.route.snapshot.params['id'];
   this.productService.getFacilitiybysubid(this.subcatid).subscribe({
     next:(res)=>{
       this.specifictions=res;
@@ -187,7 +193,6 @@ Details(id:number){
       localStorage.setItem("SelectedProducts", JSON.stringify(products))
     }
   }
-
 
 
 }

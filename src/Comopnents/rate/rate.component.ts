@@ -12,11 +12,11 @@ import { LanguageService } from '../../Services/Language/language.service';
   styleUrl: './rate.component.css'
 })
 export class RateComponent  implements OnInit{
- 
+
   @Output() formClosed = new EventEmitter<void>();
-  isVisible = true; 
+  isVisible = true;
   @Input('productId') productId!: number;
-  
+
   rating = 0;
   stars = [1, 2, 3, 4, 5];
   rates: Rate = { id: 0, rating: 0, customerId: '', productId: 0 };
@@ -32,7 +32,7 @@ export class RateComponent  implements OnInit{
     this.rates.productId = this.productId;
     this.rateService.addRate(this.rates).subscribe({
       next:(res)=>{
-        this.rates=res;          
+        this.rates=res;
           this.closeFeedbackForm();
       }
     })
@@ -48,8 +48,11 @@ export class RateComponent  implements OnInit{
     this.rates.rating=stars;
   }
 
+cusomerid:string|null=sessionStorage.getItem("id")
   submitRating() {
-    this.rates.customerId = '09534e5c-a5e6-4401-a07b-42efdaf1a756'; 
+    if (this.cusomerid) {
+      this.rates.customerId = this.cusomerid;
+    }
     this.addRate();
 
     // alert(this.rates.productId);
