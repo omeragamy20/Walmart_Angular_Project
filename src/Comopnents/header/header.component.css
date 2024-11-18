@@ -466,7 +466,7 @@
 }
 
 .menu-toggle {
-  background-color: #0071ce !important;
+  background-color: transparent !important;
   color: white;
   font-size: 24px;
   border: none;
