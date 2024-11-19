@@ -12,7 +12,7 @@ import { Rate } from '../../InterFaces/Rate';
 })
 export class ProductService {
 
-  private url='https://e-walmartapi.runasp.net/api/Product/pagination';
+  private url='https://e-walmartapi2.runasp.net/api/Product/pagination';
   // private urlOne='https://localhost:7016/api/Product/GetOne';
   constructor(private httpClient:HttpClient) { }
   GetAllPagenation(subcatId: number):Observable<IproductEn[]> {
