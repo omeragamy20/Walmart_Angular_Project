@@ -19,7 +19,8 @@
   color: #ffffff;
 
   z-index: 1;
-  padding: 0;
+  padding: 0px;
+  margin: 0px;
   /* width: auto !important; */
 }
 
@@ -86,6 +87,19 @@
   border-radius: 50%;
   cursor: pointer;
   margin-left: -40px;
+}
+
+.search-buttonarab{
+  background-color: #004f9a;
+  border: none;
+  color: white;
+  /* padding: 6px; */
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 1;
+  margin-right: -40px;
 }
 
 .search-button:hover {
@@ -554,4 +568,52 @@
 .iconside i {
   margin-top: 12px;
   margin-left: 25px;
+}
+
+
+
+/* El khall Bahagt work */
+
+.accoutList button
+{
+  background-color: #0071dc;
+  border: none;
+  color: white;
+}
+
+.accoutList button:hover
+{
+  background-color: #052369;
+}
+
+.accList
+{
+  padding: 15px;
+  color: #2e2f32;
+  font-size: 14px;
+}
+.accList1{
+  border-bottom: 1px #ccc solid;
+
+}
+
+.accList a{
+  padding: 10px;
+}
+
+
+/* active link reorder */
+
+.active
+{
+  background-color: #dbdbdb;
+  border-bottom: 1px solid #bbbbbb;
+  color:#333 ;
+  border-radius: 5px;
+}
+.accList11:hover{
+  background-color: #dbdbdb;
+  font-weight: 600;
+  border-radius: 5px;
+
 }

@@ -22,11 +22,11 @@
     </div>
     <div class="felx">
       <!-- loop -->
-        <div class="product-card" style="width: 24%;" *ngFor="let pro of filteredProducts" (click)="Details(pro.id)">
-            <img [src]="url + pro.imageUrls[0]" class="card-img-top" alt="productImage"><br>
-            <a><button class="btn" >+ Add</button> </a><br>
+        <div class="product-card" style="width: 24%;" *ngFor="let pro of filteredProducts" >
+            <img [src]="url + pro.imageUrls[0]" class="card-img-top" alt="productImage" (click)="Details(pro.id)"><br>
+            <a><button class="btn" (click)="addProductToCookie(pro)">+ Add</button> </a><br>
             <div class="card-body">
-              <span class="price">{{pro.price}}</span><br>
+              <span class="price">${{pro.price}}</span><br>
               <span class="card-text">{{pro.description_en}}</span><br>
               <div>
                 <i class="fa-solid" [ngClass]="getStarClass(pro.rate, 1)"></i>
@@ -88,9 +88,9 @@
     </div>
     <div class="felx">
       <!-- loop -->
-        <div class="product-card" style="width: 24%;" *ngFor="let pro of filteredProducts" (click)="Details(pro.id)">
-            <img [src]="url + pro.imageUrls[0]" class="card-img-top" alt="productImage"><br>
-            <a><button class="btn">+ اضافة</button> </a><br>
+        <div class="product-card" style="width: 24%;" *ngFor="let pro of filteredProducts" >
+            <img [src]="url + pro.imageUrls[0]" class="card-img-top" alt="productImage" (click)="Details(pro.id)"><br>
+            <a><button class="btn" (click)="addProductToCookie(pro)">+ اضافة</button> </a><br>
             <div class="card-body">
               <span class="price">{{pro.price}}</span><br>
               <span class="card-text"> {{pro.description_ar}} </span><br>

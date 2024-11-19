@@ -1,32 +1,54 @@
 import { Component, Input, NgModule, OnInit } from '@angular/core';
 import { IproductEn, Product } from '../../InterFaces/product';
 import { ProductService } from '../../Services/Product/product.service';
-import { NgFor } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
 import { FormsModule, NgModel } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
+import { FavouriteService } from '../../Services/Favourite/favourite.service';
+import { FavouritePrd } from '../../InterFaces/favourite-prd';
+import { TranslateModule } from '@ngx-translate/core';
+import { LanguageService } from '../../Services/Language/language.service';
 
 @Component({
   selector: 'app-product-pagination-by-sub-cat',
   standalone: true,
-  imports: [NgFor, FormsModule, RouterLink],
+  imports: [NgFor, FormsModule, RouterLink,NgIf],
   templateUrl: './product-pagination-by-sub-cat.component.html',
   styleUrl: './product-pagination-by-sub-cat.component.css'
 })
 
 export class ProductPaginationBySubCatComponent implements OnInit {
+
+  CustomerId : string =''
+  favPrd : FavouritePrd = {} as FavouritePrd
+  favProducts : FavouritePrd[] = [] as FavouritePrd[]
+
+  favStatus : boolean = false
+
+
+  lang:string='';
   @Input() subcatid:number=0
   fillpagnationproduct: IproductEn[] = [] as IproductEn[];
+  // fillpagnationproductar: IproductEn[] = [] as IproductEn[];
   url = "http://localhost:5004/";
 
-  constructor(private productapi: ProductService, private coockieservice: CookieService,private router: Router) {
+  constructor(private productapi: ProductService, private favService: FavouriteService,
+    private coockieservice: CookieService,private _Language:LanguageService, private router: Router) {
 
   }
 
 
 
   ngOnInit(): void {
+    this._Language.getLangugae().subscribe({
+      next: (res) => {
+        this.lang = res
+      }
+    });
+
     this.getallpagnationprd()
+    this.CustomerId = sessionStorage.getItem("id")!
 
   }
 
@@ -86,4 +108,79 @@ export class ProductPaginationBySubCatComponent implements OnInit {
       this.currentPage--;
     }
   }
+
+
+// Favourite section
+
+
+addtoFavourite(prdId:number){
+
+  if(this.CustomerId == undefined){
+    this.router.navigateByUrl('/SignOrRegister')
+  }else{
+    this.favPrd.customerId = this.CustomerId
+    this.favPrd.productId = prdId
+    this.favService.getAllByCusId(this.CustomerId).subscribe({
+      next:(res)=>{
+        this.favProducts = res
+
+        let check = this.favProducts.some((ele) => {
+          return ele.customerId === this.CustomerId && ele.productId === prdId;
+        });
+
+        if(check == true){
+           this.favService.DeleteFav(this.CustomerId,prdId).subscribe({
+              next:()=>{
+                console.log(this.favStatus)
+
+              },error:(rej)=>{
+                console.log(rej);
+
+              }
+            })
+        }else{
+
+                  this.favService.createFav(this.favPrd).subscribe({
+              next:(res)=>{
+                this.favStatus = true
+                console.log(this.favStatus)
+              },error:(rej)=>{
+                console.log(rej);
+
+              }
+            })
+
+        }
+
+
+      }
+    })
+
+
+
+  }
+
+
+
+
+
+
 }
+
+
+// isFavorited(prdId: number): boolean {
+//   return this.favProducts.find((ele=>{
+//     return ele.productId == prdId
+//   }));
+// }
+
+
+
+
+
+
+
+}
+
+
+

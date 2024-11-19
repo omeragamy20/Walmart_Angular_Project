@@ -1,6 +1,6 @@
 import { CommonModule, JsonPipe, NgFor, NgIf } from '@angular/common';
 import { NgModel } from '@angular/forms';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { LanguageService } from '../../Services/Language/language.service';
 import { Component, DoCheck, EventEmitter, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
@@ -44,10 +44,8 @@ export class HeaderComponent implements OnInit, DoCheck {
   SubCat_En!: ISubcategoryEn[];
   SubCat_Ar!: ISubcategoryAr[];
   menuOpen = false;
-  constructor(private lanSer: LanguageService, private _UserService: UserService, private searchService: SearchService,
-    private catservice: CategoryService, private Subcatservic: SubcategoryService
-  ) {
-  }
+  constructor(private route:Router,private lanSer: LanguageService, private _UserService: UserService, private searchService: SearchService,
+          private catservice:CategoryService,private Subcatservic:SubcategoryService) { }
 
   toggleMenu() {
     this.menuOpen = !this.menuOpen;
@@ -60,7 +58,9 @@ export class HeaderComponent implements OnInit, DoCheck {
     this.searchTerm = target.value;
   }
   onSearchClick(): void {
-    this.searchService.setSearchTerm(this.searchTerm);
+    // SearchProduct
+    this.route.navigate(['SearchProduct', this.searchTerm]);
+    // this.searchService.setSearchTerm(this.searchTerm);
   }
   ngDoCheck(): void {
     this.many();
@@ -185,5 +185,13 @@ export class HeaderComponent implements OnInit, DoCheck {
 
   toggleDropdown(): void {
     this.isDropdownOpen = !this.isDropdownOpen;
+  }
+
+
+
+  SignOut(){
+    sessionStorage.removeItem("id")
+    sessionStorage.removeItem("authToken")
+    this.route.navigateByUrl("/home")
   }
 }

@@ -4,6 +4,9 @@
     <div class="topresponsive">
       <div class="navbar-top ">
 
+      <!-- <div class="navbar-logo-location col-md-2 col-s-12 ">
+        <a routerLink="/" class="logo">
+          <a routerLink="home"><img src="/5977595.png" alt="Logo"></a> -->
 
 
         <div class="navbar-logo-location  col-s-12 col-md-2">
@@ -80,18 +83,40 @@
           </ul>
         </div>
 
-        <div class="navbar-search col-s-12 col-md-5">
+        <!-- Search div -->
+        <div class="navbar-search col-s-10 col-md-4">
           <input type="text" (input)="onSearchInput($event)"
             placeholder="Search everything at Walmart online and in store">
-          <button class="search-button">
-            <i (click)="onSearchClick()" class="fa fa-search"></i>
-          </button>
+            @if(lang=='en'){
+              <button class="search-button">
+                <i (click)="onSearchClick()" class="fa fa-search"></i>
+              </button>
+            }
+            @else{
+              <button class="search-buttonarab">
+                <i (click)="onSearchClick()" class="fa fa-search"></i>
+              </button>
+            }
+
         </div>
 
 
         <div class="navbar-actions col-s-12  col-md-3">
-          <a href="#" class="user action-item">{{'header.Reorder_My_Items'|translate}} <span> <i
-                class="fa-regular fa-heart" style="color: #FFD43B;"></i></span></a>
+          <!-- <a href="#" class="user action-item">{{'header.Reorder_My_Items'|translate}} <span> <i
+                class="fa-regular fa-heart" style="color: #FFD43B;"></i></span></a> -->
+                <div class="dropdown accoutList">
+                  <button class="btn btn-light dropdown-toggle reorder" type="button"
+                  id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="true">
+                  <span> <i class="fa-regular fa-heart" style="color: #FFD43B;"></i></span>
+                  <!-- <span> {{'header.Reorder'|translate}}</span> -->
+                  <!-- <br> -->
+                  <span>{{'header.Reorder_My_Items'|translate}}</span>
+                  </button>
+                  <ul class="dropdown-menu accList" aria-labelledby="dropdownMenuButton1">
+                    <a class="dropdown-item accList11" routerLink="/items/lists" routerLinkActive="active">Lists</a>
+                    <a class="dropdown-item accList11" routerLink="/items/reorder" routerLinkActive="active">Reorder</a>
+                  </ul>
+                </div>
 
           @if(user.id == null){
           <a routerLink="SignOrRegister" routerLinkActive="active_link"
@@ -133,10 +158,15 @@
 
 
       <ul class="navbar-links " style="cursor: pointer;">
-        <li class="nav-item dropdown" (click)="toggleDropdown()">
-          <a class="nav-link dropdown-toggle" id="departmentsDropdown" role="button" data-bs-toggle="dropdown"
-            aria-expanded="false">
-            {{ 'Departments' | translate }}
+        <li class="nav-item dropdown" (click)="toggleDropdown()" >
+          <a
+            class="nav-link dropdown-toggle"
+            id="departmentsDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+          {{ 'header.Departments' | translate }}
             <!-- Departments -->
           </a>
           <ul class="dropdown-menu" aria-labelledby="departmentsDropdown" [ngClass]="{ show: isDropdownOpen }">
@@ -152,8 +182,11 @@
               </ul>
               <ul class="list-group flex-fill ms-3 p-3 bg-light" *ngIf="activeCAten">
                 <!-- <h5>{{ activeDepartment.Category }}</h5> -->
-                <li *ngFor="let part of activeCAten" class="list-group-item list-group-item-action border-0">
-                  <a routerLink="/supcatogiarydeatails/{{part.id}}">
+                <li
+                  *ngFor="let part of activeCAten"
+                  class="list-group-item list-group-item-action border-0"
+                >
+                  <a routerLink="/allproduct/{{part.id}}">
                     {{ part.name_en }}
                   </a>
                 </li>
@@ -168,8 +201,11 @@
               </ul>
               <ul class="list-group flex-fill ms-3 p-3 bg-light" *ngIf="activeCAtar">
                 <!-- <h5>{{ activeDepartment.Category }}</h5> -->
-                <li *ngFor="let part of activeCAtar" class="list-group-item list-group-item-action border-0">
-                  <a routerLink="/supcatogiarydeatails/{{part.id}}">
+                <li
+                  *ngFor="let part of activeCAtar"
+                  class="list-group-item list-group-item-action border-0"
+                >
+                  <a routerLink="/allproduct/{{part.id}}">
                     {{ part.name_ar }}
                   </a>
                 </li>
@@ -177,13 +213,20 @@
               }
             </li>
           </ul>
-
         </li>
-        <div id="fasel" class="flex  items-center blue mr-1 mh-1">|
-        </div>
-        <li><a routerLink="/categryditals/12" routerLinkActive=" active_link">Grocery</a></li>
-        <li><a routerLink="/categryditals/3" routerLinkActive=" active_link">Home</a></li>
+
+        <div id="fasel" class="flex ph2 items-center blue mr1 mh1">|</div>
+        <!-- <li><a routerLink="/supcatogiarydeatails/1" routerLinkActive="active_link">{{ 'GROCERY' | translate }}</a></li> -->
         <!-- <li><a routerLink="/Delivery" routerLinkActive=" active_link">Home</a></li> -->
+
+        <!-- <li><a routerLink="/categryditals/6" routerLinkActive=" active_link">Grocery</a></li>
+        <li><a routerLink="/categryditals/3" routerLinkActive=" active_link">Home</a></li> -->
+        <!-- <div id="fasel" class="flex ph2 items-center blue mr1 mh1">|</div> -->
+
+        <!-- <li><a routerLink="/supcatogiarydeatails/1" routerLinkActive=" active_link">Grocery</a></li> -->
+
+        <!-- <li><a routerLink="/categryditals/3" routerLinkActive=" active_link">Home</a></li>
+        <li><a routerLink="/categryditals/4" routerLinkActive=" active_link">Patio & Garden</a></li>
         <li><a routerLink="/categryditals/2" routerLinkActive=" active_link">Clothing & Accessories</a></li>
         <li><a routerLink="/categryditals/1" routerLinkActive=" active_link">Electronics</a></li>
         <li><a routerLink="/categryditals/10" routerLinkActive=" active_link">Baby</a></li>
@@ -192,7 +235,39 @@
         <li><a routerLink="/categryditals/7" routerLinkActive=" active_link">Personal Care</a></li>
         <li><a routerLink="/categryditals/8" routerLinkActive=" active_link">Beauty</a></li>
         <li><a routerLink="/categryditals/11" routerLinkActive=" active_link">Auto & tires</a></li>
-        <li><a routerLink="/categryditals/" routerLinkActive=" active_link">Walmart+</a></li>
+        <li><a routerLink="/categryditals/" routerLinkActive=" active_link">Walmart+</a></li> -->
+        @if(lang=='en')
+        {
+          <li><a routerLink="/categryditals/6" routerLinkActive="active_link">{{ 'header.GROCERY' | translate }}</a></li>
+          <li><a routerLink="/categryditals/3" routerLinkActive=" active_link">{{ 'header.HOME' | translate }}</a></li>
+          <li><a routerLink="/categryditals/4" routerLinkActive=" active_link">{{ 'header.PATIO_GARDEN' | translate }}</a></li>
+          <li><a routerLink="/categryditals/2" routerLinkActive=" active_link">{{ 'header.CLOTHING_ACCESSORIES' | translate }}</a></li>
+          <li><a routerLink="/categryditals/1" routerLinkActive=" active_link">{{ 'header.ELECTRONICS' | translate }}</a></li>
+          <li><a routerLink="/categryditals/10" routerLinkActive=" active_link">{{'header.BABY' | translate }}</a></li>
+          <li><a routerLink="/categryditals/5" routerLinkActive=" active_link">{{ 'header.TOYS' | translate }}</a></li>
+          <li><a routerLink="/categryditals/9" routerLinkActive=" active_link">{{ 'header.HEALTH_WELLNESS' | translate }}</a></li>
+          <li><a routerLink="/categryditals/7" routerLinkActive=" active_link">{{ 'header.PERSONAL_CARE' | translate }}</a></li>
+          <li><a routerLink="/categryditals/8" routerLinkActive=" active_link">{{ 'header.BEAUTY' | translate }}</a></li>
+          <li><a routerLink="/categryditals/11" routerLinkActive=" active_link">{{ 'header.AUTO_TIRES' | translate }}</a></li>
+          <!-- <li><a routerLink="/categryditals/" routerLinkActive=" active_link">{{ 'header.WALMART_PLUS' | translate }}</a></li> -->
+
+        }
+        @if(lang=='ar')
+        {
+          <li><a routerLink="/categryditals/6" routerLinkActive="active_link">{{ 'header.GROCERY' | translate }}</a></li>
+          <li><a routerLink="/categryditals/3" routerLinkActive=" active_link">{{ 'header.HOME' | translate }}</a></li>
+          <li><a routerLink="/categryditals/4" routerLinkActive=" active_link">{{ 'header.PATIO_GARDEN' | translate }}</a></li>
+          <li><a routerLink="/categryditals/2" routerLinkActive=" active_link">{{ 'header.CLOTHING_ACCESSORIES' | translate }}</a></li>
+          <li><a routerLink="/categryditals/1" routerLinkActive=" active_link">{{ 'header.ELECTRONICS' | translate }}</a></li>
+          <li><a routerLink="/categryditals/10" routerLinkActive=" active_link">{{'header.BABY' | translate }}</a></li>
+          <li><a routerLink="/categryditals/5" routerLinkActive=" active_link">{{ 'header.TOYS' | translate }}</a></li>
+          <li><a routerLink="/categryditals/9" routerLinkActive=" active_link">{{ 'header.HEALTH_WELLNESS' | translate }}</a></li>
+          <li><a routerLink="/categryditals/7" routerLinkActive=" active_link">{{ 'header.PERSONAL_CARE' | translate }}</a></li>
+          <li><a routerLink="/categryditals/8" routerLinkActive=" active_link">{{ 'header.BEAUTY' | translate }}</a></li>
+          <li><a routerLink="/categryditals/11" routerLinkActive=" active_link">{{ 'header.AUTO_TIRES' | translate }}</a></li>
+          <!-- <li><a routerLink="/categryditals/" routerLinkActive=" active_link">{{ 'header.WALMART_PLUS' | translate }}</a></li> -->
+        }
+
       </ul>
 
 

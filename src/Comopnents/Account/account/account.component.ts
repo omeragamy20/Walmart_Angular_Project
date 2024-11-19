@@ -2,14 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import {MatTabsModule} from '@angular/material/tabs';
 import { UserService } from '../../../Services/User/user.service';
 import { User } from '../../../InterFaces/user';
-import { Router, RouterLink, RouterOutlet } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { LanguageService } from '../../../Services/Language/language.service';
 
 @Component({
   selector: 'app-account',
   standalone: true,
-  imports: [MatTabsModule , RouterOutlet , RouterLink , TranslateModule ],
+  imports: [MatTabsModule , RouterOutlet , RouterLink , TranslateModule ,RouterLinkActive ],
   templateUrl: './account.component.html',
   styleUrl: './account.component.css'
 })

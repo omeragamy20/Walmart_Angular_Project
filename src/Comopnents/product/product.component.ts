@@ -11,6 +11,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { RateComponent } from '../rate/rate.component';
 import { LanguageService } from '../../Services/Language/language.service';
 import { TranslateDirective, TranslatePipe } from '@ngx-translate/core';
+import { environment } from '../../environments/environment.development';
 // import { Component } from '@angular/core';
 // import { TranslatePipe, TranslateDirective } from '@ngx-translate/core';
 
@@ -50,7 +51,7 @@ export class ProductComponent implements OnInit{
   temp3:number=0;
   temp4:number=0;
   temp5:number=0;
-  url="https://localhost:7028";
+  url= `${environment.url}`;
   openedSections: boolean[] = Array(this.sections.length).fill(false);
   readonly panelOpenState = signal(false);
   readonly dialog = inject(MatDialog);
@@ -192,5 +193,24 @@ constructor(private _productservice:ProductService,private route: ActivatedRoute
   toggleAccordionAr(index: number) {
     this.accordionItemsAr[index].isOpen = !this.accordionItemsAr[index].isOpen;
   }
+
+
+    // add product to cart
+    addProductToCookie(p: IProduct) {
+      // const products: IproductEn[] = JSON.parse(localStorage.getItem("SelectedProducts") || "[]");
+      const item = localStorage.getItem("SelectedProducts");
+      let products = item ? JSON.parse(item) : [];
+      let sameprod = products.find((one: IProduct) => one.id == p.id)
+      if (sameprod) {
+        sameprod.quantity += 1
+        localStorage.setItem("SelectedProducts", JSON.stringify(products))
+      } else {
+
+        p.quantity = 1;
+        products.push(p)
+
+        localStorage.setItem("SelectedProducts", JSON.stringify(products))
+      }
+    }
 }
 

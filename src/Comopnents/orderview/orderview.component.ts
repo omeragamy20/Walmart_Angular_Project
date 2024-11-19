@@ -162,6 +162,13 @@ export class OrderviewComponent implements OnInit, AfterContentInit {
     })
   }
 
+  isChecked = false;
+
+  // Method to toggle the checkbox state
+  toggleCheckbox() {
+    this.isChecked = !this.isChecked;
+  }
+
   //////////////////// create order
 
   orderidinitem!: number;

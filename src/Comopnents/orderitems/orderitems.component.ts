@@ -4,6 +4,7 @@ import { NgModel } from '@angular/forms';
 import { CookieService } from 'ngx-cookie-service';
 import { IproductEn, Product } from '../../InterFaces/product';
 import { RouterLink } from '@angular/router';
+import { environment } from '../../environments/environment.development';
 
 @Component({
   selector: 'app-orderitems',
@@ -14,7 +15,7 @@ import { RouterLink } from '@angular/router';
 })
 export class OrderitemsComponent implements OnInit, DoCheck {
   [x: string]: any;
-  URL = "https://localhost:7028";
+  URL = `${environment.url}`;
 
   productlocal: IproductEn[] | null = null;
   currentnom: number = 0

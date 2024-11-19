@@ -1,56 +1,68 @@
 {
     "header":{
-
-   
-        
-        "How_do_you_want_your_items?": "How do you want your items?",
-        "Reorder_My_Items": "Reorder My Items" ,
-
-       
-       
-
-             "GROCERY": "Grocery",
+            "How_do_you_want_your_items?": "How do you want your items?",
+            "Sign_In_Account": "Sign In Account",
+            "How_do_you_want_your_items?": "How do you want your items?",
+            "Reorder_My_Items": "Reorder My Items" ,
+            "Departments":"Departments",
+            "GROCERY": "Grocery",
             "HOME": "Home",
-         "PATIO_GARDEN": "Patio & Garden",
-       "CLOTHING_ACCESSORIES": "Clothing & Accessories",
-           "ELECTRONICS": "Electronics",
-              "BABY": "Baby",
+            "PATIO_GARDEN": "Patio & Garden",
+            "CLOTHING_ACCESSORIES": "Clothing & Accessories",
+            "ELECTRONICS": "Electronics",
+            "BABY": "Baby",
             "TOYS": "Toys",
-        "HEALTH_WELLNESS": "Health & wellness",
-       "PERSONAL_CARE": "Personal Care",
-        "BEAUTY": "Beauty",
-        "AUTO_TIRES": "Auto & tires",
-           "WALMART_PLUS": "Walmart+",
- "DEPARTMENT": "Department",
-
-        "Sign_In_Account": "Sign In Account"
-
+            "HEALTH_WELLNESS": "Health & wellness",
+            "PERSONAL_CARE": "Personal Care",
+            "BEAUTY": "Beauty",
+            "AUTO_TIRES": "Auto & tires",
+            "WALMART_PLUS": "Walmart+",
+            "DEPARTMENT": "Department",
+            "Sign_In_Account": "Sign In Account"
     },
-    "nav":{
-
-    }, 
     "accLang":{
-        "Hi": "Hi , " ,
-        "My_Account": "My Account" ,
-        "Save_Changes":"Save Changes",
-        "Arabic" : "Arabic",
-        "English" : "English",
-        "Language_Settings":"Language Settings",
-        "Account":"Account",
-        "Home" :"Home" , 
-        "Purchase_History":"Purchase History",
-        "My_items" : "My Items", 
-        "Reorder":"Reorder" , 
-        "Lists" : "Lists" , 
-        "Setting" : "Setting" , 
-        "Personal_information" : "Personal_information" , 
-        "Contact_info" : "Contact info and password" , 
-        "Addresses" : "Addresses" , 
-        "Shopping_settings" : "Shopping_settings" ,
-        "ss" : "Sign Out",
-        "para1" : "We're excited to offer a Arabic language Walmart shopping experience for customers. We'll automatically switch to Arabic when we detect a preference for it in your browser or operating system. You can change your language settings for browsing Walmart at any time in your Account.",
-        "para2" : "Our Arabic shopping experience works by converting English to Arabic via a machine translated model. The model is not perfect, and the proper context of the text may not always be taken into account during translation. We're continuously improving the Arabic language experience at Walmart. While many of our features are available in Arabic, there are some site features or communications which are not available in Arabic at this time. As a result, the user assumes the risk of any reliance on the translation. Some items on the site including images containing text, videos with captioning, PDF documents, or maps may not be translated, and some features on the site may not work in the translated versions."
-    },
+              "Hi": "Hi , " ,
+              "Order":"Order",
+              "Total_Price":"Total Price",
+              "Date" : "Date",
+              "Payment_Method":"Payment Method :" ,
+              "Show Order Item" :"Show Order Item" ,
+              "Title":"Title" ,
+              "Price" :"Price" ,
+              "Quantity" :"Quantity" ,
+              "My_Account": "My Account" ,
+              "Save_Changes":"Save Changes",
+              "Arabic" : "Arabic",
+              "English" : "English",
+              "Language_Settings":"Language Settings",
+              "Account":"Account",
+              "Home" :"Home" ,
+              "Purchase_History":"Purchase History",
+              "My_items" : "My Items",
+              "Reorder":"Reorder" ,
+              "Lists" : "Lists" ,
+              "MyLists" : "My Lists" ,
+              "View_List" : "View List" ,
+              "Lists_to": " Lists of",
+              "Setting" : "Setting" ,
+              "Personal_information" : "Personal_information" ,
+              "Contact_info" : "Contact info and password" ,
+              "Addresses" : "Addresses" ,
+              "Shopping_settings" : "Shopping_settings" ,
+              "ss" : "Sign Out",
+              "para1" : "We're excited to offer a Arabic language Walmart shopping experience for customers. We'll automatically switch to Arabic when we detect a preference for it in your browser or operating system. You can change your language settings for browsing Walmart at any time in your Account.",
+              "para2" : "Our Arabic shopping experience works by converting English to Arabic via a machine translated model. The model is not perfect, and the proper context of the text may not always be taken into account during translation. We're continuously improving the Arabic language experience at Walmart. While many of our features are available in Arabic, there are some site features or communications which are not available in Arabic at this time. As a result, the user assumes the risk of any reliance on the translation. Some items on the site including images containing text, videos with captioning, PDF documents, or maps may not be translated, and some features on the site may not work in the translated versions."
+              , "First_Name":"First Name",
+                "Last_Name":"Last Name",
+                "Email_address":"Email address",
+                "share":"We'll never share your email with anyone else.",
+                "Phone_number":"Phone number",
+                "Current_Password":"Current Password",
+                "New_Password":"New Password",
+                "Update":"Update",
+                "Reset_Password":"Reset Password"
+
+            },
     "footer":{
             "About Walmart":"",
             "aboutWalText":"Walmart is a comprehensive online shopping platform offering a wide range of products, at competitive prices. Designed for seamless browsing and a smooth user experience, our website provides fast delivery and easy returns, making shopping convenient for everyone. Explore unbeatable deals and exceptional customer service all in one place!",
@@ -81,5 +93,11 @@
             "walmart_business": "Walmart Business",
             "iywyk": "#IYWYK",
             "copyright": "© 2024 Walmart. All Rights Reserved."
-        }
+        },
+
+    "deatailscatogiry":{
+    "SUB_CATEGORIES": "Sub Categories"
+}
     }
+
+

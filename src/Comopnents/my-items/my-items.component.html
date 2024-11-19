@@ -1,0 +1,24 @@
+
+<div class="container">
+    <div class="row">
+
+        <h2>{{'accLang.My_items'|translate}}</h2>
+
+
+        <nav class="nav">
+            <a class="nav-link reorder" routerLink="reorder" routerLinkActive="active">
+               <span class="ele"> {{'accLang.Reorder'|translate}}</span>
+            </a>
+            <a class="nav-link lists " routerLink="lists" routerLinkActive="active">
+                <span class="ele">  {{'accLang.Lists'|translate}}</span>
+            </a>
+            
+          </nav>
+          <hr>
+
+         <router-outlet></router-outlet>
+        
+
+    </div>
+</div>
+

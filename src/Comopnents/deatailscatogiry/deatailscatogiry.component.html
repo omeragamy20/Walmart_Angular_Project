@@ -185,7 +185,8 @@
 
   <div class="col-md-12 mx-auto">
     <!-- الصور الدائرية -->
-    <h3 class="text-center">Sub Categories</h3>
+    <!-- <h3 class="text-center">Sub Categories</h3> -->
+    <h3 class="text-center">{{ 'deatailscatogiry.SUB_CATEGORIES' | translate }}</h3>
     <div class="image-row d-flex flex-wrap justify-content-center">
 
       @if(lang == 'en'){
@@ -203,7 +204,7 @@
       <div *ngFor="let subcat of SubCatinCatAr" class="image-container col-2" (click)="products(subcat.id)">
         <a [routerLink]="['/allproduct', subcat.id]">
 
-          <img [src]="url+subcat.image" />
+          <img [src]="subcat.image" />
           <p class="text-center">{{ subcat.name_ar }}</p>
         </a>
       </div>

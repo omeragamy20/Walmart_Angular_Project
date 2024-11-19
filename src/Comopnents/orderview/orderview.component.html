@@ -68,26 +68,32 @@
       <!-- show the mthod -->
       <div *ngIf="!showFirstDiv">
         <h3 class="text-success text-center">
-          {{ user.firstName }} Pay: {{ totalprice }} With Method type:
-          {{ selectedOption }}
+          Payment number: {{paymnetId}}, {{ user.firstName }} Pay: {{ totalprice }} In {{ selectedOption }}
         </h3>
       </div>
-      <div *ngIf="showFirstDiv">
+      <div *ngIf="showFirstDiv" >
         <select [(ngModel)]="selectedOption" onchange="changmethod()">
           <option value="">Select an option</option>
           <option value="Paypal">PayPal</option>
           <option value="Cash">Cash On Dlivery</option>
         </select>
-
         <div *ngIf="selectedOption === 'Paypal'">
           <app-paypaylcomponint (click)="onDivClick('Paypal')"></app-paypaylcomponint>
         </div>
+        <br>
         <div *ngIf="selectedOption === 'Cash'">
           <div class="form-check" (click)="onDivClick('Cash')">
-            <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate" />
-            <label class="form-check-label" for="flexCheckIndeterminate">
-              Cash On Delivery
-            </label>
+            <div class="container mt-3">
+              <!-- Label and Checkbox -->
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="myCheckbox" [(ngModel)]="isChecked">
+                <!-- <label class="form-check-label" for="myCheckbox">Cash on Delivery</label> -->
+              </div>
+
+              <!-- Button to toggle checkbox -->
+              <button class="btn btn-lg btn-primary" (click)="toggleCheckbox()">Cash on Delivery</button>
+            </div>
+
           </div>
         </div>
         <br />

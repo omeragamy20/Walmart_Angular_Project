@@ -1,14 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { Route, Router, RouterLink } from '@angular/router';
+import { Route, Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { UserService } from '../../../../../Services/User/user.service';
 import { FormsModule } from '@angular/forms';
 import { User } from '../../../../../InterFaces/user';
 import { ResetPassword } from '../../../../../InterFaces/reset-password';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-contact-info',
   standalone: true,
-  imports: [RouterLink , FormsModule],
+  imports: [RouterLink , FormsModule ,RouterLinkActive ,TranslateModule],
   templateUrl: './contact-info.component.html',
   styleUrl: './contact-info.component.css'
 })
