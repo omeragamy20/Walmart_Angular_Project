@@ -1,5 +1,5 @@
 import { NgFor, NgIf } from '@angular/common';
-import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, HostListener, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ICategoryAr, ICategoryEn } from '../../InterFaces/category';
 import { CategoryService } from '../../Services/Category/category.service';
@@ -13,7 +13,7 @@ import { LanguageService } from '../../Services/Language/language.service';
 @Component({
   selector: 'app-category',
   standalone: true,
-  imports: [NgFor,FormsModule,RouterLink, CommonModule, AsideComponent,NgIf],
+  imports: [NgFor, FormsModule, RouterLink, CommonModule, AsideComponent, NgIf],
   templateUrl: './category.component.html',
   styleUrls: ['./category.component.css']
 
@@ -24,13 +24,13 @@ export class CategoryComponent implements OnInit, OnChanges {
   url = `${environment.url}`;
   AllCAtegory: ICategoryEn[] = [] as ICategoryEn[];
   AllCAtegoryAr: ICategoryAr[] = [] as ICategoryAr[];
-lang:string=''
-  constructor(private _languageSer:LanguageService,private catserviceapi:CategoryService) {
+  lang: string = ''
+  constructor(private _languageSer: LanguageService, private catserviceapi: CategoryService) {
   }
   ngOnChanges(changes: SimpleChanges): void {
     // this.GetAllCAt();
   }
-  onPageChange(language:string) {
+  onPageChange(language: string) {
     if (this.lang == 'en') {
       this.GetAllCAt();
     }
@@ -49,14 +49,31 @@ lang:string=''
     // this.GetAllCatAr();
   }
 
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    this.updateItemsPerPage(); // Update items per page on resize
+  }
+
+  updateItemsPerPage() {
+    if (window.innerWidth <= 768) {
+      this.itemsPerPage = 3;
+    } else if (window.innerWidth > 768 && window.innerWidth <= 990) {
+      this.itemsPerPage = 4;
+    }
+
+    else {
+      this.itemsPerPage = 6;
+    }
+  }
+
   GetAllCAt() {
     if (this.lang == 'en') {
       this.catserviceapi.GetAllCategory().subscribe({
-        next:(value)=> {
+        next: (value) => {
           console.log(value);
           this.AllCAtegory = value;
         },
-        error:(err)=> {
+        error: (err) => {
           console.log(err);
 
         },
@@ -64,11 +81,11 @@ lang:string=''
     }
     else {
       this.catserviceapi.GetAllCategory_Ar().subscribe({
-        next:(value)=> {
+        next: (value) => {
           console.log(value);
           this.AllCAtegoryAr = value;
         },
-        error:(err)=> {
+        error: (err) => {
           console.log(err);
 
         },
@@ -86,7 +103,7 @@ lang:string=''
   // }
 
 
-  getpaginatedProducts():ICategoryEn[]|ICategoryAr[]|any {
+  getpaginatedProducts(): ICategoryEn[] | ICategoryAr[] | any {
     if (this.lang == 'en') {
       const startIndex = (this.currentPage - 1) * this.itemsPerPage;
       return this.AllCAtegory.slice(startIndex, startIndex + this.itemsPerPage);
@@ -112,7 +129,7 @@ lang:string=''
   }
 
   prevPage() {
-    if (this.currentPage >1 ) {
+    if (this.currentPage > 1) {
       this.currentPage--;
     }
   }
@@ -120,9 +137,9 @@ lang:string=''
   // isLastPage() {
   //   return (this.currentPage + 1) * this.itemsPerPage >= this.AllCAtegory.length;
   // }
-////////////////////////////////////////////////////
+  ////////////////////////////////////////////////////
 
-/////////////////////////////////////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////////////////////////////////
 
   // images = [
   //   { url: 'https://i5.walmartimages.com/dfw/4ff9c6c9-71c0/k2-_d18f8241-d0c9-4e3b-a18e-98a0a4c7444a.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF', name: 'Kitchen & dining' },
