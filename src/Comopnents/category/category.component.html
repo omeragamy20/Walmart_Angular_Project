@@ -1,88 +1,64 @@
-<div class="container">
+<div class="" style="padding-inline: 50px;">
   @if(lang=='en'){
-    <div class="row">
-      <div class="col-md-2 mb-2" *ngFor="let item of getpaginatedProducts(); let i=index;">
-        <div class="text-center">
-          <a
-            [routerLink]="['/categryditals', item.id]"
-            style="text-decoration: none; color: black"
-          >
+  <div class="row">
+    <div class="col-4  col-md-3 col-lg-2 mb-2" *ngFor="let item of getpaginatedProducts(); let i=index;">
+      <div class="text-center">
+        <a [routerLink]="['/categryditals', item.id]" style="text-decoration: none; color: black">
           @if(item.id >12){
-            <img [src]="url +item.image" alt="{{ item.name_en }}"  width="120&odn" height="120"/>
+          <img [src]="url +item.image" alt="{{ item.name_en }}" width="120&odn" height="120" />
           }
           @else {
-            <img [src]="item.image" alt="{{ item.name_en }}" />
+          <img [src]="item.image" alt="{{ item.name_en }}" />
           }
 
-            <p>{{ item.name_en }}</p>
-          </a>
-        </div>
-      </div>
-      <div class="d-flex justify-content-between mt-4">
-        <div class="buttonRL">
-          <button
-            class="circle-button"
-            style="right: 100%"
-            (click)="prevPage()"
-            [disabled]="currentPage === 0"
-          >
-            <i class="bi bi-chevron-left"></i>
-          </button>
-        </div>
-        <div class="buttonRL">
-          <button
-            class="circle-button"
-            style="left: 100%"
-            (click)="nextPage()"
-            [disabled]="currentPage * itemsPerPage >= AllCAtegory.length"
-          >
-            <i class="bi bi-chevron-right"></i>
-          </button>
-        </div>
+          <p>{{ item.name_en }}</p>
+        </a>
       </div>
     </div>
-  }
-  @if(lang=='ar'){
-    <div class="row">
-      <div class="col-md-2 mb-2" *ngFor="let item of getpaginatedProducts()">
-        <div class="text-center">
-          <a
-            [routerLink]="['/categryditals', item.id]"
-            style="text-decoration: none; color: black"
-          >
-          @if(item.id >12){
-            <img [src]="url +item.image" alt="{{ item.name_en }}"  width="120&odn" height="120"/>
-          }
-          @else {
-            <img [src]="item.image" alt="{{ item.name_en }}" />
-          }            <p>{{ item.name_ar }}</p>
-          </a>
-        </div>
+    <div class="d-flex justify-content-between mt-4">
+      <div class="buttonRL">
+        <button class="circle-button" style="right: 100%" (click)="prevPage()" [disabled]="currentPage === 0">
+          <i class="bi bi-chevron-left"></i>
+        </button>
       </div>
-      <div class="d-flex justify-content-between mt-4">
-        <div class="buttonRL">
-          <button
-            class="circle-button"
-            style="right: 100%"
-            (click)="prevPage()"
-            [disabled]="currentPage === 0"
-          >
+      <div class="buttonRL">
+        <button class="circle-button" style="left: 100%" (click)="nextPage()"
+          [disabled]="currentPage * itemsPerPage >= AllCAtegory.length">
           <i class="bi bi-chevron-right"></i>
         </button>
-        </div>
-        <div class="buttonRL">
-          <button
-            class="circle-button"
-            style="left: 100%"
-            (click)="nextPage()"
-            [disabled]="currentPage * itemsPerPage >= AllCAtegoryAr.length"
-          >
-            <i class="bi bi-chevron-left"></i>
-
-          </button>
-        </div>
       </div>
     </div>
+  </div>
+  }
+  @if(lang=='ar'){
+  <div class="row">
+    <div class="col-md-2 mb-2" *ngFor="let item of getpaginatedProducts()">
+      <div class="text-center">
+        <a [routerLink]="['/categryditals', item.id]" style="text-decoration: none; color: black">
+          @if(item.id >12){
+          <img [src]="url +item.image" alt="{{ item.name_en }}" width="120&odn" height="120" />
+          }
+          @else {
+          <img [src]="item.image" alt="{{ item.name_en }}" />
+          } <p>{{ item.name_ar }}</p>
+        </a>
+      </div>
+    </div>
+    <div class="d-flex justify-content-between mt-4">
+      <div class="buttonRL pe-4">
+        <button class="circle-button" style="right: 100%" (click)="prevPage()" [disabled]="currentPage === 0">
+          <i class="bi bi-chevron-right"></i>
+        </button>
+      </div>
+      <div class="buttonRL ps-4">
+        <button class="circle-button" style="left: 100%" (click)="nextPage()"
+          [disabled]="currentPage * itemsPerPage >= AllCAtegoryAr.length">
+          <i class="bi bi-chevron-left"></i>
+
+        </button>
+      </div>
+    </div>
+  </div>
   }
 
 
