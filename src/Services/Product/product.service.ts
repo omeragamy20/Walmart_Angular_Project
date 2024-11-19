@@ -12,7 +12,7 @@ import { Rate } from '../../InterFaces/Rate';
 })
 export class ProductService {
 
-  private url='https://localhost:7016/api/Product/pagination';
+  private url='https://e-walmartapi.runasp.net/api/Product/pagination';
   // private urlOne='https://localhost:7016/api/Product/GetOne';
   constructor(private httpClient:HttpClient) { }
   GetAllPagenation(subcatId: number):Observable<IproductEn[]> {
@@ -64,7 +64,7 @@ export class ProductService {
   getRate(productId:number):Observable<number>{
     return this.httpClient.get<number>(`${environment.baseuRL}/Rate?productId=${productId}`);
   }
-  private searchurl='https://localhost:7016/api/Product/search';
+  private searchurl='https://e-walmartapi.runasp.net/api/Product/search';
   SearchByProductname(searchTerm: string):Observable<Pagination<IProduct>>{
     // let params = new HttpParams()
     //   .set('searchTerm', searchTerm);

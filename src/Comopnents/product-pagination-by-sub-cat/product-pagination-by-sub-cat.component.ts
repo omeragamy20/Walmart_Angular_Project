@@ -9,6 +9,7 @@ import { FavouriteService } from '../../Services/Favourite/favourite.service';
 import { FavouritePrd } from '../../InterFaces/favourite-prd';
 import { TranslateModule } from '@ngx-translate/core';
 import { LanguageService } from '../../Services/Language/language.service';
+import { environment } from '../../environments/environment.development';
 
 @Component({
   selector: 'app-product-pagination-by-sub-cat',
@@ -31,7 +32,8 @@ export class ProductPaginationBySubCatComponent implements OnInit {
   @Input() subcatid: number = 0
   fillpagnationproduct: IproductEn[] = [] as IproductEn[];
   // fillpagnationproductar: IproductEn[] = [] as IproductEn[];
-  url = "http://localhost:5004/";
+  // url = "http://localhost:5004/";
+  url = environment.url;
 
   constructor(private productapi: ProductService, private favService: FavouriteService,
     private coockieservice: CookieService, private _Language: LanguageService, private router: Router) {
