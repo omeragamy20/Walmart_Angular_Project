@@ -32,7 +32,7 @@
               </div>
             </ng-container>
           </div>
-        </div>      
+        </div>
         <div class="col-4">
           <div class="container text-center">
             <div class="row more_info">
@@ -46,7 +46,7 @@
                   <i class="fa-solid" [ngClass]="getStarClass(ratingvalue, 4)"></i>
                   <i class="fa-solid" [ngClass]="getStarClass(ratingvalue, 5)"></i>
                   <p>({{ratingvalue}}) | {{product[0].totalRate}} </p>
-                </div>     
+                </div>
               </div>
               <br>
               <br>
@@ -75,7 +75,7 @@
               <a><button mat-button (click)="openDialog()">View All Specifications</button></a>
         </div>
         </div>
-        <div>     
+        <div>
         </div>
         </div>
         <div class="col-3">
@@ -86,12 +86,12 @@
                   <h3 class="prise">Now ${{product[0].price}}</h3>
                   <h6 class="prise">You save $61.04</h6>
                   <p>price when purchased online</p>
-                  <button class="add">Add To Cart</button>
+                  <button class="add" (click)="addProductToCookie(product[0])">Add To Cart</button>
                 </div>
                 <hr>
                 <div class="plan">
                   <img class="imgIcon walmart_icon" src="https://i5.walmartimages.com/dfw/63fd9f59-2c2e/b8053833-2295-47f4-80f1-448eb55fa0ba/v1/wpp-shield.svg">
-                  <span>Add a protection plan</span><br>                         
+                  <span>Add a protection plan</span><br>
                   <input type="checkbox"><label>2-Year plan - $45.00</label>
                 </div>
                 <div class="plan">
@@ -99,7 +99,7 @@
                   <span>Get expert help</span><br>
                   <input type="checkbox">Premium Tech Support & Security - $99.00<br>
                   <input type="checkbox">Standard Setup & Security - $59.00
-                  
+
                 </div>
                 <hr>
                 <div class="row shipping_way">
@@ -154,7 +154,7 @@
               </div>
             </div>
           </div>
-                     
+
         </div>
         <div class="row">
           <div class="col- rate" id="rating">
@@ -169,7 +169,7 @@
                   <i class="fa-solid" [ngClass]="getStarClass(product[0].rate, 4)"></i>
                   <i class="fa-solid" [ngClass]="getStarClass(product[0].rate, 5)"></i>
                   <p>({{ratingvalue}}) | <a href="#">{{product[0].totalRate}}</a></p>
-                </div> 
+                </div>
               </div>
               <div class="col-6">
                 <div class="skill-item">
@@ -203,9 +203,9 @@
                   </div>
               </div>
               </div>
-            </div>     
-          </div> 
-        </div> 
+            </div>
+          </div>
+        </div>
       </div>
       <div class="col-3" *ngIf="showSidebar" [ngClass]="{'fixed-sidebar': showSidebar}">
         <div class="container text-center">
@@ -292,7 +292,7 @@
               </div>
             </ng-container>
           </div>
-        </div>      
+        </div>
         <div class="col-4">
           <div class="container text-center">
             <div class="row more_info">
@@ -306,7 +306,7 @@
                   <i class="fa-solid" [ngClass]="getStarClass(product[0].rate, 4)"></i>
                   <i class="fa-solid" [ngClass]="getStarClass(product[0].rate, 5)"></i>
                   <p>({{ratingvalue}}) | {{product[0].totalRate}} </p>
-                </div>     
+                </div>
               </div>
               <br>
               <br>
@@ -351,7 +351,7 @@
               <a><button mat-button (click)="openDialog()">كل المواصفات</button></a>
         </div>
         </div>
-        <div>     
+        <div>
         </div>
         </div>
         <div class="col-3">
@@ -367,7 +367,7 @@
                 <hr>
                 <div class="plan">
                   <img class="imgIcon walmart_icon" src="https://i5.walmartimages.com/dfw/63fd9f59-2c2e/b8053833-2295-47f4-80f1-448eb55fa0ba/v1/wpp-shield.svg">
-                  <span>Add a protection plan</span><br>                         
+                  <span>Add a protection plan</span><br>
                   <input type="checkbox"><label>2-Year plan - $45.00</label>
                 </div>
                 <div class="plan">
@@ -375,7 +375,7 @@
                   <span>Get expert help</span><br>
                   <input type="checkbox">Premium Tech Support & Security - $99.00<br>
                   <input type="checkbox">Standard Setup & Security - $59.00
-                  
+
                 </div>
                 <hr>
                 <div class="row shipping_way">
@@ -436,7 +436,7 @@
               </div>
             </div>
           </div>
-                     
+
         </div>
         <div class="row">
           <div class="col- rate" id="rating">
@@ -451,7 +451,7 @@
                   <i class="fa-solid" [ngClass]="getStarClass(product[0].rate, 4)"></i>
                   <i class="fa-solid" [ngClass]="getStarClass(product[0].rate, 5)"></i>
                   <p>({{ratingvalue}}) | <a href="#">{{product[0].totalRate}}</a></p>
-                </div> 
+                </div>
               </div>
               <div class="col-6">
                 <div class="skill-item">
@@ -485,9 +485,9 @@
                   </div>
               </div>
               </div>
-            </div>     
-          </div> 
-        </div> 
+            </div>
+          </div>
+        </div>
       </div>
       <div class="col-3" *ngIf="showSidebar" [ngClass]="{'fixed-sidebar': showSidebar}">
         <div class="container text-center">

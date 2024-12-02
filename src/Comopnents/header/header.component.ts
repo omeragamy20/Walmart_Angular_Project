@@ -58,7 +58,9 @@ export class HeaderComponent implements OnInit, DoCheck {
     this.searchTerm = target.value;
   }
   onSearchClick(): void {
-    this.searchService.setSearchTerm(this.searchTerm);
+    // SearchProduct
+    this.route.navigate(['SearchProduct', this.searchTerm]);
+    // this.searchService.setSearchTerm(this.searchTerm);
   }
   ngDoCheck(): void {
     this.many();

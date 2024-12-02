@@ -26,6 +26,7 @@ import { DeliveryComponent } from '../Comopnents/delivery/delivery.component';
 import { MyItemsComponent } from '../Comopnents/my-items/my-items.component';
 import { ReorderComponent } from '../Comopnents/my-items/reorder/reorder.component';
 import { ListsComponent } from '../Comopnents/my-items/lists/lists.component';
+import { ProductsSearchComponent } from '../Comopnents/products-search/products-search.component';
 
 export const routes: Routes = [
 
@@ -35,6 +36,7 @@ export const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'category', component: CategoryComponent },
   { path: 'allproduct/:id', component: AllProductComponent},
+  { path: 'SearchProduct/:searchname', component: ProductsSearchComponent},
   { path: 'product/:id', component: ProductComponent },
   { path: 'order', component: OrderComponent },
   { path: 'orderitems', canActivate:[authGuard],component: OrderitemsComponent },
@@ -46,7 +48,7 @@ export const routes: Routes = [
   { path: 'orderitems', component: OrderitemsComponent },
   { path: 'Delivery', component: DeliveryComponent },
   { path: 'supcatogiarydeatails/:id', component: SupcatdeatialsComponent },
- 
+
   { path: 'items', component: MyItemsComponent , children:[
     { path: 'reorder', component: ReorderComponent },
     { path: 'lists', component: ListsComponent },
@@ -59,7 +61,7 @@ export const routes: Routes = [
       { path: 'ContactInfo', component: ContactInfoComponent },
       { path: 'LanguageSetting', component: LanguageComponent },
       { path: 'purechase', component: PurchaseComponent },
-   
+
 
     ] },
   ]},

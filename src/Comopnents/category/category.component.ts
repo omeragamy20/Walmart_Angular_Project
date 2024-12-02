@@ -1,5 +1,5 @@
-import { NgFor } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { NgFor, NgIf } from '@angular/common';
+import { Component, HostListener, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ICategoryAr, ICategoryEn } from '../../InterFaces/category';
 import { CategoryService } from '../../Services/Category/category.service';
@@ -7,40 +7,92 @@ import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { AsideComponent } from "../aside/aside.component.spec";
 import { environment } from '../../environments/environment.development';
+import { LanguageService } from '../../Services/Language/language.service';
 
 
 @Component({
   selector: 'app-category',
   standalone: true,
-  imports: [NgFor,FormsModule,RouterLink, CommonModule, AsideComponent],
+  imports: [NgFor, FormsModule, RouterLink, CommonModule, AsideComponent, NgIf],
   templateUrl: './category.component.html',
   styleUrls: ['./category.component.css']
 
 })
-export class CategoryComponent implements OnInit {
+export class CategoryComponent implements OnInit, OnChanges {
 
   // url:string = "http://localhost:5004"
   url = `${environment.url}`;
   AllCAtegory: ICategoryEn[] = [] as ICategoryEn[];
-
-  constructor(private catserviceapi:CategoryService) {
+  AllCAtegoryAr: ICategoryAr[] = [] as ICategoryAr[];
+  lang: string = ''
+  constructor(private _languageSer: LanguageService, private catserviceapi: CategoryService) {
+  }
+  ngOnChanges(changes: SimpleChanges): void {
+    // this.GetAllCAt();
+  }
+  onPageChange(language: string) {
+    if (this.lang == 'en') {
+      this.GetAllCAt();
+    }
+    else {
+      this.GetAllCAt();
+    }
   }
   ngOnInit(): void {
+    this._languageSer.getLangugae().subscribe({
+      next: (res) => {
+        this.lang = res
+      }
+    });
     this.GetAllCAt();
+
+    // this.GetAllCatAr();
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    this.updateItemsPerPage(); // Update items per page on resize
+  }
+
+  updateItemsPerPage() {
+    if (window.innerWidth <= 768) {
+      this.itemsPerPage = 3;
+    } else if (window.innerWidth > 768 && window.innerWidth <= 990) {
+      this.itemsPerPage = 4;
+    }
+
+    else {
+      this.itemsPerPage = 6;
+    }
   }
 
   GetAllCAt() {
-    this.catserviceapi.GetAllCategory().subscribe({
-      next:(value)=> {
-        console.log(value);
-        this.AllCAtegory = value;
-      },
-      error:(err)=> {
-        console.log(err);
+    if (this.lang == 'en') {
+      this.catserviceapi.GetAllCategory().subscribe({
+        next: (value) => {
+          console.log(value);
+          this.AllCAtegory = value;
+        },
+        error: (err) => {
+          console.log(err);
 
-      },
-    });
+        },
+      });
+    }
+    else {
+      this.catserviceapi.GetAllCategory_Ar().subscribe({
+        next: (value) => {
+          console.log(value);
+          this.AllCAtegoryAr = value;
+        },
+        error: (err) => {
+          console.log(err);
+
+        },
+      });
+    }
   }
+
 
   itemsPerPage: number = 6;
   currentPage: number = 1;
@@ -51,19 +103,33 @@ export class CategoryComponent implements OnInit {
   // }
 
 
-  getpaginatedProducts() {
-    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
-    return this.AllCAtegory.slice(startIndex, startIndex + this.itemsPerPage);
-  }
-
-  nextPage() {
-    if ((this.currentPage * this.itemsPerPage) < this.AllCAtegory.length) {
-      this.currentPage++;
+  getpaginatedProducts(): ICategoryEn[] | ICategoryAr[] | any {
+    if (this.lang == 'en') {
+      const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+      return this.AllCAtegory.slice(startIndex, startIndex + this.itemsPerPage);
+    }
+    else {
+      const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+      return this.AllCAtegoryAr.slice(startIndex, startIndex + this.itemsPerPage);
     }
   }
 
+  nextPage() {
+    if (this.lang == 'en') {
+      if ((this.currentPage * this.itemsPerPage) < this.AllCAtegory.length) {
+        this.currentPage++;
+      }
+    }
+    else {
+      if ((this.currentPage * this.itemsPerPage) < this.AllCAtegoryAr.length) {
+        this.currentPage++;
+      }
+    }
+
+  }
+
   prevPage() {
-    if (this.currentPage >1 ) {
+    if (this.currentPage > 1) {
       this.currentPage--;
     }
   }
@@ -71,9 +137,9 @@ export class CategoryComponent implements OnInit {
   // isLastPage() {
   //   return (this.currentPage + 1) * this.itemsPerPage >= this.AllCAtegory.length;
   // }
-////////////////////////////////////////////////////
+  ////////////////////////////////////////////////////
 
-/////////////////////////////////////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////////////////////////////////
 
   // images = [
   //   { url: 'https://i5.walmartimages.com/dfw/4ff9c6c9-71c0/k2-_d18f8241-d0c9-4e3b-a18e-98a0a4c7444a.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF', name: 'Kitchen & dining' },

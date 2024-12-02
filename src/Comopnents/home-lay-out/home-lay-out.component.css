@@ -68,12 +68,26 @@ video {
 }
 
 .vdesc {
+  margin-left: 2%;
   padding-block: 50px;
   font-weight: bolder;
 }
 
 .vdesc span {
+
   font-size: 15px;
   font-weight: 300;
 
+}
+
+.vi {
+
+  padding-inline: 10px;
+  /* justify-content: center; */
+
+
+}
+
+video {
+  margin-left: 2px !important;
 }

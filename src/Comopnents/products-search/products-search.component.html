@@ -1,0 +1,135 @@
+<!-- <h1>
+  {{searchname}}
+</h1> -->
+
+@if(lang=='en'){
+
+  <div class="container-fluid parent">
+    <div class="col-2 sidebar">
+      <div class="">
+     @for(section of specifictions;let i =$index ;track section){ <div class="filter-section">
+      <button class="filter-header" (click)="toggleSection(i)">
+      {{ section.name_en }}
+      <i [class]="openedSections[i] ? 'fas fa-chevron-up' : 'fas fa-chevron-down'"></i>
+    </button>
+    <div class="filter-content" *ngIf="openedSections[i]">
+      <div *ngFor="let value of section.values_En">
+        <label>
+          <input type="checkbox" [value]="value" (change)="onFilterChange(value, $event)" />
+              {{ value }}
+        </label>
+      </div>
+    </div>
+  </div>}
+  </div>
+
+    </div>
+    <div class="felx">
+      <!-- loop -->
+        <div class="product-card" style="width: 24%;" *ngFor="let pro of filteredProducts" >
+            <img [src]="url + pro.imageUrls[0]" class="card-img-top" alt="productImage" (click)="Details(pro.id)"><br>
+            <a><button class="btn" (click)="addProductToCookie(pro)">+ Add</button> </a><br>
+            <div class="card-body">
+              <span class="price">${{pro.price}}</span><br>
+              <span class="card-text">{{pro.description_en}}</span><br>
+              <div>
+                <i class="fa-solid" [ngClass]="getStarClass(pro.rate, 1)"></i>
+                <i class="fa-solid" [ngClass]="getStarClass(pro.rate, 2)"></i>
+                <i class="fa-solid" [ngClass]="getStarClass(pro.rate, 3)"></i>
+                <i class="fa-solid" [ngClass]="getStarClass(pro.rate, 4)"></i>
+                <i class="fa-solid" [ngClass]="getStarClass(pro.rate, 5)"></i>
+                ({{pro.rate}}) | {{pro.totalRate}}
+              </div>
+            </div>
+          </div>
+          <!-- end loop -->
+    </div>
+  </div>
+  <nav aria-label="Page navigation example">
+    <ul class="pagination">
+      <li class="page-item" [class.disabled]="currentPage == 1">
+        <a class="page-link pointer"  aria-label="Previous" (click)="onPageChange(currentPage - 1)">
+          <span aria-hidden="true">&laquo;</span>
+        </a>
+      </li>
+      <li
+      class="page-item"
+      *ngFor="let page of [].constructor(totalPages); let i = index"
+      [class.active]="currentPage === i + 1">
+      <a class="page-link pointer" (click)="onPageChange(i + 1)">{{ i + 1 }}</a>
+    </li>
+      <li class="page-item">
+        <a class="page-link pointer"  aria-label="Next" (click)="onPageChange(currentPage - 1)">
+          <span aria-hidden="true">&raquo;</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+}
+
+<!-- عربى -->
+@if(lang=='ar'){
+
+  <div class="container-fluid parent">
+    <div class="col-2 sidebar">
+      <div class="">
+      <div class="filter-section" *ngFor="let section of specifictions; let i = index">
+      <button class="filter-header" (click)="toggleSection(i)">
+      {{ section.name_ar }}
+      <i [class]="openedSections[i] ? 'fas fa-chevron-up' : 'fas fa-chevron-down'"></i>
+    </button>
+    <div class="filter-content" *ngIf="openedSections[i]">
+      <div *ngFor="let value of section.values_Ar">
+        <label>
+          <input type="checkbox" [value]="value" (change)="onFilterChangeAr(value, $event)" />
+              {{ value }}
+        </label>
+      </div>
+    </div>
+  </div>
+</div>
+
+    </div>
+    <div class="felx">
+      <!-- loop -->
+        <div class="product-card" style="width: 24%;" *ngFor="let pro of filteredProducts" >
+            <img [src]="url + pro.imageUrls[0]" class="card-img-top" alt="productImage" (click)="Details(pro.id)"><br>
+            <a><button class="btn" (click)="addProductToCookie(pro)">+ اضافة</button> </a><br>
+            <div class="card-body">
+              <span class="price">{{pro.price}}</span><br>
+              <span class="card-text"> {{pro.description_ar}} </span><br>
+              <div>
+                <i class="fa-solid" [ngClass]="getStarClass(pro.rate, 1)"></i>
+                <i class="fa-solid" [ngClass]="getStarClass(pro.rate, 2)"></i>
+                <i class="fa-solid" [ngClass]="getStarClass(pro.rate, 3)"></i>
+                <i class="fa-solid" [ngClass]="getStarClass(pro.rate, 4)"></i>
+                <i class="fa-solid" [ngClass]="getStarClass(pro.rate, 5)"></i>
+                ({{pro.rate}}) | {{pro.totalRate}}
+              </div>
+            </div>
+          </div>
+          <!-- end loop -->
+    </div>
+  </div>
+  <nav aria-label="Page navigation example">
+    <ul class="pagination">
+      <li class="page-item" [class.disabled]="currentPage == 1">
+        <a class="page-link pointer"  aria-label="Previous" (click)="onPageChange(currentPage - 1)">
+          <span aria-hidden="true">&laquo;</span>
+        </a>
+      </li>
+      <li
+      class="page-item"
+      *ngFor="let page of [].constructor(totalPages); let i = index"
+      [class.active]="currentPage === i + 1">
+      <a class="page-link pointer" (click)="onPageChange(i + 1)">{{ i + 1 }}</a>
+    </li>
+      <li class="page-item">
+        <a class="page-link pointer"  aria-label="Next" (click)="onPageChange(currentPage - 1)">
+          <span aria-hidden="true">&raquo;</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+}

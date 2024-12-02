@@ -193,5 +193,24 @@ constructor(private _productservice:ProductService,private route: ActivatedRoute
   toggleAccordionAr(index: number) {
     this.accordionItemsAr[index].isOpen = !this.accordionItemsAr[index].isOpen;
   }
+
+
+    // add product to cart
+    addProductToCookie(p: IProduct) {
+      // const products: IproductEn[] = JSON.parse(localStorage.getItem("SelectedProducts") || "[]");
+      const item = localStorage.getItem("SelectedProducts");
+      let products = item ? JSON.parse(item) : [];
+      let sameprod = products.find((one: IProduct) => one.id == p.id)
+      if (sameprod) {
+        sameprod.quantity += 1
+        localStorage.setItem("SelectedProducts", JSON.stringify(products))
+      } else {
+
+        p.quantity = 1;
+        products.push(p)
+
+        localStorage.setItem("SelectedProducts", JSON.stringify(products))
+      }
+    }
 }
 

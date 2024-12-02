@@ -83,10 +83,17 @@
         <br>
         <div *ngIf="selectedOption === 'Cash'">
           <div class="form-check" (click)="onDivClick('Cash')">
-            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-            <label class="form-check-label" for="flexCheckDefault">
-             Cash On Delivery
-            </label>
+            <div class="container mt-3">
+              <!-- Label and Checkbox -->
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="myCheckbox" [(ngModel)]="isChecked">
+                <!-- <label class="form-check-label" for="myCheckbox">Cash on Delivery</label> -->
+              </div>
+
+              <!-- Button to toggle checkbox -->
+              <button class="btn btn-lg btn-primary" (click)="toggleCheckbox()">Cash on Delivery</button>
+            </div>
+
           </div>
         </div>
         <br />
