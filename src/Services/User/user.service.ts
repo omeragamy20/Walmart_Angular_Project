@@ -27,13 +27,14 @@ export class UserService {
       })
   })
   }
-  UserLogin(user:UserLogin):Observable<MyToken>{
-    return this.htpClient.post<MyToken>(`${environment.baseuRL}/Account/Login`,JSON.stringify(user), {
-      headers: new HttpHeaders({
-          'Content-Type': 'application/json'
-      })
-  })
-  }
+    UserLogin(user:UserLogin):Observable<MyToken>{
+      return this.htpClient.post<MyToken>(`${environment.baseuRL}/Account/Login`,JSON.stringify(user), {
+        headers: new HttpHeaders({
+            'Content-Type': 'application/json'
+        }),
+        withCredentials:true,
+    })
+    }
 
   GetUserById(id:string):Observable<User>{
     return this.htpClient.get<User>(`${environment.baseURL}/Account/${id}`)
